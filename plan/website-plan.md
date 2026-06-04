@@ -709,102 +709,146 @@ Config global: WA number, IG handle, alamat, jam operasional, social links.
 
 ## Urutan Implementasi
 
-### Phase 1 — Visual Foundation
-- [ ] Update brand colors di `globals.css`
-- [ ] Tambah shadcn components
-- [ ] Buat `site-config.ts` (WA number, social links, dll)
-- [ ] Buat `site-header.tsx` (marketing nav + mobile hamburger)
-- [ ] Buat `site-footer.tsx`
-- [ ] Buat `page-hero.tsx` (reusable inner page hero)
-- [ ] Buat `whatsapp-cta.tsx`
-- [ ] Update `__root.tsx`: lang="id", hapus dark, flex col layout
+### Phase 1 — Visual Foundation ✅ SELESAI
+- [x] Update brand colors di `globals.css`
+- [x] Tambah shadcn components: `badge`, `separator`, `avatar`, `sheet`, `accordion`, `breadcrumb`
+- [x] Buat `site-config.ts` (WA number, social links, dll)
+- [x] Buat `site-header.tsx` (marketing nav + mobile hamburger via Sheet)
+- [x] Buat `site-footer.tsx`
+- [x] Buat `page-hero.tsx` (reusable inner page hero)
+- [x] Buat `whatsapp-cta.tsx`
+- [x] Update `__root.tsx`: lang="id", hapus dark, flex col layout
 
-### Phase 2 — Landing Page
-- [ ] Buat semua section components (hero, stats, program-card, dll)
-- [ ] Rewrite `routes/index.tsx` dengan semua 12 sections
+### Phase 2 — Landing Page ✅ SELESAI
+- [x] Buat section components: `stats-bar`, `program-card`, `testimonial-card`, `alumni-card`, `keunggulan-section`, `steps-section`, `whatsapp-cta`
+- [x] Rewrite `routes/index.tsx` — Hero, StatsBar, AboutTeaser, ProgramsSection, StepsSection, KeunggulanSection, TestimoniSection (live DB), AlumniSection (live DB), WhatsAppCta
+- [x] Connect homepage Testimoni + Alumni ke live DB via TanStack Query (dengan static fallback)
 
-### Phase 3 — Static Content Pages
-- [ ] Buat `programs-content.ts`, `faq-content.ts`, `legal-content.ts`
-- [ ] `routes/programs/index.tsx` + route.tsx + 5 detail pages
-- [ ] `routes/about.tsx`
-- [ ] `routes/founder.tsx`
-- [ ] `routes/metode.tsx`
-- [ ] `routes/sertifikasi.tsx`
-- [ ] `routes/jadwal.tsx`
-- [ ] `routes/cara-daftar.tsx`
-- [ ] `routes/faq.tsx`
-- [ ] `routes/kontak.tsx`
-- [ ] `routes/mitra.tsx`
-- [ ] `routes/syarat-ketentuan.tsx`
-- [ ] `routes/kebijakan-privasi.tsx`
+### Phase 3 — Static Content Pages ✅ SELESAI
+- [x] Buat `programs-content.ts`, `faq-content.ts`, `site-config.ts`
+- [ ] `legal-content.ts` — belum dibuat (syarat-ketentuan & kebijakan-privasi pakai inline content)
+- [x] `routes/programs/index.tsx` + `route.tsx` + **`$slug.tsx`** (dynamic, 1 file untuk semua 5 program — menggantikan 5 file individual)
+- [x] `routes/about.tsx`
+- [x] `routes/founder.tsx`
+- [x] `routes/metode.tsx`
+- [x] `routes/sertifikasi.tsx`
+- [x] `routes/jadwal.tsx`
+- [x] `routes/cara-daftar.tsx`
+- [x] `routes/faq.tsx`
+- [x] `routes/kontak.tsx`
+- [x] `routes/mitra.tsx`
+- [x] `routes/syarat-ketentuan.tsx`
+- [x] `routes/kebijakan-privasi.tsx`
+- [x] `routes/testimoni.tsx` (static + filter UI)
+- [x] `routes/event.tsx` (placeholder "segera hadir")
+- [x] `routes/promo.tsx` (placeholder "segera hadir")
+- [x] `routes/resources.tsx` (placeholder "segera hadir")
 
-### Phase 4 — DB + Seed
-- [ ] Tulis 7 schema files (testimonials, alumni, blog_posts, gallery_items, events, resources, promos)
-- [ ] Update `schema/index.ts`
-- [ ] `bun db:generate` & migrate
-- [ ] Buat `packages/db/src/seed.ts`
+> **Catatan:** 5 program detail pages (microteaching, calistung, dll) dikonsolidasi menjadi `programs/$slug.tsx` satu file dinamis — lebih DRY dan mudah di-maintain.
 
-### Phase 5 — Dynamic Data Pages
-- [ ] Tulis semua API routers
-- [ ] Update `packages/api/src/routers/index.ts`
-- [ ] Connect landing page sections ke DB
-- [ ] `routes/testimoni.tsx`
-- [ ] `routes/alumni.tsx`
-- [ ] `routes/blog/index.tsx` + `$slug.tsx`
-- [ ] `routes/galeri.tsx`
-- [ ] `routes/event.tsx`
-- [ ] `routes/resources.tsx`
-- [ ] `routes/promo.tsx`
+### Phase 4 — DB + Seed ⚠️ SEBAGIAN SELESAI
+- [x] Tulis 4 schema files: `testimonials.ts`, `alumni.ts`, `blog_posts.ts`, `gallery_items.ts`
+- [ ] Schema tambahan belum dibuat: `events.ts`, `resources.ts`, `promos.ts`
+- [x] Update `schema/index.ts`
+- [x] `bun db:generate` → migration `0000_special_devos.sql` berhasil
+- [x] Buat `packages/db/src/seed.ts` (5 testimonials, 3 alumni, 2 blog posts, 5 gallery items)
 
-### Phase 6 — Auth Pages
-- [ ] Update `routes/_auth/dashboard.tsx`
-- [ ] `routes/_auth/profile.tsx`
-- [ ] Update `routes/login.tsx` styling
+### Phase 5 — Dynamic Data Pages ⚠️ SEBAGIAN SELESAI
+- [x] Tulis 4 API routers: `testimonials.ts`, `alumni.ts`, `blog.ts`, `gallery.ts`
+- [ ] Router tambahan belum dibuat: `events.ts`, `resources.ts`, `promos.ts`
+- [x] Update `packages/api/src/routers/index.ts`
+- [x] Connect `routes/index.tsx` (homepage) ke DB — testimonials + alumni dengan static fallback
+- [x] `routes/alumni.tsx` — live DB dengan filter by program
+- [x] `routes/blog/index.tsx` — live DB, kartu artikel
+- [x] `routes/blog/$slug.tsx` — live DB, custom markdown renderer
+- [x] `routes/galeri.tsx` — live DB dengan placeholder fallback
+- [ ] `routes/event.tsx` — masih placeholder, belum live DB
+- [ ] `routes/resources.tsx` — masih placeholder, belum live DB
+- [ ] `routes/promo.tsx` — masih placeholder, belum live DB
+
+### Phase 6 — Auth Pages ❌ BELUM DIMULAI
+- [ ] Update `routes/_auth/dashboard.tsx` (minimal: welcome + info batch + link ke WA admin)
+- [ ] `routes/_auth/profile.tsx` (edit nama, foto, nomor HP)
+- [ ] Update `routes/login.tsx` styling (brand colors)
 
 ---
 
-## Semua Files
+## Status File Aktual
 
-### Modified (7 files)
-- `packages/ui/src/styles/globals.css`
-- `apps/web/src/routes/__root.tsx`
-- `apps/web/src/routes/index.tsx`
-- `apps/web/src/routes/_auth/dashboard.tsx`
-- `apps/web/src/routes/login.tsx`
-- `packages/db/src/schema/index.ts`
-- `packages/api/src/routers/index.ts`
+### Modified ✅
+- `packages/ui/src/styles/globals.css` — brand colors OKLCH
+- `apps/web/src/routes/__root.tsx` — lang="id", light mode, flex col
+- `apps/web/src/routes/index.tsx` — full rewrite landing page
+- `packages/db/src/schema/index.ts` — tambah 4 schema exports
+- `packages/api/src/routers/index.ts` — tambah 4 routers bersarang
+- `apps/web/vite.config.ts` — fix type error `cloudflareWorkersAlias`
+- `packages/api/package.json` — tambah `drizzle-orm` dependency
 
-### Created — UI Components (12 files)
-`badge.tsx`, `separator.tsx`, `avatar.tsx`, `sheet.tsx`, `accordion.tsx`, `breadcrumb.tsx`, `tabs.tsx`, `dialog.tsx`, `textarea.tsx`, `progress.tsx`, `carousel.tsx`, `lightbox.tsx`
+### Created — UI Components ✅ (6 dari 12 yang direncanakan)
+`badge.tsx`, `separator.tsx`, `avatar.tsx`, `sheet.tsx`, `accordion.tsx`, `breadcrumb.tsx`
 
-### Created — App Components (18 files)
-`site-header.tsx`, `site-footer.tsx`, `sections/hero-section.tsx`, `sections/program-card.tsx`, `sections/testimonial-card.tsx`, `sections/alumni-card.tsx`, `sections/keunggulan-section.tsx`, `sections/whatsapp-cta.tsx`, `sections/stats-bar.tsx`, `sections/steps-section.tsx`, `sections/blog-card.tsx`, `sections/event-card.tsx`, `sections/resource-card.tsx`, `sections/promo-banner.tsx`, `sections/page-hero.tsx`, `sections/share-buttons.tsx`, `sections/gallery-grid.tsx`, `sections/faq-accordion.tsx`
+Belum dibuat: `tabs.tsx`, `dialog.tsx`, `textarea.tsx`, `progress.tsx`, `carousel.tsx`, `lightbox.tsx`
 
-### Created — Content / Config (4 files)
-`apps/web/src/lib/programs-content.ts`, `apps/web/src/lib/faq-content.ts`, `apps/web/src/lib/legal-content.ts`, `apps/web/src/lib/site-config.ts`
+### Created — App Components ✅ (10 dari 18 yang direncanakan)
+`site-header.tsx`, `site-footer.tsx`, `sections/page-hero.tsx`, `sections/program-card.tsx`, `sections/testimonial-card.tsx`, `sections/alumni-card.tsx`, `sections/keunggulan-section.tsx`, `sections/whatsapp-cta.tsx`, `sections/stats-bar.tsx`, `sections/steps-section.tsx`
 
-### Created — Routes (24 files)
-`about.tsx`, `founder.tsx`, `metode.tsx`, `sertifikasi.tsx`, `jadwal.tsx`, `cara-daftar.tsx`, `testimoni.tsx`, `alumni.tsx`, `faq.tsx`, `kontak.tsx`, `event.tsx`, `promo.tsx`, `resources.tsx`, `mitra.tsx`, `galeri.tsx`, `syarat-ketentuan.tsx`, `kebijakan-privasi.tsx`, `programs/route.tsx`, `programs/index.tsx`, `programs/microteaching.tsx`, `programs/calistung.tsx`, `programs/bimbel-sd.tsx`, `programs/english-fun.tsx`, `programs/menulis-kreatif.tsx`, `blog/index.tsx`, `blog/$slug.tsx`, `_auth/profile.tsx`
+Belum dibuat: `sections/blog-card.tsx`, `sections/event-card.tsx`, `sections/resource-card.tsx`, `sections/promo-banner.tsx`, `sections/share-buttons.tsx`, `sections/gallery-grid.tsx`, `sections/faq-accordion.tsx`, `sections/hero-section.tsx`
 
-### Created — DB Schema (7 files)
-`testimonials.ts`, `alumni.ts`, `blog_posts.ts`, `gallery_items.ts`, `events.ts`, `resources.ts`, `promos.ts`
+### Created — Content / Config ✅ (3 dari 4 yang direncanakan)
+`apps/web/src/lib/programs-content.ts`, `apps/web/src/lib/faq-content.ts`, `apps/web/src/lib/site-config.ts`
 
-### Created — API Routers (7 files)
-`testimonials.ts`, `alumni.ts`, `blog.ts`, `gallery.ts`, `events.ts`, `resources.ts`, `promos.ts`
+Belum dibuat: `apps/web/src/lib/legal-content.ts`
 
-### Created — Seed
+### Created — Routes ✅ (27 dari yang direncanakan)
+`about.tsx`, `founder.tsx`, `metode.tsx`, `sertifikasi.tsx`, `jadwal.tsx`, `cara-daftar.tsx`, `testimoni.tsx`, `alumni.tsx`, `faq.tsx`, `kontak.tsx`, `event.tsx` *(placeholder)*, `promo.tsx` *(placeholder)*, `resources.tsx` *(placeholder)*, `mitra.tsx`, `galeri.tsx`, `syarat-ketentuan.tsx`, `kebijakan-privasi.tsx`, `programs/route.tsx`, `programs/index.tsx`, `programs/$slug.tsx` *(1 file dinamis, ganti 5 individual)*, `blog/index.tsx`, `blog/$slug.tsx`
+
+Belum dibuat: `_auth/profile.tsx`
+
+### Created — DB Schema ✅ (4 dari 7 yang direncanakan)
+`testimonials.ts`, `alumni.ts`, `blog_posts.ts`, `gallery_items.ts`
+
+Belum dibuat: `events.ts`, `resources.ts`, `promos.ts`
+
+### Created — API Routers ✅ (4 dari 7 yang direncanakan)
+`testimonials.ts`, `alumni.ts`, `blog.ts`, `gallery.ts`
+
+Belum dibuat: `events.ts`, `resources.ts`, `promos.ts`
+
+### Created — Seed ✅
 `packages/db/src/seed.ts`
 
-**Total: ~80 files baru + 7 file dimodifikasi**
+### Created — Migration ✅
+`packages/db/src/migrations/0000_special_devos.sql`
+
+---
+
+## Yang Masih Perlu Dikerjakan
+
+### Prioritas Tinggi
+1. **Phase 6 Auth Pages** — `profile.tsx`, update `dashboard.tsx`, update `login.tsx`
+2. **Seed data ke DB** — jalankan `seed.ts` ke D1 database lokal/production
+
+### Prioritas Sedang
+3. **event.tsx live DB** — schema `events.ts` + router + halaman live
+4. **resources.tsx live DB** — schema `resources.ts` + router + halaman live  
+5. **promo.tsx live DB** — schema `promos.ts` + router + halaman live
+
+### Prioritas Rendah / Nice to Have
+6. `legal-content.ts` — ekstrak konten syarat & kebijakan ke file terpisah
+7. UI components tambahan: `tabs`, `dialog`, `textarea`, `progress` (jika dibutuhkan)
+8. Section components tambahan: `share-buttons`, `gallery-grid` + lightbox
+9. Homepage: tambah section **Batch Terbaru** dan **Blog Terbaru** (dari DB)
+10. `/testimoni` live — filter + load from DB (saat ini masih static)
+11. `/jadwal` live — batch schedule dari DB (saat ini static)
 
 ---
 
 ## Verification
 1. `bun run dev` → buka localhost:3001
-2. Test semua 30 halaman navigasi tanpa error
+2. Test semua halaman navigasi tanpa error
 3. Test responsive: desktop, tablet, mobile
 4. Test WA redirect di semua CTA
-5. Test blog: list, detail, share
-6. Test galeri: grid, lightbox
-7. `bun run check-types` pass
-8. `bun run check` (Biome lint) pass
+5. Test blog: list, detail
+6. Test galeri: grid
+7. `bun run check-types` ✅ pass (0 errors)
+8. `bun run check` (Biome lint) — belum diverifikasi
