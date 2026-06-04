@@ -1,5 +1,187 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import PageHero from "@/components/sections/page-hero";
+import { getWhatsAppUrl } from "@/lib/site-config";
+import { Heart } from "lucide-react";
+
+const PENCAPAIAN = [
+	{ value: "10+", label: "Tahun pengalaman mengajar" },
+	{ value: "500+", label: "Ibu yang terlatih" },
+	{ value: "20+", label: "Batch program selesai" },
+	{ value: "5", label: "Program unggulan" },
+];
+
+const PERJALANAN = [
+	{
+		year: "2015",
+		title: "Memulai sebagai Guru PAUD",
+		desc: "Lita memulai kariernya sebagai guru PAUD dan langsung jatuh cinta dengan dunia pendidikan anak usia dini.",
+	},
+	{
+		year: "2018",
+		title: "Mendalami Metode Phonics",
+		desc: "Mengikuti pelatihan intensif metode phonics dan play-based learning dari instruktur bersertifikat.",
+	},
+	{
+		year: "2020",
+		title: "Lahirnya Ide Momkiddy",
+		desc: "Melihat banyak ibu yang kesulitan mendampingi anak belajar di rumah saat pandemi, Lita tergerak untuk berbagi.",
+	},
+	{
+		year: "2021",
+		title: "Momkiddy Indonesia Resmi Berdiri",
+		desc: "Kelas pertama Momkiddy dibuka dengan 8 peserta. Respons luar biasa mendorong Lita untuk terus berkembang.",
+	},
+	{
+		year: "2024",
+		title: "500+ Ibu Terlatih",
+		desc: "Momkiddy telah membantu ratusan ibu di seluruh Indonesia menjadi Mom Teacher yang percaya diri.",
+	},
+];
 
 export const Route = createFileRoute("/founder")({
-	component: () => <div className="p-8 text-center text-muted-foreground">Halaman /founder — segera hadir</div>,
+	component: FounderPage,
 });
+
+function FounderPage() {
+	const waUrl = getWhatsAppUrl();
+
+	return (
+		<>
+			<PageHero
+				title="Lita Hendratno"
+				subtitle="Founder & Lead Educator Momkiddy Indonesia"
+				breadcrumbs={[{ label: "Tentang Kami", to: "/about" }, { label: "Founder" }]}
+			/>
+
+			<div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8 space-y-14">
+				{/* Profile */}
+				<section className="grid gap-8 lg:grid-cols-3 lg:items-start">
+					<div className="flex flex-col items-center rounded-xl border border-border bg-card p-6 text-center">
+						<div className="flex size-24 items-center justify-center rounded-full bg-primary/10 text-3xl font-bold text-primary">
+							LH
+						</div>
+						<p className="mt-3 text-base font-semibold text-foreground">
+							Lita Hendratno
+						</p>
+						<p className="mt-0.5 text-xs text-muted-foreground">
+							Founder & Lead Educator
+						</p>
+						<div className="mt-3 flex flex-wrap justify-center gap-1.5">
+							{["Educator", "Mom Teacher Trainer", "Phonics Expert"].map((tag) => (
+								<span
+									key={tag}
+									className="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary"
+								>
+									{tag}
+								</span>
+							))}
+						</div>
+					</div>
+
+					<div className="lg:col-span-2 space-y-4">
+						<div className="space-y-3 text-sm leading-relaxed text-muted-foreground">
+							<p>
+								Lita Hendratno adalah seorang pendidik berpengalaman yang telah
+								lebih dari satu dekade bergelut di dunia pendidikan anak usia dini.
+								Perjalanannya dimulai sebagai guru PAUD sederhana — mengajar anak-anak
+								kecil membaca huruf pertama mereka — dan kini berkembang menjadi
+								sebuah lembaga pendidikan yang menyentuh ratusan keluarga di seluruh Indonesia.
+							</p>
+							<p>
+								Lita percaya bahwa ibu adalah guru pertama dan terbaik bagi setiap
+								anak. Namun banyak ibu tidak diberi bekal yang cukup. Dari
+								keyakinan inilah Momkiddy lahir — bukan sekadar lembaga kursus,
+								tetapi gerakan untuk memberdayakan ibu sebagai pendidik.
+							</p>
+							<p>
+								Yang membedakan Lita: ia tidak mendelegasikan pengajaran.
+								Setiap program, setiap sesi, setiap umpan balik — ia tangani
+								langsung. Peserta mendapat akses nyata ke praktisi, bukan teori
+								dari buku yang ia baca lalu ajarkan ulang.
+							</p>
+						</div>
+
+						<div className="flex gap-3">
+							<div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+								<Heart className="size-4 text-primary" />
+							</div>
+							<p className="text-sm italic text-muted-foreground">
+								"Saya tidak ingin ibu merasa sendirian saat mendampingi anak
+								belajar. Tugas saya adalah memastikan setiap ibu tahu apa yang
+								harus dilakukan dan percaya diri melakukannya."
+							</p>
+						</div>
+					</div>
+				</section>
+
+				{/* Pencapaian */}
+				<section>
+					<div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+						{PENCAPAIAN.map(({ value, label }) => (
+							<div
+								key={label}
+								className="rounded-xl border border-border bg-card p-4 text-center"
+							>
+								<p className="text-2xl font-bold text-primary">{value}</p>
+								<p className="mt-1 text-xs text-muted-foreground">{label}</p>
+							</div>
+						))}
+					</div>
+				</section>
+
+				{/* Perjalanan */}
+				<section>
+					<h2 className="mb-6 text-base font-semibold text-foreground">
+						Perjalanan Lita & Momkiddy
+					</h2>
+					<div className="space-y-0">
+						{PERJALANAN.map((item, i) => (
+							<div key={item.year} className="flex gap-5">
+								<div className="flex flex-col items-center">
+									<div className="flex size-10 shrink-0 items-center justify-center rounded-full border border-border bg-card text-xs font-bold text-foreground">
+										{item.year}
+									</div>
+									{i < PERJALANAN.length - 1 && (
+										<div className="mt-1 w-px flex-1 bg-border" style={{ minHeight: "1.5rem" }} />
+									)}
+								</div>
+								<div className="pb-7 pt-1.5">
+									<p className="text-sm font-semibold text-foreground">{item.title}</p>
+									<p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+										{item.desc}
+									</p>
+								</div>
+							</div>
+						))}
+					</div>
+				</section>
+
+				{/* CTA */}
+				<section className="rounded-2xl bg-primary px-8 py-10 text-center">
+					<p className="text-lg font-bold text-white">
+						Belajar Langsung dari Lita
+					</p>
+					<p className="mt-1 text-sm text-white/75">
+						Daftar ke program Momkiddy dan jadilah bagian dari komunitas Mom Teacher.
+					</p>
+					<div className="mt-5 flex flex-wrap justify-center gap-3">
+						<Link
+							to="/programs"
+							className="rounded-full bg-white/20 px-5 py-2.5 text-sm font-semibold text-white transition-opacity duration-150 active:scale-[0.97] hover:bg-white/30"
+						>
+							Lihat Program
+						</Link>
+						<a
+							href={waUrl}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-primary transition-opacity duration-150 active:scale-[0.97] hover:opacity-90"
+						>
+							Hubungi Admin
+						</a>
+					</div>
+				</section>
+			</div>
+		</>
+	);
+}
