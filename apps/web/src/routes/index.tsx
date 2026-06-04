@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useQuery } from "@tanstack/react-query";
 import { Button } from "@momkiddis/ui/components/button";
 import { ArrowRightIcon, MessageCircleIcon, PlayCircleIcon } from "lucide-react";
 
@@ -10,6 +11,7 @@ import {
 	STATIC_ALUMNI,
 } from "@/lib/programs-content";
 import { getWhatsAppUrl, siteConfig } from "@/lib/site-config";
+import { orpc } from "@/utils/orpc";
 
 import StatsBar from "@/components/sections/stats-bar";
 import ProgramCard from "@/components/sections/program-card";
@@ -20,6 +22,14 @@ import StepsSection from "@/components/sections/steps-section";
 import WhatsAppCta from "@/components/sections/whatsapp-cta";
 
 export const Route = createFileRoute("/")({
+	loader: async ({ context: { queryClient } }) => {
+		void queryClient.prefetchQuery(
+			orpc.testimonials.listFeatured.queryOptions(),
+		);
+		void queryClient.prefetchQuery(
+			orpc.alumni.listFeatured.queryOptions(),
+		);
+	},
 	component: HomeComponent,
 });
 
@@ -261,6 +271,11 @@ function ProgramsSection() {
 
 /* ─── Testimoni Section ─────────────────────────── */
 function TestimoniSection() {
+	const { data: liveTestimonials } = useQuery(
+		orpc.testimonials.listFeatured.queryOptions(),
+	);
+	const items = liveTestimonials && liveTestimonials.length > 0 ? liveTestimonials : STATIC_TESTIMONIALS;
+
 	return (
 		<section className="px-4 py-16 sm:px-6 lg:px-8">
 			<div className="mx-auto max-w-7xl">
@@ -288,7 +303,7 @@ function TestimoniSection() {
 
 				{/* Grid */}
 				<div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-					{STATIC_TESTIMONIALS.map((t, i) => (
+					{items?.map((t, i) => (
 						<TestimonialCard
 							key={t.id}
 							authorName={t.authorName}
@@ -306,6 +321,11 @@ function TestimoniSection() {
 
 /* ─── Alumni Section ────────────────────────────── */
 function AlumniSection() {
+	const { data: liveAlumni } = useQuery(
+		orpc.alumni.listFeatured.queryOptions(),
+	);
+	const items = liveAlumni && liveAlumni.length > 0 ? liveAlumni : STATIC_ALUMNI;
+
 	return (
 		<section className="bg-muted/30 px-4 py-16 sm:px-6 lg:px-8">
 			<div className="mx-auto max-w-7xl">
@@ -333,7 +353,7 @@ function AlumniSection() {
 
 				{/* Grid */}
 				<div className="mt-6 grid gap-4 sm:grid-cols-3">
-					{STATIC_ALUMNI.map((a, i) => (
+					{items?.map((a, i) => (
 						<AlumniCard
 							key={a.id}
 							name={a.name}

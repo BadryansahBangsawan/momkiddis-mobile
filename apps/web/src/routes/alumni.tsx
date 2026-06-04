@@ -1,15 +1,42 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 import PageHero from "@/components/sections/page-hero";
-import { STATIC_ALUMNI } from "@/lib/programs-content";
+import { STATIC_ALUMNI, PROGRAM_LIST } from "@/lib/programs-content";
 import { getWhatsAppUrl } from "@/lib/site-config";
+import { orpc } from "@/utils/orpc";
 import { Award } from "lucide-react";
 
 export const Route = createFileRoute("/alumni")({
+	loader: async ({ context: { queryClient } }) => {
+		void queryClient.prefetchQuery(orpc.alumni.list.queryOptions({ input: { page: 1 } }));
+	},
 	component: AlumniPage,
 });
 
+type FilterSlug = "semua" | (typeof PROGRAM_LIST)[number]["slug"];
+
+const PROGRAM_FILTERS: { id: FilterSlug; label: string }[] = [
+	{ id: "semua", label: "Semua" },
+	...PROGRAM_LIST.map((p) => ({ id: p.slug as FilterSlug, label: p.shortTitle })),
+];
+
 function AlumniPage() {
 	const waUrl = getWhatsAppUrl();
+	const [activeFilter, setActiveFilter] = useState<FilterSlug>("semua");
+
+	const { data, isLoading } = useQuery(
+		orpc.alumni.list.queryOptions({
+			input: {
+				page: 1,
+				programSlug: activeFilter === "semua" ? undefined : activeFilter,
+			},
+		}),
+	);
+
+	const items = data?.items?.length
+		? data.items
+		: STATIC_ALUMNI;
 
 	return (
 		<>
@@ -38,47 +65,72 @@ function AlumniPage() {
 					))}
 				</div>
 
-				{/* Alumni grid */}
-				<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-					{STATIC_ALUMNI.map((alumni, i) => (
-						<div
-							key={alumni.id}
-							className="rounded-xl border border-border bg-card p-5"
-							style={{ animationDelay: `${i * 60}ms` }}
+				{/* Program filter */}
+				<div className="mb-6 flex gap-2 overflow-x-auto pb-1">
+					{PROGRAM_FILTERS.map(({ id, label }) => (
+						<button
+							key={id}
+							type="button"
+							onClick={() => setActiveFilter(id)}
+							className={[
+								"shrink-0 rounded-full border px-3 py-1 text-xs font-medium transition-colors duration-150 active:scale-[0.97]",
+								activeFilter === id
+									? "border-primary bg-primary text-primary-foreground"
+									: "border-border bg-background text-muted-foreground hover:border-primary/40 hover:text-foreground",
+							].join(" ")}
 						>
-							<div className="flex items-start gap-3">
-								<div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary">
-									{alumni.name.slice(0, 2).toUpperCase()}
-								</div>
-								<div>
-									<p className="text-sm font-semibold text-foreground">
-										{alumni.name}
-									</p>
-									<div className="flex items-center gap-1 mt-0.5">
-										<Award className="size-3 text-amber-500" />
-										<p className="text-xs text-muted-foreground">
-											{alumni.batchLabel}
-										</p>
-									</div>
-								</div>
-							</div>
-							<p className="mt-3 text-xs leading-relaxed text-muted-foreground">
-								"{alumni.shortStory}"
-							</p>
-						</div>
+							{label}
+						</button>
 					))}
 				</div>
 
-				{/* Placeholder for DB data */}
-				<div className="mt-8 rounded-xl border border-dashed border-border p-8 text-center">
-					<p className="text-sm text-muted-foreground">
-						Lebih banyak cerita alumni akan segera hadir.
-					</p>
-					<p className="mt-1 text-xs text-muted-foreground">
-						Alumni kami tersebar di seluruh Indonesia — dari ibu rumah tangga
-						yang kini membuka kelas privat, hingga guru PAUD bersertifikat.
-					</p>
-				</div>
+				{/* Alumni grid */}
+				{isLoading ? (
+					<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+						{Array.from({ length: 3 }).map((_, i) => (
+							<div
+								key={i}
+								className="h-32 animate-pulse rounded-xl bg-muted"
+							/>
+						))}
+					</div>
+				) : (
+					<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+						{items?.map((alumni, i) => (
+							<div
+								key={alumni.id}
+								className="rounded-xl border border-border bg-card p-5"
+								style={{ animationDelay: `${i * 60}ms` }}
+							>
+								<div className="flex items-start gap-3">
+									<div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary">
+										{alumni.name.slice(0, 2).toUpperCase()}
+									</div>
+									<div>
+										<p className="text-sm font-semibold text-foreground">
+											{alumni.name}
+										</p>
+										<div className="flex items-center gap-1 mt-0.5">
+											<Award className="size-3 text-amber-500" />
+											<p className="text-xs text-muted-foreground">
+												{alumni.batchLabel}
+											</p>
+										</div>
+									</div>
+								</div>
+								<p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+									"{alumni.shortStory}"
+								</p>
+							</div>
+						))}
+
+						{!items?.length && (
+							<div className="col-span-full py-12 text-center text-sm text-muted-foreground">
+								Belum ada alumni untuk program ini.
+							</div>
+						)}
+					</div>
+				)}
 
 				{/* CTA */}
 				<div className="mt-10 rounded-2xl bg-primary px-8 py-10 text-center">

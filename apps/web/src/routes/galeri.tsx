@@ -1,14 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useQuery } from "@tanstack/react-query";
 import PageHero from "@/components/sections/page-hero";
+import { orpc } from "@/utils/orpc";
 import { Camera } from "lucide-react";
 
-export const Route = createFileRoute("/galeri")({
-	component: GaleriPage,
-});
-
-// Placeholder gallery items — will be replaced with DB data in Phase 5
+// Fallback items for when DB is empty or not yet seeded
 const PLACEHOLDER_ITEMS = Array.from({ length: 6 }, (_, i) => ({
 	id: String(i + 1),
+	imageUrl: null as string | null,
 	caption: [
 		"Sesi Kelas Microteaching Batch 7",
 		"Praktik Phonics bersama Anak",
@@ -25,9 +24,31 @@ const PLACEHOLDER_ITEMS = Array.from({ length: 6 }, (_, i) => ({
 		"Online Class",
 		"Sertifikasi",
 	][i],
+	takenAt: null as number | null,
 }));
 
+export const Route = createFileRoute("/galeri")({
+	loader: async ({ context: { queryClient } }) => {
+		void queryClient.prefetchQuery(orpc.gallery.list.queryOptions());
+	},
+	component: GaleriPage,
+});
+
+function formatDate(ts: Date | number | null | undefined) {
+	if (!ts) return "";
+	return new Intl.DateTimeFormat("id-ID", {
+		month: "short",
+		year: "numeric",
+	}).format(ts instanceof Date ? ts : new Date(ts));
+}
+
 function GaleriPage() {
+	const { data, isLoading } = useQuery(orpc.gallery.list.queryOptions());
+
+	const items =
+		!isLoading && data && data.length > 0 ? data : PLACEHOLDER_ITEMS;
+	const isLive = !isLoading && data && data.length > 0;
+
 	return (
 		<>
 			<PageHero
@@ -37,32 +58,61 @@ function GaleriPage() {
 			/>
 
 			<div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-				{/* Placeholder grid */}
-				<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-					{PLACEHOLDER_ITEMS.map((item, i) => (
-						<div
-							key={item.id}
-							className="group overflow-hidden rounded-xl border border-border bg-muted"
-							style={{ animationDelay: `${i * 60}ms` }}
-						>
-							<div className="flex aspect-video items-center justify-center bg-gradient-to-br from-primary/5 to-primary/10">
-								<Camera className="size-8 text-primary/30" />
-							</div>
-							<div className="p-3">
-								<p className="text-xs font-medium text-foreground line-clamp-1">
-									{item.caption}
-								</p>
-								<span className="mt-1 inline-block rounded-full bg-muted px-2 py-0.5 text-xs text-muted-foreground">
-									{item.event}
-								</span>
-							</div>
-						</div>
-					))}
-				</div>
+				{isLoading ? (
+					<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+						{Array.from({ length: 6 }).map((_, i) => (
+							<div
+								key={i}
+								className="aspect-video animate-pulse rounded-xl bg-muted"
+							/>
+						))}
+					</div>
+				) : (
+					<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+						{items.map((item, i) => (
+							<div
+								key={item.id}
+								className="group overflow-hidden rounded-xl border border-border bg-card"
+								style={{ animationDelay: `${i * 60}ms` }}
+							>
+								{/* Image or placeholder */}
+								{isLive && item.imageUrl ? (
+									<img
+										src={item.imageUrl}
+										alt={item.caption}
+										className="aspect-video w-full object-cover"
+									/>
+								) : (
+									<div className="flex aspect-video items-center justify-center bg-gradient-to-br from-primary/5 to-primary/10">
+										<Camera className="size-8 text-primary/30" />
+									</div>
+								)}
 
-				<p className="mt-6 text-center text-xs text-muted-foreground">
-					Foto kegiatan nyata akan segera ditambahkan.
-				</p>
+								<div className="p-3">
+									<p className="text-xs font-medium text-foreground line-clamp-1">
+										{item.caption}
+									</p>
+									<div className="mt-1 flex items-center justify-between">
+										<span className="rounded-full bg-muted px-2 py-0.5 text-xs text-muted-foreground">
+											{item.event}
+										</span>
+										{item.takenAt && (
+											<span className="text-xs text-muted-foreground">
+												{formatDate(item.takenAt)}
+											</span>
+										)}
+									</div>
+								</div>
+							</div>
+						))}
+					</div>
+				)}
+
+				{!isLive && !isLoading && (
+					<p className="mt-6 text-center text-xs text-muted-foreground">
+						Foto kegiatan nyata akan segera ditambahkan.
+					</p>
+				)}
 
 				{/* Instagram CTA */}
 				<div className="mt-10 rounded-xl border border-border bg-card p-6 text-center">
