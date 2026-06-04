@@ -1,0 +1,24 @@
+{
+  "name": "@momkiddis/auth",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {},
+  "dependencies": {
+    "@momkiddis/db": "workspace:*",
+    "@momkiddis/env": "workspace:*",
+    "better-auth": "catalog:",
+    "dotenv": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@momkiddis/config": "workspace:*",
+    "typescript": "catalog:"
+  }
+}
