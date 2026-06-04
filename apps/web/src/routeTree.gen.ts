@@ -9,16 +9,128 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TestimoniRouteImport } from './routes/testimoni'
+import { Route as SyaratKetentuanRouteImport } from './routes/syarat-ketentuan'
+import { Route as SertifikasiRouteImport } from './routes/sertifikasi'
+import { Route as ResourcesRouteImport } from './routes/resources'
+import { Route as PromoRouteImport } from './routes/promo'
+import { Route as MitraRouteImport } from './routes/mitra'
+import { Route as MetodeRouteImport } from './routes/metode'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as KontakRouteImport } from './routes/kontak'
+import { Route as KebijakanPrivasiRouteImport } from './routes/kebijakan-privasi'
+import { Route as JadwalRouteImport } from './routes/jadwal'
+import { Route as GaleriRouteImport } from './routes/galeri'
+import { Route as FounderRouteImport } from './routes/founder'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as EventRouteImport } from './routes/event'
+import { Route as CaraDaftarRouteImport } from './routes/cara-daftar'
+import { Route as AlumniRouteImport } from './routes/alumni'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ProgramsRouteRouteImport } from './routes/programs/route'
 import { Route as AuthRouteRouteImport } from './routes/_auth/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProgramsIndexRouteImport } from './routes/programs/index'
+import { Route as BlogIndexRouteImport } from './routes/blog/index'
+import { Route as ProgramsSlugRouteImport } from './routes/programs/$slug'
+import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 import { Route as AuthDashboardRouteImport } from './routes/_auth/dashboard'
 import { Route as ApiRpcSplatRouteImport } from './routes/api/rpc/$'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 
+const TestimoniRoute = TestimoniRouteImport.update({
+  id: '/testimoni',
+  path: '/testimoni',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SyaratKetentuanRoute = SyaratKetentuanRouteImport.update({
+  id: '/syarat-ketentuan',
+  path: '/syarat-ketentuan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SertifikasiRoute = SertifikasiRouteImport.update({
+  id: '/sertifikasi',
+  path: '/sertifikasi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResourcesRoute = ResourcesRouteImport.update({
+  id: '/resources',
+  path: '/resources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PromoRoute = PromoRouteImport.update({
+  id: '/promo',
+  path: '/promo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MitraRoute = MitraRouteImport.update({
+  id: '/mitra',
+  path: '/mitra',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MetodeRoute = MetodeRouteImport.update({
+  id: '/metode',
+  path: '/metode',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontakRoute = KontakRouteImport.update({
+  id: '/kontak',
+  path: '/kontak',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KebijakanPrivasiRoute = KebijakanPrivasiRouteImport.update({
+  id: '/kebijakan-privasi',
+  path: '/kebijakan-privasi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JadwalRoute = JadwalRouteImport.update({
+  id: '/jadwal',
+  path: '/jadwal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GaleriRoute = GaleriRouteImport.update({
+  id: '/galeri',
+  path: '/galeri',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FounderRoute = FounderRouteImport.update({
+  id: '/founder',
+  path: '/founder',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventRoute = EventRouteImport.update({
+  id: '/event',
+  path: '/event',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaraDaftarRoute = CaraDaftarRouteImport.update({
+  id: '/cara-daftar',
+  path: '/cara-daftar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlumniRoute = AlumniRouteImport.update({
+  id: '/alumni',
+  path: '/alumni',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgramsRouteRoute = ProgramsRouteRouteImport.update({
+  id: '/programs',
+  path: '/programs',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRouteRoute = AuthRouteRouteImport.update({
@@ -28,6 +140,26 @@ const AuthRouteRoute = AuthRouteRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgramsIndexRoute = ProgramsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ProgramsRouteRoute,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgramsSlugRoute = ProgramsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ProgramsRouteRoute,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthDashboardRoute = AuthDashboardRouteImport.update({
@@ -48,15 +180,58 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/programs': typeof ProgramsRouteRouteWithChildren
+  '/about': typeof AboutRoute
+  '/alumni': typeof AlumniRoute
+  '/cara-daftar': typeof CaraDaftarRoute
+  '/event': typeof EventRoute
+  '/faq': typeof FaqRoute
+  '/founder': typeof FounderRoute
+  '/galeri': typeof GaleriRoute
+  '/jadwal': typeof JadwalRoute
+  '/kebijakan-privasi': typeof KebijakanPrivasiRoute
+  '/kontak': typeof KontakRoute
   '/login': typeof LoginRoute
+  '/metode': typeof MetodeRoute
+  '/mitra': typeof MitraRoute
+  '/promo': typeof PromoRoute
+  '/resources': typeof ResourcesRoute
+  '/sertifikasi': typeof SertifikasiRoute
+  '/syarat-ketentuan': typeof SyaratKetentuanRoute
+  '/testimoni': typeof TestimoniRoute
   '/dashboard': typeof AuthDashboardRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/programs/$slug': typeof ProgramsSlugRoute
+  '/blog/': typeof BlogIndexRoute
+  '/programs/': typeof ProgramsIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/rpc/$': typeof ApiRpcSplatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/alumni': typeof AlumniRoute
+  '/cara-daftar': typeof CaraDaftarRoute
+  '/event': typeof EventRoute
+  '/faq': typeof FaqRoute
+  '/founder': typeof FounderRoute
+  '/galeri': typeof GaleriRoute
+  '/jadwal': typeof JadwalRoute
+  '/kebijakan-privasi': typeof KebijakanPrivasiRoute
+  '/kontak': typeof KontakRoute
   '/login': typeof LoginRoute
+  '/metode': typeof MetodeRoute
+  '/mitra': typeof MitraRoute
+  '/promo': typeof PromoRoute
+  '/resources': typeof ResourcesRoute
+  '/sertifikasi': typeof SertifikasiRoute
+  '/syarat-ketentuan': typeof SyaratKetentuanRoute
+  '/testimoni': typeof TestimoniRoute
   '/dashboard': typeof AuthDashboardRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/programs/$slug': typeof ProgramsSlugRoute
+  '/blog': typeof BlogIndexRoute
+  '/programs': typeof ProgramsIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/rpc/$': typeof ApiRpcSplatRoute
 }
@@ -64,22 +239,119 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_auth': typeof AuthRouteRouteWithChildren
+  '/programs': typeof ProgramsRouteRouteWithChildren
+  '/about': typeof AboutRoute
+  '/alumni': typeof AlumniRoute
+  '/cara-daftar': typeof CaraDaftarRoute
+  '/event': typeof EventRoute
+  '/faq': typeof FaqRoute
+  '/founder': typeof FounderRoute
+  '/galeri': typeof GaleriRoute
+  '/jadwal': typeof JadwalRoute
+  '/kebijakan-privasi': typeof KebijakanPrivasiRoute
+  '/kontak': typeof KontakRoute
   '/login': typeof LoginRoute
+  '/metode': typeof MetodeRoute
+  '/mitra': typeof MitraRoute
+  '/promo': typeof PromoRoute
+  '/resources': typeof ResourcesRoute
+  '/sertifikasi': typeof SertifikasiRoute
+  '/syarat-ketentuan': typeof SyaratKetentuanRoute
+  '/testimoni': typeof TestimoniRoute
   '/_auth/dashboard': typeof AuthDashboardRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/programs/$slug': typeof ProgramsSlugRoute
+  '/blog/': typeof BlogIndexRoute
+  '/programs/': typeof ProgramsIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/rpc/$': typeof ApiRpcSplatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/dashboard' | '/api/auth/$' | '/api/rpc/$'
+  fullPaths:
+    | '/'
+    | '/programs'
+    | '/about'
+    | '/alumni'
+    | '/cara-daftar'
+    | '/event'
+    | '/faq'
+    | '/founder'
+    | '/galeri'
+    | '/jadwal'
+    | '/kebijakan-privasi'
+    | '/kontak'
+    | '/login'
+    | '/metode'
+    | '/mitra'
+    | '/promo'
+    | '/resources'
+    | '/sertifikasi'
+    | '/syarat-ketentuan'
+    | '/testimoni'
+    | '/dashboard'
+    | '/blog/$slug'
+    | '/programs/$slug'
+    | '/blog/'
+    | '/programs/'
+    | '/api/auth/$'
+    | '/api/rpc/$'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/dashboard' | '/api/auth/$' | '/api/rpc/$'
+  to:
+    | '/'
+    | '/about'
+    | '/alumni'
+    | '/cara-daftar'
+    | '/event'
+    | '/faq'
+    | '/founder'
+    | '/galeri'
+    | '/jadwal'
+    | '/kebijakan-privasi'
+    | '/kontak'
+    | '/login'
+    | '/metode'
+    | '/mitra'
+    | '/promo'
+    | '/resources'
+    | '/sertifikasi'
+    | '/syarat-ketentuan'
+    | '/testimoni'
+    | '/dashboard'
+    | '/blog/$slug'
+    | '/programs/$slug'
+    | '/blog'
+    | '/programs'
+    | '/api/auth/$'
+    | '/api/rpc/$'
   id:
     | '__root__'
     | '/'
     | '/_auth'
+    | '/programs'
+    | '/about'
+    | '/alumni'
+    | '/cara-daftar'
+    | '/event'
+    | '/faq'
+    | '/founder'
+    | '/galeri'
+    | '/jadwal'
+    | '/kebijakan-privasi'
+    | '/kontak'
     | '/login'
+    | '/metode'
+    | '/mitra'
+    | '/promo'
+    | '/resources'
+    | '/sertifikasi'
+    | '/syarat-ketentuan'
+    | '/testimoni'
     | '/_auth/dashboard'
+    | '/blog/$slug'
+    | '/programs/$slug'
+    | '/blog/'
+    | '/programs/'
     | '/api/auth/$'
     | '/api/rpc/$'
   fileRoutesById: FileRoutesById
@@ -87,18 +359,164 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthRouteRoute: typeof AuthRouteRouteWithChildren
+  ProgramsRouteRoute: typeof ProgramsRouteRouteWithChildren
+  AboutRoute: typeof AboutRoute
+  AlumniRoute: typeof AlumniRoute
+  CaraDaftarRoute: typeof CaraDaftarRoute
+  EventRoute: typeof EventRoute
+  FaqRoute: typeof FaqRoute
+  FounderRoute: typeof FounderRoute
+  GaleriRoute: typeof GaleriRoute
+  JadwalRoute: typeof JadwalRoute
+  KebijakanPrivasiRoute: typeof KebijakanPrivasiRoute
+  KontakRoute: typeof KontakRoute
   LoginRoute: typeof LoginRoute
+  MetodeRoute: typeof MetodeRoute
+  MitraRoute: typeof MitraRoute
+  PromoRoute: typeof PromoRoute
+  ResourcesRoute: typeof ResourcesRoute
+  SertifikasiRoute: typeof SertifikasiRoute
+  SyaratKetentuanRoute: typeof SyaratKetentuanRoute
+  TestimoniRoute: typeof TestimoniRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
   ApiRpcSplatRoute: typeof ApiRpcSplatRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/testimoni': {
+      id: '/testimoni'
+      path: '/testimoni'
+      fullPath: '/testimoni'
+      preLoaderRoute: typeof TestimoniRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/syarat-ketentuan': {
+      id: '/syarat-ketentuan'
+      path: '/syarat-ketentuan'
+      fullPath: '/syarat-ketentuan'
+      preLoaderRoute: typeof SyaratKetentuanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sertifikasi': {
+      id: '/sertifikasi'
+      path: '/sertifikasi'
+      fullPath: '/sertifikasi'
+      preLoaderRoute: typeof SertifikasiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resources': {
+      id: '/resources'
+      path: '/resources'
+      fullPath: '/resources'
+      preLoaderRoute: typeof ResourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/promo': {
+      id: '/promo'
+      path: '/promo'
+      fullPath: '/promo'
+      preLoaderRoute: typeof PromoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mitra': {
+      id: '/mitra'
+      path: '/mitra'
+      fullPath: '/mitra'
+      preLoaderRoute: typeof MitraRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/metode': {
+      id: '/metode'
+      path: '/metode'
+      fullPath: '/metode'
+      preLoaderRoute: typeof MetodeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/login': {
       id: '/login'
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kontak': {
+      id: '/kontak'
+      path: '/kontak'
+      fullPath: '/kontak'
+      preLoaderRoute: typeof KontakRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kebijakan-privasi': {
+      id: '/kebijakan-privasi'
+      path: '/kebijakan-privasi'
+      fullPath: '/kebijakan-privasi'
+      preLoaderRoute: typeof KebijakanPrivasiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jadwal': {
+      id: '/jadwal'
+      path: '/jadwal'
+      fullPath: '/jadwal'
+      preLoaderRoute: typeof JadwalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/galeri': {
+      id: '/galeri'
+      path: '/galeri'
+      fullPath: '/galeri'
+      preLoaderRoute: typeof GaleriRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/founder': {
+      id: '/founder'
+      path: '/founder'
+      fullPath: '/founder'
+      preLoaderRoute: typeof FounderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/event': {
+      id: '/event'
+      path: '/event'
+      fullPath: '/event'
+      preLoaderRoute: typeof EventRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cara-daftar': {
+      id: '/cara-daftar'
+      path: '/cara-daftar'
+      fullPath: '/cara-daftar'
+      preLoaderRoute: typeof CaraDaftarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/alumni': {
+      id: '/alumni'
+      path: '/alumni'
+      fullPath: '/alumni'
+      preLoaderRoute: typeof AlumniRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programs': {
+      id: '/programs'
+      path: '/programs'
+      fullPath: '/programs'
+      preLoaderRoute: typeof ProgramsRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_auth': {
@@ -113,6 +531,34 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programs/': {
+      id: '/programs/'
+      path: '/'
+      fullPath: '/programs/'
+      preLoaderRoute: typeof ProgramsIndexRouteImport
+      parentRoute: typeof ProgramsRouteRoute
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programs/$slug': {
+      id: '/programs/$slug'
+      path: '/$slug'
+      fullPath: '/programs/$slug'
+      preLoaderRoute: typeof ProgramsSlugRouteImport
+      parentRoute: typeof ProgramsRouteRoute
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_auth/dashboard': {
@@ -151,10 +597,44 @@ const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(
   AuthRouteRouteChildren,
 )
 
+interface ProgramsRouteRouteChildren {
+  ProgramsSlugRoute: typeof ProgramsSlugRoute
+  ProgramsIndexRoute: typeof ProgramsIndexRoute
+}
+
+const ProgramsRouteRouteChildren: ProgramsRouteRouteChildren = {
+  ProgramsSlugRoute: ProgramsSlugRoute,
+  ProgramsIndexRoute: ProgramsIndexRoute,
+}
+
+const ProgramsRouteRouteWithChildren = ProgramsRouteRoute._addFileChildren(
+  ProgramsRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthRouteRoute: AuthRouteRouteWithChildren,
+  ProgramsRouteRoute: ProgramsRouteRouteWithChildren,
+  AboutRoute: AboutRoute,
+  AlumniRoute: AlumniRoute,
+  CaraDaftarRoute: CaraDaftarRoute,
+  EventRoute: EventRoute,
+  FaqRoute: FaqRoute,
+  FounderRoute: FounderRoute,
+  GaleriRoute: GaleriRoute,
+  JadwalRoute: JadwalRoute,
+  KebijakanPrivasiRoute: KebijakanPrivasiRoute,
+  KontakRoute: KontakRoute,
   LoginRoute: LoginRoute,
+  MetodeRoute: MetodeRoute,
+  MitraRoute: MitraRoute,
+  PromoRoute: PromoRoute,
+  ResourcesRoute: ResourcesRoute,
+  SertifikasiRoute: SertifikasiRoute,
+  SyaratKetentuanRoute: SyaratKetentuanRoute,
+  TestimoniRoute: TestimoniRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
   ApiRpcSplatRoute: ApiRpcSplatRoute,
 }
