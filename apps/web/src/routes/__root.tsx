@@ -34,13 +34,22 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
 				title: "Momkiddy Indonesia — Ibu Pintar Mengajar, Anak Cerdas Berkarya",
 			},
 		],
-		links: [
-			{
-				rel: "stylesheet",
-				href: appCss,
-			},
-		],
-	}),
+			links: [
+				{
+					rel: "stylesheet",
+					href: appCss,
+				},
+				{
+					rel: "icon",
+					type: "image/png",
+					href: "/circle-logo.png",
+				},
+				{
+					rel: "apple-touch-icon",
+					href: "/circle-logo.png",
+				},
+			],
+		}),
 
 	component: RootDocument,
 });

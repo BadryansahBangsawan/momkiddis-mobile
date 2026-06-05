@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@momkiddis/ui/components/button";
-import { ArrowRightIcon, MessageCircleIcon, PlayCircleIcon } from "lucide-react";
+import { ArrowRightIcon } from "lucide-react";
 
 import {
 	PROGRAM_LIST,
@@ -10,10 +10,9 @@ import {
 	STATIC_TESTIMONIALS,
 	STATIC_ALUMNI,
 } from "@/lib/programs-content";
-import { getWhatsAppUrl, siteConfig } from "@/lib/site-config";
 import { orpc } from "@/utils/orpc";
 
-import StatsBar from "@/components/sections/stats-bar";
+import { HeroWaves } from "@/components/sections/hero-waves";
 import ProgramCard from "@/components/sections/program-card";
 import TestimonialCard from "@/components/sections/testimonial-card";
 import AlumniCard from "@/components/sections/alumni-card";
@@ -37,10 +36,8 @@ function HomeComponent() {
 	return (
 		<div>
 			{/* ── Hero ── */}
-			<HeroSection />
+			<HeroWaves />
 
-			{/* ── Social Proof Bar ── */}
-			<StatsBar />
 
 			{/* ── Tentang Momkiddy ── */}
 			<AboutTeaser />
@@ -63,82 +60,6 @@ function HomeComponent() {
 			{/* ── CTA Final Banner ── */}
 			<WhatsAppCta variant="full" label="Daftar Sekarang via WhatsApp" />
 		</div>
-	);
-}
-
-/* ─── Hero Section ─────────────────────────────── */
-function HeroSection() {
-	return (
-		<section className="relative overflow-hidden px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
-			{/* Subtle background gradient */}
-			<div
-				aria-hidden
-				className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,theme(colors.blue.50),transparent)]"
-			/>
-
-			<div className="mx-auto max-w-3xl text-center">
-				{/* Label */}
-				<div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-medium text-primary">
-					<PlayCircleIcon className="size-3" />
-					Lembaga Pendidikan Non-Formal Terpercaya
-				</div>
-
-				{/* Heading */}
-				<h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-5xl sm:leading-tight">
-					{siteConfig.tagline
-						.split(",")
-						.map((part, i) => (
-							<span key={i}>
-								{i === 0 ? (
-									<span className="text-primary">{part}</span>
-								) : (
-									<span className="text-accent">{part}</span>
-								)}
-								{i === 0 && ","}
-							</span>
-						))}
-				</h1>
-
-				{/* Sub-copy */}
-				<p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-					Momkiddy Indonesia membekali ibu sebagai guru pertama di rumah
-					sekaligus menyediakan program belajar yang menyenangkan untuk anak
-					usia dini hingga SD.
-				</p>
-
-				{/* CTAs */}
-				<div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-					<Link to="/programs">
-						<Button
-							size="lg"
-							className="gap-2 transition-transform active:scale-[0.97]"
-						>
-							Lihat Program
-							<ArrowRightIcon className="size-4" />
-						</Button>
-					</Link>
-					<a
-						href={getWhatsAppUrl()}
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						<Button
-							variant="outline"
-							size="lg"
-							className="gap-2 border-accent/40 text-accent transition-all active:scale-[0.97] hover:border-accent hover:bg-accent/5"
-						>
-							<MessageCircleIcon className="size-4" />
-							Hubungi Kami
-						</Button>
-					</a>
-				</div>
-
-				{/* Microcopy */}
-				<p className="mt-4 text-xs text-muted-foreground">
-					Tersedia kelas online & offline · Batch baru setiap bulan
-				</p>
-			</div>
-		</section>
 	);
 }
 
