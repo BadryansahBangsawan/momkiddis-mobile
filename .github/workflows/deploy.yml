@@ -24,7 +24,6 @@ jobs:
 
       - name: Build
         run: bun run build
-        working-directory: .
 
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
@@ -32,4 +31,9 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: apps/web
-          command: deploy --config wrangler.toml
+          command: >
+            deploy
+            --config dist/server/wrangler.json
+            --name momkiddis-web
+            --var CORS_ORIGIN:https://momkiddis-web.badryansah99.workers.dev
+            --var BETTER_AUTH_URL:https://momkiddis-web.badryansah99.workers.dev

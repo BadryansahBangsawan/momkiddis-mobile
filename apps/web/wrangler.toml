@@ -1,28 +1,27 @@
 name = "momkiddis-web"
-main = "@tanstack/react-start/server-entry"
+account_id = "affb450d746e53150028bb763b2f640c"
+main = "dist/server/index.js"
 compatibility_date = "2026-03-10"
 compatibility_flags = ["nodejs_compat", "nodejs_compat_populate_process_env"]
 
+no_bundle = true
+
 [assets]
-directory = "../../dist/client"
+directory = "dist/client"
 binding = "ASSETS"
 not_found_handling = "none"
 html_handling = "auto-trailing-slash"
 run_worker_first = false
 
-# Non-sensitive vars — ganti dengan URL production kamu
+# Non-sensitive vars — ganti dengan URL production setelah deploy pertama
 [vars]
-CORS_ORIGIN = "https://momkiddis.com"
-BETTER_AUTH_URL = "https://momkiddis.com"
+CORS_ORIGIN = "https://momkiddis-web.workers.dev"
+BETTER_AUTH_URL = "https://momkiddis-web.workers.dev"
 
-# Sensitive vars (NVIDIA_API_KEY, BETTER_AUTH_SECRET) di-set sebagai
-# Cloudflare Worker Secrets — jangan taruh di sini.
-# Jalankan sekali saja:
-#   npx wrangler secret put NVIDIA_API_KEY
-#   npx wrangler secret put BETTER_AUTH_SECRET
+# NVIDIA_API_KEY dan BETTER_AUTH_SECRET sudah di-set sebagai Worker Secrets
 
 [[d1_databases]]
 binding = "DB"
-database_id = "momkiddis-database-bbbadry"
-database_name = "momkiddis-database-bbbadry"
+database_id = "01c08ce4-8621-446f-95db-19d2ee439df0"
+database_name = "momkiddis-db"
 migrations_dir = "../../packages/db/src/migrations"
