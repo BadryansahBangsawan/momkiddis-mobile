@@ -279,7 +279,7 @@ export function HeroWaves() {
 					{/* Stats */}
 					<motion.div
 						variants={statsAnim}
-						className="grid grid-cols-3 gap-px overflow-hidden rounded-2xl border border-border/30 bg-border/20 backdrop-blur-sm"
+						className="mb-12 grid grid-cols-3 gap-px overflow-hidden rounded-2xl border border-border/30 bg-border/20 backdrop-blur-sm"
 					>
 						{stats.map((s) => (
 							<motion.div

@@ -63,7 +63,7 @@ function RootDocument() {
 			<body>
 				<div className="flex min-h-svh flex-col">
 					<SiteHeader />
-					<main className="flex-1">
+					<main className="flex-1 pt-24 pb-20 md:pb-0">
 						<Outlet />
 					</main>
 					<SiteFooter />
