@@ -128,5 +128,6 @@
   }
   html {
     @apply font-sans;
+    font-size: 106.25%; /* 16px → ~17px, semua teks naik proporsional */
   }
 }

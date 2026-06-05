@@ -1,8 +1,9 @@
 import { motion, type Variants } from "framer-motion";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@momkiddis/ui/components/button";
+import { SlideButton } from "@/components/ui/slide-button";
 import { siteConfig, getWhatsAppUrl } from "@/lib/site-config";
 
 type Point = { x: number; y: number };
@@ -249,16 +250,7 @@ export function HeroWaves() {
 								<ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
 							</Button>
 						</Link>
-						<a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
-							<Button
-								size="lg"
-								variant="outline"
-								className="gap-2 border-border/50 bg-background/60 px-7 text-foreground/80 backdrop-blur hover:border-accent/40 hover:bg-accent/5 hover:text-accent"
-							>
-								<MessageCircle className="size-4" aria-hidden />
-								Hubungi Kami
-							</Button>
-						</a>
+						<SlideButton url={getWhatsAppUrl()} label="Hubungi Kami" />
 					</motion.div>
 
 					{/* Feature pills */}
