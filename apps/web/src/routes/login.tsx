@@ -191,7 +191,7 @@ function SignUpForm({ onSwitch }: { onSwitch: () => void }) {
 				{
 					onSuccess: () => {
 						navigate({ to: "/dashboard" });
-						toast.success("Akun berhasil dibuat! Selamat datang 🎉");
+						toast.success("Akun berhasil dibuat! Selamat datang.");
 					},
 					onError: (error) => {
 						toast.error(error.error.message || "Gagal membuat akun. Coba lagi.");

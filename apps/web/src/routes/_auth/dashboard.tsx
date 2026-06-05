@@ -44,7 +44,7 @@ function DashboardPage() {
 				<div className="flex items-start justify-between gap-4">
 					<div>
 						<p className="text-sm font-medium text-white/75">
-							{greeting}, 👋
+							{greeting}
 						</p>
 						<h1 className="mt-0.5 text-2xl font-bold">
 							{firstName}!
