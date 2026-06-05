@@ -70,7 +70,12 @@ function AboutTeaser() {
 			<div className="mx-auto max-w-7xl">
 				<div className="grid items-center gap-10 lg:grid-cols-2">
 					{/* Text */}
-					<div>
+					<motion.div
+						initial={{ opacity: 0, x: -30 }}
+						whileInView={{ opacity: 1, x: 0 }}
+						viewport={{ once: true, margin: "-80px" }}
+						transition={{ duration: 0.6, ease: "easeOut" }}
+					>
 						<p className="text-xs font-semibold uppercase tracking-widest text-primary">
 							Tentang Kami
 						</p>
@@ -106,40 +111,28 @@ function AboutTeaser() {
 								<ArrowRightIcon className="size-3.5" />
 							</Button>
 						</Link>
-					</div>
+					</motion.div>
 
 					{/* Visual — stats cards */}
 					<div className="grid grid-cols-2 gap-4">
 						{[
-							{
-								label: "Ibu Terlatih",
-								value: "500+",
-								sub: "dari berbagai kota di Indonesia",
-							},
-							{
-								label: "Batch Selesai",
-								value: "20+",
-								sub: "batch microteaching",
-							},
-							{
-								label: "Program Aktif",
-								value: "5",
-								sub: "program untuk ibu dan anak",
-							},
-							{
-								label: "Rating Kepuasan",
-								value: "4.9",
-								sub: "berdasarkan testimoni peserta",
-							},
-						].map(({ label, value, sub }) => (
-							<div
+							{ label: "Ibu Terlatih", value: "500+", sub: "dari berbagai kota di Indonesia" },
+							{ label: "Batch Selesai", value: "20+", sub: "batch microteaching" },
+							{ label: "Program Aktif", value: "5", sub: "program untuk ibu dan anak" },
+							{ label: "Rating Kepuasan", value: "4.9", sub: "berdasarkan testimoni peserta" },
+						].map(({ label, value, sub }, i) => (
+							<motion.div
 								key={label}
 								className="rounded-xl border border-border bg-card p-4"
+								initial={{ opacity: 0, y: 30 }}
+								whileInView={{ opacity: 1, y: 0 }}
+								viewport={{ once: true, margin: "-60px" }}
+								transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.08 }}
 							>
 								<p className="text-2xl font-bold text-primary">{value}</p>
 								<p className="text-xs font-semibold text-foreground">{label}</p>
 								<p className="mt-1 text-xs text-muted-foreground">{sub}</p>
-							</div>
+							</motion.div>
 						))}
 					</div>
 				</div>
@@ -154,7 +147,13 @@ function ProgramsSection() {
 		<section className="bg-muted/30 px-4 py-16 sm:px-6 lg:px-8">
 			<div className="mx-auto max-w-7xl">
 				{/* Header */}
-				<div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+				<motion.div
+					className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end"
+					initial={{ opacity: 0, y: 30 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true, margin: "-80px" }}
+					transition={{ duration: 0.6, ease: "easeOut" }}
+				>
 					<div>
 						<p className="text-xs font-semibold uppercase tracking-widest text-primary">
 							Program Unggulan
@@ -177,12 +176,20 @@ function ProgramsSection() {
 							<ArrowRightIcon className="size-3" />
 						</Button>
 					</Link>
-				</div>
+				</motion.div>
 
 				{/* Grid */}
 				<div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 					{PROGRAM_LIST.map((program, i) => (
-						<ProgramCard key={program.slug} program={program} index={i} />
+						<motion.div
+							key={program.slug}
+							initial={{ opacity: 0, y: 30 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true, margin: "-60px" }}
+							transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.08 }}
+						>
+							<ProgramCard program={program} index={i} />
+						</motion.div>
 					))}
 				</div>
 			</div>
@@ -309,7 +316,13 @@ function TestimoniSection() {
 	return (
 		<section className="px-4 py-16 sm:px-6 lg:px-8">
 			<div className="mx-auto max-w-7xl">
-				<div className="flex items-end justify-between">
+				<motion.div
+					className="flex items-end justify-between"
+					initial={{ opacity: 0, y: 30 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true, margin: "-80px" }}
+					transition={{ duration: 0.6, ease: "easeOut" }}
+				>
 					<div>
 						<p className="text-xs font-semibold uppercase tracking-widest text-primary">Testimoni</p>
 						<h2 className="mt-1 text-xl font-bold tracking-tight text-foreground sm:text-2xl">Apa Kata Mereka?</h2>
@@ -319,7 +332,7 @@ function TestimoniSection() {
 							Lihat Semua <ArrowRightIcon className="size-3" />
 						</Button>
 					</Link>
-				</div>
+				</motion.div>
 
 				<div className="mt-6 grid gap-2 lg:grid-cols-3">
 					{/* Col 1 */}
@@ -376,7 +389,13 @@ function AlumniSection() {
 	return (
 		<section className="bg-muted/30 px-4 py-16 sm:px-6 lg:px-8">
 			<div className="mx-auto max-w-7xl">
-				<div className="mb-6 flex items-end justify-between">
+				<motion.div
+					className="mb-6 flex items-end justify-between"
+					initial={{ opacity: 0, y: 30 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true, margin: "-80px" }}
+					transition={{ duration: 0.6, ease: "easeOut" }}
+				>
 					<div>
 						<p className="text-xs font-semibold uppercase tracking-widest text-primary">Alumni</p>
 						<h2 className="mt-1 text-xl font-bold tracking-tight text-foreground sm:text-2xl">Kisah Sukses Alumni</h2>
@@ -386,7 +405,7 @@ function AlumniSection() {
 							Lihat Semua <ArrowRightIcon className="size-3" />
 						</Button>
 					</Link>
-				</div>
+				</motion.div>
 				<AlumniSlider reviews={HOME_ALUMNI_SLIDER} />
 			</div>
 		</section>

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Button } from "@momkiddis/ui/components/button";
 import { MessageCircleIcon } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/site-config";
@@ -25,26 +26,45 @@ export default function WhatsAppCta({
 				className={`bg-primary px-4 py-16 text-center sm:px-6 lg:px-8 ${className ?? ""}`}
 			>
 				<div className="mx-auto max-w-2xl">
-					<h2 className="text-xl font-bold text-primary-foreground sm:text-2xl">
-						Siap Menjadi Guru Pertama untuk Anak Anda?
-					</h2>
-					<p className="mt-2 text-sm text-primary-foreground/80">
-						Hubungi kami untuk konsultasi gratis dan informasi pendaftaran.
-					</p>
-					<a
-						href={url}
-						target="_blank"
-						rel="noopener noreferrer"
-						className="mt-6 inline-block"
+					<motion.h2
+						className="text-xl font-bold text-primary-foreground sm:text-2xl"
+						initial={{ opacity: 0, y: 30 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true, margin: "-80px" }}
+						transition={{ duration: 0.6, ease: "easeOut" }}
 					>
-						<Button
-							size="lg"
-							className="gap-2 bg-accent text-accent-foreground transition-transform active:scale-[0.97] hover:bg-accent/90"
+						Siap Menjadi Guru Pertama untuk Anak Anda?
+					</motion.h2>
+					<motion.p
+						className="mt-2 text-sm text-primary-foreground/80"
+						initial={{ opacity: 0, y: 20 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true, margin: "-80px" }}
+						transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+					>
+						Hubungi kami untuk konsultasi gratis dan informasi pendaftaran.
+					</motion.p>
+					<motion.div
+						initial={{ opacity: 0, y: 20 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true, margin: "-80px" }}
+						transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+					>
+						<a
+							href={url}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="mt-6 inline-block"
 						>
-							<MessageCircleIcon className="size-4" />
-							{label}
-						</Button>
-					</a>
+							<Button
+								size="lg"
+								className="gap-2 bg-accent text-accent-foreground transition-transform active:scale-[0.97] hover:bg-accent/90"
+							>
+								<MessageCircleIcon className="size-4" />
+								{label}
+							</Button>
+						</a>
+					</motion.div>
 				</div>
 			</section>
 		);

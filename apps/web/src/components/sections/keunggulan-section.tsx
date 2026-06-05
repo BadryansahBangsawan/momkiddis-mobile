@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import {
 	Users,
 	Gamepad2,
@@ -23,23 +24,32 @@ export default function KeunggulanSection({ items }: KeunggulanSectionProps) {
 	return (
 		<section className="bg-primary px-4 py-16 sm:px-6 lg:px-8">
 			<div className="mx-auto max-w-7xl">
-				<div className="text-center">
+				<motion.div
+					className="text-center"
+					initial={{ opacity: 0, y: 30 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true, margin: "-80px" }}
+					transition={{ duration: 0.6, ease: "easeOut" }}
+				>
 					<h2 className="text-xl font-bold text-primary-foreground sm:text-2xl">
 						Mengapa Memilih Momkiddy?
 					</h2>
 					<p className="mt-2 text-sm text-primary-foreground/75">
 						Lima keunggulan yang membuat Momkiddy berbeda dari lembaga lain
 					</p>
-				</div>
+				</motion.div>
 
 				<div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
 					{items.map(({ icon, title, description }, i) => {
 						const Icon = ICON_MAP[icon];
 						return (
-							<div
+							<motion.div
 								key={title}
 								className="flex gap-4 rounded-xl bg-white/10 p-5 backdrop-blur-sm"
-								style={{ animationDelay: `${i * 60}ms` }}
+								initial={{ opacity: 0, y: 30 }}
+								whileInView={{ opacity: 1, y: 0 }}
+								viewport={{ once: true, margin: "-60px" }}
+								transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.08 }}
 							>
 								<div className="mt-0.5 shrink-0 rounded-lg bg-white/20 p-2">
 									{Icon && <Icon className="size-4 text-primary-foreground" />}
@@ -52,7 +62,7 @@ export default function KeunggulanSection({ items }: KeunggulanSectionProps) {
 										{description}
 									</p>
 								</div>
-							</div>
+							</motion.div>
 						);
 					})}
 				</div>
