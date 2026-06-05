@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import {
+	Award,
+	Clock,
 	Users,
 	Gamepad2,
 	Monitor,
@@ -9,6 +11,8 @@ import {
 import type { KEUNGGULAN } from "@/lib/programs-content";
 
 const ICON_MAP: Record<string, React.FC<{ className?: string }>> = {
+	Award: ({ className }) => <Award className={className} />,
+	Clock: ({ className }) => <Clock className={className} />,
 	Users: ({ className }) => <Users className={className} />,
 	Gamepad2: ({ className }) => <Gamepad2 className={className} />,
 	Monitor: ({ className }) => <Monitor className={className} />,
@@ -32,10 +36,11 @@ export default function KeunggulanSection({ items }: KeunggulanSectionProps) {
 					transition={{ duration: 0.6, ease: "easeOut" }}
 				>
 					<h2 className="text-xl font-bold text-primary-foreground sm:text-2xl">
-						Mengapa Memilih Momkiddy?
+						Mengapa Memilih Women Future?
 					</h2>
 					<p className="mt-2 text-sm text-primary-foreground/75">
-						Lima keunggulan yang membuat Momkiddy berbeda dari lembaga lain
+						Lima alasan kelas online ini nyaman untuk perempuan yang ingin
+						naik level bahasa Inggris
 					</p>
 				</motion.div>
 

@@ -12,64 +12,64 @@ export const Route = createFileRoute("/testimoni")({
 const TESTIMONIALS = [
 	{
 		id: 1,
-		name: "Ibu Rina Damayanti",
-		role: "Peserta Batch 4 · Microteaching",
+		name: "Nadia Putri",
+		role: "English Speaking Basic",
 		quote:
-			"Sebelum ikut kelas ini, saya bingung harus mulai dari mana mengajar anak. Sekarang saya punya metode yang jelas dan anak saya jadi lebih semangat belajar di rumah!",
+			"Saya mulai dari nol dan akhirnya berani memperkenalkan diri dalam bahasa Inggris tanpa terlalu takut salah.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=200&h=200&fit=crop&q=80",
 	},
 	{
 		id: 2,
-		name: "Ibu Sari Kusuma",
-		role: "Peserta Batch 6 · Microteaching",
+		name: "Rani Kusuma",
+		role: "English Conversation Class",
 		quote:
-			"Kelas microteaching Bu Lita benar-benar membuka mata saya. Ternyata mengajar itu ada seninya. Sekarang saya bisa buka les privat kecil dari rumah!",
+			"Roleplay dan pronunciation correction membuat saya lebih lancar berbicara di meeting kantor.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&h=200&fit=crop&q=80",
 	},
 	{
 		id: 3,
-		name: "Ibu Dewi Rahayu",
-		role: "Orang Tua Murid · Calistung Fun",
+		name: "Aulia Rahma",
+		role: "IELTS Preparation Class",
 		quote:
-			"Anak saya yang tadinya tidak mau belajar sekarang malah minta belajar setiap hari. Metode phonics-nya memang beda, anak lebih cepat nangkap tanpa stres.",
+			"Strategi writing dan speaking-nya jelas. Saya jadi tahu bagian mana yang harus diperbaiki untuk target IELTS.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1488508872907-592763824245?w=200&h=200&fit=crop&q=80",
 	},
 	{
 		id: 4,
-		name: "Ibu Ayu Lestari",
-		role: "Peserta Batch 9 · English Fun Class",
+		name: "Maya Lestari",
+		role: "TOEFL Preparation",
 		quote:
-			"Anak saya kini lebih percaya diri berbicara bahasa Inggris. Padahal sebelumnya dia malu-malu. Program ini benar-benar transformatif.",
+			"Pembahasan structure dan prediction test membantu saya lebih siap untuk kebutuhan kampus.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=200&h=200&fit=crop&q=80",
 	},
 	{
 		id: 5,
-		name: "Ibu Linda Permata",
-		role: "Peserta Batch 11 · Menulis Kreatif",
+		name: "Dinda Permata",
+		role: "Private English 1 on 1",
 		quote:
-			"Saya tidak menyangka program menulis kreatif bisa membuat anak betah belajar selama 2 jam penuh. Kreativitasnya berkembang pesat!",
+			"Materinya bisa request untuk interview dan presentation. Karena 1 on 1, progress saya terasa lebih cepat.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&q=80",
 	},
 	{
 		id: 6,
-		name: "Ibu Mega Wulandari",
-		role: "Peserta Batch 14 · Microteaching",
+		name: "Salsa Wulandari",
+		role: "English Speaking Basic",
 		quote:
-			"Momkiddy telah menjadi mitra tumbuh saya. Bukan hanya anak yang berkembang, tapi saya sendiri juga semakin yakin dan percaya diri sebagai guru pertama anak.",
+			"Jadwal evening class cocok untuk saya yang bekerja. Kelasnya tetap ringan dan mudah diikuti.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1580894742597-87bc8789db3d?w=200&h=200&fit=crop&q=80",
 	},
 	{
 		id: 7,
-		name: "Ibu Putri Handayani",
-		role: "Peserta Batch 17 · Bimbel SD",
+		name: "Putri Handayani",
+		role: "English Conversation Class",
 		quote:
-			"Nilai rapor anak saya meningkat signifikan dalam satu semester. Yang lebih penting, dia sekarang suka belajar, bukan terpaksa.",
+			"Saya lebih berani merespons percakapan spontan dan tidak terlalu lama menerjemahkan di kepala.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&q=80",
 	},
@@ -147,7 +147,7 @@ function TestimoniPage() {
 		<>
 			<PageHero
 				title="Testimoni Peserta"
-				subtitle="Kata mereka tentang pengalaman belajar bersama Momkiddy Indonesia."
+				subtitle="Kata mereka tentang pengalaman belajar di kelas Women Future 2026."
 				breadcrumbs={[{ label: "Testimoni" }]}
 			/>
 
@@ -188,7 +188,8 @@ function TestimoniPage() {
 				<div className="mt-10 rounded-2xl bg-primary px-8 py-10 text-center">
 					<p className="text-lg font-bold text-white">Jadilah Cerita Berikutnya</p>
 					<p className="mt-1 text-sm text-white/75">
-						Bergabunglah dan rasakan sendiri pengalaman belajar bersama Momkiddy.
+						Bergabunglah dan rasakan sendiri pengalaman belajar online yang
+						terarah.
 					</p>
 					<a
 						href={waUrl}

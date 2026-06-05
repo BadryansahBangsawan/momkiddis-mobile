@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@momkiddis/ui/components/button";
 import { getWhatsAppUrl } from "@/lib/site-config";
-import { PROGRAM_LIST } from "@/lib/programs-content";
+import { PROGRAM_CATEGORY_LABELS, PROGRAM_LIST } from "@/lib/programs-content";
 import {
 	MessageCircleIcon,
 	BookOpenIcon,
@@ -13,16 +13,22 @@ import {
 	GraduationCap,
 	BookOpen,
 	Calculator,
+	FileText,
 	Globe,
+	MessageCircle,
 	PenLine,
+	UserRound,
 } from "lucide-react";
 
 const PROGRAM_ICON_MAP: Record<string, React.FC<{ className?: string }>> = {
 	GraduationCap,
 	BookOpen,
 	Calculator,
+	FileText,
 	Globe,
+	MessageCircle,
 	PenLine,
+	UserRound,
 };
 
 export const Route = createFileRoute("/_auth/dashboard")({
@@ -159,7 +165,7 @@ function DashboardPage() {
 									{program.shortTitle}
 								</p>
 								<p className="text-xs text-muted-foreground">
-									{program.category === "ibu" ? "Program untuk Ibu" : `Usia ${program.ageRange}`}
+									{PROGRAM_CATEGORY_LABELS[program.category]} · {program.priceLabel}
 								</p>
 							</div>
 							<ArrowRightIcon className="size-4 shrink-0 text-muted-foreground/40 group-hover:text-primary transition-colors ml-auto" />

@@ -3,373 +3,498 @@ export interface ProgramCurriculumItem {
 	description: string;
 }
 
+export interface ProgramPricePackage {
+	label: string;
+	price: string;
+}
+
+export type ProgramCategory = "speaking" | "test-prep" | "private";
+
 export interface Program {
 	slug: string;
 	title: string;
 	shortTitle: string;
 	subtitle: string;
 	description: string;
-	category: "ibu" | "anak";
+	category: ProgramCategory;
+	targetLabel: string;
 	ageRange: string | null;
 	isBestSeller: boolean;
 	icon: string;
 	color: string;
-	image: string;
-	maxStudents: number;
-	mode: "hybrid" | "online" | "offline";
+	image: string | null;
+	maxStudents: number | null;
+	mode: "online";
+	formatLabel: string;
+	level: string;
 	curriculum: ProgramCurriculumItem[];
 	outcomes: string[];
 	targetPeserta: string[];
 	priceLabel: string;
+	pricePackages: ProgramPricePackage[];
 	duration: string;
+	note?: string;
 }
 
+export const PROGRAM_CATEGORY_LABELS: Record<ProgramCategory, string> = {
+	speaking: "Speaking",
+	"test-prep": "Test Prep",
+	private: "Private",
+};
+
+export const PROGRAM_FORMAT = "Online Class via Zoom / Google Meet";
+export const PROGRAM_DURATION = "90 menit per pertemuan";
+export const PROGRAM_LEVEL = "Mulai dari Basic";
+
+export const PROGRAM_BONUSES = [
+	"Konsultasi belajar",
+	"Progress report",
+	"E-certificate",
+	"Group support",
+	"Scholarship sharing",
+] as const;
+
+export const CLASS_SCHEDULES = [
+	{ session: "Morning Class", time: "08.00 - 09.30 WIB" },
+	{ session: "Afternoon Class", time: "13.30 - 15.00 WIB" },
+	{ session: "Evening Class", time: "19.30 - 21.00 WIB" },
+] as const;
+
+const COMMON_OUTCOMES = [
+	"Belajar online dengan jadwal yang fleksibel",
+	"Mendapat materi dari level basic",
+	"Mendapat progress report dan e-certificate",
+	"Bisa konsultasi arah belajar dengan mentor",
+];
+
 export const PROGRAMS: Record<string, Program> = {
-	microteaching: {
-		slug: "microteaching",
-		title: "Kelas Pengajar Microteaching untuk Para Ibu",
-		shortTitle: "Kelas Microteaching",
-		subtitle: "Jadilah Mom Teacher yang percaya diri dan efektif",
+	"english-speaking-basic": {
+		slug: "english-speaking-basic",
+		title: "English Speaking Basic",
+		shortTitle: "English Speaking Basic",
+		subtitle: "Untuk pemula yang ingin mulai berani speaking dari nol",
 		description:
-			"Program unggulan Momkiddy yang dirancang untuk mencetak Mom Teacher — ibu yang mampu mengajar dan mendampingi anak belajar secara efektif di rumah. Dibimbing langsung oleh Founder.",
-		category: "ibu",
+			"Kelas basic untuk perempuan yang ingin membangun keberanian berbicara bahasa Inggris dari nol, mulai dari percakapan harian sampai self introduction.",
+		category: "speaking",
+		targetLabel: "Pemula speaking dari nol",
 		ageRange: null,
 		isBestSeller: true,
-		icon: "GraduationCap",
+		icon: "MessageCircle",
 		color: "blue",
-		image: "/program/MomSKy.png",
-		maxStudents: 20,
-		mode: "hybrid",
+		image: null,
+		maxStudents: null,
+		mode: "online",
+		formatLabel: PROGRAM_FORMAT,
+		level: PROGRAM_LEVEL,
 		curriculum: [
 			{
-				title: "Teknik Mengajar 5 Menit",
+				title: "Daily conversation",
 				description:
-					"Ibu belajar cara menjelaskan materi secara singkat, jelas, dan mudah dipahami anak. Fokusnya adalah membuat anak cepat menangkap inti pelajaran tanpa merasa terbebani.",
+					"Latihan percakapan harian agar peserta mulai terbiasa memakai bahasa Inggris dalam situasi sederhana.",
 			},
 			{
-				title: "Membuat RPP Simpel",
+				title: "Pronunciation & vocabulary",
 				description:
-					"Peserta diajarkan menyusun rencana belajar sederhana dalam satu halaman. RPP dibuat praktis, tidak rumit, dan bisa langsung digunakan untuk mengajar anak di rumah.",
+					"Perbaikan pengucapan dan penambahan kosakata basic yang sering dipakai.",
 			},
 			{
-				title: "Mengelola Kelas di Rumah",
+				title: "Thinking in English",
 				description:
-					"Ibu belajar mengatur waktu belajar, menjaga fokus anak, menghadapi anak tantrum, malas belajar, cepat bosan, atau sulit diarahkan.",
+					"Latihan menyusun kalimat tanpa terlalu banyak menerjemahkan dari bahasa Indonesia.",
 			},
 			{
-				title: "Metode Calistung Phonics",
+				title: "Self introduction",
 				description:
-					"Peserta belajar metode membaca tanpa mengeja, menggunakan pendekatan phonics agar anak lebih cepat memahami bunyi huruf, suku kata, dan kata.",
+					"Latihan memperkenalkan diri dengan jelas, natural, dan percaya diri.",
 			},
 			{
-				title: "Praktik Mengajar dan Umpan Balik",
+				title: "Confidence speaking",
 				description:
-					"Setiap peserta melakukan praktik mengajar selama 5–10 menit. Praktik dinilai langsung oleh mentor untuk mengetahui kekuatan, kekurangan, dan cara memperbaiki teknik mengajar.",
+					"Latihan keberanian bicara agar peserta tidak takut salah saat speaking.",
 			},
 		],
 		outcomes: [
-			"Mengajar anak dengan lebih percaya diri",
-			"Membuat rencana belajar sederhana di rumah",
-			"Menjelaskan materi calistung dan pelajaran SD dengan cara mudah dipahami anak",
-			"Mengelola suasana belajar agar anak lebih fokus dan nyaman",
-			"Menerapkan metode belajar yang menyenangkan dan tidak memaksa",
-			"Mendapatkan Sertifikat Mom Teacher Momkiddy",
+			"Berani mulai berbicara bahasa Inggris dari nol",
+			"Menguasai percakapan harian basic",
+			"Lebih percaya diri memperkenalkan diri",
+			...COMMON_OUTCOMES,
 		],
 		targetPeserta: [
-			"Ibu dengan anak usia 3–12 tahun",
-			"Orang tua yang ingin mendampingi anak belajar di rumah",
-			"Calon guru PAUD dan SD",
-			"Mompreneur yang ingin membuka kelas belajar",
-			"Pengajar les privat pemula",
-			"Orang tua yang menjalankan atau merencanakan homeschooling",
+			"Ibu rumah tangga",
+			"Mahasiswi",
+			"Pemula level basic",
 		],
-		priceLabel: "Hubungi Admin",
-		duration: "Batch dibuka setiap bulan",
+		priceLabel: "Mulai Rp399.000",
+		pricePackages: [
+			{ label: "4x pertemuan", price: "Rp399.000" },
+			{ label: "8x pertemuan", price: "Rp749.000" },
+			{ label: "12x pertemuan", price: "Rp1.050.000" },
+		],
+		duration: PROGRAM_DURATION,
 	},
-	calistung: {
-		slug: "calistung",
-		title: "Calistung Fun",
-		shortTitle: "Calistung Fun",
-		subtitle: "Belajar baca, tulis, hitung tanpa tekanan",
+	"english-conversation": {
+		slug: "english-conversation",
+		title: "English Conversation Class",
+		shortTitle: "English Conversation",
+		subtitle: "Untuk peserta yang ingin aktif dan lancar berbicara",
 		description:
-			"Program membaca, menulis, dan berhitung dengan metode phonics, storytelling, permainan edukatif, dan aktivitas menyenangkan. Anak belajar tanpa tekanan dan diarahkan agar mampu membaca secara bertahap.",
-		category: "anak",
-		ageRange: "3–7 tahun",
-		isBestSeller: false,
-		icon: "BookOpen",
-		color: "green",
-		image: "/program/momkid.png",
-		maxStudents: 5,
-		mode: "hybrid",
-		curriculum: [
-			{
-				title: "Level 1 — Mengenal Huruf",
-				description:
-					"Pengenalan huruf A–Z melalui lagu, permainan, dan flashcard. Anak belajar mengenali bentuk dan bunyi huruf secara menyenangkan.",
-			},
-			{
-				title: "Level 2 — Suku Kata",
-				description:
-					"Menggabungkan huruf menjadi suku kata dengan pendekatan phonics. Anak mulai memahami bagaimana huruf membentuk bunyi.",
-			},
-			{
-				title: "Level 3 — Membaca Kata",
-				description:
-					"Dari suku kata ke kata utuh. Anak mulai membaca kata-kata sederhana yang dekat dengan kehidupan sehari-hari.",
-			},
-			{
-				title: "Level 4 — Membaca Kalimat & Menulis",
-				description:
-					"Membaca kalimat pendek dan mulai menulis dengan benar. Ditambah dasar-dasar berhitung yang menyenangkan.",
-			},
-		],
-		outcomes: [
-			"Mengenal dan menyebut huruf A–Z dengan benar",
-			"Membaca suku kata dan kata sederhana",
-			"Menulis huruf dan kata dengan rapi",
-			"Memahami konsep angka dan operasi dasar",
-			"Belajar dengan antusias tanpa rasa takut",
-		],
-		targetPeserta: [
-			"Anak usia 3–7 tahun",
-			"Anak yang belum bisa membaca",
-			"Anak yang baru mulai belajar menulis",
-			"Anak yang perlu persiapan masuk SD",
-		],
-		priceLabel: "Hubungi Admin",
-		duration: "Kelas reguler mingguan",
-	},
-	"bimbel-sd": {
-		slug: "bimbel-sd",
-		title: "Bimbel SD Tematik Kelas 1–6",
-		shortTitle: "Bimbel SD",
-		subtitle: "Bimbingan belajar personal, max 5 anak per kelas",
-		description:
-			"Kelas bimbingan belajar untuk mata pelajaran Matematika, Bahasa Indonesia, IPA, dan materi tematik SD. Jumlah peserta dibatasi maksimal 5 anak per kelas agar pembelajaran lebih fokus.",
-		category: "anak",
-		ageRange: "Kelas 1–6 SD",
-		isBestSeller: false,
-		icon: "Calculator",
-		color: "purple",
-		image: "/program/kiddis.png",
-		maxStudents: 5,
-		mode: "hybrid",
-		curriculum: [
-			{
-				title: "Kelas 1–2 SD",
-				description:
-					"Fondasi Matematika dasar, membaca dan menulis lancar, pengenalan IPA lingkungan sekitar.",
-			},
-			{
-				title: "Kelas 3–4 SD",
-				description:
-					"Matematika operasi hitung, Bahasa Indonesia menulis karangan, IPA dan IPS tematik.",
-			},
-			{
-				title: "Kelas 5–6 SD",
-				description:
-					"Persiapan USBN, Matematika lanjutan, Bahasa Indonesia dan IPA sesuai kurikulum Merdeka.",
-			},
-		],
-		outcomes: [
-			"Nilai pelajaran utama meningkat",
-			"Memahami konsep, bukan sekadar hafalan",
-			"Lebih percaya diri mengerjakan soal",
-			"Siap menghadapi ulangan dan ujian sekolah",
-		],
-		targetPeserta: [
-			"Siswa kelas 1–6 SD",
-			"Anak yang kesulitan di salah satu mata pelajaran",
-			"Anak yang butuh pendampingan lebih personal",
-			"Anak yang ingin persiapan ujian lebih matang",
-		],
-		priceLabel: "Hubungi Admin",
-		duration: "Kelas reguler 2–3x seminggu",
-	},
-	"english-fun": {
-		slug: "english-fun",
-		title: "English Fun Class",
-		shortTitle: "English Fun",
-		subtitle: "Bahasa Inggris via games, role play, dan lagu",
-		description:
-			"Kelas bahasa Inggris berbasis speaking dan listening melalui games, role play, lagu, dan percakapan harian. Anak dibiasakan menggunakan bahasa Inggris secara alami, bukan dengan hafalan grammar yang kaku.",
-		category: "anak",
-		ageRange: "5–12 tahun",
+			"Kelas conversation untuk perempuan yang ingin lebih aktif, lancar, dan natural saat berbicara bahasa Inggris.",
+		category: "speaking",
+		targetLabel: "Speaking aktif dan lancar",
+		ageRange: null,
 		isBestSeller: false,
 		icon: "Globe",
-		color: "orange",
-		image: "/program/english-fun-class.png",
-		maxStudents: 8,
-		mode: "hybrid",
+		color: "green",
+		image: null,
+		maxStudents: null,
+		mode: "online",
+		formatLabel: PROGRAM_FORMAT,
+		level: PROGRAM_LEVEL,
 		curriculum: [
 			{
-				title: "Beginner — Hello World",
+				title: "Conversation practice",
 				description:
-					"Perkenalan, warna, angka, anggota tubuh, dan ekspresi sehari-hari. Belajar melalui lagu dan permainan interaktif.",
+					"Latihan percakapan aktif dengan topik yang dekat dengan kebutuhan sehari-hari.",
 			},
 			{
-				title: "Elementary — Talking About Me",
+				title: "Pronunciation correction",
 				description:
-					"Percakapan sederhana tentang keluarga, hobi, makanan, dan aktivitas. Role play situasi nyata.",
+					"Koreksi pengucapan agar speaking terdengar lebih jelas dan percaya diri.",
 			},
 			{
-				title: "Intermediate — Story & Communication",
+				title: "Discussion & roleplay",
 				description:
-					"Bercerita pendek, diskusi topik ringan, dan percakapan lebih kompleks. Anak mulai berpikir dalam bahasa Inggris.",
+					"Diskusi dan roleplay untuk membiasakan peserta merespons dalam percakapan nyata.",
+			},
+			{
+				title: "Public speaking basic",
+				description:
+					"Fondasi berbicara di depan orang lain menggunakan bahasa Inggris sederhana.",
+			},
+			{
+				title: "Fluency training",
+				description:
+					"Latihan kelancaran agar peserta tidak terlalu sering berhenti saat berbicara.",
 			},
 		],
 		outcomes: [
-			"Berani berbicara dalam bahasa Inggris",
-			"Memahami percakapan bahasa Inggris sehari-hari",
-			"Kosakata dasar 500+ kata",
-			"Tidak takut membuat kesalahan",
+			"Lebih aktif dalam percakapan bahasa Inggris",
+			"Pengucapan lebih jelas dan terarah",
+			"Lebih lancar berdiskusi dan roleplay",
+			...COMMON_OUTCOMES,
 		],
 		targetPeserta: [
-			"Anak usia 5–12 tahun",
-			"Pemula hingga menengah",
-			"Anak yang ingin percaya diri berbahasa Inggris",
-			"Persiapan sekolah bertaraf internasional",
+			"Ibu",
+			"Mahasiswi",
+			"Pekerja",
+			"Peserta yang ingin lebih lancar berbicara",
 		],
-		priceLabel: "Hubungi Admin",
-		duration: "Kelas reguler 2x seminggu",
+		priceLabel: "Mulai Rp450.000",
+		pricePackages: [
+			{ label: "4x pertemuan", price: "Rp450.000" },
+			{ label: "8x pertemuan", price: "Rp850.000" },
+			{ label: "12x pertemuan", price: "Rp1.250.000" },
+		],
+		duration: PROGRAM_DURATION,
 	},
-	"menulis-kreatif": {
-		slug: "menulis-kreatif",
-		title: "Menulis Kreatif dan Literasi",
-		shortTitle: "Menulis Kreatif",
-		subtitle: "Menuangkan ide dalam cerita, puisi, dan karya tulis",
+	"ielts-preparation": {
+		slug: "ielts-preparation",
+		title: "IELTS Preparation Class",
+		shortTitle: "IELTS Preparation",
+		subtitle: "Persiapan IELTS Academic & General",
 		description:
-			"Program untuk melatih anak membuat cerita, puisi, pidato, dan karya tulis sederhana. Anak diarahkan agar mampu menuangkan ide secara runtut, kreatif, dan percaya diri.",
-		category: "anak",
-		ageRange: "7–12 tahun",
+			"Kelas persiapan IELTS untuk kebutuhan kuliah, kerja, scholarship, dan migrasi dengan fokus pada strategi setiap section.",
+		category: "test-prep",
+		targetLabel: "IELTS Academic & General",
+		ageRange: null,
 		isBestSeller: false,
-		icon: "PenLine",
-		color: "pink",
-		image: "/program/literasi-class.png",
-		maxStudents: 8,
-		mode: "hybrid",
+		icon: "GraduationCap",
+		color: "purple",
+		image: null,
+		maxStudents: null,
+		mode: "online",
+		formatLabel: PROGRAM_FORMAT,
+		level: PROGRAM_LEVEL,
 		curriculum: [
 			{
-				title: "Mengenal Struktur Cerita",
+				title: "IELTS Speaking",
 				description:
-					"Awal, tengah, akhir. Anak belajar membangun alur cerita yang runtut dengan karakter yang menarik.",
+					"Latihan menjawab pertanyaan speaking dengan struktur yang jelas dan natural.",
 			},
 			{
-				title: "Puisi dan Ekspresi",
+				title: "Writing Task 1 & 2",
 				description:
-					"Menulis puisi bebas, pantun, dan syair. Anak belajar mengekspresikan perasaan melalui kata-kata.",
+					"Strategi menulis jawaban IELTS untuk Task 1 dan Task 2 sesuai format.",
 			},
 			{
-				title: "Karya Tulis dan Pidato",
+				title: "Listening strategies",
 				description:
-					"Menulis paragraf opini, laporan sederhana, dan berlatih pidato singkat dengan percaya diri.",
+					"Teknik memahami audio dan menangkap informasi penting saat listening.",
+			},
+			{
+				title: "Reading techniques",
+				description:
+					"Teknik membaca cepat, menemukan jawaban, dan mengelola waktu reading.",
+			},
+			{
+				title: "Vocabulary for IELTS",
+				description:
+					"Penguatan kosakata akademik yang sering dipakai dalam tes IELTS.",
 			},
 		],
 		outcomes: [
-			"Menulis cerita dengan alur yang jelas",
-			"Mengekspresikan ide secara kreatif",
-			"Percaya diri membacakan karyanya",
-			"Meningkatkan kemampuan literasi dan kosakata",
+			"Memahami format IELTS Academic dan General",
+			"Menguasai strategi speaking, writing, listening, dan reading",
+			"Lebih siap untuk kebutuhan kuliah, kerja, scholarship, atau migrasi",
+			...COMMON_OUTCOMES,
 		],
 		targetPeserta: [
-			"Anak usia 7–12 tahun",
-			"Anak yang suka bercerita",
-			"Anak yang ingin ekspresi diri lebih baik",
-			"Persiapan lomba menulis atau pidato",
+			"Persiapan kuliah",
+			"Persiapan kerja",
+			"Pemburu scholarship",
+			"Persiapan migrasi",
 		],
-		priceLabel: "Hubungi Admin",
-		duration: "Kelas reguler 1–2x seminggu",
+		priceLabel: "Mulai Rp650.000",
+		pricePackages: [
+			{ label: "4x pertemuan", price: "Rp650.000" },
+			{ label: "8x pertemuan", price: "Rp1.250.000" },
+			{ label: "12x pertemuan", price: "Rp1.850.000" },
+		],
+		duration: PROGRAM_DURATION,
+	},
+	"toefl-preparation": {
+		slug: "toefl-preparation",
+		title: "TOEFL Preparation",
+		shortTitle: "TOEFL Preparation",
+		subtitle: "Untuk kebutuhan kampus, scholarship, kerja, dan CPNS",
+		description:
+			"Kelas persiapan TOEFL untuk kebutuhan akademik dan profesional, dari structure hingga prediction test.",
+		category: "test-prep",
+		targetLabel: "Kampus, scholarship, kerja, CPNS",
+		ageRange: null,
+		isBestSeller: false,
+		icon: "FileText",
+		color: "orange",
+		image: null,
+		maxStudents: null,
+		mode: "online",
+		formatLabel: PROGRAM_FORMAT,
+		level: PROGRAM_LEVEL,
+		curriculum: [
+			{
+				title: "Structure & grammar",
+				description:
+					"Pembahasan struktur kalimat dan grammar yang sering muncul dalam TOEFL.",
+			},
+			{
+				title: "Listening TOEFL",
+				description:
+					"Latihan listening untuk memahami percakapan dan monolog dalam format TOEFL.",
+			},
+			{
+				title: "Reading comprehension",
+				description:
+					"Teknik memahami bacaan dan menjawab soal reading dengan lebih efektif.",
+			},
+			{
+				title: "Prediction test",
+				description:
+					"Simulasi dan pembahasan soal untuk mengukur kesiapan peserta.",
+			},
+			{
+				title: "Tips & strategies",
+				description:
+					"Strategi pengerjaan soal, manajemen waktu, dan cara menghindari jebakan umum.",
+			},
+		],
+		outcomes: [
+			"Lebih siap menghadapi TOEFL untuk kampus atau kerja",
+			"Memahami grammar, listening, dan reading TOEFL",
+			"Mendapat strategi pengerjaan dan prediction test",
+			...COMMON_OUTCOMES,
+		],
+		targetPeserta: [
+			"Mahasiswa",
+			"Pekerja",
+			"CPNS",
+			"Pemburu beasiswa",
+		],
+		priceLabel: "Mulai Rp550.000",
+		pricePackages: [
+			{ label: "4x pertemuan", price: "Rp550.000" },
+			{ label: "8x pertemuan", price: "Rp1.050.000" },
+			{ label: "12x pertemuan", price: "Rp1.550.000" },
+		],
+		duration: PROGRAM_DURATION,
+	},
+	"private-english-1-on-1": {
+		slug: "private-english-1-on-1",
+		title: "Private English Class 1 on 1",
+		shortTitle: "Private English 1 on 1",
+		subtitle: "Belajar lebih fokus sesuai kebutuhan pribadi",
+		description:
+			"Kelas private 1 on 1 yang 100% personal, materi fleksibel, dan dirancang agar progress peserta lebih cepat.",
+		category: "private",
+		targetLabel: "Belajar personal dan fleksibel",
+		ageRange: null,
+		isBestSeller: false,
+		icon: "UserRound",
+		color: "pink",
+		image: null,
+		maxStudents: 1,
+		mode: "online",
+		formatLabel: PROGRAM_FORMAT,
+		level: PROGRAM_LEVEL,
+		curriculum: [
+			{
+				title: "Speaking",
+				description:
+					"Materi speaking bisa disesuaikan dengan kebutuhan dan level peserta.",
+			},
+			{
+				title: "IELTS",
+				description:
+					"Pendampingan personal untuk target IELTS tertentu.",
+			},
+			{
+				title: "TOEFL",
+				description:
+					"Pendampingan personal untuk kebutuhan TOEFL kampus, kerja, atau beasiswa.",
+			},
+			{
+				title: "Pronunciation",
+				description:
+					"Koreksi pengucapan secara detail karena sesi berlangsung 1 on 1.",
+			},
+			{
+				title: "Interview",
+				description:
+					"Latihan interview bahasa Inggris sesuai kebutuhan peserta.",
+			},
+			{
+				title: "Presentation",
+				description:
+					"Latihan presentasi bahasa Inggris untuk studi, kerja, atau acara profesional.",
+			},
+		],
+		outcomes: [
+			"Belajar 100% personal sesuai kebutuhan pribadi",
+			"Materi fleksibel dan bisa request",
+			"Progress lebih cepat karena fokus 1 on 1",
+			...COMMON_OUTCOMES,
+		],
+		targetPeserta: [
+			"Peserta yang butuh kelas personal",
+			"Peserta dengan target IELTS atau TOEFL khusus",
+			"Peserta yang ingin latihan interview atau presentation",
+		],
+		priceLabel: "Mulai Rp850.000",
+		pricePackages: [
+			{ label: "4x pertemuan", price: "Rp850.000" },
+			{ label: "8x pertemuan", price: "Rp1.650.000" },
+			{ label: "12x pertemuan", price: "Rp2.350.000" },
+		],
+		duration: PROGRAM_DURATION,
+		note: "100% personal, materi fleksibel, progress lebih cepat.",
 	},
 } as const;
 
 export const PROGRAM_LIST = Object.values(PROGRAMS);
-export const IBU_PROGRAMS = PROGRAM_LIST.filter((p) => p.category === "ibu");
-export const ANAK_PROGRAMS = PROGRAM_LIST.filter((p) => p.category === "anak");
+export const SPEAKING_PROGRAMS = PROGRAM_LIST.filter(
+	(p) => p.category === "speaking",
+);
+export const TEST_PREP_PROGRAMS = PROGRAM_LIST.filter(
+	(p) => p.category === "test-prep",
+);
+export const PRIVATE_PROGRAMS = PROGRAM_LIST.filter(
+	(p) => p.category === "private",
+);
 
 export const KEUNGGULAN = [
 	{
-		icon: "Users",
-		title: "Ibu & Anak dalam Satu Kurikulum",
-		description:
-			"Materi yang dipelajari ibu dalam kelas microteaching dapat langsung diterapkan untuk mendampingi anak belajar di rumah.",
-	},
-	{
-		icon: "Gamepad2",
-		title: "Play-Based Learning",
-		description:
-			"Momkiddy menerapkan pendekatan belajar berbasis permainan. Anak belajar melalui aktivitas yang menyenangkan sehingga materi lebih mudah diingat.",
-	},
-	{
 		icon: "Monitor",
-		title: "Kelas Hybrid",
+		title: "Online via Zoom / Google Meet",
 		description:
-			"Program tersedia secara offline dan online melalui Zoom. Ibu dari berbagai daerah tetap dapat mengikuti kelas tanpa harus datang langsung.",
+			"Semua kelas berlangsung online sehingga bisa diikuti dari rumah, kampus, atau tempat kerja.",
 	},
 	{
-		icon: "Heart",
-		title: "Dibimbing Langsung oleh Founder",
+		icon: "Clock",
+		title: "90 Menit Per Pertemuan",
 		description:
-			"Peserta dibimbing langsung oleh Lita Hendratno, founder Momkiddy Indonesia — bukan teori semata, tapi praktik dan pembahasan kasus nyata.",
+			"Durasi kelas cukup fokus untuk latihan, koreksi, diskusi, dan tanya jawab.",
 	},
 	{
 		icon: "Target",
-		title: "Kelas Kecil dan Terarah",
+		title: "Mulai dari Basic",
 		description:
-			"Jumlah peserta dibatasi agar proses pendampingan lebih maksimal. Setiap peserta mendapat ruang untuk praktik, bertanya, dan menerima evaluasi.",
+			"Peserta pemula bisa mulai dari fondasi dasar sebelum masuk ke target speaking atau test prep.",
+	},
+	{
+		icon: "Heart",
+		title: "Khusus Perempuan",
+		description:
+			"Ruang belajar dibuat nyaman untuk ibu rumah tangga, mahasiswi, pekerja, dan peserta perempuan lainnya.",
+	},
+	{
+		icon: "Award",
+		title: "Bonus Free",
+		description:
+			"Peserta mendapatkan konsultasi belajar, progress report, e-certificate, group support, dan scholarship sharing.",
 	},
 ] as const;
 
 export const CARA_KERJA = [
 	{
 		step: "01",
-		title: "Pilih Program",
-		description: "Pilih program yang sesuai dengan kebutuhan ibu dan anak.",
+		title: "Pilih Kelas",
+		description:
+			"Pilih kelas speaking, test preparation, atau private sesuai kebutuhan.",
 	},
 	{
 		step: "02",
-		title: "Hubungi Admin",
-		description: "Chat admin via WhatsApp untuk info jadwal dan pendaftaran.",
+		title: "Pilih Paket",
+		description: "Tentukan paket 4x, 8x, atau 12x pertemuan.",
 	},
 	{
 		step: "03",
-		title: "Ikuti Kelas",
+		title: "Atur Jadwal",
 		description:
-			"Ikuti kelas online maupun offline dengan suasana yang menyenangkan.",
+			"Pilih sesi morning, afternoon, atau evening class sesuai aktivitasmu.",
 	},
 	{
 		step: "04",
-		title: "Dapatkan Sertifikat",
+		title: "Mulai Online Class",
 		description:
-			"Selesaikan program dan raih Sertifikat Mom Teacher Momkiddy.",
+			"Ikuti kelas via Zoom atau Google Meet dan pantau progress belajarmu.",
 	},
 ] as const;
 
 export const STATIC_TESTIMONIALS = [
 	{
 		id: "1",
-		authorName: "Ibu Rina",
-		authorRole: "Peserta Batch 4",
-		programSlug: "microteaching",
+		authorName: "Nadia",
+		authorRole: "English Speaking Basic",
+		programSlug: "english-speaking-basic",
 		content:
-			"Sebelum ikut kelas ini, saya bingung harus mulai dari mana mengajar anak. Sekarang saya punya metode yang jelas dan anak saya jadi lebih semangat belajar di rumah!",
+			"Saya mulai dari nol dan akhirnya berani memperkenalkan diri dalam bahasa Inggris tanpa terlalu takut salah.",
 		rating: 5,
 	},
 	{
 		id: "2",
-		authorName: "Ibu Sari",
-		authorRole: "Peserta Batch 6",
-		programSlug: "microteaching",
+		authorName: "Rani",
+		authorRole: "English Conversation Class",
+		programSlug: "english-conversation",
 		content:
-			"Kelas microteaching Bu Lita benar-benar membuka mata saya. Ternyata mengajar itu ada seninya. Sekarang saya bisa buka les privat kecil dari rumah!",
+			"Latihan roleplay dan pronunciation correction membantu saya lebih lancar ngobrol di kantor.",
 		rating: 5,
 	},
 	{
 		id: "3",
-		authorName: "Ibu Dewi",
-		authorRole: "Orang Tua Murid Calistung",
-		programSlug: "calistung",
+		authorName: "Aulia",
+		authorRole: "IELTS Preparation",
+		programSlug: "ielts-preparation",
 		content:
-			"Anak saya yang tadinya tidak mau belajar sekarang malah minta belajar setiap hari. Metode phonics-nya memang beda, anak lebih cepat nangkap tanpa stres.",
+			"Strategi writing dan speaking-nya jelas. Saya jadi tahu bagian mana yang harus diperbaiki.",
 		rating: 5,
 	},
 ] as const;
@@ -377,26 +502,26 @@ export const STATIC_TESTIMONIALS = [
 export const STATIC_ALUMNI = [
 	{
 		id: "1",
-		name: "Ibu Fitri",
-		batchLabel: "Batch 3, Januari 2024",
-		programSlug: "microteaching",
+		name: "Fitri",
+		batchLabel: "Women Future 2026",
+		programSlug: "english-speaking-basic",
 		shortStory:
-			"Setelah lulus, kini membuka kelas belajar dari rumah untuk 5 anak di lingkungannya.",
+			"Mulai dari basic dan sekarang lebih percaya diri berbicara saat bertemu orang baru.",
 	},
 	{
 		id: "2",
-		name: "Ibu Nanda",
-		batchLabel: "Batch 5, Maret 2024",
-		programSlug: "microteaching",
+		name: "Maya",
+		batchLabel: "Women Future 2026",
+		programSlug: "toefl-preparation",
 		shortStory:
-			"Berhasil mendampingi anak dari tidak bisa membaca hingga lancar dalam 2 bulan.",
+			"Mengikuti TOEFL preparation untuk kebutuhan kampus dan beasiswa.",
 	},
 	{
 		id: "3",
-		name: "Ibu Maya",
-		batchLabel: "Batch 7, Juni 2024",
-		programSlug: "microteaching",
+		name: "Dinda",
+		batchLabel: "Women Future 2026",
+		programSlug: "private-english-1-on-1",
 		shortStory:
-			"Sekarang aktif sebagai pengajar les privat dan sudah memiliki 8 murid tetap.",
+			"Mengambil kelas private untuk persiapan interview dan presentation.",
 	},
 ] as const;

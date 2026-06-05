@@ -10,26 +10,29 @@ import { Tag, CalendarDays, Sparkles } from "lucide-react";
 const PLACEHOLDER_PROMOS = [
 	{
 		id: "1",
-		title: "Early Bird Batch 21 — Diskon 20%",
-		description: "Daftar sebelum tanggal 15 bulan ini dan dapatkan diskon 20% untuk program Kelas Microteaching Batch 21.",
-		programSlug: "microteaching" as string | null,
+		title: "Early Bird Women Future 2026",
+		description:
+			"Daftar lebih awal untuk kelas Women Future 2026 dan konsultasikan paket belajar terbaik dengan admin.",
+		programSlug: "english-speaking-basic" as string | null,
 		discountLabel: "Diskon 20%",
 		validUntil: new Date(Date.now() + 10 * 24 * 60 * 60 * 1000) as Date | null,
 	},
 	{
 		id: "2",
-		title: "Paket Ibu & Anak — Hemat Lebih",
-		description: "Daftar program Microteaching untuk ibu dan Calistung Fun untuk anak sekaligus, hemat biaya administrasi dan dapat bonus modul digital.",
+		title: "Bundle Speaking + Conversation",
+		description:
+			"Mulai dari English Speaking Basic lalu lanjut ke Conversation Class untuk latihan speaking yang lebih aktif.",
 		programSlug: null,
-		discountLabel: "Bonus Modul Digital",
+		discountLabel: "Bonus Konsultasi",
 		validUntil: null,
 	},
 	{
 		id: "3",
-		title: "Referral Program — Ajak Teman, Dapat Hadiah",
-		description: "Ajak 1 teman untuk bergabung, kamu dan temanmu mendapat worksheet eksklusif + potongan biaya batch berikutnya.",
+		title: "Referral Program",
+		description:
+			"Ajak teman bergabung di kelas Women Future dan tanyakan bonus referral yang sedang aktif.",
 		programSlug: null,
-		discountLabel: "Free Worksheet + Potongan Batch",
+		discountLabel: "Bonus Referral",
 		validUntil: null,
 	},
 ];
@@ -64,7 +67,7 @@ function PromoPage() {
 		<>
 			<PageHero
 				title="Promo & Penawaran"
-				subtitle="Dapatkan penawaran terbaik untuk program Momkiddy Indonesia."
+				subtitle="Dapatkan penawaran terbaik untuk kelas Women Future 2026."
 				breadcrumbs={[{ label: "Promo" }]}
 			/>
 

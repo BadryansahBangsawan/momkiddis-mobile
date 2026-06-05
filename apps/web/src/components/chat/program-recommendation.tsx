@@ -1,14 +1,29 @@
 import { Link } from "@tanstack/react-router";
 import { Badge } from "@momkiddis/ui/components/badge";
 import { Button } from "@momkiddis/ui/components/button";
-import { ArrowRight, MessageCircle } from "lucide-react";
-import { PROGRAMS } from "@/lib/programs-content";
+import {
+	ArrowRight,
+	FileText,
+	Globe,
+	GraduationCap,
+	MessageCircle,
+	UserRound,
+} from "lucide-react";
+import { PROGRAM_CATEGORY_LABELS, PROGRAMS } from "@/lib/programs-content";
 import { getWhatsAppUrl } from "@/lib/site-config";
 
 interface ProgramRecommendationProps {
 	slugs: string[];
 	reason: string;
 }
+
+const ICON_MAP: Record<string, React.FC<{ className?: string }>> = {
+	FileText,
+	Globe,
+	GraduationCap,
+	MessageCircle,
+	UserRound,
+};
 
 export function ProgramRecommendation({
 	slugs,
@@ -37,43 +52,34 @@ export function ProgramRecommendation({
 					key={program.slug}
 					className="overflow-hidden rounded-xl border border-border bg-card"
 				>
-					{/* Image */}
-					<div className="relative h-28 w-full overflow-hidden">
-						<img
-							src={program.image}
-							alt={program.shortTitle}
-							className="h-full w-full object-contain"
-						/>
-					</div>
-
-					{/* Content */}
 					<div className="space-y-2.5 p-3">
 						<div>
-							<div className="flex items-center gap-1.5">
-								<h4 className="text-sm font-semibold text-foreground">
-									{program.shortTitle}
-								</h4>
-								<Badge
-									variant="outline"
-									className={`text-[10px] ${
-										program.category === "ibu"
-											? "border-blue-200 text-blue-700"
-											: "border-emerald-200 text-emerald-700"
-									}`}
-								>
-									{program.category === "ibu"
-										? "Untuk Ibu"
-										: "Untuk Anak"}
-								</Badge>
+							<div className="flex items-start gap-2">
+								<div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+									{(() => {
+										const Icon = ICON_MAP[program.icon] ?? MessageCircle;
+										return <Icon className="size-4 text-primary" />;
+									})()}
+								</div>
+								<div className="min-w-0">
+									<div className="flex flex-wrap items-center gap-1.5">
+										<h4 className="text-sm font-semibold text-foreground">
+											{program.shortTitle}
+										</h4>
+										<Badge
+											variant="outline"
+											className="border-primary/20 text-[10px] text-primary"
+										>
+											{PROGRAM_CATEGORY_LABELS[program.category]}
+										</Badge>
+									</div>
+									<p className="text-[11px] text-muted-foreground">
+										{program.priceLabel} · {program.duration}
+									</p>
+								</div>
 							</div>
-							{program.ageRange && (
-								<p className="text-[11px] text-muted-foreground">
-									Usia {program.ageRange}
-								</p>
-							)}
 						</div>
 
-						{/* Actions */}
 						<div className="flex gap-2">
 							<Link
 								to="/programs/$slug"

@@ -116,9 +116,9 @@ function AboutTeaser() {
 					{/* Visual — stats cards */}
 					<div className="grid grid-cols-2 gap-4">
 						{[
-							{ label: "Ibu Terlatih", value: "500+", sub: "dari berbagai kota di Indonesia" },
-							{ label: "Batch Selesai", value: "20+", sub: "batch microteaching" },
-							{ label: "Program Aktif", value: "5", sub: "program untuk ibu dan anak" },
+							{ label: "Peserta Perempuan", value: "500+", sub: "dari berbagai kota di Indonesia" },
+							{ label: "Batch Selesai", value: "20+", sub: "kelas online dan mentoring" },
+							{ label: "Kelas Aktif", value: "5", sub: "kelas Women Future 2026" },
 							{ label: "Rating Kepuasan", value: "4.9", sub: "berdasarkan testimoni peserta" },
 						].map(({ label, value, sub }, i) => (
 							<motion.div
@@ -161,11 +161,11 @@ function ProgramsSection() {
 							Program Unggulan
 						</p>
 						<h2 className="mt-1 text-xl font-bold tracking-tight text-foreground sm:text-2xl">
-							Belajar Sesuai Kebutuhan
+							Women Future 2026
 						</h2>
 						<p className="mt-1.5 max-w-xl text-sm text-muted-foreground">
-							5 program dirancang untuk ibu dan anak, dari microteaching hingga
-							bahasa Inggris.
+							4 kelas unggulan dari speaking basic hingga IELTS dan TOEFL.
+							Kelas private tersedia di halaman program.
 						</p>
 					</div>
 					<Link to="/programs" className="shrink-0">
@@ -181,10 +181,11 @@ function ProgramsSection() {
 				</motion.div>
 
 				{/* Grid */}
-					<div className="mt-8 grid grid-cols-2 justify-center gap-2 sm:gap-3 md:grid-cols-[repeat(auto-fit,minmax(14rem,18rem))]">
+				<div className="mt-8 grid grid-cols-1 justify-center gap-4 sm:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(17rem,19rem))]">
 					{featuredPrograms.map((program, i) => (
 						<motion.div
 							key={program.slug}
+							className="h-full"
 							initial={{ opacity: 0, y: 30 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true, margin: "-60px" }}
@@ -203,64 +204,64 @@ function ProgramsSection() {
 const HOME_TESTIMONIALS = [
 	{
 		id: "h1",
-		name: "Ibu Rina Damayanti",
-		role: "Peserta Batch 4 · Microteaching",
+		name: "Nadia Putri",
+		role: "English Speaking Basic",
 		content:
-			"Sebelum ikut kelas ini, saya bingung harus mulai dari mana. Sekarang punya metode yang jelas dan anak saya jadi lebih semangat belajar!",
+			"Saya mulai dari nol dan akhirnya berani memperkenalkan diri dalam bahasa Inggris tanpa terlalu takut salah.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=200&h=200&fit=crop&q=80",
 	},
 	{
 		id: "h2",
-		name: "Ibu Sari Kusuma",
-		role: "Peserta Batch 6 · Microteaching",
+		name: "Rani Kusuma",
+		role: "English Conversation Class",
 		content:
-			"Kelas microteaching Bu Lita membuka mata saya. Ternyata mengajar itu ada seninya. Sekarang saya buka les privat dari rumah!",
+			"Roleplay dan pronunciation correction membuat saya lebih lancar berbicara di meeting kantor.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&h=200&fit=crop&q=80",
 	},
 	{
 		id: "h3",
-		name: "Ibu Dewi Rahayu",
-		role: "Orang Tua · Calistung Fun",
+		name: "Aulia Rahma",
+		role: "IELTS Preparation Class",
 		content:
-			"Anak saya yang tadinya tidak mau belajar sekarang malah minta belajar setiap hari. Metode phonics-nya memang beda!",
+			"Strategi writing dan speaking-nya jelas. Saya jadi tahu bagian mana yang harus diperbaiki untuk target IELTS.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1488508872907-592763824245?w=200&h=200&fit=crop&q=80",
 	},
 	{
 		id: "h4",
-		name: "Ibu Ayu Lestari",
-		role: "Peserta Batch 9 · English Fun Class",
+		name: "Maya Lestari",
+		role: "TOEFL Preparation",
 		content:
-			"Anak saya kini percaya diri berbicara bahasa Inggris. Padahal sebelumnya dia malu-malu. Program ini benar-benar transformatif.",
+			"Pembahasan structure dan prediction test membantu saya lebih siap untuk kebutuhan kampus.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=200&h=200&fit=crop&q=80",
 	},
 	{
 		id: "h5",
-		name: "Ibu Linda Permata",
-		role: "Peserta Batch 11 · Menulis Kreatif",
+		name: "Dinda Permata",
+		role: "Private English 1 on 1",
 		content:
-			"Saya tidak menyangka program menulis kreatif bisa membuat anak betah belajar selama 2 jam penuh tanpa rewel.",
+			"Materinya bisa request untuk interview dan presentation. Karena 1 on 1, progress saya terasa lebih cepat.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&q=80",
 	},
 	{
 		id: "h6",
-		name: "Ibu Mega Wulandari",
-		role: "Peserta Batch 14 · Microteaching",
+		name: "Salsa Wulandari",
+		role: "English Speaking Basic",
 		content:
-			"Bukan hanya anak yang berkembang, tapi saya sendiri semakin yakin dan percaya diri sebagai guru pertama anak.",
+			"Jadwal evening class cocok untuk saya yang bekerja. Kelasnya tetap ringan dan mudah diikuti.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1580894742597-87bc8789db3d?w=200&h=200&fit=crop&q=80",
 	},
 	{
 		id: "h7",
-		name: "Ibu Putri Handayani",
-		role: "Peserta Batch 17 · Bimbel SD",
+		name: "Putri Handayani",
+		role: "English Conversation Class",
 		content:
-			"Nilai rapor anak meningkat signifikan dalam satu semester. Yang lebih penting, dia sekarang suka belajar, bukan terpaksa.",
+			"Saya lebih berani merespons percakapan spontan dan tidak terlalu lama menerjemahkan di kepala.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&q=80",
 	},
@@ -363,25 +364,25 @@ function TestimoniSection() {
 const HOME_ALUMNI_SLIDER: AlumniReview[] = [
 	{
 		id: "a1",
-		name: "Ibu Fitri Handayani",
-		batchLabel: "Batch 3 · Kelas Microteaching",
-		quote: "Setelah lulus, saya membuka kelas belajar dari rumah untuk 5 anak di lingkungan. Metode yang saya pelajari benar-benar mengubah cara mendampingi anak.",
+		name: "Fitri Handayani",
+		batchLabel: "Women Future 2026 · English Speaking Basic",
+		quote: "Mulai dari basic, sekarang saya lebih berani memperkenalkan diri dan membuka percakapan sederhana dalam bahasa Inggris.",
 		imageSrc: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=600&fit=crop&q=80",
 		thumbnailSrc: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=120&fit=crop&q=80",
 	},
 	{
 		id: "a2",
-		name: "Ibu Nanda Pratiwi",
-		batchLabel: "Batch 5 · Kelas Microteaching",
-		quote: "Berhasil mendampingi anak dari tidak bisa membaca hingga lancar dalam 2 bulan. Tidak menyangka hasilnya secepat ini!",
+		name: "Nanda Pratiwi",
+		batchLabel: "Women Future 2026 · TOEFL Preparation",
+		quote: "Latihan structure dan reading membuat saya lebih siap mengejar target TOEFL untuk kebutuhan kampus.",
 		imageSrc: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=600&fit=crop&q=80",
 		thumbnailSrc: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=100&h=120&fit=crop&q=80",
 	},
 	{
 		id: "a3",
-		name: "Ibu Maya Sari",
-		batchLabel: "Batch 7 · Kelas Microteaching",
-		quote: "Sekarang aktif sebagai pengajar les privat dan sudah memiliki 8 murid tetap. Program ini membuka pintu rezeki baru.",
+		name: "Maya Sari",
+		batchLabel: "Women Future 2026 · Private English 1 on 1",
+		quote: "Kelas private membantu saya latihan interview dan presentation dengan materi yang benar-benar sesuai kebutuhan.",
 		imageSrc: "https://images.unsplash.com/photo-1488508872907-592763824245?w=400&h=600&fit=crop&q=80",
 		thumbnailSrc: "https://images.unsplash.com/photo-1488508872907-592763824245?w=100&h=120&fit=crop&q=80",
 	},
@@ -399,8 +400,8 @@ function AlumniSection() {
 					transition={{ duration: 0.6, ease: "easeOut" }}
 				>
 					<div>
-						<p className="text-xs font-semibold uppercase tracking-widest text-primary">Alumni</p>
-						<h2 className="mt-1 text-xl font-bold tracking-tight text-foreground sm:text-2xl">Kisah Sukses Alumni</h2>
+						<p className="text-xs font-semibold uppercase tracking-widest text-primary">Peserta</p>
+						<h2 className="mt-1 text-xl font-bold tracking-tight text-foreground sm:text-2xl">Cerita Peserta Women Future</h2>
 					</div>
 					<Link to="/alumni">
 						<Button variant="ghost" size="sm" className="gap-1 text-xs text-primary hover:text-primary/80">

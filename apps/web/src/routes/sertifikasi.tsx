@@ -6,31 +6,31 @@ import { Award, CheckCircle2, BookOpen, Users, Home, Briefcase } from "lucide-re
 const KEGUNAAN = [
 	{
 		icon: Home,
-		title: "Homeschooling",
-		desc: "Jadikan sebagai bukti kompetensi dalam mendampingi anak belajar mandiri di rumah.",
+		title: "Portofolio Belajar",
+		desc: "Jadikan sebagai bukti bahwa kamu telah mengikuti kelas bahasa Inggris online.",
 	},
 	{
 		icon: Users,
-		title: "Membuka Les Privat",
-		desc: "Modal awal yang kuat untuk menerima murid les dan membangun kepercayaan orang tua.",
+		title: "Pengembangan Diri",
+		desc: "Dokumentasikan progres belajar untuk kebutuhan pribadi, kampus, atau kerja.",
 	},
 	{
 		icon: Briefcase,
-		title: "Merintis Kelas Kecil",
-		desc: "Dasar yang solid untuk memulai kelas belajar mini di rumah atau lingkungan sekitar.",
+		title: "Kebutuhan Profesional",
+		desc: "Tambahkan sebagai pendukung saat melamar kerja, interview, atau program pengembangan.",
 	},
 	{
 		icon: BookOpen,
-		title: "Pengembangan Diri",
-		desc: "Bukti nyata perjalanan belajar Anda sebagai Mom Teacher yang terus berkembang.",
+		title: "Target Lanjutan",
+		desc: "Bisa menjadi catatan awal sebelum lanjut ke conversation, IELTS, TOEFL, atau private class.",
 	},
 ];
 
 const SYARAT = [
 	"Mengikuti minimal 80% dari total sesi kelas",
-	"Menyelesaikan tugas praktik mengajar",
-	"Mengumpulkan RPP sederhana yang telah dibuat selama pelatihan",
-	"Lulus evaluasi akhir program",
+	"Aktif mengikuti latihan dan diskusi kelas",
+	"Menyelesaikan aktivitas belajar yang diberikan mentor",
+	"Mengikuti evaluasi atau progress check di akhir program",
 ];
 
 export const Route = createFileRoute("/sertifikasi")({
@@ -38,13 +38,13 @@ export const Route = createFileRoute("/sertifikasi")({
 });
 
 function SertifikasiPage() {
-	const waUrl = getWhatsAppUrl("Kelas Microteaching");
+	const waUrl = getWhatsAppUrl("Women Future 2026");
 
 	return (
 		<>
 			<PageHero
-				title="Sertifikat Mom Teacher"
-				subtitle="Bukti resmi kompetensi mengajar yang diakui oleh Momkiddy Indonesia."
+				title="E-Certificate Women Future"
+				subtitle="Sertifikat digital untuk peserta yang menyelesaikan kelas online Women Future 2026."
 				breadcrumbs={[{ label: "Sertifikasi" }]}
 			/>
 
@@ -54,9 +54,9 @@ function SertifikasiPage() {
 					<div className="flex flex-col items-center justify-center rounded-2xl border border-border bg-gradient-to-br from-primary/5 to-primary/10 p-10">
 						<Award className="size-16 text-primary" />
 						<p className="mt-3 text-base font-semibold text-foreground">
-							Sertifikat Mom Teacher
+							E-Certificate
 						</p>
-						<p className="mt-1 text-sm text-muted-foreground">Momkiddy Indonesia</p>
+						<p className="mt-1 text-sm text-muted-foreground">Women Future 2026</p>
 						<div className="mt-4 h-px w-16 bg-border" />
 						<p className="mt-4 text-xs text-center text-muted-foreground">
 							Diterbitkan atas nama peserta yang berhasil menyelesaikan program
@@ -68,14 +68,13 @@ function SertifikasiPage() {
 						</h2>
 						<div className="space-y-3 text-sm leading-relaxed text-muted-foreground">
 							<p>
-								Sertifikat Mom Teacher Momkiddy adalah pengakuan atas
-								perjalanan belajar Anda — bukan sekadar absensi kehadiran,
-								tetapi bukti bahwa Anda telah melewati proses praktik mengajar,
-								umpan balik, dan evaluasi yang terstruktur.
+								E-certificate Women Future adalah bukti perjalanan belajar Anda
+								setelah mengikuti kelas online, latihan, progress check, dan
+								pendampingan mentor.
 							</p>
 							<p>
-								Diterbitkan langsung oleh Momkiddy Indonesia dan ditandatangani
-								oleh Lita Hendratno, Founder.
+								Sertifikat diberikan dalam format digital dan dapat digunakan
+								untuk dokumentasi pengembangan diri.
 							</p>
 						</div>
 					</div>
@@ -128,12 +127,16 @@ function SertifikasiPage() {
 				{/* CTA */}
 				<section className="text-center space-y-3">
 					<p className="text-sm font-medium text-foreground">
-						Siap mendapatkan Sertifikat Mom Teacher?
+						Siap mendapatkan e-certificate?
 					</p>
 					<p className="text-sm text-muted-foreground">
 						Daftarkan diri ke{" "}
-						<Link to="/programs/$slug" params={{ slug: "microteaching" }} className="text-primary hover:underline">
-							Kelas Microteaching
+						<Link
+							to="/programs/$slug"
+							params={{ slug: "english-speaking-basic" }}
+							className="text-primary hover:underline"
+						>
+							English Speaking Basic
 						</Link>{" "}
 						sekarang.
 					</p>
@@ -143,7 +146,7 @@ function SertifikasiPage() {
 						rel="noopener noreferrer"
 						className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-white transition-opacity duration-150 active:scale-[0.97] hover:opacity-90"
 					>
-						Daftar Kelas Microteaching
+						Daftar Women Future
 					</a>
 				</section>
 			</div>

@@ -19,10 +19,10 @@ export const Route = createFileRoute("/alumni")({
 const FEATURED_REVIEWS: AlumniReview[] = [
 	{
 		id: "f1",
-		name: "Ibu Fitri Handayani",
-		batchLabel: "Batch 3 · Kelas Microteaching",
+		name: "Fitri Handayani",
+		batchLabel: "Women Future 2026 · English Speaking Basic",
 		quote:
-			"Setelah lulus, saya membuka kelas belajar dari rumah untuk 5 anak di lingkungan. Metode yang saya pelajari benar-benar mengubah cara saya mendampingi anak.",
+			"Mulai dari basic, sekarang saya lebih berani memperkenalkan diri dan membuka percakapan sederhana dalam bahasa Inggris.",
 		imageSrc:
 			"https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=600&fit=crop&q=80",
 		thumbnailSrc:
@@ -30,10 +30,10 @@ const FEATURED_REVIEWS: AlumniReview[] = [
 	},
 	{
 		id: "f2",
-		name: "Ibu Nanda Pratiwi",
-		batchLabel: "Batch 5 · Kelas Microteaching",
+		name: "Nanda Pratiwi",
+		batchLabel: "Women Future 2026 · TOEFL Preparation",
 		quote:
-			"Berhasil mendampingi anak dari tidak bisa membaca hingga lancar dalam 2 bulan. Tidak menyangka hasilnya secepat ini!",
+			"Latihan structure dan reading membuat saya lebih siap mengejar target TOEFL untuk kebutuhan kampus.",
 		imageSrc:
 			"https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=600&fit=crop&q=80",
 		thumbnailSrc:
@@ -41,10 +41,10 @@ const FEATURED_REVIEWS: AlumniReview[] = [
 	},
 	{
 		id: "f3",
-		name: "Ibu Maya Sari",
-		batchLabel: "Batch 7 · Kelas Microteaching",
+		name: "Maya Sari",
+		batchLabel: "Women Future 2026 · Private English 1 on 1",
 		quote:
-			"Sekarang aktif sebagai pengajar les privat dan sudah memiliki 8 murid tetap. Program ini membuka pintu rezeki yang tidak pernah saya bayangkan.",
+			"Kelas private membantu saya latihan interview dan presentation dengan materi yang benar-benar sesuai kebutuhan.",
 		imageSrc:
 			"https://images.unsplash.com/photo-1488508872907-592763824245?w=400&h=600&fit=crop&q=80",
 		thumbnailSrc:
@@ -52,10 +52,10 @@ const FEATURED_REVIEWS: AlumniReview[] = [
 	},
 	{
 		id: "f4",
-		name: "Ibu Rini Wahyuni",
-		batchLabel: "Batch 10 · Calistung Fun",
+		name: "Rini Wahyuni",
+		batchLabel: "Women Future 2026 · English Conversation",
 		quote:
-			"Anak saya yang tadinya tidak mau belajar, kini selalu minta waktu belajar setiap hari. Terima kasih Momkiddy!",
+			"Conversation practice dan roleplay membuat saya lebih siap ngobrol spontan dalam bahasa Inggris.",
 		imageSrc:
 			"https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=600&fit=crop&q=80",
 		thumbnailSrc:
@@ -63,10 +63,10 @@ const FEATURED_REVIEWS: AlumniReview[] = [
 	},
 	{
 		id: "f5",
-		name: "Ibu Desi Kurniawati",
-		batchLabel: "Batch 12 · English Fun Class",
+		name: "Desi Kurniawati",
+		batchLabel: "Women Future 2026 · IELTS Preparation",
 		quote:
-			"Program English Fun Class membuat anak saya percaya diri berbicara bahasa Inggris. Gurunya sabar dan metodenya sangat menyenangkan.",
+			"Strategi IELTS speaking dan writing membantu saya memahami apa yang harus diperbaiki untuk target scholarship.",
 		imageSrc:
 			"https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&h=600&fit=crop&q=80",
 		thumbnailSrc:
@@ -99,8 +99,8 @@ function AlumniPage() {
 	return (
 		<>
 			<PageHero
-				title="Alumni Momkiddy"
-				subtitle="Ibu-ibu yang telah lulus dari program kami dan membawa perubahan nyata di rumah dan lingkungannya."
+				title="Peserta Women Future"
+				subtitle="Cerita peserta yang mengikuti kelas online Women Future 2026."
 				breadcrumbs={[{ label: "Alumni" }]}
 			/>
 

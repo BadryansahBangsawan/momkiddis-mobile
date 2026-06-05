@@ -1,5 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PROGRAM_LIST, IBU_PROGRAMS, ANAK_PROGRAMS } from "@/lib/programs-content";
+import {
+	PROGRAM_CATEGORY_LABELS,
+	PROGRAM_LIST,
+	PRIVATE_PROGRAMS,
+	SPEAKING_PROGRAMS,
+	TEST_PREP_PROGRAMS,
+	type ProgramCategory,
+} from "@/lib/programs-content";
 import ProgramCard from "@/components/sections/program-card";
 import PageHero from "@/components/sections/page-hero";
 import { useState } from "react";
@@ -8,29 +15,40 @@ export const Route = createFileRoute("/programs/")({
 	component: ProgramsPage,
 });
 
-type Filter = "semua" | "ibu" | "anak";
+type Filter = "semua" | ProgramCategory;
 
 const FILTERS: { id: Filter; label: string; count: number }[] = [
-	{ id: "semua", label: "Semua Program", count: PROGRAM_LIST.length },
-	{ id: "ibu", label: "Untuk Ibu", count: IBU_PROGRAMS.length },
-	{ id: "anak", label: "Untuk Anak", count: ANAK_PROGRAMS.length },
+	{ id: "semua", label: "Semua Kelas", count: PROGRAM_LIST.length },
+	{
+		id: "speaking",
+		label: PROGRAM_CATEGORY_LABELS.speaking,
+		count: SPEAKING_PROGRAMS.length,
+	},
+	{
+		id: "test-prep",
+		label: PROGRAM_CATEGORY_LABELS["test-prep"],
+		count: TEST_PREP_PROGRAMS.length,
+	},
+	{
+		id: "private",
+		label: PROGRAM_CATEGORY_LABELS.private,
+		count: PRIVATE_PROGRAMS.length,
+	},
 ];
 
 function ProgramsPage() {
 	const [active, setActive] = useState<Filter>("semua");
 
 	const displayed =
-		active === "ibu"
-			? IBU_PROGRAMS
-			: active === "anak"
-				? ANAK_PROGRAMS
-				: PROGRAM_LIST;
+		active === "semua"
+			? PROGRAM_LIST
+			: PROGRAM_LIST.filter((program) => program.category === active);
 
 	return (
 		<>
 			<PageHero
-				title="Program Momkiddy Indonesia"
-				subtitle="Program pendidikan untuk ibu dan anak, dirancang agar belajar terasa menyenangkan dan berdampak nyata."
+				title="Women Future 2026"
+				subtitle="Kelas online khusus perempuan via Zoom atau Google Meet, mulai dari English basic sampai test preparation."
 				breadcrumbs={[{ label: "Program" }]}
 			/>
 
@@ -65,7 +83,7 @@ function ProgramsPage() {
 				</div>
 
 				{/* Program grid */}
-					<div className="mt-8 grid grid-cols-2 justify-center gap-2 sm:gap-3 md:grid-cols-[repeat(auto-fit,minmax(14rem,18rem))]">
+				<div className="mt-8 grid grid-cols-1 justify-center gap-4 sm:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(17rem,19rem))]">
 					{displayed.map((program, i) => (
 						<ProgramCard key={program.slug} program={program} index={i} />
 					))}
@@ -74,10 +92,11 @@ function ProgramsPage() {
 				{/* CTA strip */}
 				<div className="mt-12 rounded-xl border border-border bg-muted/40 p-6 text-center">
 					<p className="text-sm font-medium text-foreground">
-						Tidak yakin program mana yang tepat?
+						Tidak yakin kelas mana yang tepat?
 					</p>
 					<p className="mt-1 text-sm text-muted-foreground">
-						Konsultasikan langsung dengan admin kami — gratis, tanpa paksaan.
+						Konsultasikan kebutuhan speaking, IELTS, TOEFL, atau private class
+						dengan admin.
 					</p>
 					<a
 						href="https://wa.me/6282343277820?text=Halo%20Momkiddy%2C%20saya%20ingin%20konsultasi%20program"
