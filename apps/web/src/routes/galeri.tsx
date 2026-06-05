@@ -9,20 +9,20 @@ const PLACEHOLDER_ITEMS = Array.from({ length: 6 }, (_, i) => ({
 	id: String(i + 1),
 	imageUrl: null as string | null,
 	caption: [
-		"Sesi Kelas Microteaching Batch 7",
-		"Praktik Phonics bersama Anak",
-		"Workshop Mom Teacher",
-		"Kelas Calistung Fun",
+		"Sesi Speaking Practice Women Future 2026",
+		"Live Class IELTS Preparation via Zoom",
+		"Workshop English Conversation",
+		"Kelas TOEFL Strategy",
 		"Suasana Belajar Online via Zoom",
-		"Sertifikat Mom Teacher Batch 5",
+		"E-Certificate Women Future Batch 5",
 	][i],
 	event: [
-		"Microteaching",
-		"Calistung Fun",
+		"Speaking Class",
+		"IELTS Class",
 		"Workshop",
-		"Calistung Fun",
+		"TOEFL Class",
 		"Online Class",
-		"Sertifikasi",
+		"E-Certificate",
 	][i],
 	takenAt: null as number | null,
 }));
@@ -53,7 +53,7 @@ function GaleriPage() {
 		<>
 			<PageHero
 				title="Galeri Kegiatan"
-				subtitle="Momen-momen belajar yang menyenangkan bersama Momkiddy Indonesia."
+				subtitle="Momen-momen belajar bahasa Inggris bersama peserta Momkiddis."
 				breadcrumbs={[{ label: "Galeri" }]}
 			/>
 
@@ -120,7 +120,7 @@ function GaleriPage() {
 						Lihat aktivitas terkini di Instagram kami
 					</p>
 					<p className="mt-1 text-xs text-muted-foreground">
-						Konten harian, tips parenting, dan update kelas terbaru.
+						Konten harian, tips belajar bahasa Inggris, dan update kelas terbaru.
 					</p>
 					<a
 						href="https://instagram.com/momkiddy.education"

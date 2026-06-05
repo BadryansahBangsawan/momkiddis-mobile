@@ -106,7 +106,7 @@ export default function ProgramCard({ program, index = 0 }: ProgramCardProps) {
 			to="/programs/$slug"
 			params={{ slug: program.slug }}
 			aria-label={`Lihat detail ${program.shortTitle}`}
-			className="group mx-auto block h-full w-full max-w-[19rem] transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.99]"
+			className="group mx-auto block h-full w-full max-w-[18rem] transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.99]"
 			style={{ animationDelay: `${index * 60}ms` }}
 		>
 			<Card
@@ -116,13 +116,13 @@ export default function ProgramCard({ program, index = 0 }: ProgramCardProps) {
 					colors.border,
 				)}
 			>
-				<CardHeader className="relative gap-2 px-4 pb-0 pt-4">
-					<div className="flex items-start pr-14">
+				<CardHeader className="relative gap-2 px-3 pb-0 pt-3 sm:px-4 sm:pt-4">
+					<div className="flex items-start sm:pr-14">
 						<div className="min-w-0">
-							<CardTitle className="min-h-[2.25rem] text-[15px] font-extrabold uppercase leading-tight text-slate-900">
+							<CardTitle className="min-h-[2rem] text-[11px] font-extrabold uppercase leading-tight text-slate-900 [overflow-wrap:anywhere] sm:min-h-[2.25rem] sm:text-[15px]">
 								{program.shortTitle}
 							</CardTitle>
-							<p className="mt-1 min-h-[1.75rem] text-[11px] font-medium leading-snug text-slate-700 line-clamp-2">
+							<p className="mt-1 min-h-[1.5rem] text-[9px] font-medium leading-snug text-slate-700 line-clamp-2 sm:min-h-[1.75rem] sm:text-[11px]">
 								{program.subtitle}
 							</p>
 						</div>
@@ -130,19 +130,19 @@ export default function ProgramCard({ program, index = 0 }: ProgramCardProps) {
 
 					<div
 						className={cn(
-							"absolute right-4 top-5 flex size-12 items-center justify-center rounded-full shadow-sm ring-4 ring-white",
+							"absolute right-4 top-5 hidden size-12 items-center justify-center rounded-full shadow-sm ring-4 ring-white sm:flex",
 							colors.icon,
 						)}
 					>
-						<Icon className="size-6" />
+						<Icon className="size-4 sm:size-6" />
 					</div>
 				</CardHeader>
 
-				<CardContent className="flex flex-1 flex-col gap-3 px-4 pb-3 pt-3">
-					<div className="flex flex-wrap items-center gap-1.5">
+				<CardContent className="flex flex-1 flex-col gap-2 px-3 pb-2 pt-2.5 sm:gap-3 sm:px-4 sm:pb-3 sm:pt-3">
+					<div className="flex flex-wrap items-center gap-1 sm:gap-1.5">
 						<Badge
 							className={cn(
-								"h-6 rounded-md px-2 text-[10px] font-bold uppercase",
+								"h-5 rounded-md px-1.5 text-[8px] font-bold uppercase sm:h-6 sm:px-2 sm:text-[10px]",
 								colors.badge,
 							)}
 						>
@@ -151,7 +151,7 @@ export default function ProgramCard({ program, index = 0 }: ProgramCardProps) {
 						<Badge
 							variant="outline"
 							className={cn(
-								"h-6 rounded-md bg-white px-2 text-[10px] font-semibold",
+								"h-5 rounded-md bg-white px-1.5 text-[8px] font-semibold sm:h-6 sm:px-2 sm:text-[10px]",
 								colors.border,
 								colors.iconText,
 							)}
@@ -161,25 +161,31 @@ export default function ProgramCard({ program, index = 0 }: ProgramCardProps) {
 						{program.isBestSeller && (
 							<Badge
 								variant="outline"
-								className="h-6 rounded-md border-amber-200 bg-amber-50 px-2 text-[10px] font-semibold text-amber-700"
+								className="h-5 rounded-md border-amber-200 bg-amber-50 px-1.5 text-[8px] font-semibold text-amber-700 sm:h-6 sm:px-2 sm:text-[10px]"
 							>
-								<Star className="size-3 fill-current" />
+								<Star className="size-2.5 fill-current sm:size-3" />
 								Best Seller
 							</Badge>
 						)}
 					</div>
 
-					<ul className="flex flex-col gap-1.5 text-[11px] font-medium leading-snug text-slate-800">
-						{materials.map((item) => (
-							<li key={item.title} className="flex gap-2">
-								<span className={cn("mt-1 size-1.5 shrink-0 rounded-full", colors.icon)} />
+					<ul className="flex flex-col gap-1 text-[9px] font-medium leading-snug text-slate-800 sm:gap-1.5 sm:text-[11px]">
+						{materials.map((item, itemIndex) => (
+							<li
+								key={item.title}
+								className={cn(
+									"flex gap-1.5 sm:gap-2",
+									itemIndex > 2 && "hidden sm:flex",
+								)}
+							>
+								<span className={cn("mt-1 size-1 shrink-0 rounded-full sm:size-1.5", colors.icon)} />
 								<span className="line-clamp-1">{item.title}</span>
 							</li>
 						))}
 					</ul>
 
 					<div>
-						<p className="mb-1 text-[11px] font-extrabold uppercase leading-none text-slate-800">
+						<p className="mb-1 text-[9px] font-extrabold uppercase leading-none text-slate-800 sm:text-[11px]">
 							Paket Harga
 						</p>
 						<div
@@ -188,7 +194,7 @@ export default function ProgramCard({ program, index = 0 }: ProgramCardProps) {
 								colors.rule,
 							)}
 						>
-							<table className="w-full border-collapse text-[11px] leading-tight text-slate-800">
+							<table className="w-full border-collapse text-[9px] leading-tight text-slate-800 sm:text-[11px]">
 								<tbody>
 									{priceRows.map((row) => (
 										<tr
@@ -197,13 +203,13 @@ export default function ProgramCard({ program, index = 0 }: ProgramCardProps) {
 										>
 											<td
 												className={cn(
-													"w-[38%] border-r px-2 py-1.5 font-medium",
+													"w-[43%] whitespace-nowrap border-r px-1 py-1 font-medium sm:w-[38%] sm:px-2 sm:py-1.5",
 													colors.rule,
 												)}
 											>
 												{row.label}
 											</td>
-											<td className="px-2 py-1.5 text-right font-bold">
+											<td className="whitespace-nowrap px-1 py-1 text-right font-bold sm:px-2 sm:py-1.5">
 												{row.price}
 											</td>
 										</tr>
@@ -213,7 +219,7 @@ export default function ProgramCard({ program, index = 0 }: ProgramCardProps) {
 						</div>
 					</div>
 
-					<p className="text-[10.5px] font-medium leading-snug text-slate-700">
+					<p className="line-clamp-2 text-[9px] font-medium leading-snug text-slate-700 sm:text-[10.5px]">
 						<span className="font-extrabold text-slate-900">Cocok untuk:</span>{" "}
 						{target}
 					</p>
@@ -221,22 +227,22 @@ export default function ProgramCard({ program, index = 0 }: ProgramCardProps) {
 
 				<CardFooter
 					className={cn(
-						"justify-between border-t px-4 py-3",
+						"justify-between gap-2 border-t px-3 py-2 sm:px-4 sm:py-3",
 						colors.rule,
 						colors.soft,
 					)}
 				>
-					<span className="text-[10px] font-semibold text-slate-700">
+					<span className="min-w-0 truncate text-[8px] font-semibold text-slate-700 sm:text-[10px]">
 						{program.level}
 					</span>
 					<span
 						className={cn(
-							"inline-flex items-center gap-1 text-[11px] font-bold",
+							"inline-flex shrink-0 items-center gap-1 text-[9px] font-bold sm:text-[11px]",
 							colors.iconText,
 						)}
 					>
 						Lihat Detail
-						<ArrowRight className="size-3 transition-transform duration-200 group-hover:translate-x-0.5" />
+						<ArrowRight className="size-2.5 transition-transform duration-200 group-hover:translate-x-0.5 sm:size-3" />
 					</span>
 				</CardFooter>
 			</Card>

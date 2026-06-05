@@ -20,7 +20,7 @@ function JadwalPage() {
 		<>
 			<PageHero
 				title="Jadwal & Biaya Women Future 2026"
-				subtitle="Kelas online khusus perempuan via Zoom atau Google Meet, durasi 90 menit per pertemuan."
+				subtitle="Kelas online via Zoom atau Google Meet, durasi 90 menit per pertemuan."
 				breadcrumbs={[{ label: "Jadwal & Biaya" }]}
 			/>
 

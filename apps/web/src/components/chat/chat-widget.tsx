@@ -198,7 +198,7 @@ export function ChatWidget() {
 										Ask AI
 									</p>
 									<p className="text-[10px] text-muted-foreground">
-										Asisten Virtual Momkiddy
+										Asisten Virtual Momkiddis
 									</p>
 								</div>
 							</div>

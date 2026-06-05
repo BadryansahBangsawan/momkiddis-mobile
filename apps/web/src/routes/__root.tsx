@@ -32,7 +32,7 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
 				content: "width=device-width, initial-scale=1",
 			},
 			{
-				title: "Momkiddy Indonesia — Ibu Pintar Mengajar, Anak Cerdas Berkarya",
+				title: "Momkiddis Indonesia — Belajar Bahasa Inggris Online",
 			},
 		],
 			links: [

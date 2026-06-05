@@ -5,7 +5,7 @@ const SECTIONS = [
 	{
 		title: "1. Informasi yang Kami Kumpulkan",
 		content:
-			"Ketika Anda mendaftar atau berinteraksi dengan Momkiddy Indonesia, kami mungkin mengumpulkan: nama lengkap, nomor WhatsApp, nama dan usia anak (untuk program anak), serta informasi yang Anda bagikan secara sukarela dalam percakapan.",
+			"Ketika Anda mendaftar atau berinteraksi dengan Momkiddis Indonesia, kami mungkin mengumpulkan: nama lengkap, nomor WhatsApp, nama dan usia anak (untuk program anak), serta informasi yang Anda bagikan secara sukarela dalam percakapan.",
 	},
 	{
 		title: "2. Bagaimana Kami Menggunakan Informasi Anda",
@@ -15,7 +15,7 @@ const SECTIONS = [
 	{
 		title: "3. Keamanan Data",
 		content:
-			"Kami mengambil langkah-langkah yang wajar untuk melindungi informasi pribadi Anda dari akses tidak sah. Data Anda hanya diakses oleh tim internal Momkiddy yang membutuhkannya untuk memberikan layanan.",
+			"Kami mengambil langkah-langkah yang wajar untuk melindungi informasi pribadi Anda dari akses tidak sah. Data Anda hanya diakses oleh tim internal Momkiddis yang membutuhkannya untuk memberikan layanan.",
 	},
 	{
 		title: "4. Berbagi Data dengan Pihak Ketiga",
@@ -25,17 +25,17 @@ const SECTIONS = [
 	{
 		title: "5. Konten di Grup WhatsApp",
 		content:
-			"Grup WhatsApp kelas adalah ruang bersama. Hindari membagikan informasi pribadi sensitif di grup. Momkiddy tidak bertanggung jawab atas privasi konten yang dibagikan oleh peserta lain.",
+			"Grup WhatsApp kelas adalah ruang bersama. Hindari membagikan informasi pribadi sensitif di grup. Momkiddis tidak bertanggung jawab atas privasi konten yang dibagikan oleh peserta lain.",
 	},
 	{
 		title: "6. Foto dan Dokumentasi",
 		content:
-			"Foto atau video kegiatan kelas dapat digunakan untuk keperluan promosi Momkiddy Indonesia. Jika Anda tidak ingin muncul dalam konten promosi, silakan informasikan kepada admin sebelum kelas dimulai.",
+			"Foto atau video kegiatan kelas dapat digunakan untuk keperluan promosi Momkiddis Indonesia. Jika Anda tidak ingin muncul dalam konten promosi, silakan informasikan kepada admin sebelum kelas dimulai.",
 	},
 	{
 		title: "7. Hak Anda",
 		content:
-			"Anda berhak untuk meminta akses, koreksi, atau penghapusan data pribadi Anda kapan saja dengan menghubungi admin Momkiddy Indonesia.",
+			"Anda berhak untuk meminta akses, koreksi, atau penghapusan data pribadi Anda kapan saja dengan menghubungi admin Momkiddis Indonesia.",
 	},
 	{
 		title: "8. Perubahan Kebijakan",
@@ -45,7 +45,7 @@ const SECTIONS = [
 	{
 		title: "9. Kontak",
 		content:
-			"Pertanyaan terkait kebijakan privasi ini dapat disampaikan melalui WhatsApp admin Momkiddy Indonesia.",
+			"Pertanyaan terkait kebijakan privasi ini dapat disampaikan melalui WhatsApp admin Momkiddis Indonesia.",
 	},
 ];
 

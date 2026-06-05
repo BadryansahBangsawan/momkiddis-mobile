@@ -56,7 +56,7 @@ function DashboardPage() {
 							{firstName}!
 						</h1>
 						<p className="mt-2 max-w-md text-sm text-white/80 leading-relaxed">
-							Selamat datang di dashboard Momkiddy Indonesia. Mulai perjalanan belajarmu hari ini.
+							Selamat datang di dashboard Momkiddis Indonesia. Mulai perjalanan belajarmu hari ini.
 						</p>
 					</div>
 					<div className="hidden shrink-0 sm:flex size-14 items-center justify-center rounded-2xl bg-white/20">

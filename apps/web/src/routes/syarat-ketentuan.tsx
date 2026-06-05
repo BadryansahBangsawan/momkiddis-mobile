@@ -5,12 +5,12 @@ const SECTIONS = [
 	{
 		title: "1. Penerimaan Syarat",
 		content:
-			"Dengan mendaftarkan diri ke program Momkiddy Indonesia, Anda menyatakan telah membaca, memahami, dan menyetujui seluruh syarat dan ketentuan yang berlaku.",
+			"Dengan mendaftarkan diri ke program Momkiddis Indonesia, Anda menyatakan telah membaca, memahami, dan menyetujui seluruh syarat dan ketentuan yang berlaku.",
 	},
 	{
 		title: "2. Program dan Layanan",
 		content:
-			"Momkiddy Indonesia menyediakan program pendidikan non-formal untuk ibu dan anak. Deskripsi program, kurikulum, dan jadwal dapat berubah sewaktu-waktu. Peserta akan diinformasikan terlebih dahulu melalui grup WhatsApp kelas.",
+			"Momkiddis Indonesia menyediakan program kelas bahasa Inggris online. Deskripsi program, kurikulum, dan jadwal dapat berubah sewaktu-waktu. Peserta akan diinformasikan terlebih dahulu melalui grup WhatsApp kelas.",
 	},
 	{
 		title: "3. Pendaftaran dan Pembayaran",
@@ -25,27 +25,27 @@ const SECTIONS = [
 	{
 		title: "5. Hak Kekayaan Intelektual",
 		content:
-			"Seluruh materi pembelajaran, modul, konten video, dan bahan ajar yang disediakan oleh Momkiddy Indonesia merupakan hak kekayaan intelektual eksklusif milik Momkiddy Indonesia. Peserta dilarang mendistribusikan, memperbanyak, atau menjual materi tersebut tanpa izin tertulis.",
+			"Seluruh materi pembelajaran, modul, konten video, dan bahan ajar yang disediakan oleh Momkiddis Indonesia merupakan hak kekayaan intelektual eksklusif milik Momkiddis Indonesia. Peserta dilarang mendistribusikan, memperbanyak, atau menjual materi tersebut tanpa izin tertulis.",
 	},
 	{
 		title: "6. Perilaku Peserta",
 		content:
-			"Peserta wajib menjaga sopan santun dan menghormati sesama peserta dan pengajar dalam kelas maupun grup WhatsApp. Momkiddy Indonesia berhak mengeluarkan peserta yang melanggar norma dan tidak memberikan pengembalian dana.",
+			"Peserta wajib menjaga sopan santun dan menghormati sesama peserta dan pengajar dalam kelas maupun grup WhatsApp. Momkiddis Indonesia berhak mengeluarkan peserta yang melanggar norma dan tidak memberikan pengembalian dana.",
 	},
 	{
 		title: "7. Keterbatasan Tanggung Jawab",
 		content:
-			"Momkiddy Indonesia tidak bertanggung jawab atas hasil belajar yang tidak sesuai ekspektasi jika peserta tidak mengikuti kelas secara aktif. Hasil belajar sangat bergantung pada konsistensi dan keterlibatan peserta.",
+			"Momkiddis Indonesia tidak bertanggung jawab atas hasil belajar yang tidak sesuai ekspektasi jika peserta tidak mengikuti kelas secara aktif. Hasil belajar sangat bergantung pada konsistensi dan keterlibatan peserta.",
 	},
 	{
 		title: "8. Perubahan Syarat",
 		content:
-			"Momkiddy Indonesia berhak mengubah syarat dan ketentuan ini sewaktu-waktu. Perubahan akan diinformasikan melalui website atau grup WhatsApp kelas.",
+			"Momkiddis Indonesia berhak mengubah syarat dan ketentuan ini sewaktu-waktu. Perubahan akan diinformasikan melalui website atau grup WhatsApp kelas.",
 	},
 	{
 		title: "9. Kontak",
 		content:
-			"Pertanyaan terkait syarat dan ketentuan dapat disampaikan melalui WhatsApp admin Momkiddy Indonesia.",
+			"Pertanyaan terkait syarat dan ketentuan dapat disampaikan melalui WhatsApp admin Momkiddis Indonesia.",
 	},
 ];
 
@@ -58,7 +58,7 @@ function SyaratKetentuanPage() {
 		<>
 			<PageHero
 				title="Syarat & Ketentuan"
-				subtitle="Harap baca dengan seksama sebelum menggunakan layanan Momkiddy Indonesia."
+				subtitle="Harap baca dengan seksama sebelum menggunakan layanan Momkiddis Indonesia."
 				breadcrumbs={[{ label: "Syarat & Ketentuan" }]}
 			/>
 

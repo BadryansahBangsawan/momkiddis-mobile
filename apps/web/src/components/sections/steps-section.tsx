@@ -20,7 +20,7 @@ export default function StepsSection({ steps }: StepsSectionProps) {
 						Cara Mendaftar
 					</h2>
 					<p className="mt-2 text-sm text-muted-foreground">
-						Empat langkah mudah untuk memulai perjalanan belajar bersama Momkiddy
+						Empat langkah mudah untuk memulai perjalanan belajar bersama Momkiddis
 					</p>
 				</motion.div>
 

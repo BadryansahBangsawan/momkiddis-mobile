@@ -33,7 +33,7 @@ export default function WhatsAppCta({
 						viewport={{ once: true, margin: "-80px" }}
 						transition={{ duration: 0.6, ease: "easeOut" }}
 					>
-						Siap Menjadi Guru Pertama untuk Anak Anda?
+						Siap Meningkatkan Kemampuan Bahasa Inggrismu?
 					</motion.h2>
 					<motion.p
 						className="mt-2 text-sm text-primary-foreground/80"

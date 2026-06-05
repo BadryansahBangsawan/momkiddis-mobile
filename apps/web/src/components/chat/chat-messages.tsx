@@ -117,7 +117,7 @@ export function ChatMessages({ messages, isLoading }: ChatMessagesProps) {
 						<Bot className="size-3.5 text-primary" />
 					</div>
 					<div className="rounded-xl rounded-tl-none bg-muted px-3.5 py-2.5 text-base leading-relaxed text-foreground">
-						Halo! Saya asisten virtual Momkiddy. Ada yang bisa saya
+						Halo! Saya asisten virtual Momkiddis. Ada yang bisa saya
 						bantu? Silakan tanyakan tentang program kami.
 					</div>
 				</div>

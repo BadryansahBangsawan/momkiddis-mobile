@@ -54,7 +54,7 @@ function ProfilePage() {
 			<div className="mt-6">
 				<h1 className="text-xl font-bold text-foreground">Profil Saya</h1>
 				<p className="mt-1 text-sm text-muted-foreground">
-					Kelola informasi akun Momkiddy Indonesia kamu.
+					Kelola informasi akun Momkiddis Indonesia kamu.
 				</p>
 			</div>
 
@@ -118,7 +118,7 @@ function ProfilePage() {
 			<div className="mt-6 rounded-xl border border-border p-5">
 				<p className="text-sm font-semibold text-foreground">Keluar</p>
 				<p className="mt-1 text-xs text-muted-foreground">
-					Kamu akan keluar dari akun Momkiddy Indonesia.
+					Kamu akan keluar dari akun Momkiddis Indonesia.
 				</p>
 				<Button
 					variant="outline"

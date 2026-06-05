@@ -10,8 +10,8 @@ import { CalendarDays, MapPin, Users, Clock } from "lucide-react";
 const PLACEHOLDER_UPCOMING = [
 	{
 		id: "1",
-		title: "Workshop Mom Teacher Batch 21",
-		description: "Workshop intensif 2 hari untuk ibu yang ingin menjadi pengajar efektif di rumah. Dibimbing langsung oleh Founder Momkiddy.",
+		title: "Workshop Speaking English Women Future 2026",
+		description: "Workshop intensif 2 hari untuk siapa saja yang ingin meningkatkan kemampuan speaking bahasa Inggris. Dibimbing langsung oleh Founder Momkiddis.",
 		date: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000),
 		endDate: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000),
 		location: "Online via Zoom",
@@ -21,8 +21,8 @@ const PLACEHOLDER_UPCOMING = [
 	},
 	{
 		id: "2",
-		title: "Webinar Gratis: Cara Mudah Ajarkan Calistung",
-		description: "Webinar 2 jam membahas teknik phonics yang menyenangkan, cocok untuk ibu yang anaknya baru mulai belajar membaca.",
+		title: "Webinar Gratis: Cara Mulai Speaking Inggris dari Nol",
+		description: "Webinar 2 jam membahas cara membangun kepercayaan diri berbicara bahasa Inggris dari level basic untuk pemula.",
 		date: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
 		endDate: null as Date | null,
 		location: "Online via Zoom",
@@ -35,21 +35,21 @@ const PLACEHOLDER_UPCOMING = [
 const PLACEHOLDER_PAST = [
 	{
 		id: "p1",
-		title: "Kelas Terbuka Microteaching Batch 20",
+		title: "Kelas Terbuka IELTS Preparation Women Future",
 		date: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000),
 		location: "Online via Zoom",
 		type: "kelas-terbuka",
 	},
 	{
 		id: "p2",
-		title: "Workshop Calistung Fun — Sesi Orang Tua",
+		title: "Workshop TOEFL Strategy — Strategi Menjawab Soal",
 		date: new Date(Date.now() - 60 * 24 * 60 * 60 * 1000),
-		location: "Offline — Bandung",
+		location: "Online via Zoom",
 		type: "workshop",
 	},
 	{
 		id: "p3",
-		title: "Webinar: RPP Simpel untuk Ibu Sibuk",
+		title: "Webinar: Tips Speaking Inggris untuk Pekerja",
 		date: new Date(Date.now() - 90 * 24 * 60 * 60 * 1000),
 		location: "Online via Zoom",
 		type: "webinar",
@@ -102,7 +102,7 @@ function EventPage() {
 		<>
 			<PageHero
 				title="Event & Webinar"
-				subtitle="Ikuti event, workshop, dan webinar Momkiddy untuk terus berkembang sebagai ibu dan pendidik."
+				subtitle="Ikuti event, workshop, dan webinar Women Future 2026 untuk terus meningkatkan kemampuan bahasa Inggrismu."
 				breadcrumbs={[{ label: "Event" }]}
 			/>
 
@@ -221,7 +221,7 @@ function EventPage() {
 						Jangan lewatkan event selanjutnya!
 					</p>
 					<p className="mt-1 text-xs text-muted-foreground">
-						Follow Instagram kami untuk update event, tips parenting, dan info batch terbaru.
+						Follow Instagram kami untuk update event, tips belajar bahasa Inggris, dan info kelas terbaru.
 					</p>
 					<a
 						href={siteConfig.social.instagram}
@@ -234,7 +234,7 @@ function EventPage() {
 							<circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="2" />
 							<circle cx="17.5" cy="6.5" r="1" />
 						</svg>
-						@momkiddy.education
+						@womenfu...2026
 					</a>
 				</div>
 

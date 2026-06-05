@@ -17,15 +17,15 @@ interface WaveConfig {
 }
 
 const stats = [
-	{ label: "Ibu Terlatih", value: "500+" },
+	{ label: "Total Peserta", value: "500+" },
 	{ label: "Batch Selesai", value: "20+" },
 	{ label: "Rating Peserta", value: "4.9/5" },
 ];
 
 const pills = [
-	"Kelas Online & Offline",
-	"Dibimbing Founder",
-	"Batch Baru Tiap Bulan",
+	"Kelas Online via Zoom",
+	"Speaking · IELTS · TOEFL · Private",
+	"Mulai dari Basic",
 ] as const;
 
 const container: Variants = {
@@ -234,9 +234,9 @@ export function HeroWaves() {
 						variants={item}
 						className="mx-auto mb-8 max-w-xl text-base leading-relaxed text-foreground/65 sm:text-lg"
 					>
-						Momkiddy Indonesia membekali ibu sebagai guru pertama di rumah
-						sekaligus menyediakan program belajar yang menyenangkan untuk anak
-						usia dini hingga SD.
+						Platform kelas bahasa Inggris online — speaking, IELTS, TOEFL,
+						dan private class via Zoom. Belajar fleksibel dari mana saja,
+						mulai dari level basic hingga persiapan tes internasional.
 					</motion.p>
 
 					{/* CTAs */}

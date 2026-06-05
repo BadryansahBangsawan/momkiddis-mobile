@@ -22,35 +22,35 @@ const ICON_MAP: Record<string, React.FC<{ className?: string }>> = {
 };
 
 const VISI_MISI = {
-	visi: "Menjadi lembaga pendidikan non-formal terpercaya yang memberdayakan ibu sebagai pendidik pertama dan terbaik bagi anaknya.",
+	visi: "Menjadi platform belajar bahasa Inggris terpercaya yang membantu siapa saja menguasai bahasa Inggris dan meraih tujuan akademik, profesional, serta personal mereka.",
 	misi: [
-		"Membekali ibu dengan metode mengajar yang efektif, menyenangkan, dan bisa langsung diterapkan di rumah.",
-		"Menyediakan program belajar anak usia dini yang stimulatif, bermain sambil belajar, tanpa tekanan.",
-		"Mendekatkan ibu dan anak dalam proses belajar yang bermakna setiap hari.",
-		"Mencetak Mom Teacher yang percaya diri dan berdampak di lingkungannya.",
+		"Menyediakan kelas bahasa Inggris online yang berkualitas, terjangkau, dan fleksibel untuk siapa saja dari berbagai latar belakang.",
+		"Membantu peserta membangun kepercayaan diri berbicara bahasa Inggris dari level basic hingga persiapan IELTS dan TOEFL.",
+		"Menciptakan ruang belajar yang suportif, nyaman, dan bebas dari rasa takut salah.",
+		"Memastikan setiap peserta mendapat progress yang terukur dan feedback yang bermakna dari mentor.",
 	],
 };
 
 const NILAI = [
 	{
 		icon: Heart,
-		label: "Empati",
-		desc: "Kami memahami tantangan sehari-hari ibu dalam mendampingi anak belajar.",
+		label: "Suportif",
+		desc: "Kami memahami bahwa belajar bahasa baru butuh keberanian — ruang belajar kami bebas dari rasa takut salah.",
 	},
 	{
 		icon: Star,
-		label: "Kualitas",
-		desc: "Setiap program dirancang dengan kurikulum yang terstruktur dan mentor berpengalaman.",
+		label: "Berkualitas",
+		desc: "Setiap kelas dirancang dengan materi terstruktur, strategi yang terbukti, dan mentor berpengalaman.",
 	},
 	{
 		icon: BookOpen,
 		label: "Praktis",
-		desc: "Ilmu yang kami ajarkan langsung bisa diterapkan, bukan teori semata.",
+		desc: "Materi langsung bisa dipakai dalam kehidupan nyata — percakapan harian, kerja, kampus, atau tes.",
 	},
 	{
 		icon: Award,
 		label: "Berdampak",
-		desc: "Keberhasilan peserta dalam mendampingi anak adalah keberhasilan kami.",
+		desc: "Keberhasilan peserta mencapai target speaking, IELTS, atau TOEFL adalah keberhasilan kami.",
 	},
 ];
 
@@ -64,8 +64,8 @@ function AboutPage() {
 	return (
 		<>
 			<PageHero
-				title="Tentang Momkiddy Indonesia"
-				subtitle="Menguatkan peran ibu sebagai guru pertama di rumah dan mencerdaskan anak usia dini hingga sekolah dasar."
+				title="Tentang Momkiddis Indonesia"
+				subtitle="Platform belajar bahasa Inggris online — dari speaking basic hingga IELTS, TOEFL, dan private class."
 				breadcrumbs={[{ label: "Tentang Kami" }]}
 			/>
 
@@ -77,32 +77,31 @@ function AboutPage() {
 							Tentang Kami
 						</span>
 						<h2 className="text-2xl font-bold tracking-tight text-foreground">
-							Lahir dari Keresahan Seorang Ibu
+							Lahir dari Kebutuhan Nyata Banyak Orang
 						</h2>
 						<div className="space-y-3 text-sm leading-relaxed text-muted-foreground">
 							<p>
-								Momkiddy Indonesia lahir dari keresahan mendalam Lita Hendratno
-								tentang bagaimana banyak ibu ingin mendampingi anak belajar
-								di rumah, tetapi merasa tidak tahu harus mulai dari mana.
+								Momkiddis lahir dari keyakinan bahwa setiap orang
+								berhak mendapatkan akses belajar bahasa Inggris yang berkualitas,
+								terjangkau, dan fleksibel — tanpa harus meninggalkan tempat.
 							</p>
 							<p>
-								Bukan karena kurang cinta, melainkan karena tidak ada yang
-								mengajarkan cara yang benar — cara yang menyenangkan, terstruktur,
-								dan bebas tekanan. Di sisi lain, anak-anak belajar paling baik
-								saat guru pertamanya adalah orang yang paling mereka cintai: ibu.
+								Banyak orang yang ingin bisa speaking bahasa Inggris, lulus IELTS
+								atau TOEFL, tapi tidak tahu harus mulai dari mana — atau merasa
+								tidak ada waktu dan tidak percaya diri.
 							</p>
 							<p>
-								Momkiddy hadir untuk menjembatani keduanya — membekali ibu
-								dengan kemampuan mengajar dan menyediakan ruang belajar
-								yang aman dan menyenangkan bagi anak.
+								Momkiddis hadir untuk mengubah itu — dengan kelas online via
+								Zoom yang fleksibel, mentor yang suportif, dan materi yang
+								langsung bisa dipakai dalam kehidupan nyata.
 							</p>
 						</div>
 					</div>
 					<div className="grid grid-cols-2 gap-4">
 						{[
-							{ value: "500+", label: "Ibu Terlatih" },
+							{ value: "500+", label: "Total Peserta" },
 							{ value: "20+", label: "Batch Selesai" },
-							{ value: "5", label: "Program Unggulan" },
+							{ value: "5", label: "Kelas Aktif" },
 							{ value: "4.9★", label: "Rating Peserta" },
 						].map(({ value, label }) => (
 							<div
@@ -158,9 +157,9 @@ function AboutPage() {
 							Founder & Lead Educator
 						</p>
 						<p className="mt-3 text-xs leading-relaxed text-muted-foreground">
-							Pendidik dengan pengalaman lebih dari satu dekade dalam
-							pengajaran anak usia dini dan pelatihan guru. Momkiddy adalah
-							wujud nyata dari visinya.
+							Pendidik bahasa Inggris dan founder Momkiddis Indonesia. Berpengalaman
+							lebih dari satu dekade, kini fokus membantu siapa saja di
+							Indonesia belajar bahasa Inggris secara online.
 						</p>
 						<Link
 							to="/founder"
@@ -171,17 +170,16 @@ function AboutPage() {
 					</div>
 					<div className="lg:col-span-2 space-y-4">
 						<h2 className="text-xl font-bold tracking-tight text-foreground">
-							Dibimbing Langsung, Bukan Delegasi
+							Dibimbing Langsung, Feedback Nyata
 						</h2>
 						<p className="text-sm leading-relaxed text-muted-foreground">
-							Salah satu yang membedakan Momkiddy dari lembaga pendidikan lain
-							adalah: setiap program dibimbing langsung oleh Lita Hendratno —
-							bukan tim yang ia latih, bukan modul yang dikerjakan sendiri.
+							Yang membedakan Momkiddis dari kursus online lain adalah:
+							setiap kelas dibimbing langsung oleh Lita Hendratno — bukan
+							rekaman video, bukan modul yang dikerjakan sendiri.
 						</p>
 						<p className="text-sm leading-relaxed text-muted-foreground">
-							Peserta mendapat akses langsung ke pengalaman, wawasan, dan
-							pembahasan kasus nyata dari seorang praktisi — bukan sekadar
-							teori dari buku teks.
+							Peserta mendapat feedback langsung, koreksi pronunciation secara
+							real-time, dan bisa konsultasi arah belajar sesuai target masing-masing.
 						</p>
 						<div className="grid gap-3 sm:grid-cols-2">
 							{NILAI.map(({ icon: Icon, label, desc }) => (
@@ -210,10 +208,10 @@ function AboutPage() {
 				<section>
 					<div className="mb-6 text-center">
 						<h2 className="text-xl font-bold tracking-tight text-foreground">
-							Mengapa Momkiddy?
+							Mengapa Momkiddis?
 						</h2>
 						<p className="mt-2 text-sm text-muted-foreground">
-							Lima hal yang membuat Momkiddy berbeda dari program lainnya.
+							Lima hal yang membuat Momkiddis berbeda dari kursus bahasa Inggris lainnya.
 						</p>
 					</div>
 					<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -245,10 +243,10 @@ function AboutPage() {
 				{/* CTA */}
 				<section className="rounded-2xl bg-primary px-8 py-10 text-center">
 					<h2 className="text-xl font-bold text-white">
-						Siap Bergabung bersama Momkiddy?
+						Siap Bergabung di Momkiddis?
 					</h2>
 					<p className="mt-2 text-sm text-white/80">
-						Ribuan ibu sudah membuktikannya. Sekarang giliran Anda.
+						Ratusan peserta sudah membuktikannya. Sekarang giliran kamu.
 					</p>
 					<a
 						href={waUrl}

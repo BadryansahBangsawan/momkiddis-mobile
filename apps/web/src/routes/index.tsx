@@ -39,7 +39,7 @@ function HomeComponent() {
 			</div>
 
 
-			{/* ── Tentang Momkiddy ── */}
+			{/* ── Tentang Women Future ── */}
 			<AboutTeaser />
 
 			{/* ── Program Unggulan ── */}
@@ -80,25 +80,25 @@ function AboutTeaser() {
 							Tentang Kami
 						</p>
 						<h2 className="mt-2 text-xl font-bold tracking-tight text-foreground sm:text-2xl">
-							Rumah Belajar Keluarga Indonesia
+							Kelas Online Bahasa Inggris dari Mana Saja
 						</h2>
 						<div className="mt-4 space-y-3 text-sm leading-relaxed text-muted-foreground">
 							<p>
-								<strong className="text-foreground">Momkiddy Indonesia</strong>{" "}
-								adalah lembaga pendidikan non-formal yang berfokus pada dua
-								pilar utama: menguatkan peran ibu sebagai guru pertama di rumah
-								dan mencerdaskan anak usia dini hingga sekolah dasar.
+								<strong className="text-foreground">Momkiddis Indonesia</strong>{" "}
+								adalah platform kelas bahasa Inggris online yang menyediakan
+								program speaking, IELTS, TOEFL, dan private class via Zoom —
+								fleksibel, terjangkau, dan bisa diikuti dari mana saja.
 							</p>
 							<p>
 								Didirikan oleh{" "}
-								<strong className="text-foreground">Ibu Lita Hendratno</strong>,
-								Momkiddy hadir dari keyakinan bahwa sebelum anak mampu belajar
-								dengan percaya diri, ibu juga perlu merasa mampu, siap, dan
-								percaya diri dalam mendampingi proses belajar anak.
+								<strong className="text-foreground">Lita Hendratno</strong>,
+								Momkiddis hadir untuk membantu siapa saja mulai berbicara
+								bahasa Inggris dengan percaya diri, dari level basic hingga
+								persiapan tes internasional.
 							</p>
 							<p className="italic text-foreground/70">
-								"Tidak ada ibu yang gagal mengajar. Yang ada adalah ibu yang
-								belum menemukan metode yang tepat."
+								"Tidak ada yang terlambat belajar bahasa Inggris. Yang ada
+								adalah orang yang belum menemukan cara yang tepat."
 							</p>
 						</div>
 						<Link to="/about" className="mt-5 inline-block">
@@ -116,9 +116,9 @@ function AboutTeaser() {
 					{/* Visual — stats cards */}
 					<div className="grid grid-cols-2 gap-4">
 						{[
-							{ label: "Peserta Perempuan", value: "500+", sub: "dari berbagai kota di Indonesia" },
+							{ label: "Total Peserta", value: "500+", sub: "dari berbagai kota di Indonesia" },
 							{ label: "Batch Selesai", value: "20+", sub: "kelas online dan mentoring" },
-							{ label: "Kelas Aktif", value: "5", sub: "kelas Women Future 2026" },
+							{ label: "Kelas Aktif", value: "5", sub: "program Women Future 2026" },
 							{ label: "Rating Kepuasan", value: "4.9", sub: "berdasarkan testimoni peserta" },
 						].map(({ label, value, sub }, i) => (
 							<motion.div
@@ -181,7 +181,7 @@ function ProgramsSection() {
 				</motion.div>
 
 				{/* Grid */}
-				<div className="mt-8 grid grid-cols-1 justify-center gap-4 sm:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(17rem,19rem))]">
+				<div className="mt-8 grid grid-cols-2 justify-center gap-3 sm:grid-cols-[repeat(2,minmax(0,18rem))] sm:gap-4 lg:grid-cols-[repeat(3,minmax(0,18rem))] xl:grid-cols-[repeat(4,minmax(0,18rem))]">
 					{featuredPrograms.map((program, i) => (
 						<motion.div
 							key={program.slug}

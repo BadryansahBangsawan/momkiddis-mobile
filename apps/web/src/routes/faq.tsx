@@ -21,7 +21,7 @@ function FaqPage() {
 		<>
 			<PageHero
 				title="Pertanyaan yang Sering Ditanyakan"
-				subtitle="Temukan jawaban atas pertanyaan umum tentang program dan pendaftaran Momkiddy Indonesia."
+				subtitle="Temukan jawaban atas pertanyaan umum tentang program dan pendaftaran Momkiddis Indonesia."
 				breadcrumbs={[{ label: "FAQ" }]}
 			/>
 

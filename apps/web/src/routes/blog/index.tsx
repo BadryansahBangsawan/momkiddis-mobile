@@ -39,7 +39,7 @@ function BlogIndexPage() {
 		<>
 			<PageHero
 				title="Blog & Artikel"
-				subtitle="Tips parenting, panduan belajar anak, dan cerita dari komunitas Momkiddy."
+				subtitle="Tips parenting, panduan belajar anak, dan cerita dari komunitas Momkiddis."
 				breadcrumbs={[{ label: "Blog" }]}
 			/>
 
@@ -60,7 +60,7 @@ function BlogIndexPage() {
 						</p>
 						<p className="mt-1 max-w-sm mx-auto text-sm text-muted-foreground">
 							Kami sedang menyiapkan konten parenting, tips belajar, dan inspirasi
-							dari komunitas Momkiddy. Pantau terus!
+							dari komunitas Momkiddis. Pantau terus!
 						</p>
 					</div>
 				) : (

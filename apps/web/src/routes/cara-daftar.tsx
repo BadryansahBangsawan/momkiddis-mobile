@@ -8,7 +8,7 @@ const STEPS = [
 		step: "01",
 		icon: BookOpen,
 		title: "Pilih Program",
-		desc: "Lihat daftar program kami dan pilih yang paling sesuai dengan kebutuhan Anda atau anak. Tersedia program untuk ibu maupun anak dengan berbagai rentang usia.",
+		desc: "Lihat daftar kelas kami dan pilih yang paling sesuai dengan kebutuhanmu. Tersedia speaking basic, conversation, IELTS, TOEFL, dan private class.",
 		action: { label: "Lihat Semua Program", to: "/programs" as const },
 	},
 	{
@@ -36,7 +36,7 @@ const STEPS = [
 		step: "05",
 		icon: Award,
 		title: "Ikuti Kelas & Raih Sertifikat",
-		desc: "Ikuti semua sesi kelas dengan semangat. Selesaikan program dan dapatkan Sertifikat Mom Teacher Momkiddy sebagai bukti pencapaian Anda.",
+		desc: "Ikuti semua sesi kelas dengan semangat. Selesaikan program dan dapatkan E-Certificate Women Future 2026 sebagai bukti pencapaian kamu.",
 		action: null,
 	},
 ];

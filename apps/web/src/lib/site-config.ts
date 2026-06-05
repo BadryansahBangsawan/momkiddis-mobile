@@ -1,12 +1,12 @@
 export const siteConfig = {
-	name: "Momkiddy Indonesia",
-	tagline: "Ibu Pintar Mengajar, Anak Cerdas Berkarya",
+	name: "Momkiddis Indonesia",
+	tagline: "Belajar Bahasa Inggris Online dari Mana Saja",
 	description:
-		"Lembaga Pendidikan Momkiddy Indonesia — menguatkan peran ibu sebagai guru pertama di rumah dan mencerdaskan anak usia dini hingga sekolah dasar.",
+		"Kelas bahasa Inggris online dari Momkiddis Indonesia — speaking, IELTS, TOEFL, dan private class via Zoom. Belajar fleksibel dari mana saja.",
 	founder: "Lita Hendratno",
 	wa: {
 		number: "6282343277820",
-		defaultMessage: "Halo Momkiddy, saya ingin bertanya tentang program",
+		defaultMessage: "Halo Momkiddis, saya ingin bertanya tentang kelas bahasa Inggris",
 	},
 	social: {
 		instagram: "https://instagram.com/momkiddy.education",
@@ -14,14 +14,14 @@ export const siteConfig = {
 		youtube: "",
 		facebook: "",
 	},
-	address: "(Isi alamat lengkap)",
-	city: "(Isi nama kota)",
+	address: "",
+	city: "",
 	operationalHours: "Senin–Sabtu, 08.00–17.00 WIB",
 } as const;
 
 export function getWhatsAppUrl(program?: string) {
 	const message = program
-		? `Halo Momkiddy, saya ingin daftar program ${program}`
+		? `Halo Momkiddis, saya ingin daftar kelas ${program}`
 		: siteConfig.wa.defaultMessage;
 	return `https://wa.me/${siteConfig.wa.number}?text=${encodeURIComponent(message)}`;
 }

@@ -431,7 +431,7 @@ export const KEUNGGULAN = [
 	},
 	{
 		icon: "Heart",
-		title: "Khusus Perempuan",
+		title: "Untuk Semua",
 		description:
 			"Ruang belajar dibuat nyaman untuk ibu rumah tangga, mahasiswi, pekerja, dan peserta perempuan lainnya.",
 	},

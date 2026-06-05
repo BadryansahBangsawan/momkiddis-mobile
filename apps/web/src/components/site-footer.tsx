@@ -107,15 +107,15 @@ const STYLES = `
 function MarqueeItem() {
 	return (
 		<div className="flex items-center space-x-12 px-6">
-			<span>Ibu Pintar Mengajar</span>
+			<span>Bahasa Inggris Speaking</span>
 			<span className="text-primary/60">✦</span>
-			<span>Anak Cerdas Berkarya</span>
+			<span>Persiapan IELTS &amp; TOEFL</span>
 			<span className="text-accent/60">✦</span>
-			<span>Belajar Menyenangkan</span>
+			<span>Private Class 1 on 1</span>
 			<span className="text-primary/60">✦</span>
-			<span>Batch Baru Tiap Bulan</span>
+			<span>Kelas Online via Zoom</span>
 			<span className="text-accent/60">✦</span>
-			<span>Bimbingan Langsung Founder</span>
+			<span>Jadwal Fleksibel: Morning · Afternoon · Evening</span>
 			<span className="text-primary/60">✦</span>
 		</div>
 	);
@@ -243,7 +243,7 @@ export default function SiteFooter() {
 						ref={giantTextRef}
 						className="footer-giant-bg-text pointer-events-none absolute -bottom-[5vh] left-1/2 -translate-x-1/2 select-none whitespace-nowrap z-0"
 					>
-						MOMKIDDY
+						MOMKIDDIS
 					</div>
 
 					{/* 1. Diagonal marquee strip */}
@@ -260,7 +260,7 @@ export default function SiteFooter() {
 							ref={headingRef}
 							className="footer-text-glow mb-12 text-center text-5xl font-black tracking-tighter md:text-8xl"
 						>
-							Mulai Belajar Bersama Kami
+							Mulai Speaking Inggrismu
 						</h2>
 
 						{/* CTA Pills */}
@@ -327,7 +327,7 @@ export default function SiteFooter() {
 					<div className="relative z-20 flex w-full flex-col items-center justify-between gap-6 px-6 pb-8 md:flex-row md:px-12">
 						{/* Copyright */}
 						<div className="order-2 text-[10px] font-semibold uppercase tracking-widest text-muted-foreground md:order-1 md:text-xs">
-							&copy; {new Date().getFullYear()} Momkiddy Indonesia. Hak cipta dilindungi.
+							&copy; {new Date().getFullYear()} Momkiddis Indonesia. Hak cipta dilindungi.
 						</div>
 
 						{/* Made with love badge */}
@@ -340,7 +340,7 @@ export default function SiteFooter() {
 								oleh
 							</span>
 							<span className="ml-1 text-xs font-black tracking-normal text-foreground md:text-sm">
-								Tim Momkiddy
+								Tim Momkiddis
 							</span>
 						</div>
 

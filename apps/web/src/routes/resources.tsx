@@ -20,8 +20,8 @@ const CATEGORIES: { id: Category; label: string }[] = [
 const PLACEHOLDER_RESOURCES = [
 	{
 		id: "1",
-		title: "Worksheet Calistung Level 1 — Mengenal Huruf",
-		description: "Lembar kerja bergambar untuk anak usia 3–5 tahun yang baru mengenal huruf A–Z. Cocok untuk belajar sambil bermain.",
+		title: "Vocabulary List: 200 Kata Percakapan Harian",
+		description: "Daftar 200 kata dan frasa bahasa Inggris yang paling sering dipakai dalam percakapan sehari-hari. Cocok untuk pemula speaking.",
 		category: "worksheet",
 		fileType: "pdf",
 		downloadCount: 0,
@@ -29,8 +29,8 @@ const PLACEHOLDER_RESOURCES = [
 	},
 	{
 		id: "2",
-		title: "Flashcard Phonics 44 Suara",
-		description: "Kartu phonics dengan 44 bunyi dasar bahasa Inggris. Cocok digunakan dalam program English Fun Class.",
+		title: "Flashcard: 100 Phrasal Verbs Paling Umum",
+		description: "Kartu belajar phrasal verb dengan contoh kalimat. Cocok untuk peserta English Conversation yang ingin speaking lebih natural.",
 		category: "flashcard",
 		fileType: "pdf",
 		downloadCount: 0,
@@ -38,8 +38,8 @@ const PLACEHOLDER_RESOURCES = [
 	},
 	{
 		id: "3",
-		title: "Template RPP Simpel untuk Ibu",
-		description: "Template Rencana Pelaksanaan Pembelajaran (RPP) versi sederhana yang bisa langsung digunakan oleh peserta Kelas Microteaching.",
+		title: "Template: IELTS Writing Task 2 Outline",
+		description: "Template struktur jawaban IELTS Writing Task 2 yang bisa langsung dipakai untuk latihan. Dilengkapi contoh essay band 7.",
 		category: "template",
 		fileType: "pdf",
 		downloadCount: 0,
@@ -47,8 +47,8 @@ const PLACEHOLDER_RESOURCES = [
 	},
 	{
 		id: "4",
-		title: "Panduan: 10 Tips Ajarkan Anak Membaca Tanpa Stres",
-		description: "Panduan PDF berisi 10 strategi praktis yang sudah terbukti efektif membantu anak belajar membaca dengan menyenangkan.",
+		title: "Panduan: 10 Tips Mulai Speaking Inggris dari Nol",
+		description: "Panduan PDF berisi 10 strategi praktis untuk pemula yang ingin mulai berani berbicara bahasa Inggris tanpa rasa takut salah.",
 		category: "tips",
 		fileType: "pdf",
 		downloadCount: 0,
@@ -56,8 +56,8 @@ const PLACEHOLDER_RESOURCES = [
 	},
 	{
 		id: "5",
-		title: "Worksheet Berhitung Seru Kelas 1–2 SD",
-		description: "Lembar kerja matematika dasar dengan ilustrasi menarik, cocok untuk anak kelas 1–2 SD yang sedang belajar berhitung.",
+		title: "TOEFL Structure Practice: 50 Soal Latihan",
+		description: "Kumpulan 50 soal latihan TOEFL structure & grammar dengan kunci jawaban dan penjelasan. Cocok untuk persiapan CPNS dan kampus.",
 		category: "worksheet",
 		fileType: "pdf",
 		downloadCount: 0,
@@ -65,8 +65,8 @@ const PLACEHOLDER_RESOURCES = [
 	},
 	{
 		id: "6",
-		title: "Jadwal Belajar Harian — Template Printable",
-		description: "Template jadwal belajar anak yang bisa dicetak dan dihias bersama anak, membuat belajar jadi lebih terstruktur dan menyenangkan.",
+		title: "Template: Jadwal Belajar Bahasa Inggris Mingguan",
+		description: "Template jadwal belajar bahasa Inggris yang bisa diisi sendiri, membantu peserta belajar lebih konsisten dan terstruktur.",
 		category: "template",
 		fileType: "pdf",
 		downloadCount: 0,
@@ -102,7 +102,7 @@ function ResourcesPage() {
 		<>
 			<PageHero
 				title="Materi Gratis"
-				subtitle="Worksheet, flashcard, template, dan panduan gratis untuk mendukung proses belajar anak di rumah."
+				subtitle="Tips belajar, vocabulary list, template, dan panduan gratis untuk mendukung perjalanan bahasa Inggrismu."
 				breadcrumbs={[{ label: "Materi Gratis" }]}
 			/>
 

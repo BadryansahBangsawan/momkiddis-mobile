@@ -7,7 +7,7 @@ const TYPES = [
 	{
 		icon: Building2,
 		title: "Lembaga Pendidikan",
-		desc: "PAUD, TK, SD, atau lembaga kursus yang ingin mengintegrasikan metode Momkiddy dalam kurikulumnya.",
+		desc: "Lembaga kursus, bimbel, atau sekolah bahasa yang ingin mengintegrasikan program Momkiddis untuk peserta mereka.",
 	},
 	{
 		icon: Users,
@@ -28,10 +28,10 @@ const TYPES = [
 
 const BENEFITS = [
 	"Akses program eksklusif dengan harga kemitraan",
-	"Materi dan modul pembelajaran Momkiddy",
-	"Sertifikat kolaborasi resmi dari Momkiddy Indonesia",
+	"Materi dan modul pembelajaran Momkiddis",
+	"Sertifikat kolaborasi resmi dari Momkiddis Indonesia",
 	"Branding bersama dalam aktivitas promosi",
-	"Dukungan langsung dari tim Momkiddy",
+	"Dukungan langsung dari tim Momkiddis",
 ];
 
 export const Route = createFileRoute("/mitra")({
@@ -44,8 +44,8 @@ function MitraPage() {
 	return (
 		<>
 			<PageHero
-				title="Menjadi Mitra Momkiddy"
-				subtitle="Bersama, kita berdampak lebih luas untuk ibu dan anak Indonesia."
+				title="Menjadi Mitra Momkiddis"
+				subtitle="Bersama, kita berdampak lebih luas untuk pelajar bahasa Inggris di seluruh Indonesia."
 				breadcrumbs={[{ label: "Kemitraan" }]}
 			/>
 
@@ -53,9 +53,9 @@ function MitraPage() {
 				{/* Intro */}
 				<section className="text-center max-w-2xl mx-auto">
 					<p className="text-sm leading-relaxed text-muted-foreground">
-						Momkiddy terbuka untuk berbagai bentuk kemitraan yang
-						bertujuan memperluas akses pendidikan berkualitas untuk
-						ibu dan anak di seluruh Indonesia. Kami percaya bahwa
+						Momkiddis terbuka untuk berbagai bentuk kemitraan yang
+						bertujuan memperluas akses belajar bahasa Inggris yang
+						berkualitas di seluruh Indonesia. Kami percaya bahwa
 						kolaborasi adalah kunci untuk dampak yang lebih besar.
 					</p>
 				</section>

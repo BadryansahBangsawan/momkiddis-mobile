@@ -36,10 +36,10 @@ export default function KeunggulanSection({ items }: KeunggulanSectionProps) {
 					transition={{ duration: 0.6, ease: "easeOut" }}
 				>
 					<h2 className="text-xl font-bold text-primary-foreground sm:text-2xl">
-						Mengapa Memilih Women Future?
+						Mengapa Memilih Momkiddis?
 					</h2>
 					<p className="mt-2 text-sm text-primary-foreground/75">
-						Lima alasan kelas online ini nyaman untuk perempuan yang ingin
+						Lima alasan kelas online ini tepat untuk siapa saja yang ingin
 						naik level bahasa Inggris
 					</p>
 				</motion.div>

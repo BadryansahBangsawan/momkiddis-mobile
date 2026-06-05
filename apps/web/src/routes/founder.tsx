@@ -5,36 +5,36 @@ import { Heart } from "lucide-react";
 
 const PENCAPAIAN = [
 	{ value: "10+", label: "Tahun pengalaman mengajar" },
-	{ value: "500+", label: "Ibu yang terlatih" },
-	{ value: "20+", label: "Batch program selesai" },
-	{ value: "5", label: "Program unggulan" },
+	{ value: "500+", label: "Total Peserta" },
+	{ value: "20+", label: "Batch kelas selesai" },
+	{ value: "5", label: "Kelas aktif" },
 ];
 
 const PERJALANAN = [
 	{
 		year: "2015",
-		title: "Memulai sebagai Guru PAUD",
-		desc: "Lita memulai kariernya sebagai guru PAUD dan langsung jatuh cinta dengan dunia pendidikan anak usia dini.",
+		title: "Memulai Karier di Dunia Pendidikan",
+		desc: "Lita memulai kariernya sebagai pendidik dan langsung jatuh cinta dengan dunia pengajaran bahasa.",
 	},
 	{
 		year: "2018",
-		title: "Mendalami Metode Phonics",
-		desc: "Mengikuti pelatihan intensif metode phonics dan play-based learning dari instruktur bersertifikat.",
+		title: "Mendalami Pengajaran Bahasa Inggris",
+		desc: "Mengikuti pelatihan intensif metode pengajaran bahasa Inggris komunikatif dan berbasis praktik.",
 	},
 	{
 		year: "2020",
-		title: "Lahirnya Ide Momkiddy",
-		desc: "Melihat banyak ibu yang kesulitan mendampingi anak belajar di rumah saat pandemi, Lita tergerak untuk berbagi.",
+		title: "Melihat Peluang di Kelas Online",
+		desc: "Melihat kebutuhan besar akan kelas bahasa Inggris online yang fleksibel, terjangkau, dan bisa diakses dari mana saja.",
 	},
 	{
 		year: "2021",
-		title: "Momkiddy Indonesia Resmi Berdiri",
-		desc: "Kelas pertama Momkiddy dibuka dengan 8 peserta. Respons luar biasa mendorong Lita untuk terus berkembang.",
+		title: "Women Future Resmi Diluncurkan",
+		desc: "Kelas pertama Women Future dibuka dengan peserta dari berbagai kota. Respons luar biasa mendorong Lita untuk terus berkembang.",
 	},
 	{
 		year: "2024",
-		title: "500+ Ibu Terlatih",
-		desc: "Momkiddy telah membantu ratusan ibu di seluruh Indonesia menjadi Mom Teacher yang percaya diri.",
+		title: "500+ Peserta dari Seluruh Indonesia",
+		desc: "Momkiddis telah membantu ratusan peserta di seluruh Indonesia meningkatkan kemampuan bahasa Inggris mereka.",
 	},
 ];
 
@@ -49,7 +49,7 @@ function FounderPage() {
 		<>
 			<PageHero
 				title="Lita Hendratno"
-				subtitle="Founder & Lead Educator Momkiddy Indonesia"
+				subtitle="Founder & Lead Educator Momkiddis Indonesia"
 				breadcrumbs={[{ label: "Tentang Kami", to: "/about" }, { label: "Founder" }]}
 			/>
 
@@ -67,7 +67,7 @@ function FounderPage() {
 							Founder & Lead Educator
 						</p>
 						<div className="mt-3 flex flex-wrap justify-center gap-1.5">
-							{["Educator", "Mom Teacher Trainer", "Phonics Expert"].map((tag) => (
+							{["English Educator", "Speaking Coach", "Women Empowerment"].map((tag) => (
 								<span
 									key={tag}
 									className="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary"
@@ -81,23 +81,23 @@ function FounderPage() {
 					<div className="lg:col-span-2 space-y-4">
 						<div className="space-y-3 text-sm leading-relaxed text-muted-foreground">
 							<p>
-								Lita Hendratno adalah seorang pendidik berpengalaman yang telah
-								lebih dari satu dekade bergelut di dunia pendidikan anak usia dini.
-								Perjalanannya dimulai sebagai guru PAUD sederhana — mengajar anak-anak
-								kecil membaca huruf pertama mereka — dan kini berkembang menjadi
-								sebuah lembaga pendidikan yang menyentuh ratusan keluarga di seluruh Indonesia.
+								Lita Hendratno adalah pendidik bahasa Inggris berpengalaman yang
+								telah lebih dari satu dekade bergelut di dunia pengajaran. Kini
+								ia fokus membangun Momkiddis Indonesia — platform kelas online
+								bahasa Inggris yang menjangkau peserta dari berbagai kota
+								di seluruh Indonesia.
 							</p>
 							<p>
-								Lita percaya bahwa ibu adalah guru pertama dan terbaik bagi setiap
-								anak. Namun banyak ibu tidak diberi bekal yang cukup. Dari
-								keyakinan inilah Momkiddy lahir — bukan sekadar lembaga kursus,
-								tetapi gerakan untuk memberdayakan ibu sebagai pendidik.
+								Lita percaya bahwa siapa saja bisa berbahasa Inggris dengan percaya
+								diri — apapun latar belakangnya. Dari keyakinan inilah Momkiddis
+								lahir: bukan sekadar kursus, tapi ruang aman untuk belajar,
+								berlatih, dan berkembang bersama.
 							</p>
 							<p>
 								Yang membedakan Lita: ia tidak mendelegasikan pengajaran.
-								Setiap program, setiap sesi, setiap umpan balik — ia tangani
-								langsung. Peserta mendapat akses nyata ke praktisi, bukan teori
-								dari buku yang ia baca lalu ajarkan ulang.
+								Setiap kelas, setiap sesi, setiap koreksi — ia tangani langsung.
+								Peserta mendapat feedback nyata dari praktisi, bukan sekadar
+								teori atau rekaman video.
 							</p>
 						</div>
 
@@ -106,9 +106,9 @@ function FounderPage() {
 								<Heart className="size-4 text-primary" />
 							</div>
 							<p className="text-sm italic text-muted-foreground">
-								"Saya tidak ingin ibu merasa sendirian saat mendampingi anak
-								belajar. Tugas saya adalah memastikan setiap ibu tahu apa yang
-								harus dilakukan dan percaya diri melakukannya."
+								"Saya percaya siapa pun bisa berbahasa Inggris dengan percaya diri.
+								Tugas saya adalah memastikan setiap peserta tahu cara yang tepat
+								dan berani mempraktikkannya."
 							</p>
 						</div>
 					</div>
@@ -132,7 +132,7 @@ function FounderPage() {
 				{/* Perjalanan */}
 				<section>
 					<h2 className="mb-6 text-base font-semibold text-foreground">
-						Perjalanan Lita & Momkiddy
+						Perjalanan Lita & Momkiddis
 					</h2>
 					<div className="space-y-0">
 						{PERJALANAN.map((item, i) => (
@@ -159,10 +159,10 @@ function FounderPage() {
 				{/* CTA */}
 				<section className="rounded-2xl bg-primary px-8 py-10 text-center">
 					<p className="text-lg font-bold text-white">
-						Belajar Langsung dari Lita
+						Belajar Langsung bersama Lita
 					</p>
 					<p className="mt-1 text-sm text-white/75">
-						Daftar ke program Momkiddy dan jadilah bagian dari komunitas Mom Teacher.
+						Daftar ke Momkiddis dan mulai perjalanan bahasa Inggrismu hari ini.
 					</p>
 					<div className="mt-5 flex flex-wrap justify-center gap-3">
 						<Link
