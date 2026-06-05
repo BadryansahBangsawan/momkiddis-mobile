@@ -746,30 +746,28 @@ Config global: WA number, IG handle, alamat, jam operasional, social links.
 
 > **Catatan:** 5 program detail pages (microteaching, calistung, dll) dikonsolidasi menjadi `programs/$slug.tsx` satu file dinamis — lebih DRY dan mudah di-maintain.
 
-### Phase 4 — DB + Seed ⚠️ SEBAGIAN SELESAI
-- [x] Tulis 4 schema files: `testimonials.ts`, `alumni.ts`, `blog_posts.ts`, `gallery_items.ts`
-- [ ] Schema tambahan belum dibuat: `events.ts`, `resources.ts`, `promos.ts`
+### Phase 4 — DB + Seed ✅ SELESAI
+- [x] Tulis 7 schema files: `testimonials.ts`, `alumni.ts`, `blog_posts.ts`, `gallery_items.ts`, `events.ts`, `resources.ts`, `promos.ts`
 - [x] Update `schema/index.ts`
-- [x] `bun db:generate` → migration `0000_special_devos.sql` berhasil
+- [x] `bun db:generate` → migration `0000_special_devos.sql` + `0001_modern_morgan_stark.sql` berhasil
 - [x] Buat `packages/db/src/seed.ts` (5 testimonials, 3 alumni, 2 blog posts, 5 gallery items)
 
-### Phase 5 — Dynamic Data Pages ⚠️ SEBAGIAN SELESAI
-- [x] Tulis 4 API routers: `testimonials.ts`, `alumni.ts`, `blog.ts`, `gallery.ts`
-- [ ] Router tambahan belum dibuat: `events.ts`, `resources.ts`, `promos.ts`
+### Phase 5 — Dynamic Data Pages ✅ SELESAI
+- [x] Tulis 7 API routers: `testimonials.ts`, `alumni.ts`, `blog.ts`, `gallery.ts`, `events.ts`, `resources.ts`, `promos.ts`
 - [x] Update `packages/api/src/routers/index.ts`
 - [x] Connect `routes/index.tsx` (homepage) ke DB — testimonials + alumni dengan static fallback
 - [x] `routes/alumni.tsx` — live DB dengan filter by program
 - [x] `routes/blog/index.tsx` — live DB, kartu artikel
 - [x] `routes/blog/$slug.tsx` — live DB, custom markdown renderer
 - [x] `routes/galeri.tsx` — live DB dengan placeholder fallback
-- [ ] `routes/event.tsx` — masih placeholder, belum live DB
-- [ ] `routes/resources.tsx` — masih placeholder, belum live DB
-- [ ] `routes/promo.tsx` — masih placeholder, belum live DB
+- [x] `routes/event.tsx` — live DB, upcoming + past events, static fallback
+- [x] `routes/resources.tsx` — live DB, filter by kategori, static fallback
+- [x] `routes/promo.tsx` — live DB, promo cards + WA CTA, static fallback
 
-### Phase 6 — Auth Pages ❌ BELUM DIMULAI
-- [ ] Update `routes/_auth/dashboard.tsx` (minimal: welcome + info batch + link ke WA admin)
-- [ ] `routes/_auth/profile.tsx` (edit nama, foto, nomor HP)
-- [ ] Update `routes/login.tsx` styling (brand colors)
+### Phase 6 — Auth Pages ✅ SELESAI
+- [x] Update `routes/_auth/dashboard.tsx` — welcome, quick actions, program cards, profil teaser
+- [x] `routes/_auth/profile.tsx` — edit nama, view email, logout
+- [x] Rewrite `routes/login.tsx` — brand Momkiddy, tab masuk/daftar, Indonesian labels
 
 ---
 
@@ -825,21 +823,16 @@ Belum dibuat: `events.ts`, `resources.ts`, `promos.ts`
 ## Yang Masih Perlu Dikerjakan
 
 ### Prioritas Tinggi
-1. **Phase 6 Auth Pages** — `profile.tsx`, update `dashboard.tsx`, update `login.tsx`
-2. **Seed data ke DB** — jalankan `seed.ts` ke D1 database lokal/production
-
-### Prioritas Sedang
-3. **event.tsx live DB** — schema `events.ts` + router + halaman live
-4. **resources.tsx live DB** — schema `resources.ts` + router + halaman live  
-5. **promo.tsx live DB** — schema `promos.ts` + router + halaman live
+1. **Seed data ke DB** — jalankan `seed.ts` ke D1 database lokal/production (isi nomor WA asli di `site-config.ts` dulu)
+2. **Isi data nyata** — alamat, nomor WA, foto founder, konten program di `site-config.ts` dan `programs-content.ts`
 
 ### Prioritas Rendah / Nice to Have
-6. `legal-content.ts` — ekstrak konten syarat & kebijakan ke file terpisah
-7. UI components tambahan: `tabs`, `dialog`, `textarea`, `progress` (jika dibutuhkan)
-8. Section components tambahan: `share-buttons`, `gallery-grid` + lightbox
-9. Homepage: tambah section **Batch Terbaru** dan **Blog Terbaru** (dari DB)
-10. `/testimoni` live — filter + load from DB (saat ini masih static)
-11. `/jadwal` live — batch schedule dari DB (saat ini static)
+3. Homepage: tambah section **Blog Terbaru** (3 artikel dari DB)
+4. `/testimoni` — connect live DB dengan filter by program
+5. `/jadwal` — jadwal batch nyata dari DB events
+6. Lightbox pada galeri (klik foto → modal besar)
+7. `legal-content.ts` — ekstrak konten syarat & kebijakan ke file terpisah
+8. Section components: `share-buttons` (share artikel), `gallery-grid` masonry
 
 ---
 

@@ -34,6 +34,7 @@ import { Route as ProgramsIndexRouteImport } from './routes/programs/index'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
 import { Route as ProgramsSlugRouteImport } from './routes/programs/$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
+import { Route as AuthProfileRouteImport } from './routes/_auth/profile'
 import { Route as AuthDashboardRouteImport } from './routes/_auth/dashboard'
 import { Route as ApiRpcSplatRouteImport } from './routes/api/rpc/$'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
@@ -162,6 +163,11 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthProfileRoute = AuthProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AuthRouteRoute,
+} as any)
 const AuthDashboardRoute = AuthDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
@@ -200,6 +206,7 @@ export interface FileRoutesByFullPath {
   '/syarat-ketentuan': typeof SyaratKetentuanRoute
   '/testimoni': typeof TestimoniRoute
   '/dashboard': typeof AuthDashboardRoute
+  '/profile': typeof AuthProfileRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/programs/$slug': typeof ProgramsSlugRoute
   '/blog/': typeof BlogIndexRoute
@@ -228,6 +235,7 @@ export interface FileRoutesByTo {
   '/syarat-ketentuan': typeof SyaratKetentuanRoute
   '/testimoni': typeof TestimoniRoute
   '/dashboard': typeof AuthDashboardRoute
+  '/profile': typeof AuthProfileRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/programs/$slug': typeof ProgramsSlugRoute
   '/blog': typeof BlogIndexRoute
@@ -259,6 +267,7 @@ export interface FileRoutesById {
   '/syarat-ketentuan': typeof SyaratKetentuanRoute
   '/testimoni': typeof TestimoniRoute
   '/_auth/dashboard': typeof AuthDashboardRoute
+  '/_auth/profile': typeof AuthProfileRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/programs/$slug': typeof ProgramsSlugRoute
   '/blog/': typeof BlogIndexRoute
@@ -290,6 +299,7 @@ export interface FileRouteTypes {
     | '/syarat-ketentuan'
     | '/testimoni'
     | '/dashboard'
+    | '/profile'
     | '/blog/$slug'
     | '/programs/$slug'
     | '/blog/'
@@ -318,6 +328,7 @@ export interface FileRouteTypes {
     | '/syarat-ketentuan'
     | '/testimoni'
     | '/dashboard'
+    | '/profile'
     | '/blog/$slug'
     | '/programs/$slug'
     | '/blog'
@@ -348,6 +359,7 @@ export interface FileRouteTypes {
     | '/syarat-ketentuan'
     | '/testimoni'
     | '/_auth/dashboard'
+    | '/_auth/profile'
     | '/blog/$slug'
     | '/programs/$slug'
     | '/blog/'
@@ -561,6 +573,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_auth/profile': {
+      id: '/_auth/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof AuthProfileRouteImport
+      parentRoute: typeof AuthRouteRoute
+    }
     '/_auth/dashboard': {
       id: '/_auth/dashboard'
       path: '/dashboard'
@@ -587,10 +606,12 @@ declare module '@tanstack/react-router' {
 
 interface AuthRouteRouteChildren {
   AuthDashboardRoute: typeof AuthDashboardRoute
+  AuthProfileRoute: typeof AuthProfileRoute
 }
 
 const AuthRouteRouteChildren: AuthRouteRouteChildren = {
   AuthDashboardRoute: AuthDashboardRoute,
+  AuthProfileRoute: AuthProfileRoute,
 }
 
 const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(
