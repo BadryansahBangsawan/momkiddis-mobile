@@ -202,7 +202,7 @@ export function HeroWaves() {
 			</div>
 
 			{/* Content */}
-			<div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-6 py-24 text-center md:px-8">
+			<div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-6 pb-24 pt-52 text-center md:px-8">
 				<motion.div
 					variants={container}
 					initial="hidden"
@@ -279,7 +279,7 @@ export function HeroWaves() {
 					{/* Stats */}
 					<motion.div
 						variants={statsAnim}
-						className="mb-12 grid grid-cols-3 gap-px overflow-hidden rounded-2xl border border-border/30 bg-border/20 backdrop-blur-sm"
+						className="mb-20 grid grid-cols-3 gap-px overflow-hidden rounded-2xl border border-border/30 bg-border/20 backdrop-blur-sm"
 					>
 						{stats.map((s) => (
 							<motion.div
