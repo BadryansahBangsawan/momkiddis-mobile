@@ -58,6 +58,7 @@ async function handleChat({ request }: { request: Request }) {
 							})),
 						],
 						tools: chatToolsOpenAI,
+							tool_choice: "auto",
 					}),
 				});
 
