@@ -154,7 +154,7 @@ ATURAN:
 5. Di luar cakupan / tidak tahu → arahkan ke WhatsApp +62 823-4327-7820`;
 }
 
-// OpenAI-compatible tool format (used by OpenRouter)
+// OpenAI-compatible tool format
 export const chatToolsOpenAI = [
 	{
 		type: "function" as const,
@@ -166,9 +166,18 @@ export const chatToolsOpenAI = [
 				type: "object",
 				properties: {
 					slugs: {
-						type: "array",
-						items: { type: "string" },
-						description: `Slug program yang direkomendasikan. Pilihan: ${ACTIVE_PROGRAMS.map((p) => `"${p.slug}" (${p.category === "ibu" ? "untuk Ibu" : "untuk Anak"}: ${p.shortTitle})`).join(", ")}`,
+						type: "string",
+						enum: [
+							"microteaching",
+							"calistung",
+							"bimbel-sd",
+							"microteaching,calistung",
+							"microteaching,bimbel-sd",
+							"calistung,bimbel-sd",
+							"microteaching,calistung,bimbel-sd",
+						],
+						description:
+							"Slug program yang direkomendasikan. Gunakan nilai PERSIS dari enum. Untuk beberapa program, gunakan koma tanpa spasi.",
 					},
 					reason: {
 						type: "string",

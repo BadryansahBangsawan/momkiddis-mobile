@@ -11,7 +11,7 @@ interface ChatRequest {
 	messages: ChatMessage[];
 }
 
-const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
+const NVIDIA_URL = "https://integrate.api.nvidia.com/v1/chat/completions";
 
 async function handleChat({ request }: { request: Request }) {
 	if (request.method !== "POST") {
@@ -29,7 +29,7 @@ async function handleChat({ request }: { request: Request }) {
 		return new Response("Messages required", { status: 400 });
 	}
 
-	const apiKey = (env.OPENROUTER_API_KEY as string | undefined) ?? process.env.OPENROUTER_API_KEY;
+	const apiKey = (env.NVIDIA_API_KEY as string | undefined) ?? process.env.NVIDIA_API_KEY;
 	if (!apiKey) {
 		return new Response("AI service not configured", { status: 503 });
 	}
@@ -38,17 +38,15 @@ async function handleChat({ request }: { request: Request }) {
 	const stream = new ReadableStream({
 		async start(controller) {
 			try {
-				const res = await fetch(OPENROUTER_URL, {
+				const res = await fetch(NVIDIA_URL, {
 					method: "POST",
 					headers: {
 						Authorization: `Bearer ${apiKey}`,
 						"Content-Type": "application/json",
-						"HTTP-Referer": "https://momkiddy.id",
-						"X-Title": "Momkiddy Indonesia",
 					},
 					body: JSON.stringify({
-						model: "anthropic/claude-sonnet-4",
-						max_tokens: 600,
+						model: "meta/llama-3.1-8b-instruct",
+						max_tokens: 16384,
 						stream: true,
 						messages: [
 							{ role: "system", content: buildSystemPrompt() },
@@ -64,8 +62,8 @@ async function handleChat({ request }: { request: Request }) {
 
 				if (!res.ok) {
 					const errText = await res.text();
-					console.error("[chat] OpenRouter error:", res.status, errText);
-					throw new Error(`OpenRouter ${res.status}: ${errText}`);
+					console.error("[chat] NVIDIA error:", res.status, errText);
+					throw new Error(`NVIDIA ${res.status}: ${errText}`);
 				}
 
 				const reader = res.body?.getReader();

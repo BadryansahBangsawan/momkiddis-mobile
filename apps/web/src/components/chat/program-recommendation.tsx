@@ -14,7 +14,12 @@ export function ProgramRecommendation({
 	slugs,
 	reason,
 }: ProgramRecommendationProps) {
-	const programs = slugs
+	const slugArray = Array.isArray(slugs)
+		? slugs
+		: typeof slugs === "string"
+			? (slugs as string).split(",").map((s) => s.trim())
+			: [];
+	const programs = slugArray
 		.map((s) => PROGRAMS[s])
 		.filter(Boolean);
 
@@ -23,7 +28,7 @@ export function ProgramRecommendation({
 	return (
 		<div className="space-y-2">
 			{reason && (
-				<p className="text-xs leading-relaxed text-muted-foreground">
+				<p className="text-base leading-relaxed text-foreground">
 					{reason}
 				</p>
 			)}

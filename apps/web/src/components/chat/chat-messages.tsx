@@ -73,7 +73,7 @@ function MessageBubble({ message }: { message: ChatMessage }) {
 			<div className={`max-w-[80%] space-y-2 ${isUser ? "items-end" : ""}`}>
 				{message.content && (
 					<div
-						className={`rounded-xl px-3.5 py-2.5 text-sm leading-relaxed ${
+						className={`rounded-xl px-3.5 py-2.5 text-base leading-relaxed ${
 							isUser
 								? "rounded-tr-none bg-primary text-primary-foreground"
 								: "rounded-tl-none bg-muted text-foreground"
@@ -116,7 +116,7 @@ export function ChatMessages({ messages, isLoading }: ChatMessagesProps) {
 					<div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/10">
 						<Bot className="size-3.5 text-primary" />
 					</div>
-					<div className="rounded-xl rounded-tl-none bg-muted px-3.5 py-2.5 text-sm leading-relaxed text-foreground">
+					<div className="rounded-xl rounded-tl-none bg-muted px-3.5 py-2.5 text-base leading-relaxed text-foreground">
 						Halo! Saya asisten virtual Momkiddy. Ada yang bisa saya
 						bantu? Silakan tanyakan tentang program kami.
 					</div>
