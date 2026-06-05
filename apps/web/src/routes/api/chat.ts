@@ -48,7 +48,7 @@ async function handleChat({ request }: { request: Request }) {
 					},
 					body: JSON.stringify({
 						model: "anthropic/claude-sonnet-4",
-						max_tokens: 1024,
+						max_tokens: 600,
 						stream: true,
 						messages: [
 							{ role: "system", content: buildSystemPrompt() },
@@ -64,6 +64,7 @@ async function handleChat({ request }: { request: Request }) {
 
 				if (!res.ok) {
 					const errText = await res.text();
+					console.error("[chat] OpenRouter error:", res.status, errText);
 					throw new Error(`OpenRouter ${res.status}: ${errText}`);
 				}
 
