@@ -28,8 +28,8 @@ const PERJALANAN = [
 	},
 	{
 		year: "2021",
-		title: "Women Future Resmi Diluncurkan",
-		desc: "Kelas pertama Women Future dibuka dengan peserta dari berbagai kota. Respons luar biasa mendorong Lita untuk terus berkembang.",
+		title: "Momkiddis Resmi Diluncurkan",
+		desc: "Kelas pertama Momkiddis dibuka dengan peserta dari berbagai kota. Respons luar biasa mendorong Lita untuk terus berkembang.",
 	},
 	{
 		year: "2024",

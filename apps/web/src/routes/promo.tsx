@@ -10,9 +10,9 @@ import { Tag, CalendarDays, Sparkles } from "lucide-react";
 const PLACEHOLDER_PROMOS = [
 	{
 		id: "1",
-		title: "Early Bird Women Future 2026",
+		title: "Early Bird Momkiddis Indonesia",
 		description:
-			"Daftar lebih awal untuk kelas Women Future 2026 dan konsultasikan paket belajar terbaik dengan admin.",
+			"Daftar lebih awal untuk kelas Momkiddis Indonesia dan konsultasikan paket belajar terbaik dengan admin.",
 		programSlug: "english-speaking-basic" as string | null,
 		discountLabel: "Diskon 20%",
 		validUntil: new Date(Date.now() + 10 * 24 * 60 * 60 * 1000) as Date | null,
@@ -30,7 +30,7 @@ const PLACEHOLDER_PROMOS = [
 		id: "3",
 		title: "Referral Program",
 		description:
-			"Ajak teman bergabung di kelas Women Future dan tanyakan bonus referral yang sedang aktif.",
+			"Ajak teman bergabung di kelas Momkiddis dan tanyakan bonus referral yang sedang aktif.",
 		programSlug: null,
 		discountLabel: "Bonus Referral",
 		validUntil: null,
@@ -67,7 +67,7 @@ function PromoPage() {
 		<>
 			<PageHero
 				title="Promo & Penawaran"
-				subtitle="Dapatkan penawaran terbaik untuk kelas Women Future 2026."
+				subtitle="Dapatkan penawaran terbaik untuk kelas Momkiddis Indonesia."
 				breadcrumbs={[{ label: "Promo" }]}
 			/>
 

@@ -433,7 +433,7 @@ export const KEUNGGULAN = [
 		icon: "Heart",
 		title: "Untuk Semua",
 		description:
-			"Ruang belajar dibuat nyaman untuk ibu rumah tangga, mahasiswi, pekerja, dan peserta perempuan lainnya.",
+			"Ruang belajar dibuat nyaman untuk ibu rumah tangga, mahasiswi, pekerja, dan peserta lainnya.",
 	},
 	{
 		icon: "Award",
@@ -503,7 +503,7 @@ export const STATIC_ALUMNI = [
 	{
 		id: "1",
 		name: "Fitri",
-		batchLabel: "Women Future 2026",
+		batchLabel: "Momkiddis Indonesia",
 		programSlug: "english-speaking-basic",
 		shortStory:
 			"Mulai dari basic dan sekarang lebih percaya diri berbicara saat bertemu orang baru.",
@@ -511,7 +511,7 @@ export const STATIC_ALUMNI = [
 	{
 		id: "2",
 		name: "Maya",
-		batchLabel: "Women Future 2026",
+		batchLabel: "Momkiddis Indonesia",
 		programSlug: "toefl-preparation",
 		shortStory:
 			"Mengikuti TOEFL preparation untuk kebutuhan kampus dan beasiswa.",
@@ -519,7 +519,7 @@ export const STATIC_ALUMNI = [
 	{
 		id: "3",
 		name: "Dinda",
-		batchLabel: "Women Future 2026",
+		batchLabel: "Momkiddis Indonesia",
 		programSlug: "private-english-1-on-1",
 		shortStory:
 			"Mengambil kelas private untuk persiapan interview dan presentation.",

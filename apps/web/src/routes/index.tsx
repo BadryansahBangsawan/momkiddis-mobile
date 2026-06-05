@@ -39,7 +39,7 @@ function HomeComponent() {
 			</div>
 
 
-			{/* ── Tentang Women Future ── */}
+			{/* ── Tentang Momkiddis ── */}
 			<AboutTeaser />
 
 			{/* ── Program Unggulan ── */}
@@ -118,7 +118,7 @@ function AboutTeaser() {
 						{[
 							{ label: "Total Peserta", value: "500+", sub: "dari berbagai kota di Indonesia" },
 							{ label: "Batch Selesai", value: "20+", sub: "kelas online dan mentoring" },
-							{ label: "Kelas Aktif", value: "5", sub: "program Women Future 2026" },
+							{ label: "Kelas Aktif", value: "5", sub: "program Momkiddis Indonesia" },
 							{ label: "Rating Kepuasan", value: "4.9", sub: "berdasarkan testimoni peserta" },
 						].map(({ label, value, sub }, i) => (
 							<motion.div
@@ -161,7 +161,7 @@ function ProgramsSection() {
 							Program Unggulan
 						</p>
 						<h2 className="mt-1 text-xl font-bold tracking-tight text-foreground sm:text-2xl">
-							Women Future 2026
+							Momkiddis Indonesia
 						</h2>
 						<p className="mt-1.5 max-w-xl text-sm text-muted-foreground">
 							4 kelas unggulan dari speaking basic hingga IELTS dan TOEFL.
@@ -365,7 +365,7 @@ const HOME_ALUMNI_SLIDER: AlumniReview[] = [
 	{
 		id: "a1",
 		name: "Fitri Handayani",
-		batchLabel: "Women Future 2026 · English Speaking Basic",
+		batchLabel: "Momkiddis Indonesia · English Speaking Basic",
 		quote: "Mulai dari basic, sekarang saya lebih berani memperkenalkan diri dan membuka percakapan sederhana dalam bahasa Inggris.",
 		imageSrc: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=600&fit=crop&q=80",
 		thumbnailSrc: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=120&fit=crop&q=80",
@@ -373,7 +373,7 @@ const HOME_ALUMNI_SLIDER: AlumniReview[] = [
 	{
 		id: "a2",
 		name: "Nanda Pratiwi",
-		batchLabel: "Women Future 2026 · TOEFL Preparation",
+		batchLabel: "Momkiddis Indonesia · TOEFL Preparation",
 		quote: "Latihan structure dan reading membuat saya lebih siap mengejar target TOEFL untuk kebutuhan kampus.",
 		imageSrc: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=600&fit=crop&q=80",
 		thumbnailSrc: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=100&h=120&fit=crop&q=80",
@@ -381,7 +381,7 @@ const HOME_ALUMNI_SLIDER: AlumniReview[] = [
 	{
 		id: "a3",
 		name: "Maya Sari",
-		batchLabel: "Women Future 2026 · Private English 1 on 1",
+		batchLabel: "Momkiddis Indonesia · Private English 1 on 1",
 		quote: "Kelas private membantu saya latihan interview dan presentation dengan materi yang benar-benar sesuai kebutuhan.",
 		imageSrc: "https://images.unsplash.com/photo-1488508872907-592763824245?w=400&h=600&fit=crop&q=80",
 		thumbnailSrc: "https://images.unsplash.com/photo-1488508872907-592763824245?w=100&h=120&fit=crop&q=80",
@@ -401,7 +401,7 @@ function AlumniSection() {
 				>
 					<div>
 						<p className="text-xs font-semibold uppercase tracking-widest text-primary">Peserta</p>
-						<h2 className="mt-1 text-xl font-bold tracking-tight text-foreground sm:text-2xl">Cerita Peserta Women Future</h2>
+						<h2 className="mt-1 text-xl font-bold tracking-tight text-foreground sm:text-2xl">Cerita Peserta Momkiddis</h2>
 					</div>
 					<Link to="/alumni">
 						<Button variant="ghost" size="sm" className="gap-1 text-xs text-primary hover:text-primary/80">

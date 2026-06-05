@@ -38,13 +38,13 @@ export const Route = createFileRoute("/sertifikasi")({
 });
 
 function SertifikasiPage() {
-	const waUrl = getWhatsAppUrl("Women Future 2026");
+	const waUrl = getWhatsAppUrl("Momkiddis Indonesia");
 
 	return (
 		<>
 			<PageHero
-				title="E-Certificate Women Future"
-				subtitle="Sertifikat digital untuk peserta yang menyelesaikan kelas online Women Future 2026."
+				title="E-Certificate Momkiddis"
+				subtitle="Sertifikat digital untuk peserta yang menyelesaikan kelas online Momkiddis Indonesia."
 				breadcrumbs={[{ label: "Sertifikasi" }]}
 			/>
 
@@ -56,7 +56,7 @@ function SertifikasiPage() {
 						<p className="mt-3 text-base font-semibold text-foreground">
 							E-Certificate
 						</p>
-						<p className="mt-1 text-sm text-muted-foreground">Women Future 2026</p>
+						<p className="mt-1 text-sm text-muted-foreground">Momkiddis Indonesia</p>
 						<div className="mt-4 h-px w-16 bg-border" />
 						<p className="mt-4 text-xs text-center text-muted-foreground">
 							Diterbitkan atas nama peserta yang berhasil menyelesaikan program
@@ -68,7 +68,7 @@ function SertifikasiPage() {
 						</h2>
 						<div className="space-y-3 text-sm leading-relaxed text-muted-foreground">
 							<p>
-								E-certificate Women Future adalah bukti perjalanan belajar Anda
+								E-certificate Momkiddis adalah bukti perjalanan belajar Anda
 								setelah mengikuti kelas online, latihan, progress check, dan
 								pendampingan mentor.
 							</p>
@@ -146,7 +146,7 @@ function SertifikasiPage() {
 						rel="noopener noreferrer"
 						className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-white transition-opacity duration-150 active:scale-[0.97] hover:opacity-90"
 					>
-						Daftar Women Future
+						Daftar Momkiddis
 					</a>
 				</section>
 			</div>

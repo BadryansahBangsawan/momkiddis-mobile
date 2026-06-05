@@ -36,7 +36,7 @@ const STEPS = [
 		step: "05",
 		icon: Award,
 		title: "Ikuti Kelas & Raih Sertifikat",
-		desc: "Ikuti semua sesi kelas dengan semangat. Selesaikan program dan dapatkan E-Certificate Women Future 2026 sebagai bukti pencapaian kamu.",
+		desc: "Ikuti semua sesi kelas dengan semangat. Selesaikan program dan dapatkan E-Certificate Momkiddis Indonesia sebagai bukti pencapaian kamu.",
 		action: null,
 	},
 ];

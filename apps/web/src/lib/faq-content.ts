@@ -15,8 +15,8 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
 		label: "Umum",
 		items: [
 			{
-				q: "Apa itu Women Future 2026?",
-				a: "Women Future 2026 adalah program kelas online bahasa Inggris khusus perempuan. Kelas tersedia untuk speaking basic, conversation, IELTS, TOEFL, dan private English 1 on 1.",
+				q: "Apa itu Momkiddis Indonesia?",
+				a: "Momkiddis Indonesia adalah program kelas online bahasa Inggris khusus perempuan. Kelas tersedia untuk speaking basic, conversation, IELTS, TOEFL, dan private English 1 on 1.",
 			},
 			{
 				q: "Kelasnya online atau offline?",
@@ -116,7 +116,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
 			},
 			{
 				q: "Apakah ada sharing beasiswa?",
-				a: "Ya. Scholarship sharing termasuk dalam bonus free untuk peserta Women Future 2026.",
+				a: "Ya. Scholarship sharing termasuk dalam bonus free untuk peserta Momkiddis Indonesia.",
 			},
 		],
 	},

@@ -147,7 +147,7 @@ function TestimoniPage() {
 		<>
 			<PageHero
 				title="Testimoni Peserta"
-				subtitle="Kata mereka tentang pengalaman belajar di kelas Women Future 2026."
+				subtitle="Kata mereka tentang pengalaman belajar di kelas Momkiddis Indonesia."
 				breadcrumbs={[{ label: "Testimoni" }]}
 			/>
 

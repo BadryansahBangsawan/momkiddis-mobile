@@ -215,18 +215,12 @@ export function HeroWaves() {
 						variants={item}
 						className="mb-5 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl"
 					>
-						{siteConfig.tagline.split(",").map((part, i) => (
-							<span key={i}>
-								{i === 0 ? (
-									<span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-										{part}
-									</span>
-								) : (
-									<span className="text-accent">{part}</span>
-								)}
-								{i === 0 && ","}
-							</span>
-						))}
+						<span className="block bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
+							Belajar Bahasa Inggris
+						</span>
+						<span className="block bg-gradient-to-r from-orange-500 to-orange-400 bg-clip-text text-transparent">
+							Online dari Mana Saja
+						</span>
 					</motion.h1>
 
 					{/* Sub-copy */}

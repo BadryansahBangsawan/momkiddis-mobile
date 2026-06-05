@@ -13,7 +13,7 @@ import {
 const METODE = [
 	{
 		icon: MessageSquare,
-		color: "bg-teal-50 text-teal-700",
+		color: "bg-primary/10 text-primary",
 		title: "Conversation Practice",
 		subtitle: "Latihan bicara aktif",
 		desc: "Peserta dilatih berbicara lewat topik harian, diskusi, roleplay, dan tanya jawab agar speaking terasa lebih natural.",
@@ -21,7 +21,7 @@ const METODE = [
 	},
 	{
 		icon: Mic,
-		color: "bg-emerald-50 text-emerald-700",
+		color: "bg-primary/10 text-primary",
 		title: "Pronunciation Correction",
 		subtitle: "Koreksi pengucapan",
 		desc: "Mentor membantu memperbaiki pronunciation, intonation, dan clarity agar peserta lebih percaya diri saat berbicara.",
@@ -29,7 +29,7 @@ const METODE = [
 	},
 	{
 		icon: Target,
-		color: "bg-violet-50 text-violet-700",
+		color: "bg-primary/10 text-primary",
 		title: "Fluency Training",
 		subtitle: "Melatih kelancaran",
 		desc: "Latihan dilakukan bertahap supaya peserta tidak terlalu lama menerjemahkan di kepala dan bisa merespons lebih cepat.",
@@ -37,7 +37,7 @@ const METODE = [
 	},
 	{
 		icon: BookOpen,
-		color: "bg-orange-50 text-orange-700",
+		color: "bg-primary/10 text-primary",
 		title: "IELTS Strategy",
 		subtitle: "Academic & General",
 		desc: "Peserta belajar strategi speaking, writing, listening, reading, dan vocabulary yang relevan untuk target IELTS.",
@@ -45,7 +45,7 @@ const METODE = [
 	},
 	{
 		icon: FileText,
-		color: "bg-amber-50 text-amber-700",
+		color: "bg-primary/10 text-primary",
 		title: "TOEFL Strategy",
 		subtitle: "Structure, listening, reading",
 		desc: "Pembelajaran fokus pada grammar structure, listening TOEFL, reading comprehension, prediction test, dan strategi waktu.",
@@ -53,7 +53,7 @@ const METODE = [
 	},
 	{
 		icon: UserRound,
-		color: "bg-rose-50 text-rose-700",
+		color: "bg-primary/10 text-primary",
 		title: "Personal Mentoring",
 		subtitle: "Materi bisa request",
 		desc: "Untuk kelas private, materi disesuaikan dengan kebutuhan peserta seperti interview, presentation, IELTS, TOEFL, atau pronunciation.",
@@ -71,7 +71,7 @@ function MetodePage() {
 	return (
 		<>
 			<PageHero
-				title="Metode Belajar Women Future"
+				title="Metode Belajar Momkiddis"
 				subtitle="Pendekatan kelas online yang fokus pada praktik, koreksi, strategi, dan progress belajar."
 				breadcrumbs={[{ label: "Metode Belajar" }]}
 			/>
@@ -120,7 +120,7 @@ function MetodePage() {
 							Filosofi Pembelajaran
 						</h2>
 						<p className="text-sm leading-relaxed text-muted-foreground">
-							Women Future mengutamakan latihan langsung, koreksi yang jelas,
+							Momkiddis mengutamakan latihan langsung, koreksi yang jelas,
 							dan materi yang bisa dipakai dalam kebutuhan nyata: berbicara
 							sehari-hari, kerja, kampus, IELTS, TOEFL, interview, dan
 							presentation.

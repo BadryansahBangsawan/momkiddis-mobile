@@ -50,24 +50,13 @@ const ICON_MAP: Record<string, React.FC<{ className?: string }>> = {
 	UserRound: ({ className }) => <UserRound className={className} />,
 };
 
-const COLOR_MAP: Record<string, { bg: string; icon: string; ring: string }> = {
-	blue: { bg: "bg-teal-50", icon: "text-teal-700", ring: "ring-teal-200" },
-	green: {
-		bg: "bg-emerald-50",
-		icon: "text-emerald-700",
-		ring: "ring-emerald-200",
-	},
-	purple: {
-		bg: "bg-violet-50",
-		icon: "text-violet-700",
-		ring: "ring-violet-200",
-	},
-	orange: {
-		bg: "bg-orange-50",
-		icon: "text-orange-700",
-		ring: "ring-orange-200",
-	},
-	pink: { bg: "bg-rose-50", icon: "text-rose-700", ring: "ring-rose-200" },
+const UNIFIED = { bg: "bg-primary/10", icon: "text-primary", ring: "ring-primary/20" };
+const COLOR_MAP: Record<string, typeof UNIFIED> = {
+	blue: UNIFIED,
+	green: UNIFIED,
+	purple: UNIFIED,
+	orange: UNIFIED,
+	pink: UNIFIED,
 };
 
 function ProgramDetailPage() {
@@ -108,7 +97,7 @@ function ProgramDetailPage() {
 										{program.isBestSeller && (
 											<Badge
 												variant="outline"
-												className="inline-flex items-center gap-1 border-amber-200 text-amber-700"
+												className="inline-flex items-center gap-1 border-border text-foreground"
 											>
 												<Star className="size-3 fill-current" />
 												Best Seller
@@ -192,7 +181,7 @@ function ProgramDetailPage() {
 										key={outcome}
 										className="flex items-start gap-2.5 rounded-lg border border-border bg-card p-3"
 									>
-										<CheckCircle2 className="mt-0.5 size-4 shrink-0 text-emerald-500" />
+										<CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" />
 										<span className="text-sm leading-snug text-foreground">
 											{outcome}
 										</span>

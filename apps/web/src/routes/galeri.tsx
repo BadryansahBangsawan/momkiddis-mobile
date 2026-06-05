@@ -9,12 +9,12 @@ const PLACEHOLDER_ITEMS = Array.from({ length: 6 }, (_, i) => ({
 	id: String(i + 1),
 	imageUrl: null as string | null,
 	caption: [
-		"Sesi Speaking Practice Women Future 2026",
+		"Sesi Speaking Practice Momkiddis Indonesia",
 		"Live Class IELTS Preparation via Zoom",
 		"Workshop English Conversation",
 		"Kelas TOEFL Strategy",
 		"Suasana Belajar Online via Zoom",
-		"E-Certificate Women Future Batch 5",
+		"E-Certificate Momkiddis Batch 5",
 	][i],
 	event: [
 		"Speaking Class",

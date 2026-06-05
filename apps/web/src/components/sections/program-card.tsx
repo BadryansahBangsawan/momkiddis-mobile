@@ -36,57 +36,21 @@ const ICON_MAP: Record<string, React.FC<{ className?: string }>> = {
 	UserRound: ({ className }) => <UserRound className={className} />,
 };
 
-const COLOR_MAP: Record<
-	string,
-	{
-		border: string;
-		soft: string;
-		icon: string;
-		iconText: string;
-		badge: string;
-		rule: string;
-	}
-> = {
-	blue: {
-		border: "border-teal-200",
-		soft: "bg-teal-50",
-		icon: "bg-teal-600 text-white",
-		iconText: "text-teal-700",
-		badge: "bg-teal-700 text-white",
-		rule: "border-teal-200",
-	},
-	green: {
-		border: "border-emerald-200",
-		soft: "bg-emerald-50",
-		icon: "bg-emerald-600 text-white",
-		iconText: "text-emerald-700",
-		badge: "bg-emerald-700 text-white",
-		rule: "border-emerald-200",
-	},
-	purple: {
-		border: "border-violet-200",
-		soft: "bg-violet-50",
-		icon: "bg-violet-600 text-white",
-		iconText: "text-violet-700",
-		badge: "bg-violet-700 text-white",
-		rule: "border-violet-200",
-	},
-	orange: {
-		border: "border-orange-200",
-		soft: "bg-orange-50",
-		icon: "bg-orange-500 text-white",
-		iconText: "text-orange-700",
-		badge: "bg-orange-600 text-white",
-		rule: "border-orange-200",
-	},
-	pink: {
-		border: "border-rose-200",
-		soft: "bg-rose-50",
-		icon: "bg-rose-500 text-white",
-		iconText: "text-rose-700",
-		badge: "bg-rose-600 text-white",
-		rule: "border-rose-200",
-	},
+const UNIFIED_COLOR = {
+	border: "border-border",
+	soft: "bg-muted/40",
+	icon: "bg-primary text-primary-foreground",
+	iconText: "text-primary",
+	badge: "bg-primary text-primary-foreground",
+	rule: "border-border",
+};
+
+const COLOR_MAP: Record<string, typeof UNIFIED_COLOR> = {
+	blue: UNIFIED_COLOR,
+	green: UNIFIED_COLOR,
+	purple: UNIFIED_COLOR,
+	orange: UNIFIED_COLOR,
+	pink: UNIFIED_COLOR,
 };
 
 interface ProgramCardProps {
@@ -112,7 +76,7 @@ export default function ProgramCard({ program, index = 0 }: ProgramCardProps) {
 			<Card
 				size="sm"
 				className={cn(
-					"h-full rounded-lg border bg-[#fffdf7] py-0 text-card-foreground shadow-sm transition-all duration-200 group-hover:shadow-md",
+					"h-full rounded-lg border bg-card py-0 text-card-foreground shadow-sm transition-all duration-200 group-hover:shadow-md",
 					colors.border,
 				)}
 			>

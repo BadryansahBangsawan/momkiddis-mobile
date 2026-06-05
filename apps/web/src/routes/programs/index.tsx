@@ -10,6 +10,7 @@ import {
 import ProgramCard from "@/components/sections/program-card";
 import PageHero from "@/components/sections/page-hero";
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 export const Route = createFileRoute("/programs/")({
 	component: ProgramsPage,
@@ -47,7 +48,7 @@ function ProgramsPage() {
 	return (
 		<>
 			<PageHero
-				title="Women Future 2026"
+				title="Momkiddis Indonesia"
 				subtitle="Kelas online via Zoom atau Google Meet, mulai dari English basic sampai test preparation dan private class."
 				breadcrumbs={[{ label: "Program" }]}
 			/>
@@ -83,11 +84,34 @@ function ProgramsPage() {
 				</div>
 
 				{/* Program grid */}
-				<div className="mt-8 grid grid-cols-2 justify-center gap-3 sm:grid-cols-[repeat(2,minmax(0,18rem))] sm:gap-4 lg:grid-cols-[repeat(3,minmax(0,18rem))] xl:grid-cols-[repeat(4,minmax(0,18rem))]">
-					{displayed.map((program, i) => (
-						<ProgramCard key={program.slug} program={program} index={i} />
-					))}
-				</div>
+				<AnimatePresence mode="wait">
+					<motion.div
+						key={active}
+						className="mt-8 grid grid-cols-2 justify-center gap-3 sm:grid-cols-[repeat(2,minmax(0,18rem))] sm:gap-4 lg:grid-cols-[repeat(3,minmax(0,18rem))] xl:grid-cols-[repeat(4,minmax(0,18rem))]"
+						initial="hidden"
+						animate="visible"
+						exit="hidden"
+						variants={{
+							hidden: { opacity: 0 },
+							visible: {
+								opacity: 1,
+								transition: { staggerChildren: 0.07 },
+							},
+						}}
+					>
+						{displayed.map((program, i) => (
+							<motion.div
+								key={program.slug}
+								variants={{
+									hidden: { opacity: 0, y: 16 },
+									visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: "easeOut" } },
+								}}
+							>
+								<ProgramCard program={program} index={i} />
+							</motion.div>
+						))}
+					</motion.div>
+				</AnimatePresence>
 
 				{/* CTA strip */}
 				<div className="mt-12 rounded-xl border border-border bg-muted/40 p-6 text-center">

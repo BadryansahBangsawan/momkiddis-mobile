@@ -10,7 +10,7 @@ import { CalendarDays, MapPin, Users, Clock } from "lucide-react";
 const PLACEHOLDER_UPCOMING = [
 	{
 		id: "1",
-		title: "Workshop Speaking English Women Future 2026",
+		title: "Workshop Speaking English Momkiddis Indonesia",
 		description: "Workshop intensif 2 hari untuk siapa saja yang ingin meningkatkan kemampuan speaking bahasa Inggris. Dibimbing langsung oleh Founder Momkiddis.",
 		date: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000),
 		endDate: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000),
@@ -35,7 +35,7 @@ const PLACEHOLDER_UPCOMING = [
 const PLACEHOLDER_PAST = [
 	{
 		id: "p1",
-		title: "Kelas Terbuka IELTS Preparation Women Future",
+		title: "Kelas Terbuka IELTS Preparation Momkiddis",
 		date: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000),
 		location: "Online via Zoom",
 		type: "kelas-terbuka",
@@ -102,7 +102,7 @@ function EventPage() {
 		<>
 			<PageHero
 				title="Event & Webinar"
-				subtitle="Ikuti event, workshop, dan webinar Women Future 2026 untuk terus meningkatkan kemampuan bahasa Inggrismu."
+				subtitle="Ikuti event, workshop, dan webinar Momkiddis Indonesia untuk terus meningkatkan kemampuan bahasa Inggrismu."
 				breadcrumbs={[{ label: "Event" }]}
 			/>
 

@@ -19,7 +19,7 @@ function JadwalPage() {
 	return (
 		<>
 			<PageHero
-				title="Jadwal & Biaya Women Future 2026"
+				title="Jadwal & Biaya Momkiddis Indonesia"
 				subtitle="Kelas online via Zoom atau Google Meet, durasi 90 menit per pertemuan."
 				breadcrumbs={[{ label: "Jadwal & Biaya" }]}
 			/>

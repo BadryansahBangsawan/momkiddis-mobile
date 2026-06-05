@@ -20,7 +20,7 @@ const FEATURED_REVIEWS: AlumniReview[] = [
 	{
 		id: "f1",
 		name: "Fitri Handayani",
-		batchLabel: "Women Future 2026 · English Speaking Basic",
+		batchLabel: "Momkiddis Indonesia · English Speaking Basic",
 		quote:
 			"Mulai dari basic, sekarang saya lebih berani memperkenalkan diri dan membuka percakapan sederhana dalam bahasa Inggris.",
 		imageSrc:
@@ -31,7 +31,7 @@ const FEATURED_REVIEWS: AlumniReview[] = [
 	{
 		id: "f2",
 		name: "Nanda Pratiwi",
-		batchLabel: "Women Future 2026 · TOEFL Preparation",
+		batchLabel: "Momkiddis Indonesia · TOEFL Preparation",
 		quote:
 			"Latihan structure dan reading membuat saya lebih siap mengejar target TOEFL untuk kebutuhan kampus.",
 		imageSrc:
@@ -42,7 +42,7 @@ const FEATURED_REVIEWS: AlumniReview[] = [
 	{
 		id: "f3",
 		name: "Maya Sari",
-		batchLabel: "Women Future 2026 · Private English 1 on 1",
+		batchLabel: "Momkiddis Indonesia · Private English 1 on 1",
 		quote:
 			"Kelas private membantu saya latihan interview dan presentation dengan materi yang benar-benar sesuai kebutuhan.",
 		imageSrc:
@@ -53,7 +53,7 @@ const FEATURED_REVIEWS: AlumniReview[] = [
 	{
 		id: "f4",
 		name: "Rini Wahyuni",
-		batchLabel: "Women Future 2026 · English Conversation",
+		batchLabel: "Momkiddis Indonesia · English Conversation",
 		quote:
 			"Conversation practice dan roleplay membuat saya lebih siap ngobrol spontan dalam bahasa Inggris.",
 		imageSrc:
@@ -64,7 +64,7 @@ const FEATURED_REVIEWS: AlumniReview[] = [
 	{
 		id: "f5",
 		name: "Desi Kurniawati",
-		batchLabel: "Women Future 2026 · IELTS Preparation",
+		batchLabel: "Momkiddis Indonesia · IELTS Preparation",
 		quote:
 			"Strategi IELTS speaking dan writing membantu saya memahami apa yang harus diperbaiki untuk target scholarship.",
 		imageSrc:
@@ -99,8 +99,8 @@ function AlumniPage() {
 	return (
 		<>
 			<PageHero
-				title="Peserta Women Future"
-				subtitle="Cerita peserta yang mengikuti kelas online Women Future 2026."
+				title="Peserta Momkiddis"
+				subtitle="Cerita peserta yang mengikuti kelas online Momkiddis Indonesia."
 				breadcrumbs={[{ label: "Alumni" }]}
 			/>
 
