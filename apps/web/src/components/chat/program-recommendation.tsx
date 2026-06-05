@@ -25,15 +25,36 @@ const ICON_MAP: Record<string, React.FC<{ className?: string }>> = {
 	UserRound,
 };
 
+function parseSlugs(raw: string[] | string | unknown): string[] {
+	if (Array.isArray(raw)) return raw.map(String);
+	if (typeof raw !== "string") return [];
+
+	const s = raw.trim();
+
+	// JSON array: ["slug1","slug2"]
+	try {
+		const parsed = JSON.parse(s);
+		if (Array.isArray(parsed)) return parsed.map(String);
+	} catch {}
+
+	// Python/bracket list: ['slug1', 'slug2'] or ["slug1","slug2"]
+	if (s.startsWith("[") && s.endsWith("]")) {
+		return s
+			.slice(1, -1)
+			.split(",")
+			.map((p) => p.trim().replace(/^['"]|['"]$/g, ""))
+			.filter(Boolean);
+	}
+
+	// Comma-separated fallback
+	return s.split(",").map((p) => p.trim().replace(/^['"]|['"]$/g, "")).filter(Boolean);
+}
+
 export function ProgramRecommendation({
 	slugs,
 	reason,
 }: ProgramRecommendationProps) {
-	const slugArray = Array.isArray(slugs)
-		? slugs
-		: typeof slugs === "string"
-			? (slugs as string).split(",").map((s) => s.trim())
-			: [];
+	const slugArray = parseSlugs(slugs);
 	const programs = slugArray
 		.map((s) => PROGRAMS[s])
 		.filter(Boolean);

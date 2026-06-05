@@ -79,7 +79,7 @@ export function ChatWidget() {
 								type: string;
 								content?: string;
 								name?: string;
-								input?: { slugs: string[]; reason: string };
+								input?: { slugs: unknown; reason: string };
 							};
 
 							if (

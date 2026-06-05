@@ -78,7 +78,7 @@ IDENTITAS:
 INFO PROGRAM:
 - Nama program: Momkiddis Indonesia
 - Tagline: Belajar Bahasa Inggris Online dari Mana Saja
-- Target: ibu rumah tangga, mahasiswi, pekerja, perempuan Indonesia semua usia
+- Target: ibu rumah tangga, mahasiswi, pekerja, profesional dari berbagai latar belakang
 - Format: Online via Zoom / Google Meet
 - Durasi per sesi: 90 menit
 - Level: mulai dari basic

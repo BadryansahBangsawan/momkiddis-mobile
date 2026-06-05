@@ -16,7 +16,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
 		items: [
 			{
 				q: "Apa itu Momkiddis Indonesia?",
-				a: "Momkiddis Indonesia adalah program kelas online bahasa Inggris khusus perempuan. Kelas tersedia untuk speaking basic, conversation, IELTS, TOEFL, dan private English 1 on 1.",
+				a: "Momkiddis Indonesia adalah program kelas online bahasa Inggris untuk siapa saja. Kelas tersedia untuk speaking basic, conversation, IELTS, TOEFL, dan private English 1 on 1.",
 			},
 			{
 				q: "Kelasnya online atau offline?",

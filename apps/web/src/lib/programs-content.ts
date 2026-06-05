@@ -74,7 +74,7 @@ export const PROGRAMS: Record<string, Program> = {
 		shortTitle: "English Speaking Basic",
 		subtitle: "Untuk pemula yang ingin mulai berani speaking dari nol",
 		description:
-			"Kelas basic untuk perempuan yang ingin membangun keberanian berbicara bahasa Inggris dari nol, mulai dari percakapan harian sampai self introduction.",
+			"Kelas basic untuk siapa saja yang ingin membangun keberanian berbicara bahasa Inggris dari nol, mulai dari percakapan harian sampai self introduction.",
 		category: "speaking",
 		targetLabel: "Pemula speaking dari nol",
 		ageRange: null,
@@ -138,7 +138,7 @@ export const PROGRAMS: Record<string, Program> = {
 		shortTitle: "English Conversation",
 		subtitle: "Untuk peserta yang ingin aktif dan lancar berbicara",
 		description:
-			"Kelas conversation untuk perempuan yang ingin lebih aktif, lancar, dan natural saat berbicara bahasa Inggris.",
+			"Kelas conversation untuk siapa saja yang ingin lebih aktif, lancar, dan natural saat berbicara bahasa Inggris.",
 		category: "speaking",
 		targetLabel: "Speaking aktif dan lancar",
 		ageRange: null,
