@@ -7,6 +7,7 @@ import {
 	Globe,
 	PenLine,
 	ArrowRight,
+	Star,
 } from "lucide-react";
 import type { Program } from "@/lib/programs-content";
 
@@ -73,9 +74,10 @@ export default function ProgramCard({ program, index = 0 }: ProgramCardProps) {
 				<div className="flex flex-wrap gap-1.5">
 					{program.isBestSeller && (
 						<span
-							className={`rounded-full px-2 py-0.5 text-xs font-semibold ${colors.badge}`}
+							className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-semibold ${colors.badge}`}
 						>
-							⭐ Best Seller
+							<Star className="size-3 fill-current" />
+							Best Seller
 						</span>
 					)}
 					<Badge

@@ -10,7 +10,20 @@ import {
 	UserIcon,
 	CalendarDaysIcon,
 	SparklesIcon,
+	GraduationCap,
+	BookOpen,
+	Calculator,
+	Globe,
+	PenLine,
 } from "lucide-react";
+
+const PROGRAM_ICON_MAP: Record<string, React.FC<{ className?: string }>> = {
+	GraduationCap,
+	BookOpen,
+	Calculator,
+	Globe,
+	PenLine,
+};
 
 export const Route = createFileRoute("/_auth/dashboard")({
 	component: DashboardPage,
@@ -135,12 +148,11 @@ function DashboardPage() {
 							params={{ slug: program.slug }}
 							className="group flex items-center gap-3 rounded-xl border border-border bg-card p-4 transition-all hover:border-primary/30 hover:shadow-sm active:scale-[0.98]"
 						>
-							<div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-lg">
-								{program.icon === "GraduationCap" ? "🎓"
-									: program.icon === "BookOpen" ? "📖"
-									: program.icon === "Calculator" ? "🔢"
-									: program.icon === "Globe" ? "🌍"
-									: "✏️"}
+							<div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary/10">
+								{(() => {
+									const Icon = PROGRAM_ICON_MAP[program.icon] ?? BookOpen;
+									return <Icon className="size-5 text-primary" />;
+								})()}
 							</div>
 							<div className="min-w-0">
 								<p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors truncate">

@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import PageHero from "@/components/sections/page-hero";
 import { PROGRAM_LIST } from "@/lib/programs-content";
 import { getWhatsAppUrl } from "@/lib/site-config";
-import { Users, Clock, CalendarDays } from "lucide-react";
+import { Users, Clock, CalendarDays, Star } from "lucide-react";
 
 const MODE_LABEL: Record<string, string> = {
 	hybrid: "Online & Offline",
@@ -46,8 +46,9 @@ function JadwalPage() {
 											{program.shortTitle}
 										</p>
 										{program.isBestSeller && (
-											<span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-700">
-												⭐ Best Seller
+											<span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-700">
+												<Star className="size-3 fill-current" />
+												Best Seller
 											</span>
 										)}
 									</div>

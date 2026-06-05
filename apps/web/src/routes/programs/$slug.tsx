@@ -19,6 +19,7 @@ import {
 	Calculator,
 	Globe,
 	PenLine,
+	Star,
 } from "lucide-react";
 
 export const Route = createFileRoute("/programs/$slug")({
@@ -91,8 +92,9 @@ function ProgramDetailPage() {
 										{program.category === "ibu" ? "Untuk Ibu" : "Untuk Anak"}
 									</Badge>
 									{program.isBestSeller && (
-										<Badge variant="outline" className="border-amber-200 text-amber-700">
-											⭐ Best Seller
+										<Badge variant="outline" className="inline-flex items-center gap-1 border-amber-200 text-amber-700">
+											<Star className="size-3 fill-current" />
+											Best Seller
 										</Badge>
 									)}
 									{program.ageRange && (
