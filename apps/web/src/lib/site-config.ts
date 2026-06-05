@@ -5,7 +5,7 @@ export const siteConfig = {
 		"Lembaga Pendidikan Momkiddy Indonesia — menguatkan peran ibu sebagai guru pertama di rumah dan mencerdaskan anak usia dini hingga sekolah dasar.",
 	founder: "Lita Hendratno",
 	wa: {
-		number: "6208xxxxxxxxxx",
+		number: "6282343277820",
 		defaultMessage: "Halo Momkiddy, saya ingin bertanya tentang program",
 	},
 	social: {

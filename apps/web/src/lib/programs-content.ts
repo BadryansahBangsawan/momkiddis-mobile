@@ -14,6 +14,7 @@ export interface Program {
 	isBestSeller: boolean;
 	icon: string;
 	color: string;
+	image: string;
 	maxStudents: number;
 	mode: "hybrid" | "online" | "offline";
 	curriculum: ProgramCurriculumItem[];
@@ -36,6 +37,7 @@ export const PROGRAMS: Record<string, Program> = {
 		isBestSeller: true,
 		icon: "GraduationCap",
 		color: "blue",
+		image: "/program/MomSKy.png",
 		maxStudents: 20,
 		mode: "hybrid",
 		curriculum: [
@@ -96,6 +98,7 @@ export const PROGRAMS: Record<string, Program> = {
 		isBestSeller: false,
 		icon: "BookOpen",
 		color: "green",
+		image: "/program/momkid.png",
 		maxStudents: 5,
 		mode: "hybrid",
 		curriculum: [
@@ -148,6 +151,7 @@ export const PROGRAMS: Record<string, Program> = {
 		isBestSeller: false,
 		icon: "Calculator",
 		color: "purple",
+		image: "/program/kiddis.png",
 		maxStudents: 5,
 		mode: "hybrid",
 		curriculum: [
@@ -194,6 +198,7 @@ export const PROGRAMS: Record<string, Program> = {
 		isBestSeller: false,
 		icon: "Globe",
 		color: "orange",
+		image: "/program/english-fun-class.png",
 		maxStudents: 8,
 		mode: "hybrid",
 		curriculum: [
@@ -240,6 +245,7 @@ export const PROGRAMS: Record<string, Program> = {
 		isBestSeller: false,
 		icon: "PenLine",
 		color: "pink",
+		image: "/program/literasi-class.png",
 		maxStudents: 8,
 		mode: "hybrid",
 		curriculum: [

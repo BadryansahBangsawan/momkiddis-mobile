@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
@@ -9,17 +8,9 @@ import {
 	FileText,
 	HelpCircle,
 	Phone,
-	MenuIcon,
 	type LucideIcon,
 } from "lucide-react";
 import { Button } from "@momkiddis/ui/components/button";
-import {
-	Sheet,
-	SheetContent,
-	SheetHeader,
-	SheetTitle,
-	SheetClose,
-} from "@momkiddis/ui/components/sheet";
 import { cn } from "@momkiddis/ui/lib/utils";
 
 import { siteConfig, getWhatsAppUrl } from "@/lib/site-config";
@@ -58,7 +49,6 @@ function useActiveNav() {
 }
 
 export default function SiteHeader() {
-	const [mobileOpen, setMobileOpen] = useState(false);
 	const activeName = useActiveNav();
 	const waUrl = getWhatsAppUrl();
 
@@ -87,50 +77,6 @@ export default function SiteHeader() {
 								Daftar Sekarang
 							</Button>
 						</a>
-					</div>
-
-					{/* Right: hamburger (mobile) */}
-					<div className="pointer-events-auto flex items-center gap-2 md:hidden">
-						<Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
-							<Button
-								variant="outline"
-								size="icon"
-								onClick={() => setMobileOpen(true)}
-								aria-label="Buka menu"
-								className="size-9 rounded-full bg-background/80 backdrop-blur-md border-border/30"
-							>
-								<MenuIcon className="size-4" />
-							</Button>
-							<SheetContent side="right" className="w-72">
-								<SheetHeader>
-									<SheetTitle className="text-primary">{siteConfig.name}</SheetTitle>
-								</SheetHeader>
-								<nav className="flex flex-col gap-1 px-4 pt-4">
-									{NAV_ITEMS.map(({ name, to, icon: Icon }) => (
-										<SheetClose key={to} render={<div />}>
-											<Link
-												to={to}
-												onClick={() => setMobileOpen(false)}
-												className="flex items-center gap-3 rounded-full px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted [&.active]:text-primary [&.active]:bg-primary/5"
-											>
-												<Icon className="size-4 text-muted-foreground" />
-												{name}
-											</Link>
-										</SheetClose>
-									))}
-									<a
-										href={waUrl}
-										target="_blank"
-										rel="noopener noreferrer"
-										className="mt-4"
-									>
-										<Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-											Daftar Sekarang
-										</Button>
-									</a>
-								</nav>
-							</SheetContent>
-						</Sheet>
 					</div>
 				</div>
 			</header>

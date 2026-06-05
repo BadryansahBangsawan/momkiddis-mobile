@@ -143,6 +143,8 @@ function AboutTeaser() {
 
 /* ─── Programs Section ──────────────────────────── */
 function ProgramsSection() {
+	const featuredPrograms = PROGRAM_LIST.slice(0, 4);
+
 	return (
 		<section className="bg-muted/30 px-4 py-16 sm:px-6 lg:px-8">
 			<div className="mx-auto max-w-7xl">
@@ -179,8 +181,8 @@ function ProgramsSection() {
 				</motion.div>
 
 				{/* Grid */}
-				<div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-					{PROGRAM_LIST.map((program, i) => (
+					<div className="mt-8 grid grid-cols-2 justify-center gap-2 sm:gap-3 md:grid-cols-[repeat(auto-fit,minmax(14rem,18rem))]">
+					{featuredPrograms.map((program, i) => (
 						<motion.div
 							key={program.slug}
 							initial={{ opacity: 0, y: 30 }}

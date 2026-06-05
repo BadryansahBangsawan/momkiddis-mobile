@@ -105,24 +105,6 @@ function AlumniPage() {
 			/>
 
 			<div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-				{/* Stats */}
-				<div className="mb-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-					{[
-						{ value: "500+", label: "Alumni Aktif" },
-						{ value: "20+", label: "Batch Selesai" },
-						{ value: "3 Tahun", label: "Berdiri" },
-						{ value: "4.9★", label: "Rating Program" },
-					].map(({ value, label }) => (
-						<div
-							key={label}
-							className="rounded-xl border border-border bg-card p-4 text-center"
-						>
-							<p className="text-xl font-bold text-primary">{value}</p>
-							<p className="mt-0.5 text-xs text-muted-foreground">{label}</p>
-						</div>
-					))}
-				</div>
-
 				{/* ── Animated alumni slider ── */}
 				<div className="mb-12">
 					<p className="mb-4 text-xs font-semibold uppercase tracking-widest text-primary">

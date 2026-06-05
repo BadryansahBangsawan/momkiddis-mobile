@@ -65,7 +65,7 @@ function ProgramsPage() {
 				</div>
 
 				{/* Program grid */}
-				<div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+					<div className="mt-8 grid grid-cols-2 justify-center gap-2 sm:gap-3 md:grid-cols-[repeat(auto-fit,minmax(14rem,18rem))]">
 					{displayed.map((program, i) => (
 						<ProgramCard key={program.slug} program={program} index={i} />
 					))}
@@ -80,7 +80,7 @@ function ProgramsPage() {
 						Konsultasikan langsung dengan admin kami — gratis, tanpa paksaan.
 					</p>
 					<a
-						href="https://wa.me/6208xxxxxxxxxx?text=Halo%20Momkiddy%2C%20saya%20ingin%20konsultasi%20program"
+						href="https://wa.me/6282343277820?text=Halo%20Momkiddy%2C%20saya%20ingin%20konsultasi%20program"
 						target="_blank"
 						rel="noopener noreferrer"
 						className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2 text-sm font-semibold text-white transition-opacity duration-150 active:scale-[0.97] hover:opacity-90"
