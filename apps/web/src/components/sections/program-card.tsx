@@ -5,7 +5,7 @@ import { PROGRAM_CATEGORY_LABELS, type Program } from "@/lib/programs-content";
 interface ProgramCardProps {
 	program: Program;
 	index?: number;
-	variant?: "full" | "compact";
+	variant?: "full" | "compact" | "portrait";
 }
 
 export default function ProgramCard({
@@ -22,9 +22,9 @@ export default function ProgramCard({
 					className="block transition-transform duration-150 active:scale-[0.99]"
 				>
 					<img
-						src={program.landscapeImage}
-						alt={`Banner ${program.shortTitle}`}
-						className="aspect-[1.65/1] w-full object-cover"
+						src={program.image ?? program.landscapeImage}
+						alt={`Poster ${program.shortTitle}`}
+						className="aspect-[4/5] w-full object-cover"
 						loading="lazy"
 					/>
 					<div className="p-4">
@@ -57,6 +57,75 @@ export default function ProgramCard({
 		);
 	}
 
+	if (variant === "portrait") {
+		return (
+			<article className="mx-auto w-full max-w-[23rem] overflow-hidden rounded-[1.85rem] border border-slate-200/80 bg-white shadow-[0_14px_40px_rgba(30,64,107,0.09)]">
+				<Link
+					to="/programs/$slug"
+					params={{ slug: program.slug }}
+					aria-label={`Buka course ${program.shortTitle}`}
+					className="group block overflow-hidden bg-[#d9edff]"
+				>
+					<img
+						src={program.image ?? program.landscapeImage}
+						alt={`Poster ${program.shortTitle}`}
+						className="aspect-[4/5] w-full object-cover transition-transform duration-200 group-active:scale-[0.99]"
+						loading="lazy"
+					/>
+				</Link>
+
+				<div className="p-5">
+					<div className="flex items-center justify-between gap-3">
+						<span className="rounded-full bg-primary/10 px-3 py-1.5 text-[0.65rem] font-extrabold text-primary">
+							{PROGRAM_CATEGORY_LABELS[program.category]}
+						</span>
+						<span className="text-[0.65rem] font-bold text-slate-400">
+							{program.level}
+						</span>
+					</div>
+
+					<h3 className="mt-4 text-xl font-black tracking-[-0.025em] text-slate-900">
+						{program.shortTitle}
+					</h3>
+					<p className="mt-1.5 text-sm font-medium leading-relaxed text-slate-500">
+						{program.subtitle}
+					</p>
+
+					<ul className="mt-4 grid gap-2">
+						{program.outcomes.slice(0, 2).map((outcome) => (
+							<li
+								key={outcome}
+								className="flex items-start gap-2 text-xs font-semibold leading-relaxed text-slate-600"
+							>
+								<CheckCircle2 className="mt-0.5 size-4 shrink-0 text-[#f97316]" />
+								{outcome}
+							</li>
+						))}
+					</ul>
+
+					<div className="mt-5 border-t border-slate-100 pt-4">
+						<div className="mb-3 flex items-end justify-between gap-3">
+							<p className="text-[0.65rem] font-semibold uppercase tracking-wide text-slate-400">
+								Biaya course
+							</p>
+							<p className="text-sm font-extrabold text-slate-800">
+								{program.priceLabel}
+							</p>
+						</div>
+						<Link
+							to="/programs/$slug"
+							params={{ slug: program.slug }}
+							className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#f97316] px-5 text-xs font-extrabold text-white shadow-[0_7px_18px_rgba(249,115,22,0.25)] transition-transform duration-150 active:scale-[0.97]"
+						>
+							Lihat Detail
+							<ArrowRight className="size-4" />
+						</Link>
+					</div>
+				</div>
+			</article>
+		);
+	}
+
 	return (
 		<article className="overflow-hidden rounded-[1.75rem] border border-slate-200/80 bg-white shadow-[0_14px_40px_rgba(30,64,107,0.09)]">
 			<Link
@@ -66,9 +135,9 @@ export default function ProgramCard({
 				className="group block overflow-hidden bg-[#d9edff]"
 			>
 				<img
-					src={program.landscapeImage}
-					alt={`Banner ${program.shortTitle}`}
-					className="aspect-[1.55/1] w-full object-cover transition-transform duration-200 group-active:scale-[0.99]"
+					src={program.image ?? program.landscapeImage}
+					alt={`Poster ${program.shortTitle}`}
+					className="aspect-[4/5] w-full object-cover transition-transform duration-200 group-active:scale-[0.99]"
 					loading="lazy"
 				/>
 			</Link>

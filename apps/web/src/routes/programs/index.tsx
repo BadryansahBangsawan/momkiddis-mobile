@@ -72,9 +72,13 @@ function ProgramsPage() {
 				</div>
 			</section>
 
-			<section className="grid gap-4 px-4 pb-7">
+			<section className="grid items-start gap-5 px-4 pb-7 lg:grid-cols-2">
 				{displayed.map((program) => (
-					<ProgramCard key={program.slug} program={program} />
+					<ProgramCard
+						key={program.slug}
+						program={program}
+						variant="portrait"
+					/>
 				))}
 			</section>
 

@@ -65,7 +65,7 @@ function HomeComponent() {
 					<div className="absolute -right-10 -top-12 size-44 rounded-full bg-white/10" />
 					<div className="absolute -bottom-16 left-16 size-40 rounded-full bg-cyan-300/15" />
 					<img
-						src="/program/Momsky-class.png"
+						src="/program/vertical/Momsky-class.png"
 						alt=""
 						aria-hidden="true"
 						className="absolute -bottom-2 -right-14 h-[82%] w-[58%] object-cover object-[72%_center] [mask-image:linear-gradient(to_left,black_72%,transparent)]"
