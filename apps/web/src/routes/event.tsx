@@ -10,8 +10,8 @@ import { CalendarDays, MapPin, Users, Clock } from "lucide-react";
 const PLACEHOLDER_UPCOMING = [
 	{
 		id: "1",
-		title: "Workshop Speaking English Momkiddis Indonesia",
-		description: "Workshop intensif 2 hari untuk siapa saja yang ingin meningkatkan kemampuan speaking bahasa Inggris. Dibimbing langsung oleh Founder Momkiddis.",
+		title: "Workshop Microteaching Momsky Class",
+		description: "Workshop praktik untuk para ibu yang ingin belajar teknik mengajar anak secara mudah, fun, dan terarah.",
 		date: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000),
 		endDate: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000),
 		location: "Online via Zoom",
@@ -21,8 +21,8 @@ const PLACEHOLDER_UPCOMING = [
 	},
 	{
 		id: "2",
-		title: "Webinar Gratis: Cara Mulai Speaking Inggris dari Nol",
-		description: "Webinar 2 jam membahas cara membangun kepercayaan diri berbicara bahasa Inggris dari level basic untuk pemula.",
+		title: "Webinar Gratis: Belajar Aktif Bersama Anak",
+		description: "Webinar tentang cara membangun aktivitas belajar anak yang aktif, kreatif, dan menyenangkan di rumah.",
 		date: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
 		endDate: null as Date | null,
 		location: "Online via Zoom",
@@ -35,21 +35,21 @@ const PLACEHOLDER_UPCOMING = [
 const PLACEHOLDER_PAST = [
 	{
 		id: "p1",
-		title: "Kelas Terbuka IELTS Preparation Momkiddis",
+		title: "Kelas Terbuka IELTS & TOEFL Class",
 		date: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000),
 		location: "Online via Zoom",
 		type: "kelas-terbuka",
 	},
 	{
 		id: "p2",
-		title: "Workshop TOEFL Strategy — Strategi Menjawab Soal",
+		title: "Workshop Professional Class: Presentasi & Delivery",
 		date: new Date(Date.now() - 60 * 24 * 60 * 60 * 1000),
 		location: "Online via Zoom",
 		type: "workshop",
 	},
 	{
 		id: "p3",
-		title: "Webinar: Tips Speaking Inggris untuk Pekerja",
+		title: "Webinar Teenager Class: Percaya Diri Berkomunikasi",
 		date: new Date(Date.now() - 90 * 24 * 60 * 60 * 1000),
 		location: "Online via Zoom",
 		type: "webinar",
@@ -102,7 +102,7 @@ function EventPage() {
 		<>
 			<PageHero
 				title="Event & Webinar"
-				subtitle="Ikuti event, workshop, dan webinar Momkiddis Indonesia untuk terus meningkatkan kemampuan bahasa Inggrismu."
+				subtitle="Ikuti event, workshop, dan webinar untuk ibu, anak, remaja, profesional, serta peserta English test."
 				breadcrumbs={[{ label: "Event" }]}
 			/>
 

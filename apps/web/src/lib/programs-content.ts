@@ -8,7 +8,12 @@ export interface ProgramPricePackage {
 	price: string;
 }
 
-export type ProgramCategory = "speaking" | "test-prep" | "private";
+export type ProgramCategory =
+	| "ibu"
+	| "anak"
+	| "remaja"
+	| "professional"
+	| "test-prep";
 
 export interface Program {
 	slug: string;
@@ -37,14 +42,16 @@ export interface Program {
 }
 
 export const PROGRAM_CATEGORY_LABELS: Record<ProgramCategory, string> = {
-	speaking: "Speaking",
-	"test-prep": "Test Prep",
-	private: "Private",
+	ibu: "Kelas Pengajar Ibu",
+	anak: "Kelas Anak",
+	remaja: "Kelas Remaja",
+	professional: "Kelas Profesional",
+	"test-prep": "English Test Class",
 };
 
-export const PROGRAM_FORMAT = "Online Class via Zoom / Google Meet";
-export const PROGRAM_DURATION = "90 menit per pertemuan";
-export const PROGRAM_LEVEL = "Mulai dari Basic";
+export const PROGRAM_FORMAT = "Kelas sesuai jadwal program";
+export const PROGRAM_DURATION = "Sesuai jadwal program";
+export const PROGRAM_LEVEL = "Terbuka sesuai kategori peserta";
 
 export const PROGRAM_BONUSES = [
 	"Konsultasi belajar",
@@ -60,386 +67,301 @@ export const CLASS_SCHEDULES = [
 	{ session: "Evening Class", time: "19.30 - 21.00 WIB" },
 ] as const;
 
-const COMMON_OUTCOMES = [
-	"Belajar online dengan jadwal yang fleksibel",
-	"Mendapat materi dari level basic",
-	"Mendapat progress report dan e-certificate",
-	"Bisa konsultasi arah belajar dengan mentor",
-];
-
 export const PROGRAMS: Record<string, Program> = {
-	"english-speaking-basic": {
-		slug: "english-speaking-basic",
-		title: "English Speaking Basic",
-		shortTitle: "English Speaking Basic",
-		subtitle: "Untuk pemula yang ingin mulai berani speaking dari nol",
+	"momsky-class": {
+		slug: "momsky-class",
+		title: "Momsky Class",
+		shortTitle: "Momsky Class",
+		subtitle:
+			"Belajar mengajar anak dengan metode yang mudah, fun, dan terarah.",
 		description:
-			"Kelas basic untuk siapa saja yang ingin membangun keberanian berbicara bahasa Inggris dari nol, mulai dari percakapan harian sampai self introduction.",
-		category: "speaking",
-		targetLabel: "Pemula speaking dari nol",
+			"Belajar mengajar anak dengan metode yang mudah, fun, dan terarah.",
+		category: "ibu",
+		targetLabel:
+			"Program untuk ibu yang ingin percaya diri mengajar anak di rumah.",
 		ageRange: null,
 		isBestSeller: true,
-		icon: "MessageCircle",
+		icon: "GraduationCap",
 		color: "blue",
 		image: "/program/Momsky-class.png",
 		maxStudents: null,
 		mode: "online",
-		formatLabel: PROGRAM_FORMAT,
-		level: PROGRAM_LEVEL,
+		formatLabel: "Kelas pengajar untuk para ibu",
+		level: "Untuk Ibu",
 		curriculum: [
 			{
-				title: "Daily conversation",
+				title: "Microteaching untuk para ibu",
 				description:
-					"Latihan percakapan harian agar peserta mulai terbiasa memakai bahasa Inggris dalam situasi sederhana.",
+					"Latihan teknik mengajar anak secara sederhana dan terarah.",
 			},
 			{
-				title: "Pronunciation & vocabulary",
+				title: "Calistung & teknik mengajar simpel",
 				description:
-					"Perbaikan pengucapan dan penambahan kosakata basic yang sering dipakai.",
+					"Belajar menyampaikan materi baca, tulis, dan hitung dengan cara yang mudah dipahami.",
 			},
 			{
-				title: "Thinking in English",
+				title: "Mentoring praktik bersama mentor",
 				description:
-					"Latihan menyusun kalimat tanpa terlalu banyak menerjemahkan dari bahasa Indonesia.",
-			},
-			{
-				title: "Self introduction",
-				description:
-					"Latihan memperkenalkan diri dengan jelas, natural, dan percaya diri.",
-			},
-			{
-				title: "Confidence speaking",
-				description:
-					"Latihan keberanian bicara agar peserta tidak takut salah saat speaking.",
+					"Praktik mengajar dan evaluasi langsung bersama mentor.",
 			},
 		],
 		outcomes: [
-			"Berani mulai berbicara bahasa Inggris dari nol",
-			"Menguasai percakapan harian basic",
-			"Lebih percaya diri memperkenalkan diri",
-			...COMMON_OUTCOMES,
+			"Lebih percaya diri mengajar anak di rumah",
+			"Mampu menerapkan teknik mengajar yang simpel",
+			"Mendapat arahan praktik dari mentor",
 		],
 		targetPeserta: [
-			"Ibu rumah tangga",
-			"Mahasiswi",
-			"Pemula level basic",
+			"Ibu yang ingin percaya diri mengajar anak di rumah",
+			"Ibu yang ingin belajar microteaching",
+			"Ibu yang ingin mendampingi calistung anak",
 		],
-		priceLabel: "Mulai Rp399.000",
-		pricePackages: [
-			{ label: "4x pertemuan", price: "Rp399.000" },
-			{ label: "8x pertemuan", price: "Rp749.000" },
-			{ label: "12x pertemuan", price: "Rp1.050.000" },
-		],
+		priceLabel: "Hubungi Admin",
+		pricePackages: [{ label: "Informasi biaya", price: "Hubungi Admin" }],
 		duration: PROGRAM_DURATION,
+		note:
+			"Program untuk ibu yang ingin percaya diri mengajar anak di rumah.",
 	},
-	"english-conversation": {
-		slug: "english-conversation",
-		title: "English Conversation Class",
-		shortTitle: "English Conversation",
-		subtitle: "Untuk peserta yang ingin aktif dan lancar berbicara",
+	"kiddis-class": {
+		slug: "kiddis-class",
+		title: "Kiddis Class",
+		shortTitle: "Kiddis Class",
+		subtitle:
+			"Belajar seru untuk anak dengan metode yang aktif, fun, dan kreatif.",
 		description:
-			"Kelas conversation untuk siapa saja yang ingin lebih aktif, lancar, dan natural saat berbicara bahasa Inggris.",
-		category: "speaking",
-		targetLabel: "Speaking aktif dan lancar",
-		ageRange: null,
+			"Belajar seru untuk anak dengan metode yang aktif, fun, dan kreatif.",
+		category: "anak",
+		targetLabel: "Program belajar seru untuk anak usia dini hingga SD.",
+		ageRange: "Usia dini hingga SD",
 		isBestSeller: false,
-		icon: "Globe",
+		icon: "BookOpen",
 		color: "green",
+		image: "/program/kiddis-class.png",
+		maxStudents: null,
+		mode: "online",
+		formatLabel: "Kelas belajar untuk anak",
+		level: "Usia Dini - SD",
+		curriculum: [
+			{
+				title: "Calistung Fun",
+				description: "Baca, tulis, dan hitung dengan metode menyenangkan.",
+			},
+			{
+				title: "Bimbel SD",
+				description: "Pembelajaran tematik untuk kelas 1-6 SD.",
+			},
+			{
+				title: "English Fun",
+				description:
+					"Latihan speaking dan listening melalui aktivitas kreatif.",
+			},
+		],
+		outcomes: [
+			"Belajar baca, tulis, dan hitung dengan menyenangkan",
+			"Mendapat pendampingan pelajaran tematik SD",
+			"Berlatih speaking dan listening bahasa Inggris",
+		],
+		targetPeserta: [
+			"Anak usia dini",
+			"Anak kelas 1-6 SD",
+			"Anak yang ingin belajar aktif dan kreatif",
+		],
+		priceLabel: "Hubungi Admin",
+		pricePackages: [{ label: "Informasi biaya", price: "Hubungi Admin" }],
+		duration: PROGRAM_DURATION,
+		note: "Program belajar seru untuk anak usia dini hingga SD.",
+	},
+	"teenager-class": {
+		slug: "teenager-class",
+		title: "Teenager Class",
+		shortTitle: "Teenager Class",
+		subtitle:
+			"Belajar untuk remaja dengan metode yang aktif, percaya diri, dan terarah.",
+		description:
+			"Belajar untuk remaja dengan metode yang aktif, percaya diri, dan terarah.",
+		category: "remaja",
+		targetLabel:
+			"Program remaja untuk tumbuh percaya diri dan siap berprestasi.",
+		ageRange: "Remaja",
+		isBestSeller: false,
+		icon: "MessageCircle",
+		color: "pink",
 		image: "/program/teenager-class.png",
 		maxStudents: null,
 		mode: "online",
-		formatLabel: PROGRAM_FORMAT,
-		level: PROGRAM_LEVEL,
+		formatLabel: "Kelas pengembangan untuk remaja",
+		level: "Remaja",
 		curriculum: [
 			{
-				title: "Conversation practice",
+				title: "English & komunikasi",
 				description:
-					"Latihan percakapan aktif dengan topik yang dekat dengan kebutuhan sehari-hari.",
+					"Latihan speaking agar remaja lebih percaya diri berkomunikasi.",
 			},
 			{
-				title: "Pronunciation correction",
+				title: "Belajar efektif",
 				description:
-					"Koreksi pengucapan agar speaking terdengar lebih jelas dan percaya diri.",
+					"Latihan mengatur fokus, target, dan penyelesaian tugas.",
 			},
 			{
-				title: "Discussion & roleplay",
+				title: "Public speaking",
 				description:
-					"Diskusi dan roleplay untuk membiasakan peserta merespons dalam percakapan nyata.",
-			},
-			{
-				title: "Public speaking basic",
-				description:
-					"Fondasi berbicara di depan orang lain menggunakan bahasa Inggris sederhana.",
-			},
-			{
-				title: "Fluency training",
-				description:
-					"Latihan kelancaran agar peserta tidak terlalu sering berhenti saat berbicara.",
+					"Latihan presentasi dan ekspresi di depan orang lain.",
 			},
 		],
 		outcomes: [
-			"Lebih aktif dalam percakapan bahasa Inggris",
-			"Pengucapan lebih jelas dan terarah",
-			"Lebih lancar berdiskusi dan roleplay",
-			...COMMON_OUTCOMES,
+			"Lebih percaya diri berkomunikasi",
+			"Belajar lebih fokus dan terarah",
+			"Lebih siap melakukan presentasi",
 		],
 		targetPeserta: [
-			"Ibu",
-			"Mahasiswi",
-			"Pekerja",
-			"Peserta yang ingin lebih lancar berbicara",
+			"Remaja yang ingin lebih percaya diri",
+			"Remaja yang ingin belajar lebih efektif",
+			"Remaja yang ingin berlatih public speaking",
 		],
-		priceLabel: "Mulai Rp450.000",
-		pricePackages: [
-			{ label: "4x pertemuan", price: "Rp450.000" },
-			{ label: "8x pertemuan", price: "Rp850.000" },
-			{ label: "12x pertemuan", price: "Rp1.250.000" },
-		],
+		priceLabel: "Hubungi Admin",
+		pricePackages: [{ label: "Informasi biaya", price: "Hubungi Admin" }],
 		duration: PROGRAM_DURATION,
+		note:
+			"Program remaja untuk tumbuh percaya diri dan siap berprestasi.",
 	},
-	"ielts-preparation": {
-		slug: "ielts-preparation",
-		title: "IELTS Preparation Class",
-		shortTitle: "IELTS Preparation",
-		subtitle: "Persiapan IELTS Academic & General",
+	"professional-class": {
+		slug: "professional-class",
+		title: "Professional Class",
+		shortTitle: "Professional Class",
+		subtitle:
+			"Upgrade skill mengajar dan komunikasi dengan metode yang praktis, rapi, dan aplikatif.",
 		description:
-			"Kelas persiapan IELTS untuk kebutuhan kuliah, kerja, scholarship, dan migrasi dengan fokus pada strategi setiap section.",
-		category: "test-prep",
-		targetLabel: "IELTS Academic & General",
+			"Upgrade skill mengajar dan komunikasi dengan metode yang praktis, rapi, dan aplikatif.",
+		category: "professional",
+		targetLabel:
+			"Program untuk meningkatkan kompetensi dan kepercayaan diri profesional.",
 		ageRange: null,
 		isBestSeller: false,
-		icon: "GraduationCap",
+		icon: "UserRound",
+		color: "orange",
+		image: "/program/profesional-class.png",
+		maxStudents: null,
+		mode: "online",
+		formatLabel: "Kelas pengembangan profesional",
+		level: "Profesional",
+		curriculum: [
+			{
+				title: "Microteaching lanjut",
+				description: "Strategi mengajar yang praktis dan aplikatif.",
+			},
+			{
+				title: "Komunikasi profesional",
+				description:
+					"Latihan presentasi dan delivery yang rapi serta percaya diri.",
+			},
+			{
+				title: "Mentoring skill",
+				description:
+					"Praktik keterampilan dan evaluasi bersama mentor.",
+			},
+		],
+		outcomes: [
+			"Meningkatkan strategi mengajar",
+			"Meningkatkan kemampuan komunikasi profesional",
+			"Mendapat praktik dan evaluasi keterampilan",
+		],
+		targetPeserta: [
+			"Pengajar yang ingin meningkatkan kompetensi",
+			"Profesional yang ingin meningkatkan komunikasi",
+			"Peserta yang membutuhkan mentoring skill",
+		],
+		priceLabel: "Hubungi Admin",
+		pricePackages: [{ label: "Informasi biaya", price: "Hubungi Admin" }],
+		duration: PROGRAM_DURATION,
+		note:
+			"Program untuk meningkatkan kompetensi dan kepercayaan diri profesional.",
+	},
+	"ielts-toefl-class": {
+		slug: "ielts-toefl-class",
+		title: "IELTS & TOEFL Class",
+		shortTitle: "IELTS & TOEFL Class",
+		subtitle:
+			"Persiapan tes bahasa Inggris dengan metode yang fokus, sistematis, dan terarah.",
+		description:
+			"Persiapan tes bahasa Inggris dengan metode yang fokus, sistematis, dan terarah.",
+		category: "test-prep",
+		targetLabel:
+			"Program persiapan English test untuk target studi dan karier.",
+		ageRange: null,
+		isBestSeller: false,
+		icon: "FileText",
 		color: "purple",
 		image: "/program/ielts&toefl-class%20.png",
 		maxStudents: null,
 		mode: "online",
-		formatLabel: PROGRAM_FORMAT,
-		level: PROGRAM_LEVEL,
+		formatLabel: "Kelas persiapan English test",
+		level: "Studi & Karier",
 		curriculum: [
 			{
-				title: "IELTS Speaking",
+				title: "Listening & Reading",
 				description:
-					"Latihan menjawab pertanyaan speaking dengan struktur yang jelas dan natural.",
+					"Latihan intensif untuk meningkatkan pemahaman listening dan reading.",
 			},
 			{
-				title: "Writing Task 1 & 2",
+				title: "Speaking & Writing",
 				description:
-					"Strategi menulis jawaban IELTS untuk Task 1 dan Task 2 sesuai format.",
+					"Strategi menyusun jawaban speaking dan writing.",
 			},
 			{
-				title: "Listening strategies",
+				title: "Test Practice",
 				description:
-					"Teknik memahami audio dan menangkap informasi penting saat listening.",
-			},
-			{
-				title: "Reading techniques",
-				description:
-					"Teknik membaca cepat, menemukan jawaban, dan mengelola waktu reading.",
-			},
-			{
-				title: "Vocabulary for IELTS",
-				description:
-					"Penguatan kosakata akademik yang sering dipakai dalam tes IELTS.",
+					"Simulasi tes dan evaluasi untuk mengukur kesiapan peserta.",
 			},
 		],
 		outcomes: [
-			"Memahami format IELTS Academic dan General",
-			"Menguasai strategi speaking, writing, listening, dan reading",
-			"Lebih siap untuk kebutuhan kuliah, kerja, scholarship, atau migrasi",
-			...COMMON_OUTCOMES,
+			"Lebih siap menghadapi IELTS maupun TOEFL",
+			"Menguasai strategi listening, reading, speaking, dan writing",
+			"Mendapat latihan simulasi dan evaluasi tes",
 		],
 		targetPeserta: [
-			"Persiapan kuliah",
-			"Persiapan kerja",
-			"Pemburu scholarship",
-			"Persiapan migrasi",
+			"Pelajar dengan target studi",
+			"Profesional dengan target karier",
+			"Peserta yang mempersiapkan IELTS atau TOEFL",
 		],
-		priceLabel: "Mulai Rp650.000",
-		pricePackages: [
-			{ label: "4x pertemuan", price: "Rp650.000" },
-			{ label: "8x pertemuan", price: "Rp1.250.000" },
-			{ label: "12x pertemuan", price: "Rp1.850.000" },
-		],
+		priceLabel: "Hubungi Admin",
+		pricePackages: [{ label: "Informasi biaya", price: "Hubungi Admin" }],
 		duration: PROGRAM_DURATION,
-	},
-	"toefl-preparation": {
-		slug: "toefl-preparation",
-		title: "TOEFL Preparation",
-		shortTitle: "TOEFL Preparation",
-		subtitle: "Untuk kebutuhan kampus, scholarship, kerja, dan CPNS",
-		description:
-			"Kelas persiapan TOEFL untuk kebutuhan akademik dan profesional, dari structure hingga prediction test.",
-		category: "test-prep",
-		targetLabel: "Kampus, scholarship, kerja, CPNS",
-		ageRange: null,
-		isBestSeller: false,
-		icon: "FileText",
-		color: "orange",
-		image: "/program/ielts&toefl-class%20.png",
-		maxStudents: null,
-		mode: "online",
-		formatLabel: PROGRAM_FORMAT,
-		level: PROGRAM_LEVEL,
-		curriculum: [
-			{
-				title: "Structure & grammar",
-				description:
-					"Pembahasan struktur kalimat dan grammar yang sering muncul dalam TOEFL.",
-			},
-			{
-				title: "Listening TOEFL",
-				description:
-					"Latihan listening untuk memahami percakapan dan monolog dalam format TOEFL.",
-			},
-			{
-				title: "Reading comprehension",
-				description:
-					"Teknik memahami bacaan dan menjawab soal reading dengan lebih efektif.",
-			},
-			{
-				title: "Prediction test",
-				description:
-					"Simulasi dan pembahasan soal untuk mengukur kesiapan peserta.",
-			},
-			{
-				title: "Tips & strategies",
-				description:
-					"Strategi pengerjaan soal, manajemen waktu, dan cara menghindari jebakan umum.",
-			},
-		],
-		outcomes: [
-			"Lebih siap menghadapi TOEFL untuk kampus atau kerja",
-			"Memahami grammar, listening, dan reading TOEFL",
-			"Mendapat strategi pengerjaan dan prediction test",
-			...COMMON_OUTCOMES,
-		],
-		targetPeserta: [
-			"Mahasiswa",
-			"Pekerja",
-			"CPNS",
-			"Pemburu beasiswa",
-		],
-		priceLabel: "Mulai Rp550.000",
-		pricePackages: [
-			{ label: "4x pertemuan", price: "Rp550.000" },
-			{ label: "8x pertemuan", price: "Rp1.050.000" },
-			{ label: "12x pertemuan", price: "Rp1.550.000" },
-		],
-		duration: PROGRAM_DURATION,
-	},
-	"private-english-1-on-1": {
-		slug: "private-english-1-on-1",
-		title: "Private English Class 1 on 1",
-		shortTitle: "Private English 1 on 1",
-		subtitle: "Belajar lebih fokus sesuai kebutuhan pribadi",
-		description:
-			"Kelas private 1 on 1 yang 100% personal, materi fleksibel, dan dirancang agar progress peserta lebih cepat.",
-		category: "private",
-		targetLabel: "Belajar personal dan fleksibel",
-		ageRange: null,
-		isBestSeller: false,
-		icon: "UserRound",
-		color: "pink",
-		image: "/program/profesional-class.png",
-		maxStudents: 1,
-		mode: "online",
-		formatLabel: PROGRAM_FORMAT,
-		level: PROGRAM_LEVEL,
-		curriculum: [
-			{
-				title: "Speaking",
-				description:
-					"Materi speaking bisa disesuaikan dengan kebutuhan dan level peserta.",
-			},
-			{
-				title: "IELTS",
-				description:
-					"Pendampingan personal untuk target IELTS tertentu.",
-			},
-			{
-				title: "TOEFL",
-				description:
-					"Pendampingan personal untuk kebutuhan TOEFL kampus, kerja, atau beasiswa.",
-			},
-			{
-				title: "Pronunciation",
-				description:
-					"Koreksi pengucapan secara detail karena sesi berlangsung 1 on 1.",
-			},
-			{
-				title: "Interview",
-				description:
-					"Latihan interview bahasa Inggris sesuai kebutuhan peserta.",
-			},
-			{
-				title: "Presentation",
-				description:
-					"Latihan presentasi bahasa Inggris untuk studi, kerja, atau acara profesional.",
-			},
-		],
-		outcomes: [
-			"Belajar 100% personal sesuai kebutuhan pribadi",
-			"Materi fleksibel dan bisa request",
-			"Progress lebih cepat karena fokus 1 on 1",
-			...COMMON_OUTCOMES,
-		],
-		targetPeserta: [
-			"Peserta yang butuh kelas personal",
-			"Peserta dengan target IELTS atau TOEFL khusus",
-			"Peserta yang ingin latihan interview atau presentation",
-		],
-		priceLabel: "Mulai Rp850.000",
-		pricePackages: [
-			{ label: "4x pertemuan", price: "Rp850.000" },
-			{ label: "8x pertemuan", price: "Rp1.650.000" },
-			{ label: "12x pertemuan", price: "Rp2.350.000" },
-		],
-		duration: PROGRAM_DURATION,
-		note: "100% personal, materi fleksibel, progress lebih cepat.",
+		note:
+			"Program persiapan English test untuk target studi dan karier.",
 	},
 } as const;
 
 export const PROGRAM_LIST = Object.values(PROGRAMS);
-export const SPEAKING_PROGRAMS = PROGRAM_LIST.filter(
-	(p) => p.category === "speaking",
-);
-export const TEST_PREP_PROGRAMS = PROGRAM_LIST.filter(
-	(p) => p.category === "test-prep",
-);
-export const PRIVATE_PROGRAMS = PROGRAM_LIST.filter(
-	(p) => p.category === "private",
-);
 
 export const KEUNGGULAN = [
 	{
-		icon: "Monitor",
-		title: "Online via Zoom / Google Meet",
+		icon: "Heart",
+		title: "Belajar Sesuai Tahap",
 		description:
-			"Semua kelas berlangsung online sehingga bisa diikuti dari rumah, kampus, atau tempat kerja.",
-	},
-	{
-		icon: "Clock",
-		title: "90 Menit Per Pertemuan",
-		description:
-			"Durasi kelas cukup fokus untuk latihan, koreksi, diskusi, dan tanya jawab.",
+			"Program disusun sesuai kebutuhan ibu, anak, remaja, profesional, dan peserta English test.",
 	},
 	{
 		icon: "Target",
-		title: "Mulai dari Basic",
+		title: "Materi Terarah",
 		description:
-			"Peserta pemula bisa mulai dari fondasi dasar sebelum masuk ke target speaking atau test prep.",
+			"Setiap kelas memiliki fokus, target, dan praktik yang jelas sesuai kategori peserta.",
 	},
 	{
-		icon: "Heart",
-		title: "Untuk Semua",
+		icon: "Monitor",
+		title: "Metode Aktif",
 		description:
-			"Ruang belajar dibuat nyaman untuk ibu rumah tangga, mahasiswi, pekerja, dan peserta lainnya.",
+			"Pembelajaran menggunakan metode aktif, fun, praktis, dan mudah diterapkan.",
+	},
+	{
+		icon: "Clock",
+		title: "Jadwal Fleksibel",
+		description:
+			"Jadwal kelas dapat dikonsultasikan dengan admin sesuai program yang dipilih.",
 	},
 	{
 		icon: "Award",
-		title: "Bonus Free",
+		title: "Dibimbing Mentor",
 		description:
-			"Peserta mendapatkan konsultasi belajar, progress report, e-certificate, group support, dan scholarship sharing.",
+			"Peserta mendapatkan arahan, praktik, dan evaluasi bersama mentor.",
 	},
 ] as const;
 
@@ -448,24 +370,24 @@ export const CARA_KERJA = [
 		step: "01",
 		title: "Pilih Kelas",
 		description:
-			"Pilih kelas speaking, test preparation, atau private sesuai kebutuhan.",
+			"Pilih Momsky, Kiddis, Teenager, Professional, atau IELTS & TOEFL Class.",
 	},
 	{
 		step: "02",
-		title: "Pilih Paket",
-		description: "Tentukan paket 4x, 8x, atau 12x pertemuan.",
+		title: "Hubungi Admin",
+		description: "Konsultasikan kebutuhan, jadwal, dan informasi biaya.",
 	},
 	{
 		step: "03",
 		title: "Atur Jadwal",
 		description:
-			"Pilih sesi morning, afternoon, atau evening class sesuai aktivitasmu.",
+			"Tentukan jadwal kelas yang tersedia bersama admin Momkiddis.",
 	},
 	{
 		step: "04",
-		title: "Mulai Online Class",
+		title: "Mulai Belajar",
 		description:
-			"Ikuti kelas via Zoom atau Google Meet dan pantau progress belajarmu.",
+			"Ikuti program, praktikkan materi, dan pantau perkembangan belajar.",
 	},
 ] as const;
 
@@ -473,28 +395,28 @@ export const STATIC_TESTIMONIALS = [
 	{
 		id: "1",
 		authorName: "Nadia",
-		authorRole: "English Speaking Basic",
-		programSlug: "english-speaking-basic",
+		authorRole: "Momsky Class",
+		programSlug: "momsky-class",
 		content:
-			"Saya mulai dari nol dan akhirnya berani memperkenalkan diri dalam bahasa Inggris tanpa terlalu takut salah.",
+			"Saya jadi lebih percaya diri mendampingi dan mengajar anak di rumah.",
 		rating: 5,
 	},
 	{
 		id: "2",
 		authorName: "Rani",
-		authorRole: "English Conversation Class",
-		programSlug: "english-conversation",
+		authorRole: "Teenager Class",
+		programSlug: "teenager-class",
 		content:
-			"Latihan roleplay dan pronunciation correction membantu saya lebih lancar ngobrol di kantor.",
+			"Latihan komunikasi dan public speaking membantu saya lebih percaya diri.",
 		rating: 5,
 	},
 	{
 		id: "3",
 		authorName: "Aulia",
-		authorRole: "IELTS Preparation",
-		programSlug: "ielts-preparation",
+		authorRole: "IELTS & TOEFL Class",
+		programSlug: "ielts-toefl-class",
 		content:
-			"Strategi writing dan speaking-nya jelas. Saya jadi tahu bagian mana yang harus diperbaiki.",
+			"Latihan setiap bagian tes membuat persiapan saya lebih terarah.",
 		rating: 5,
 	},
 ] as const;
@@ -504,24 +426,24 @@ export const STATIC_ALUMNI = [
 		id: "1",
 		name: "Fitri",
 		batchLabel: "Momkiddis Indonesia",
-		programSlug: "english-speaking-basic",
+		programSlug: "momsky-class",
 		shortStory:
-			"Mulai dari basic dan sekarang lebih percaya diri berbicara saat bertemu orang baru.",
+			"Lebih percaya diri mengajar dan mendampingi anak belajar di rumah.",
 	},
 	{
 		id: "2",
 		name: "Maya",
 		batchLabel: "Momkiddis Indonesia",
-		programSlug: "toefl-preparation",
+		programSlug: "ielts-toefl-class",
 		shortStory:
-			"Mengikuti TOEFL preparation untuk kebutuhan kampus dan beasiswa.",
+			"Mengikuti persiapan IELTS & TOEFL untuk kebutuhan studi dan karier.",
 	},
 	{
 		id: "3",
 		name: "Dinda",
 		batchLabel: "Momkiddis Indonesia",
-		programSlug: "private-english-1-on-1",
+		programSlug: "professional-class",
 		shortStory:
-			"Mengambil kelas private untuk persiapan interview dan presentation.",
+			"Meningkatkan kemampuan mengajar dan komunikasi profesional.",
 	},
 ] as const;

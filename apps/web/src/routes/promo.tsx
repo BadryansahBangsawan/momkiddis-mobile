@@ -13,15 +13,15 @@ const PLACEHOLDER_PROMOS = [
 		title: "Early Bird Momkiddis Indonesia",
 		description:
 			"Daftar lebih awal untuk kelas Momkiddis Indonesia dan konsultasikan paket belajar terbaik dengan admin.",
-		programSlug: "english-speaking-basic" as string | null,
+		programSlug: "momsky-class" as string | null,
 		discountLabel: "Diskon 20%",
 		validUntil: new Date(Date.now() + 10 * 24 * 60 * 60 * 1000) as Date | null,
 	},
 	{
 		id: "2",
-		title: "Bundle Speaking + Conversation",
+		title: "Program Keluarga Momkiddis",
 		description:
-			"Mulai dari English Speaking Basic lalu lanjut ke Conversation Class untuk latihan speaking yang lebih aktif.",
+			"Konsultasikan kombinasi program untuk ibu, anak, atau remaja sesuai kebutuhan keluarga.",
 		programSlug: null,
 		discountLabel: "Bonus Konsultasi",
 		validUntil: null,

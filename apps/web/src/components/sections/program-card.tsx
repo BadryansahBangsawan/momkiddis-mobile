@@ -14,8 +14,6 @@ import {
 	Globe,
 	MessageCircle,
 	PenLine,
-	ArrowRight,
-	Star,
 	UserRound,
 } from "lucide-react";
 import {
@@ -37,7 +35,6 @@ const ICON_MAP: Record<string, React.FC<{ className?: string }>> = {
 const UNIFIED_COLOR = {
 	border: "border-border",
 	icon: "bg-primary text-primary-foreground",
-	iconText: "text-primary",
 	badge: "bg-primary text-primary-foreground",
 };
 
@@ -57,16 +54,12 @@ interface ProgramCardProps {
 export default function ProgramCard({ program, index = 0 }: ProgramCardProps) {
 	const Icon = ICON_MAP[program.icon] ?? ICON_MAP.BookOpen;
 	const colors = COLOR_MAP[program.color] ?? COLOR_MAP.blue;
-	const primaryPackage = program.pricePackages[0] ?? {
-		label: "Paket",
-		price: program.priceLabel,
-	};
 
 	return (
 		<Link
 			to="/programs/$slug"
 			params={{ slug: program.slug }}
-			aria-label={`Lihat detail ${program.shortTitle}`}
+			aria-label={`Buka program ${program.shortTitle}`}
 			className="group mx-auto block h-full w-full max-w-[25.5rem] transition-all duration-200 hover:-translate-y-1 active:scale-[0.99]"
 			style={{ animationDelay: `${index * 60}ms` }}
 		>
@@ -103,71 +96,27 @@ export default function ProgramCard({ program, index = 0 }: ProgramCardProps) {
 					<div className="flex flex-wrap items-center gap-2">
 						<Badge
 							className={cn(
-								"h-6 rounded-full px-3 text-[10px] font-bold uppercase",
+								"h-6 rounded-full px-3 text-[10px] font-bold",
 								colors.badge,
 							)}
 						>
 							{PROGRAM_CATEGORY_LABELS[program.category]}
 						</Badge>
-						{program.isBestSeller ? (
-							<Badge
-								variant="outline"
-								className="h-6 rounded-full border-destructive/20 bg-destructive/10 px-3 text-[10px] font-bold text-destructive"
-							>
-								<Star className="fill-current" />
-								Best Seller
-							</Badge>
-						) : (
-							<Badge
-								variant="outline"
-								className="h-6 rounded-full border-border bg-background px-3 text-[10px] font-semibold text-muted-foreground"
-							>
-								{program.level}
-							</Badge>
-						)}
 					</div>
 
 					<div>
 						<CardTitle className="text-[1.45rem] font-extrabold leading-tight tracking-normal text-foreground">
 							{program.shortTitle}
 						</CardTitle>
-						<p className="mt-1.5 line-clamp-2 text-sm font-medium leading-relaxed text-muted-foreground">
+						<p className="mt-1.5 min-h-[4.75rem] text-sm font-medium leading-relaxed text-muted-foreground">
 							{program.subtitle}
 						</p>
 					</div>
 
-					<div>
-						<p className="text-sm font-bold text-muted-foreground">
-							Paket Online {program.duration}
-						</p>
-						<div className="mt-2 flex items-end gap-2">
-							<span className="rounded-md bg-destructive/10 px-1.5 py-1 text-sm font-extrabold leading-none text-destructive">
-								Mulai
-							</span>
-							<div className="min-w-0">
-								<p className="text-[1.7rem] font-extrabold leading-none tracking-normal text-foreground">
-									{primaryPackage.price}
-								</p>
-								<p className="mt-1 text-sm font-bold text-muted-foreground">
-									{primaryPackage.label}
-								</p>
-							</div>
-						</div>
-					</div>
-
 					<span className="inline-flex h-14 items-center justify-center rounded-full bg-accent px-5 text-base font-extrabold text-accent-foreground shadow-sm transition-transform duration-150 group-active:scale-[0.97]">
-						Beli Paket
+						Daftar Sekarang
 					</span>
 
-					<span
-						className={cn(
-							"mt-auto inline-flex items-center justify-center gap-2 text-base font-extrabold",
-							colors.iconText,
-						)}
-					>
-						Lihat Detail
-						<ArrowRight className="size-5 transition-transform duration-200 group-hover:translate-x-1" />
-					</span>
 				</CardContent>
 			</Card>
 		</Link>

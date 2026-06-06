@@ -1,12 +1,12 @@
 export const siteConfig = {
 	name: "Momkiddis Indonesia",
-	tagline: "Belajar Bahasa Inggris Online dari Mana Saja",
+	tagline: "Ibu Pintar Mengajar, Anak Cerdas Berkarya",
 	description:
-		"Kelas bahasa Inggris online dari Momkiddis Indonesia — speaking, IELTS, TOEFL, dan private class via Zoom. Belajar fleksibel dari mana saja.",
+		"Program belajar untuk ibu, anak, remaja, profesional, serta persiapan IELTS & TOEFL.",
 	founder: "Lita Hendratno",
 	wa: {
 		number: "6282343277820",
-		defaultMessage: "Halo Momkiddis, saya ingin bertanya tentang kelas bahasa Inggris",
+		defaultMessage: "Halo Momkiddis, saya ingin bertanya tentang program kelas",
 	},
 	social: {
 		instagram: "https://instagram.com/momkiddy.education",

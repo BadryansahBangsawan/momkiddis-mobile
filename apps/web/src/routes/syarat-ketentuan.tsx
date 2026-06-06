@@ -10,7 +10,7 @@ const SECTIONS = [
 	{
 		title: "2. Program dan Layanan",
 		content:
-			"Momkiddis Indonesia menyediakan program kelas bahasa Inggris online. Deskripsi program, kurikulum, dan jadwal dapat berubah sewaktu-waktu. Peserta akan diinformasikan terlebih dahulu melalui grup WhatsApp kelas.",
+			"Momkiddis Indonesia menyediakan program untuk ibu, anak, remaja, profesional, serta persiapan IELTS & TOEFL. Deskripsi program, kurikulum, dan jadwal dapat berubah sewaktu-waktu. Peserta akan diinformasikan terlebih dahulu melalui grup WhatsApp kelas.",
 	},
 	{
 		title: "3. Pendaftaran dan Pembayaran",

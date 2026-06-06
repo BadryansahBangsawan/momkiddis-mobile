@@ -16,19 +16,15 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
 		items: [
 			{
 				q: "Apa itu Momkiddis Indonesia?",
-				a: "Momkiddis Indonesia adalah program kelas online bahasa Inggris untuk siapa saja. Kelas tersedia untuk speaking basic, conversation, IELTS, TOEFL, dan private English 1 on 1.",
+				a: "Momkiddis Indonesia adalah lembaga pendidikan dengan program untuk ibu, anak, remaja, profesional, serta persiapan IELTS & TOEFL.",
 			},
 			{
-				q: "Kelasnya online atau offline?",
-				a: "Semua kelas berlangsung online via Zoom atau Google Meet, sehingga peserta bisa belajar dari rumah, kampus, atau tempat kerja.",
+				q: "Apa saja program yang tersedia?",
+				a: "Tersedia lima program: Momsky Class, Kiddis Class, Teenager Class, Professional Class, dan IELTS & TOEFL Class.",
 			},
 			{
-				q: "Siapa yang cocok ikut kelas ini?",
-				a: "Program ini cocok untuk ibu rumah tangga, mahasiswi, pekerja, pemula level basic, peserta yang ingin lebih lancar speaking, dan peserta yang sedang menyiapkan IELTS atau TOEFL.",
-			},
-			{
-				q: "Apakah pemula bisa ikut?",
-				a: "Bisa. Level kelas dimulai dari basic. Untuk peserta yang benar-benar mulai dari nol, kelas English Speaking Basic adalah pilihan paling aman.",
+				q: "Bagaimana memilih program yang tepat?",
+				a: "Pilih berdasarkan kategori peserta dan target belajar. Admin juga dapat membantu mencocokkan kebutuhanmu dengan program yang paling sesuai.",
 			},
 		],
 	},
@@ -37,42 +33,42 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
 		label: "Pilihan Kelas",
 		items: [
 			{
-				q: "Apa bedanya English Speaking Basic dan English Conversation Class?",
-				a: "English Speaking Basic cocok untuk pemula dari nol yang ingin mulai berani speaking. English Conversation Class cocok untuk peserta yang sudah punya dasar dan ingin lebih aktif, lancar, dan natural saat berbicara.",
+				q: "Apa yang dipelajari di Momsky Class?",
+				a: "Momsky Class membahas microteaching untuk para ibu, calistung dan teknik mengajar simpel, serta mentoring praktik bersama mentor.",
 			},
 			{
-				q: "Kelas IELTS membahas apa saja?",
-				a: "IELTS Preparation Class membahas IELTS Speaking, Writing Task 1 & 2, Listening strategies, Reading techniques, dan Vocabulary for IELTS.",
+				q: "Apa yang dipelajari di Kiddis Class?",
+				a: "Kiddis Class mencakup Calistung Fun, Bimbel SD tematik kelas 1-6, dan English Fun untuk speaking serta listening.",
 			},
 			{
-				q: "Kelas TOEFL membahas apa saja?",
-				a: "TOEFL Preparation membahas Structure & grammar, Listening TOEFL, Reading comprehension, Prediction test, serta tips dan strategi pengerjaan.",
+				q: "Apa yang dipelajari di Teenager Class?",
+				a: "Teenager Class berfokus pada English dan komunikasi, belajar efektif, serta public speaking untuk presentasi dan ekspresi.",
 			},
 			{
-				q: "Apa kelebihan Private English Class 1 on 1?",
-				a: "Private English Class 1 on 1 bersifat 100% personal. Materi bisa request seperti speaking, IELTS, TOEFL, pronunciation, interview, atau presentation.",
+				q: "Apa yang dipelajari di Professional Class?",
+				a: "Professional Class mencakup microteaching lanjut, komunikasi profesional, dan mentoring skill melalui praktik serta evaluasi.",
+			},
+			{
+				q: "Apakah IELTS dan TOEFL terpisah?",
+				a: "Tidak. IELTS dan TOEFL tersedia dalam satu program gabungan bernama IELTS & TOEFL Class, dengan materi Listening & Reading, Speaking & Writing, serta Test Practice.",
 			},
 		],
 	},
 	{
-		id: "harga",
-		label: "Harga & Paket",
+		id: "pendaftaran",
+		label: "Biaya & Pendaftaran",
 		items: [
 			{
-				q: "Apa saja pilihan paket kelas?",
-				a: "Setiap kelas memiliki paket 4x, 8x, dan 12x pertemuan. Harga berbeda sesuai jenis kelas, mulai dari Rp399.000 untuk English Speaking Basic.",
+				q: "Berapa biaya setiap program?",
+				a: "Informasi biaya belum dicantumkan di website. Hubungi admin Momkiddis untuk mendapatkan biaya terbaru sesuai program yang dipilih.",
 			},
 			{
-				q: "Berapa harga English Speaking Basic?",
-				a: "English Speaking Basic: 4x pertemuan Rp399.000, 8x pertemuan Rp749.000, dan 12x pertemuan Rp1.050.000.",
+				q: "Bagaimana cara mendaftar?",
+				a: "Pilih program yang sesuai lalu hubungi admin melalui WhatsApp untuk konsultasi, jadwal, biaya, dan konfirmasi pendaftaran.",
 			},
 			{
-				q: "Berapa harga IELTS dan TOEFL Preparation?",
-				a: "IELTS Preparation mulai Rp650.000 untuk 4x pertemuan. TOEFL Preparation mulai Rp550.000 untuk 4x pertemuan. Paket lengkap tersedia di halaman Jadwal & Biaya.",
-			},
-			{
-				q: "Apakah bisa konsultasi dulu sebelum memilih paket?",
-				a: "Bisa. Peserta bisa konsultasi kebutuhan belajar terlebih dahulu agar admin membantu memilih kelas, paket, dan jadwal yang paling sesuai.",
+				q: "Apakah bisa konsultasi sebelum mendaftar?",
+				a: "Bisa. Admin akan membantu memilih program berdasarkan usia peserta, kebutuhan belajar, dan target yang ingin dicapai.",
 			},
 		],
 	},
@@ -81,42 +77,26 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
 		label: "Jadwal",
 		items: [
 			{
-				q: "Berapa durasi setiap pertemuan?",
-				a: "Setiap pertemuan berdurasi 90 menit.",
+				q: "Kapan jadwal kelas dimulai?",
+				a: "Jadwal mengikuti program dan batch yang tersedia. Konfirmasikan jadwal terbaru langsung kepada admin Momkiddis.",
 			},
 			{
-				q: "Apa saja pilihan sesi kelas?",
-				a: "Pilihan sesi kelas: Morning Class 08.00 - 09.30 WIB, Afternoon Class 13.30 - 15.00 WIB, dan Evening Class 19.30 - 21.00 WIB.",
-			},
-			{
-				q: "Apakah jadwal fleksibel?",
-				a: "Ya. Jadwal fleksibel untuk mahasiswi, pekerja, dan ibu rumah tangga. Konfirmasi jadwal terbaik bisa dilakukan dengan admin.",
-			},
-			{
-				q: "Bagaimana cara masuk kelas online?",
-				a: "Setelah pendaftaran dikonfirmasi, peserta akan menerima info kelas, jadwal, dan link Zoom atau Google Meet melalui admin atau grup kelas.",
+				q: "Apakah jadwal dapat dikonsultasikan?",
+				a: "Ya. Admin akan memberikan pilihan jadwal yang tersedia untuk program yang kamu pilih.",
 			},
 		],
 	},
 	{
-		id: "bonus",
-		label: "Bonus & Sertifikat",
+		id: "sertifikat",
+		label: "Mentoring & Sertifikat",
 		items: [
 			{
-				q: "Apa saja bonus free yang didapat peserta?",
-				a: "Peserta mendapatkan konsultasi belajar, progress report, e-certificate, group support, dan scholarship sharing.",
+				q: "Apakah program dibimbing mentor?",
+				a: "Ya. Program menggunakan praktik, arahan, dan evaluasi mentor sesuai kebutuhan masing-masing kelas.",
 			},
 			{
 				q: "Apakah peserta mendapat sertifikat?",
-				a: "Ya. Peserta yang menyelesaikan program akan mendapatkan e-certificate.",
-			},
-			{
-				q: "Apakah ada progress report?",
-				a: "Ya. Progress report termasuk bonus free agar peserta bisa melihat perkembangan belajar selama mengikuti kelas.",
-			},
-			{
-				q: "Apakah ada sharing beasiswa?",
-				a: "Ya. Scholarship sharing termasuk dalam bonus free untuk peserta Momkiddis Indonesia.",
+				a: "Informasi sertifikat mengikuti ketentuan program. Hubungi admin untuk memastikan fasilitas pada kelas yang dipilih.",
 			},
 		],
 	},

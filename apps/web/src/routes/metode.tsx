@@ -14,50 +14,50 @@ const METODE = [
 	{
 		icon: MessageSquare,
 		color: "bg-primary/10 text-primary",
-		title: "Conversation Practice",
-		subtitle: "Latihan bicara aktif",
-		desc: "Peserta dilatih berbicara lewat topik harian, diskusi, roleplay, dan tanya jawab agar speaking terasa lebih natural.",
-		applies: ["Speaking Basic", "Conversation Class"],
+		title: "Microteaching & Mentoring",
+		subtitle: "Praktik mengajar terarah",
+		desc: "Peserta berlatih menyampaikan materi, mencoba teknik mengajar, dan mendapat evaluasi langsung dari mentor.",
+		applies: ["Momsky Class", "Professional Class"],
 	},
 	{
 		icon: Mic,
 		color: "bg-primary/10 text-primary",
-		title: "Pronunciation Correction",
-		subtitle: "Koreksi pengucapan",
-		desc: "Mentor membantu memperbaiki pronunciation, intonation, dan clarity agar peserta lebih percaya diri saat berbicara.",
-		applies: ["Speaking", "Conversation", "Private"],
+		title: "Belajar Aktif & Fun",
+		subtitle: "Belajar melalui aktivitas",
+		desc: "Materi baca, tulis, hitung, dan English Fun disampaikan melalui aktivitas yang aktif, kreatif, dan menyenangkan.",
+		applies: ["Kiddis Class"],
 	},
 	{
 		icon: Target,
 		color: "bg-primary/10 text-primary",
-		title: "Fluency Training",
-		subtitle: "Melatih kelancaran",
-		desc: "Latihan dilakukan bertahap supaya peserta tidak terlalu lama menerjemahkan di kepala dan bisa merespons lebih cepat.",
-		applies: ["Speaking Basic", "Conversation Class"],
+		title: "Komunikasi & Public Speaking",
+		subtitle: "Membangun kepercayaan diri",
+		desc: "Remaja berlatih speaking, presentasi, ekspresi, fokus, dan penyelesaian target belajar secara bertahap.",
+		applies: ["Teenager Class"],
 	},
 	{
 		icon: BookOpen,
 		color: "bg-primary/10 text-primary",
-		title: "IELTS Strategy",
-		subtitle: "Academic & General",
-		desc: "Peserta belajar strategi speaking, writing, listening, reading, dan vocabulary yang relevan untuk target IELTS.",
-		applies: ["IELTS Preparation"],
+		title: "Strategi IELTS & TOEFL",
+		subtitle: "Satu kelas English test",
+		desc: "Listening, reading, speaking, writing, simulasi, dan evaluasi dipelajari dalam satu program persiapan yang sistematis.",
+		applies: ["IELTS & TOEFL Class"],
 	},
 	{
 		icon: FileText,
 		color: "bg-primary/10 text-primary",
-		title: "TOEFL Strategy",
-		subtitle: "Structure, listening, reading",
-		desc: "Pembelajaran fokus pada grammar structure, listening TOEFL, reading comprehension, prediction test, dan strategi waktu.",
-		applies: ["TOEFL Preparation"],
+		title: "Praktik & Evaluasi",
+		subtitle: "Progress yang terarah",
+		desc: "Setiap program mengutamakan praktik, feedback, dan evaluasi agar peserta mengetahui perkembangan belajarnya.",
+		applies: ["Semua Program"],
 	},
 	{
 		icon: UserRound,
 		color: "bg-primary/10 text-primary",
-		title: "Personal Mentoring",
-		subtitle: "Materi bisa request",
-		desc: "Untuk kelas private, materi disesuaikan dengan kebutuhan peserta seperti interview, presentation, IELTS, TOEFL, atau pronunciation.",
-		applies: ["Private English 1 on 1"],
+		title: "Materi Sesuai Kategori",
+		subtitle: "Fokus pada kebutuhan peserta",
+		desc: "Materi, aktivitas, dan target belajar disesuaikan dengan tahap ibu, anak, remaja, profesional, atau peserta English test.",
+		applies: ["Semua Program"],
 	},
 ];
 
@@ -72,7 +72,7 @@ function MetodePage() {
 		<>
 			<PageHero
 				title="Metode Belajar Momkiddis"
-				subtitle="Pendekatan kelas online yang fokus pada praktik, koreksi, strategi, dan progress belajar."
+				subtitle="Pendekatan belajar yang aktif, fun, praktis, dan terarah untuk setiap kategori peserta."
 				breadcrumbs={[{ label: "Metode Belajar" }]}
 			/>
 
@@ -121,14 +121,12 @@ function MetodePage() {
 						</h2>
 						<p className="text-sm leading-relaxed text-muted-foreground">
 							Momkiddis mengutamakan latihan langsung, koreksi yang jelas,
-							dan materi yang bisa dipakai dalam kebutuhan nyata: berbicara
-							sehari-hari, kerja, kampus, IELTS, TOEFL, interview, dan
-							presentation.
+							dan materi yang bisa diterapkan dalam kegiatan belajar, mengajar,
+							komunikasi, serta persiapan English test.
 						</p>
 						<p className="text-sm leading-relaxed text-muted-foreground">
-							Setiap kelas berdurasi 90 menit agar peserta punya cukup waktu
-							untuk praktik, menerima feedback, dan memahami langkah belajar
-							berikutnya.
+							Setiap program memiliki alur praktik dan evaluasi agar peserta
+							memahami perkembangan serta langkah belajar berikutnya.
 						</p>
 					</div>
 				</section>
@@ -138,8 +136,8 @@ function MetodePage() {
 						Ingin tahu metode mana yang cocok untuk targetmu?
 					</p>
 					<p className="mt-1 text-sm text-muted-foreground">
-						Konsultasikan kebutuhan speaking, IELTS, TOEFL, atau private class
-						dengan admin.
+						Konsultasikan kebutuhan Momsky, Kiddis, Teenager, Professional,
+						atau IELTS &amp; TOEFL Class dengan admin.
 					</p>
 					<a
 						href={waUrl}

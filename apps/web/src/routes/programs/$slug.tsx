@@ -228,14 +228,14 @@ function ProgramDetailPage() {
 										<p className="text-sm font-medium text-foreground">
 											{program.maxStudents
 												? `1 on 1, maks. ${program.maxStudents} peserta`
-												: "Online group class"}
+												: "Program kelas Momkiddis"}
 										</p>
 									</div>
 								</li>
 							</ul>
 
 							<div className="mt-4 border-t border-border pt-4">
-								<p className="text-xs text-muted-foreground">Biaya Mulai</p>
+								<p className="text-xs text-muted-foreground">Informasi Biaya</p>
 								<p className="mt-0.5 text-base font-semibold text-foreground">
 									{program.priceLabel}
 								</p>

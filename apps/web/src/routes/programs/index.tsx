@@ -2,9 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import {
 	PROGRAM_CATEGORY_LABELS,
 	PROGRAM_LIST,
-	PRIVATE_PROGRAMS,
-	SPEAKING_PROGRAMS,
-	TEST_PREP_PROGRAMS,
 	type ProgramCategory,
 } from "@/lib/programs-content";
 import ProgramCard from "@/components/sections/program-card";
@@ -20,21 +17,11 @@ type Filter = "semua" | ProgramCategory;
 
 const FILTERS: { id: Filter; label: string; count: number }[] = [
 	{ id: "semua", label: "Semua Kelas", count: PROGRAM_LIST.length },
-	{
-		id: "speaking",
-		label: PROGRAM_CATEGORY_LABELS.speaking,
-		count: SPEAKING_PROGRAMS.length,
-	},
-	{
-		id: "test-prep",
-		label: PROGRAM_CATEGORY_LABELS["test-prep"],
-		count: TEST_PREP_PROGRAMS.length,
-	},
-	{
-		id: "private",
-		label: PROGRAM_CATEGORY_LABELS.private,
-		count: PRIVATE_PROGRAMS.length,
-	},
+	...Object.entries(PROGRAM_CATEGORY_LABELS).map(([id, label]) => ({
+		id: id as ProgramCategory,
+		label,
+		count: PROGRAM_LIST.filter((program) => program.category === id).length,
+	})),
 ];
 
 function ProgramsPage() {
@@ -48,8 +35,8 @@ function ProgramsPage() {
 	return (
 		<>
 			<PageHero
-				title="Momkiddis Indonesia"
-				subtitle="Kelas online via Zoom atau Google Meet, mulai dari English basic sampai test preparation dan private class."
+				title="Program Unggulan Momkiddis"
+				subtitle="Program untuk ibu, anak, remaja, profesional, serta persiapan IELTS & TOEFL."
 				breadcrumbs={[{ label: "Program" }]}
 			/>
 
@@ -124,8 +111,8 @@ function ProgramsPage() {
 						Tidak yakin kelas mana yang tepat?
 					</p>
 					<p className="mt-1 text-sm text-muted-foreground">
-						Konsultasikan kebutuhan speaking, IELTS, TOEFL, atau private class
-						dengan admin.
+						Konsultasikan kebutuhan belajar untuk ibu, anak, remaja,
+						profesional, atau English test dengan admin.
 					</p>
 					<a
 						href="https://wa.me/6282343277820?text=Halo%20Momkiddis%2C%20saya%20ingin%20konsultasi%20program"

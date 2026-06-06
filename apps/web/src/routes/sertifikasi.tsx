@@ -7,7 +7,7 @@ const KEGUNAAN = [
 	{
 		icon: Home,
 		title: "Portofolio Belajar",
-		desc: "Jadikan sebagai bukti bahwa kamu telah mengikuti kelas bahasa Inggris online.",
+		desc: "Jadikan sebagai bukti bahwa kamu telah mengikuti program belajar Momkiddis.",
 	},
 	{
 		icon: Users,
@@ -22,7 +22,7 @@ const KEGUNAAN = [
 	{
 		icon: BookOpen,
 		title: "Target Lanjutan",
-		desc: "Bisa menjadi catatan awal sebelum lanjut ke conversation, IELTS, TOEFL, atau private class.",
+		desc: "Bisa menjadi catatan perkembangan sebelum melanjutkan ke tahap belajar berikutnya.",
 	},
 ];
 
@@ -133,10 +133,10 @@ function SertifikasiPage() {
 						Daftarkan diri ke{" "}
 						<Link
 							to="/programs/$slug"
-							params={{ slug: "english-speaking-basic" }}
+							params={{ slug: "momsky-class" }}
 							className="text-primary hover:underline"
 						>
-							English Speaking Basic
+							Momsky Class
 						</Link>{" "}
 						sekarang.
 					</p>

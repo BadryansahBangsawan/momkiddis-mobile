@@ -9,19 +9,19 @@ const PLACEHOLDER_ITEMS = Array.from({ length: 6 }, (_, i) => ({
 	id: String(i + 1),
 	imageUrl: null as string | null,
 	caption: [
-		"Sesi Speaking Practice Momkiddis Indonesia",
-		"Live Class IELTS Preparation via Zoom",
-		"Workshop English Conversation",
-		"Kelas TOEFL Strategy",
-		"Suasana Belajar Online via Zoom",
+		"Praktik Mengajar Momsky Class",
+		"Belajar Seru Kiddis Class",
+		"Latihan Komunikasi Teenager Class",
+		"Mentoring Professional Class",
+		"Latihan IELTS & TOEFL Class",
 		"E-Certificate Momkiddis Batch 5",
 	][i],
 	event: [
-		"Speaking Class",
-		"IELTS Class",
-		"Workshop",
-		"TOEFL Class",
-		"Online Class",
+		"Momsky Class",
+		"Kiddis Class",
+		"Teenager Class",
+		"Professional Class",
+		"IELTS & TOEFL Class",
 		"E-Certificate",
 	][i],
 	takenAt: null as number | null,
@@ -53,7 +53,7 @@ function GaleriPage() {
 		<>
 			<PageHero
 				title="Galeri Kegiatan"
-				subtitle="Momen-momen belajar bahasa Inggris bersama peserta Momkiddis."
+				subtitle="Momen belajar dan berkembang bersama peserta Momkiddis."
 				breadcrumbs={[{ label: "Galeri" }]}
 			/>
 

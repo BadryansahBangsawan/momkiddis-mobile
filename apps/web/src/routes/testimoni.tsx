@@ -13,63 +13,63 @@ const TESTIMONIALS = [
 	{
 		id: 1,
 		name: "Nadia Putri",
-		role: "English Speaking Basic",
+		role: "Momsky Class",
 		quote:
-			"Saya mulai dari nol dan akhirnya berani memperkenalkan diri dalam bahasa Inggris tanpa terlalu takut salah.",
+			"Saya jadi lebih percaya diri mendampingi dan mengajar anak di rumah.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=200&h=200&fit=crop&q=80",
 	},
 	{
 		id: 2,
 		name: "Rani Kusuma",
-		role: "English Conversation Class",
+		role: "Kiddis Class",
 		quote:
-			"Roleplay dan pronunciation correction membuat saya lebih lancar berbicara di meeting kantor.",
+			"Anak saya menikmati kegiatan calistung dan English Fun yang aktif.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&h=200&fit=crop&q=80",
 	},
 	{
 		id: 3,
 		name: "Aulia Rahma",
-		role: "IELTS Preparation Class",
+		role: "Teenager Class",
 		quote:
-			"Strategi writing dan speaking-nya jelas. Saya jadi tahu bagian mana yang harus diperbaiki untuk target IELTS.",
+			"Latihan komunikasi dan public speaking membuat saya lebih percaya diri.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1488508872907-592763824245?w=200&h=200&fit=crop&q=80",
 	},
 	{
 		id: 4,
 		name: "Maya Lestari",
-		role: "TOEFL Preparation",
+		role: "Professional Class",
 		quote:
-			"Pembahasan structure dan prediction test membantu saya lebih siap untuk kebutuhan kampus.",
+			"Microteaching dan evaluasi mentor membantu saya menyampaikan materi dengan lebih rapi.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=200&h=200&fit=crop&q=80",
 	},
 	{
 		id: 5,
 		name: "Dinda Permata",
-		role: "Private English 1 on 1",
+		role: "IELTS & TOEFL Class",
 		quote:
-			"Materinya bisa request untuk interview dan presentation. Karena 1 on 1, progress saya terasa lebih cepat.",
+			"Strategi dan simulasi tes membuat persiapan IELTS maupun TOEFL saya lebih sistematis.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&q=80",
 	},
 	{
 		id: 6,
 		name: "Salsa Wulandari",
-		role: "English Speaking Basic",
+		role: "Momsky Class",
 		quote:
-			"Jadwal evening class cocok untuk saya yang bekerja. Kelasnya tetap ringan dan mudah diikuti.",
+			"Teknik mengajarnya simpel dan mudah saya praktikkan bersama anak.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1580894742597-87bc8789db3d?w=200&h=200&fit=crop&q=80",
 	},
 	{
 		id: 7,
 		name: "Putri Handayani",
-		role: "English Conversation Class",
+		role: "Teenager Class",
 		quote:
-			"Saya lebih berani merespons percakapan spontan dan tidak terlalu lama menerjemahkan di kepala.",
+			"Saya belajar mengatur fokus, target tugas, dan tampil lebih percaya diri.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&q=80",
 	},

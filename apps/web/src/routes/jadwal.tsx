@@ -20,7 +20,7 @@ function JadwalPage() {
 		<>
 			<PageHero
 				title="Jadwal & Biaya Momkiddis Indonesia"
-				subtitle="Kelas online via Zoom atau Google Meet, durasi 90 menit per pertemuan."
+				subtitle="Jadwal dan biaya mengikuti program yang dipilih dan dapat dikonsultasikan dengan admin."
 				breadcrumbs={[{ label: "Jadwal & Biaya" }]}
 			/>
 
@@ -75,7 +75,7 @@ function JadwalPage() {
 								<div className="flex items-center gap-2 px-4 py-3">
 									<CalendarDays className="size-3.5 shrink-0 text-muted-foreground" />
 									<div>
-										<p className="text-xs text-muted-foreground">Biaya Mulai</p>
+										<p className="text-xs text-muted-foreground">Informasi Biaya</p>
 										<p className="text-xs font-medium text-foreground">
 											{program.priceLabel}
 										</p>
@@ -139,7 +139,7 @@ function JadwalPage() {
 							))}
 						</div>
 						<p className="mt-3 text-xs leading-relaxed text-muted-foreground">
-							Jadwal fleksibel untuk mahasiswi, pekerja, dan ibu rumah tangga.
+							Jadwal disesuaikan dengan kategori peserta dan program yang dipilih.
 						</p>
 					</div>
 
@@ -165,10 +165,10 @@ function JadwalPage() {
 					<p className="text-xs font-semibold text-foreground">Catatan</p>
 					<ul className="mt-2 flex flex-col gap-1.5">
 						{[
-							"Kelas berlangsung online via Zoom atau Google Meet.",
-							"Setiap pertemuan berdurasi 90 menit.",
-							"Jadwal dapat disesuaikan untuk mahasiswi, pekerja, dan ibu rumah tangga.",
-							"Pilih paket 4x, 8x, atau 12x pertemuan sesuai target belajar.",
+							"Format kelas mengikuti ketentuan masing-masing program.",
+							"Durasi dan jadwal dikonfirmasi bersama admin.",
+							"Biaya dapat berbeda sesuai program dan kebutuhan peserta.",
+							"Admin akan membantu memilih program yang paling sesuai.",
 						].map((note) => (
 							<li key={note} className="flex items-start gap-2">
 								<span className="mt-1.5 size-1 shrink-0 rounded-full bg-muted-foreground/50" />
@@ -180,7 +180,7 @@ function JadwalPage() {
 
 				<div className="mt-8 rounded-xl border border-border bg-card p-6 text-center">
 					<p className="text-sm font-semibold text-foreground">
-						Tanya jadwal dan paket kelas
+						Tanya jadwal dan biaya kelas
 					</p>
 					<p className="mt-1 text-xs text-muted-foreground">
 						Admin akan bantu pilih kelas dan sesi yang paling sesuai.

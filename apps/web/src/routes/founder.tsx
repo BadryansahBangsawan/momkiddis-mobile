@@ -67,7 +67,7 @@ function FounderPage() {
 							Founder & Lead Educator
 						</p>
 						<div className="mt-3 flex flex-wrap justify-center gap-1.5">
-							{["English Educator", "Speaking Coach", "Women Empowerment"].map((tag) => (
+							{["Education Mentor", "English Educator", "Women Empowerment"].map((tag) => (
 								<span
 									key={tag}
 									className="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary"

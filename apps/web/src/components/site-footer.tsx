@@ -107,15 +107,15 @@ const STYLES = `
 function MarqueeItem() {
 	return (
 		<div className="flex items-center space-x-12 px-6">
-			<span>Bahasa Inggris Speaking</span>
+			<span>Momsky Class</span>
 			<span className="text-primary/60">✦</span>
-			<span>Persiapan IELTS &amp; TOEFL</span>
+			<span>Kiddis Class</span>
 			<span className="text-accent/60">✦</span>
-			<span>Private Class 1 on 1</span>
+			<span>Teenager Class</span>
 			<span className="text-primary/60">✦</span>
-			<span>Kelas Online via Zoom</span>
+			<span>Professional Class</span>
 			<span className="text-accent/60">✦</span>
-			<span>Jadwal Fleksibel: Morning · Afternoon · Evening</span>
+			<span>IELTS &amp; TOEFL Class</span>
 			<span className="text-primary/60">✦</span>
 		</div>
 	);
@@ -260,7 +260,7 @@ export default function SiteFooter() {
 							ref={headingRef}
 							className="footer-text-glow mb-12 text-center text-5xl font-black tracking-tighter md:text-8xl"
 						>
-							Mulai Speaking Inggrismu
+							Mulai Belajar Bersama
 						</h2>
 
 						{/* CTA Pills */}

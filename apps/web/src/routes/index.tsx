@@ -85,16 +85,14 @@ function AboutTeaser() {
 						<div className="mt-4 space-y-3 text-sm leading-relaxed text-muted-foreground">
 							<p>
 								<strong className="text-foreground">Momkiddis Indonesia</strong>{" "}
-								adalah platform kelas bahasa Inggris online yang menyediakan
-								program speaking, IELTS, TOEFL, dan private class via Zoom —
-								fleksibel, terjangkau, dan bisa diikuti dari mana saja.
+								adalah lembaga pendidikan dengan program untuk ibu, anak,
+								remaja, profesional, serta persiapan IELTS &amp; TOEFL.
 							</p>
 							<p>
 								Didirikan oleh{" "}
 								<strong className="text-foreground">Lita Hendratno</strong>,
-								Momkiddis hadir untuk membantu siapa saja mulai berbicara
-								bahasa Inggris dengan percaya diri, dari level basic hingga
-								persiapan tes internasional.
+								Momkiddis hadir untuk menguatkan kemampuan mengajar,
+								komunikasi, belajar, dan kepercayaan diri di setiap tahap.
 							</p>
 							<p className="italic text-foreground/70">
 								"Tidak ada yang terlambat belajar bahasa Inggris. Yang ada
@@ -164,8 +162,8 @@ function ProgramsSection() {
 							Momkiddis Indonesia
 						</h2>
 						<p className="mt-1.5 max-w-xl text-sm text-muted-foreground">
-							5 kelas unggulan dari speaking basic hingga IELTS, TOEFL, dan
-							private class.
+							Momsky, Kiddis, Teenager, Professional, serta satu kelas
+							gabungan IELTS &amp; TOEFL.
 						</p>
 					</div>
 					<Link to="/programs" className="shrink-0">
@@ -205,63 +203,63 @@ const HOME_TESTIMONIALS = [
 	{
 		id: "h1",
 		name: "Nadia Putri",
-		role: "English Speaking Basic",
+		role: "Momsky Class",
 		content:
-			"Saya mulai dari nol dan akhirnya berani memperkenalkan diri dalam bahasa Inggris tanpa terlalu takut salah.",
+			"Saya jadi lebih percaya diri mengajar dan mendampingi anak belajar di rumah.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=200&h=200&fit=crop&q=80",
 	},
 	{
 		id: "h2",
 		name: "Rani Kusuma",
-		role: "English Conversation Class",
+		role: "Teenager Class",
 		content:
-			"Roleplay dan pronunciation correction membuat saya lebih lancar berbicara di meeting kantor.",
+			"Latihan komunikasi dan public speaking membantu saya tampil lebih percaya diri.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&h=200&fit=crop&q=80",
 	},
 	{
 		id: "h3",
 		name: "Aulia Rahma",
-		role: "IELTS Preparation Class",
+		role: "IELTS & TOEFL Class",
 		content:
-			"Strategi writing dan speaking-nya jelas. Saya jadi tahu bagian mana yang harus diperbaiki untuk target IELTS.",
+			"Latihan listening, reading, speaking, dan writing membuat persiapan tes lebih terarah.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1488508872907-592763824245?w=200&h=200&fit=crop&q=80",
 	},
 	{
 		id: "h4",
 		name: "Maya Lestari",
-		role: "TOEFL Preparation",
+		role: "Kiddis Class",
 		content:
-			"Pembahasan structure dan prediction test membantu saya lebih siap untuk kebutuhan kampus.",
+			"Anak saya menikmati aktivitas calistung dan English Fun karena belajarnya aktif.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=200&h=200&fit=crop&q=80",
 	},
 	{
 		id: "h5",
 		name: "Dinda Permata",
-		role: "Private English 1 on 1",
+		role: "Professional Class",
 		content:
-			"Materinya bisa request untuk interview dan presentation. Karena 1 on 1, progress saya terasa lebih cepat.",
+			"Praktik komunikasi profesional dan evaluasi mentor sangat membantu pekerjaan saya.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&q=80",
 	},
 	{
 		id: "h6",
 		name: "Salsa Wulandari",
-		role: "English Speaking Basic",
+		role: "Momsky Class",
 		content:
-			"Jadwal evening class cocok untuk saya yang bekerja. Kelasnya tetap ringan dan mudah diikuti.",
+			"Teknik mengajarnya simpel dan langsung bisa saya praktikkan bersama anak.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1580894742597-87bc8789db3d?w=200&h=200&fit=crop&q=80",
 	},
 	{
 		id: "h7",
 		name: "Putri Handayani",
-		role: "English Conversation Class",
+		role: "Teenager Class",
 		content:
-			"Saya lebih berani merespons percakapan spontan dan tidak terlalu lama menerjemahkan di kepala.",
+			"Saya lebih terarah mengatur target belajar dan berani melakukan presentasi.",
 		avatarSrc:
 			"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&q=80",
 	},
@@ -365,24 +363,24 @@ const HOME_ALUMNI_SLIDER: AlumniReview[] = [
 	{
 		id: "a1",
 		name: "Fitri Handayani",
-		batchLabel: "Momkiddis Indonesia · English Speaking Basic",
-		quote: "Mulai dari basic, sekarang saya lebih berani memperkenalkan diri dan membuka percakapan sederhana dalam bahasa Inggris.",
+		batchLabel: "Momkiddis Indonesia · Momsky Class",
+		quote: "Sekarang saya lebih percaya diri mengajar dan mendampingi anak belajar di rumah.",
 		imageSrc: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=600&fit=crop&q=80",
 		thumbnailSrc: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=120&fit=crop&q=80",
 	},
 	{
 		id: "a2",
 		name: "Nanda Pratiwi",
-		batchLabel: "Momkiddis Indonesia · TOEFL Preparation",
-		quote: "Latihan structure dan reading membuat saya lebih siap mengejar target TOEFL untuk kebutuhan kampus.",
+		batchLabel: "Momkiddis Indonesia · IELTS & TOEFL Class",
+		quote: "Latihan setiap bagian tes membuat persiapan studi saya lebih fokus dan sistematis.",
 		imageSrc: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=600&fit=crop&q=80",
 		thumbnailSrc: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=100&h=120&fit=crop&q=80",
 	},
 	{
 		id: "a3",
 		name: "Maya Sari",
-		batchLabel: "Momkiddis Indonesia · Private English 1 on 1",
-		quote: "Kelas private membantu saya latihan interview dan presentation dengan materi yang benar-benar sesuai kebutuhan.",
+		batchLabel: "Momkiddis Indonesia · Professional Class",
+		quote: "Mentoring dan latihan komunikasi membantu saya tampil lebih rapi dan profesional.",
 		imageSrc: "https://images.unsplash.com/photo-1488508872907-592763824245?w=400&h=600&fit=crop&q=80",
 		thumbnailSrc: "https://images.unsplash.com/photo-1488508872907-592763824245?w=100&h=120&fit=crop&q=80",
 	},

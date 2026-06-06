@@ -8,7 +8,7 @@ const STEPS = [
 		step: "01",
 		icon: BookOpen,
 		title: "Pilih Program",
-		desc: "Lihat daftar kelas kami dan pilih yang paling sesuai dengan kebutuhanmu. Tersedia speaking basic, conversation, IELTS, TOEFL, dan private class.",
+		desc: "Pilih Momsky Class, Kiddis Class, Teenager Class, Professional Class, atau IELTS & TOEFL Class sesuai kebutuhanmu.",
 		action: { label: "Lihat Semua Program", to: "/programs" as const },
 	},
 	{

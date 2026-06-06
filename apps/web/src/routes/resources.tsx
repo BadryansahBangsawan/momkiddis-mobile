@@ -30,7 +30,7 @@ const PLACEHOLDER_RESOURCES = [
 	{
 		id: "2",
 		title: "Flashcard: 100 Phrasal Verbs Paling Umum",
-		description: "Kartu belajar phrasal verb dengan contoh kalimat. Cocok untuk peserta English Conversation yang ingin speaking lebih natural.",
+		description: "Kartu belajar phrasal verb dengan contoh kalimat. Cocok untuk latihan English Fun dan komunikasi.",
 		category: "flashcard",
 		fileType: "pdf",
 		downloadCount: 0,

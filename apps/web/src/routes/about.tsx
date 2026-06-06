@@ -22,12 +22,12 @@ const ICON_MAP: Record<string, React.FC<{ className?: string }>> = {
 };
 
 const VISI_MISI = {
-	visi: "Menjadi platform belajar bahasa Inggris terpercaya yang membantu siapa saja menguasai bahasa Inggris dan meraih tujuan akademik, profesional, serta personal mereka.",
+	visi: "Menjadi rumah belajar keluarga yang membantu ibu percaya diri mengajar, anak bertumbuh cerdas, serta remaja dan profesional terus berkembang.",
 	misi: [
-		"Menyediakan kelas bahasa Inggris online yang berkualitas, terjangkau, dan fleksibel untuk siapa saja dari berbagai latar belakang.",
-		"Membantu peserta membangun kepercayaan diri berbicara bahasa Inggris dari level basic hingga persiapan IELTS dan TOEFL.",
-		"Menciptakan ruang belajar yang suportif, nyaman, dan bebas dari rasa takut salah.",
-		"Memastikan setiap peserta mendapat progress yang terukur dan feedback yang bermakna dari mentor.",
+		"Membekali ibu dengan metode mengajar anak yang mudah, fun, dan terarah.",
+		"Mendampingi anak dan remaja belajar secara aktif, kreatif, dan percaya diri.",
+		"Meningkatkan kompetensi mengajar dan komunikasi para profesional.",
+		"Membantu peserta mempersiapkan IELTS dan TOEFL secara fokus dan sistematis.",
 	],
 };
 
@@ -35,7 +35,7 @@ const NILAI = [
 	{
 		icon: Heart,
 		label: "Suportif",
-		desc: "Kami memahami bahwa belajar bahasa baru butuh keberanian — ruang belajar kami bebas dari rasa takut salah.",
+		desc: "Ruang belajar dibuat nyaman agar setiap peserta berani mencoba, bertanya, dan berkembang.",
 	},
 	{
 		icon: Star,
@@ -45,12 +45,12 @@ const NILAI = [
 	{
 		icon: BookOpen,
 		label: "Praktis",
-		desc: "Materi langsung bisa dipakai dalam kehidupan nyata — percakapan harian, kerja, kampus, atau tes.",
+		desc: "Materi dirancang agar mudah dipraktikkan di rumah, sekolah, tempat kerja, maupun saat persiapan tes.",
 	},
 	{
 		icon: Award,
 		label: "Berdampak",
-		desc: "Keberhasilan peserta mencapai target speaking, IELTS, atau TOEFL adalah keberhasilan kami.",
+		desc: "Keberhasilan peserta menerapkan keterampilan dan mencapai target belajar adalah keberhasilan kami.",
 	},
 ];
 
@@ -65,7 +65,7 @@ function AboutPage() {
 		<>
 			<PageHero
 				title="Tentang Momkiddis Indonesia"
-				subtitle="Platform belajar bahasa Inggris online — dari speaking basic hingga IELTS, TOEFL, dan private class."
+				subtitle="Rumah belajar untuk ibu, anak, remaja, profesional, serta persiapan IELTS & TOEFL."
 				breadcrumbs={[{ label: "Tentang Kami" }]}
 			/>
 
@@ -77,23 +77,22 @@ function AboutPage() {
 							Tentang Kami
 						</span>
 						<h2 className="text-2xl font-bold tracking-tight text-foreground">
-							Lahir dari Kebutuhan Nyata Banyak Orang
+							Lahir dari Kebutuhan Belajar Keluarga
 						</h2>
 						<div className="space-y-3 text-sm leading-relaxed text-muted-foreground">
 							<p>
-								Momkiddis lahir dari keyakinan bahwa setiap orang
-								berhak mendapatkan akses belajar bahasa Inggris yang berkualitas,
-								terjangkau, dan fleksibel — tanpa harus meninggalkan tempat.
+								Momkiddis lahir dari keyakinan bahwa ibu adalah guru pertama
+								bagi anak dan setiap keluarga berhak mendapatkan pendampingan
+								belajar yang mudah diterapkan.
 							</p>
 							<p>
-								Banyak orang yang ingin bisa speaking bahasa Inggris, lulus IELTS
-								atau TOEFL, tapi tidak tahu harus mulai dari mana — atau merasa
-								tidak ada waktu dan tidak percaya diri.
+								Program kami mendampingi ibu, anak, remaja, dan profesional
+								dengan materi yang aktif, fun, praktis, dan terarah sesuai
+								kebutuhan masing-masing.
 							</p>
 							<p>
-								Momkiddis hadir untuk mengubah itu — dengan kelas online via
-								Zoom yang fleksibel, mentor yang suportif, dan materi yang
-								langsung bisa dipakai dalam kehidupan nyata.
+								Untuk target studi dan karier, IELTS dan TOEFL tersedia dalam
+								satu kelas persiapan English test yang fokus dan sistematis.
 							</p>
 						</div>
 					</div>
@@ -157,9 +156,8 @@ function AboutPage() {
 							Founder & Lead Educator
 						</p>
 						<p className="mt-3 text-xs leading-relaxed text-muted-foreground">
-							Pendidik bahasa Inggris dan founder Momkiddis Indonesia. Berpengalaman
-							lebih dari satu dekade, kini fokus membantu siapa saja di
-							Indonesia belajar bahasa Inggris secara online.
+							Pendidik dan founder Momkiddis Indonesia. Berpengalaman lebih dari
+							satu dekade mendampingi peserta belajar, mengajar, dan berkembang.
 						</p>
 						<Link
 							to="/founder"
@@ -178,8 +176,8 @@ function AboutPage() {
 							rekaman video, bukan modul yang dikerjakan sendiri.
 						</p>
 						<p className="text-sm leading-relaxed text-muted-foreground">
-							Peserta mendapat feedback langsung, koreksi pronunciation secara
-							real-time, dan bisa konsultasi arah belajar sesuai target masing-masing.
+							Peserta mendapat feedback langsung, evaluasi praktik, dan dapat
+							berkonsultasi mengenai arah belajar sesuai target masing-masing.
 						</p>
 						<div className="grid gap-3 sm:grid-cols-2">
 							{NILAI.map(({ icon: Icon, label, desc }) => (
@@ -211,7 +209,7 @@ function AboutPage() {
 							Mengapa Momkiddis?
 						</h2>
 						<p className="mt-2 text-sm text-muted-foreground">
-							Lima hal yang membuat Momkiddis berbeda dari kursus bahasa Inggris lainnya.
+							Lima hal yang membuat program Momkiddis terarah dan mudah diterapkan.
 						</p>
 					</div>
 					<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

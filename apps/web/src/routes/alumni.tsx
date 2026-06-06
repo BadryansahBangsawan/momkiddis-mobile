@@ -20,9 +20,9 @@ const FEATURED_REVIEWS: AlumniReview[] = [
 	{
 		id: "f1",
 		name: "Fitri Handayani",
-		batchLabel: "Momkiddis Indonesia · English Speaking Basic",
+		batchLabel: "Momkiddis Indonesia · Momsky Class",
 		quote:
-			"Mulai dari basic, sekarang saya lebih berani memperkenalkan diri dan membuka percakapan sederhana dalam bahasa Inggris.",
+			"Saya jadi lebih percaya diri mendampingi anak belajar dan mempraktikkan cara mengajar yang lebih terarah.",
 		imageSrc:
 			"https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=600&fit=crop&q=80",
 		thumbnailSrc:
@@ -31,9 +31,9 @@ const FEATURED_REVIEWS: AlumniReview[] = [
 	{
 		id: "f2",
 		name: "Nanda Pratiwi",
-		batchLabel: "Momkiddis Indonesia · TOEFL Preparation",
+		batchLabel: "Momkiddis Indonesia · Kiddis Class",
 		quote:
-			"Latihan structure dan reading membuat saya lebih siap mengejar target TOEFL untuk kebutuhan kampus.",
+			"Anak saya lebih semangat mengikuti aktivitas calistung dan English Fun yang kreatif.",
 		imageSrc:
 			"https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=600&fit=crop&q=80",
 		thumbnailSrc:
@@ -42,9 +42,9 @@ const FEATURED_REVIEWS: AlumniReview[] = [
 	{
 		id: "f3",
 		name: "Maya Sari",
-		batchLabel: "Momkiddis Indonesia · Private English 1 on 1",
+		batchLabel: "Momkiddis Indonesia · Teenager Class",
 		quote:
-			"Kelas private membantu saya latihan interview dan presentation dengan materi yang benar-benar sesuai kebutuhan.",
+			"Latihan komunikasi dan presentasi membantu saya lebih berani tampil di depan kelas.",
 		imageSrc:
 			"https://images.unsplash.com/photo-1488508872907-592763824245?w=400&h=600&fit=crop&q=80",
 		thumbnailSrc:
@@ -53,9 +53,9 @@ const FEATURED_REVIEWS: AlumniReview[] = [
 	{
 		id: "f4",
 		name: "Rini Wahyuni",
-		batchLabel: "Momkiddis Indonesia · English Conversation",
+		batchLabel: "Momkiddis Indonesia · Professional Class",
 		quote:
-			"Conversation practice dan roleplay membuat saya lebih siap ngobrol spontan dalam bahasa Inggris.",
+			"Praktik microteaching dan evaluasi mentor membuat cara mengajar saya lebih rapi.",
 		imageSrc:
 			"https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=600&fit=crop&q=80",
 		thumbnailSrc:
@@ -64,9 +64,9 @@ const FEATURED_REVIEWS: AlumniReview[] = [
 	{
 		id: "f5",
 		name: "Desi Kurniawati",
-		batchLabel: "Momkiddis Indonesia · IELTS Preparation",
+		batchLabel: "Momkiddis Indonesia · IELTS & TOEFL Class",
 		quote:
-			"Strategi IELTS speaking dan writing membantu saya memahami apa yang harus diperbaiki untuk target scholarship.",
+			"Latihan listening, reading, speaking, dan writing membuat persiapan English test saya lebih terarah.",
 		imageSrc:
 			"https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&h=600&fit=crop&q=80",
 		thumbnailSrc:

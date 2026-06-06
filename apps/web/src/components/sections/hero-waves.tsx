@@ -23,9 +23,9 @@ const stats = [
 ];
 
 const pills = [
-	"Kelas Online via Zoom",
-	"Speaking · IELTS · TOEFL · Private",
-	"Mulai dari Basic",
+	"Program Ibu · Anak · Remaja",
+	"Profesional · English Test",
+	"Belajar Aktif dan Terarah",
 ] as const;
 
 const container: Variants = {
@@ -216,10 +216,10 @@ export function HeroWaves() {
 						className="mb-5 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl"
 					>
 						<span className="block bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
-							Belajar Bahasa Inggris
+							Ibu Pintar Mengajar
 						</span>
 						<span className="block bg-gradient-to-r from-orange-500 to-orange-400 bg-clip-text text-transparent">
-							Online dari Mana Saja
+							Anak Cerdas Berkarya
 						</span>
 					</motion.h1>
 
@@ -228,9 +228,8 @@ export function HeroWaves() {
 						variants={item}
 						className="mx-auto mb-8 max-w-xl text-base leading-relaxed text-foreground/65 sm:text-lg"
 					>
-						Platform kelas bahasa Inggris online — speaking, IELTS, TOEFL,
-						dan private class via Zoom. Belajar fleksibel dari mana saja,
-						mulai dari level basic hingga persiapan tes internasional.
+						Program belajar untuk ibu, anak, remaja, profesional, serta
+						persiapan IELTS &amp; TOEFL dengan metode aktif dan terarah.
 					</motion.p>
 
 					{/* CTAs */}
