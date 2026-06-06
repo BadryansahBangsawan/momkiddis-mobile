@@ -2,9 +2,14 @@ import { createAuth } from "@momkiddis/auth";
 import { createDb } from "@momkiddis/db";
 
 export async function createContext({ req }: { req: Request }) {
-  const session = await createAuth().api.getSession({
-    headers: req.headers,
-  });
+  let session = null;
+  try {
+    session = await createAuth().api.getSession({
+      headers: req.headers,
+    });
+  } catch {
+    // session unavailable (no cookie or auth misconfiguration) — continue as anonymous
+  }
   return {
     auth: null,
     session,
