@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@momkiddis/ui/components/button";
 import { SlideButton } from "@/components/ui/slide-button";
-import { siteConfig, getWhatsAppUrl } from "@/lib/site-config";
+import { getWhatsAppUrl } from "@/lib/site-config";
 
 type Point = { x: number; y: number };
 

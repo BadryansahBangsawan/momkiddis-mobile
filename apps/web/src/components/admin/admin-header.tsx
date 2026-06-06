@@ -47,27 +47,23 @@ export function AdminHeader({ userName, role }: AdminHeaderProps) {
 
 			{/* User menu */}
 			<DropdownMenu>
-				<DropdownMenuTrigger asChild>
-					<Button variant="ghost" size="sm" className="gap-2">
-						<span
-							className={`rounded-full px-1.5 py-0.5 text-xs font-medium ${
-								role === "superadmin"
-									? "bg-orange-100 text-orange-800"
-									: "bg-blue-100 text-blue-800"
-							}`}
-						>
-							{role === "superadmin" ? "Super Admin" : "Admin"}
-						</span>
-						<span className="max-w-[120px] truncate text-sm font-medium">{userName}</span>
-						<ChevronDown className="h-3 w-3" />
-					</Button>
+				<DropdownMenuTrigger render={<Button variant="ghost" size="sm" className="gap-2" />}>
+					<span
+						className={`rounded-full px-1.5 py-0.5 text-xs font-medium ${
+							role === "superadmin"
+								? "bg-orange-100 text-orange-800"
+								: "bg-blue-100 text-blue-800"
+						}`}
+					>
+						{role === "superadmin" ? "Super Admin" : "Admin"}
+					</span>
+					<span className="max-w-[120px] truncate text-sm font-medium">{userName}</span>
+					<ChevronDown className="h-3 w-3" />
 				</DropdownMenuTrigger>
 				<DropdownMenuContent align="end" className="w-48">
-					<DropdownMenuItem asChild>
-						<Link to="/" target="_blank" className="flex items-center gap-2 cursor-pointer">
-							<ExternalLink className="h-4 w-4" />
-							Lihat Website
-						</Link>
+					<DropdownMenuItem render={<Link to="/" target="_blank" className="flex items-center gap-2 cursor-pointer" />}>
+						<ExternalLink className="h-4 w-4" />
+						Lihat Website
 					</DropdownMenuItem>
 					<DropdownMenuSeparator />
 					<DropdownMenuItem

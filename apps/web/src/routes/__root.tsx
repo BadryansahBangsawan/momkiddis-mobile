@@ -79,9 +79,9 @@ function RootDocument() {
 				<HeadContent />
 			</head>
 			<body className="bg-[#e9eff6]">
-				<div className="mx-auto flex min-h-svh w-full max-w-[28rem] flex-col overflow-hidden bg-[#f7f9fc] shadow-[0_0_52px_rgba(15,23,42,0.14)]">
+				<div className="mx-auto flex min-h-svh w-full max-w-[28rem] flex-col overflow-hidden bg-[#f7f9fc] shadow-[0_0_52px_rgba(15,23,42,0.14)] lg:max-w-4xl">
 					<SiteHeader />
-					<main className="flex-1 pb-24 pt-[4.5rem]">
+					<main className="flex-1 pb-24 pt-[4.5rem] lg:pb-8">
 						<Outlet />
 					</main>
 					<SiteFooter />

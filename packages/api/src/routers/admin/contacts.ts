@@ -2,7 +2,6 @@ import { contactSubmissions } from "@momkiddis/db/schema";
 import { eq, desc, and, count } from "drizzle-orm";
 import { z } from "zod";
 import { adminProcedure, publicProcedure, createMenuGuard } from "../../index";
-import { logActivity } from "../../utils/log-activity";
 import { nanoid } from "nanoid";
 
 const contactsMenuGuard = createMenuGuard("contacts");

@@ -1,12 +1,13 @@
+import type { LucideIcon } from "lucide-react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { BookOpen, Bot, Home, MessageCircleMore } from "lucide-react";
 import { cn } from "@momkiddis/ui/lib/utils";
 
-const NAV_ITEMS = [
+const NAV_ITEMS: Array<{ name: string; to: string; icon: LucideIcon; exact?: boolean }> = [
 	{ name: "Beranda", to: "/", icon: Home, exact: true },
 	{ name: "Course", to: "/programs", icon: BookOpen },
 	{ name: "Contact", to: "/kontak", icon: MessageCircleMore },
-] as const;
+];
 
 export default function SiteHeader() {
 	const { location } = useRouterState();
@@ -17,7 +18,7 @@ export default function SiteHeader() {
 
 	return (
 		<>
-			<header className="fixed inset-x-0 top-0 z-40 mx-auto h-[4.5rem] w-full max-w-[28rem] border-b border-slate-100 bg-white/95 px-4 backdrop-blur-xl">
+			<header className="fixed inset-x-0 top-0 z-40 mx-auto h-[4.5rem] w-full max-w-[28rem] border-b border-slate-100 bg-white/95 px-4 backdrop-blur-xl lg:max-w-4xl">
 				<div className="flex h-full items-center justify-between">
 					<Link
 						to="/"
@@ -38,6 +39,30 @@ export default function SiteHeader() {
 						</div>
 					</Link>
 
+					{/* Desktop nav links */}
+					<nav className="hidden items-center gap-1 lg:flex">
+						{NAV_ITEMS.map(({ name, to, exact }) => {
+							const active = exact
+								? location.pathname === to
+								: location.pathname === to ||
+									location.pathname.startsWith(`${to}/`);
+							return (
+								<Link
+									key={name}
+									to={to}
+									className={cn(
+										"rounded-xl px-3.5 py-1.5 text-[0.8rem] font-bold transition-colors duration-150",
+										active
+											? "bg-[#eef6ff] text-[#17689e]"
+											: "text-slate-500 hover:text-slate-700",
+									)}
+								>
+									{name}
+								</Link>
+							);
+						})}
+					</nav>
+
 					<button
 						type="button"
 						onClick={openChat}
@@ -49,9 +74,10 @@ export default function SiteHeader() {
 				</div>
 			</header>
 
+			{/* Bottom nav — mobile only */}
 			<nav
 				aria-label="Navigasi utama"
-				className="fixed inset-x-0 bottom-0 z-40 mx-auto w-full max-w-[28rem] border-t border-slate-200/80 bg-white/95 px-3 pb-[max(0.6rem,env(safe-area-inset-bottom))] pt-2 shadow-[0_-10px_32px_rgba(15,23,42,0.08)] backdrop-blur-xl"
+				className="fixed inset-x-0 bottom-0 z-40 mx-auto w-full max-w-[28rem] border-t border-slate-200/80 bg-white/95 px-3 pb-[max(0.6rem,env(safe-area-inset-bottom))] pt-2 shadow-[0_-10px_32px_rgba(15,23,42,0.08)] backdrop-blur-xl lg:hidden"
 			>
 				<div className="grid grid-cols-4 gap-1">
 					{NAV_ITEMS.map(({ name, to, icon: Icon, exact }) => {

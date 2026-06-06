@@ -53,11 +53,9 @@ export function AdminLayout({ session, role, isSuperAdmin, menuConfig, unreadCon
 				<div className="flex items-center gap-2">
 					<div className="lg:hidden pl-2 py-2">
 						<Sheet open={sidebarOpen} onOpenChange={setSidebarOpen}>
-							<SheetTrigger asChild>
-								<Button variant="ghost" size="icon">
-									<Menu className="h-5 w-5" />
-								</Button>
-							</SheetTrigger>
+							<SheetTrigger render={<Button variant="ghost" size="icon" />}>
+							<Menu className="h-5 w-5" />
+						</SheetTrigger>
 						</Sheet>
 					</div>
 					<div className="flex-1">

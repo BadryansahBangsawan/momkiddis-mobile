@@ -3,7 +3,7 @@ import { TanStackStart } from "alchemy/cloudflare";
 import { D1Database } from "alchemy/cloudflare";
 import { config } from "dotenv";
 
-config({ path: "./.env" });
+config({ path: "./.env.local" });
 config({ path: "../../apps/web/.env" });
 
 const app = await alchemy("momkiddis");

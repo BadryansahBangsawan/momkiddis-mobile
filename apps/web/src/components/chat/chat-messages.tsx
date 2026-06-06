@@ -5,7 +5,7 @@ import { ProgramRecommendation } from "./program-recommendation";
 
 export interface ToolCall {
 	name: string;
-	input: { slugs: unknown; reason: string };
+	input: { slugs: string[]; reason: string };
 }
 
 export interface ChatMessage {

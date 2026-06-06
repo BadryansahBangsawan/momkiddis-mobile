@@ -61,7 +61,7 @@ function HomeComponent() {
 	return (
 		<div>
 			<section className="px-4 pt-4">
-				<div className="relative min-h-[19rem] overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#123d73] via-[#17689e] to-[#28a9bd] p-5 text-white shadow-[0_20px_42px_rgba(18,61,115,0.22)]">
+				<div className="relative min-h-[19rem] overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#123d73] via-[#17689e] to-[#28a9bd] p-5 text-white shadow-[0_20px_42px_rgba(18,61,115,0.22)] lg:min-h-[22rem] lg:p-8">
 					<div className="absolute -right-10 -top-12 size-44 rounded-full bg-white/10" />
 					<div className="absolute -bottom-16 left-16 size-40 rounded-full bg-cyan-300/15" />
 					<img
@@ -155,11 +155,19 @@ function HomeComponent() {
 					</Link>
 				</div>
 
-				<div className="hide-scrollbar mt-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-5">
+				{/* Mobile: horizontal scroll */}
+				<div className="hide-scrollbar mt-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-5 lg:hidden">
 					{PROGRAM_LIST.map((program) => (
 						<div key={program.slug} className="snap-start">
 							<ProgramCard program={program} variant="compact" />
 						</div>
+					))}
+				</div>
+
+				{/* Desktop: 3-column grid */}
+				<div className="mt-4 hidden grid-cols-3 gap-4 px-4 pb-5 lg:grid">
+					{PROGRAM_LIST.map((program) => (
+						<ProgramCard key={program.slug} program={program} variant="full" />
 					))}
 				</div>
 			</section>
