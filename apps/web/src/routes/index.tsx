@@ -143,7 +143,7 @@ function AboutTeaser() {
 
 /* ─── Programs Section ──────────────────────────── */
 function ProgramsSection() {
-	const featuredPrograms = PROGRAM_LIST.slice(0, 4);
+	const featuredPrograms = PROGRAM_LIST;
 
 	return (
 		<section className="bg-muted/30 px-4 py-16 sm:px-6 lg:px-8">
@@ -164,8 +164,8 @@ function ProgramsSection() {
 							Momkiddis Indonesia
 						</h2>
 						<p className="mt-1.5 max-w-xl text-sm text-muted-foreground">
-							4 kelas unggulan dari speaking basic hingga IELTS dan TOEFL.
-							Kelas private tersedia di halaman program.
+							5 kelas unggulan dari speaking basic hingga IELTS, TOEFL, dan
+							private class.
 						</p>
 					</div>
 					<Link to="/programs" className="shrink-0">
@@ -181,7 +181,7 @@ function ProgramsSection() {
 				</motion.div>
 
 				{/* Grid */}
-				<div className="mt-8 grid grid-cols-2 justify-center gap-3 sm:grid-cols-[repeat(2,minmax(0,18rem))] sm:gap-4 lg:grid-cols-[repeat(3,minmax(0,18rem))] xl:grid-cols-[repeat(4,minmax(0,18rem))]">
+				<div className="mt-8 grid grid-cols-1 justify-center gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
 					{featuredPrograms.map((program, i) => (
 						<motion.div
 							key={program.slug}

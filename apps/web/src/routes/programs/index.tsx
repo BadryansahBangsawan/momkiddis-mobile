@@ -87,7 +87,7 @@ function ProgramsPage() {
 				<AnimatePresence mode="wait">
 					<motion.div
 						key={active}
-						className="mt-8 grid grid-cols-2 justify-center gap-3 sm:grid-cols-[repeat(2,minmax(0,18rem))] sm:gap-4 lg:grid-cols-[repeat(3,minmax(0,18rem))] xl:grid-cols-[repeat(4,minmax(0,18rem))]"
+						className="mt-8 grid grid-cols-1 justify-center gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
 						initial="hidden"
 						animate="visible"
 						exit="hidden"
@@ -102,9 +102,14 @@ function ProgramsPage() {
 						{displayed.map((program, i) => (
 							<motion.div
 								key={program.slug}
+								className="h-full"
 								variants={{
 									hidden: { opacity: 0, y: 16 },
-									visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: "easeOut" } },
+									visible: {
+										opacity: 1,
+										y: 0,
+										transition: { duration: 0.35, ease: "easeOut" },
+									},
 								}}
 							>
 								<ProgramCard program={program} index={i} />

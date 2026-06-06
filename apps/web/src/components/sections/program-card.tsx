@@ -3,8 +3,6 @@ import { Badge } from "@momkiddis/ui/components/badge";
 import {
 	Card,
 	CardContent,
-	CardFooter,
-	CardHeader,
 	CardTitle,
 } from "@momkiddis/ui/components/card";
 import { cn } from "@momkiddis/ui/lib/utils";
@@ -38,11 +36,9 @@ const ICON_MAP: Record<string, React.FC<{ className?: string }>> = {
 
 const UNIFIED_COLOR = {
 	border: "border-border",
-	soft: "bg-muted/40",
 	icon: "bg-primary text-primary-foreground",
 	iconText: "text-primary",
 	badge: "bg-primary text-primary-foreground",
-	rule: "border-border",
 };
 
 const COLOR_MAP: Record<string, typeof UNIFIED_COLOR> = {
@@ -61,154 +57,118 @@ interface ProgramCardProps {
 export default function ProgramCard({ program, index = 0 }: ProgramCardProps) {
 	const Icon = ICON_MAP[program.icon] ?? ICON_MAP.BookOpen;
 	const colors = COLOR_MAP[program.color] ?? COLOR_MAP.blue;
-	const materials = program.curriculum.slice(0, 5);
-	const target = program.targetPeserta.slice(0, 3).join(", ");
-	const priceRows = program.pricePackages;
+	const primaryPackage = program.pricePackages[0] ?? {
+		label: "Paket",
+		price: program.priceLabel,
+	};
 
 	return (
 		<Link
 			to="/programs/$slug"
 			params={{ slug: program.slug }}
 			aria-label={`Lihat detail ${program.shortTitle}`}
-			className="group mx-auto block h-full w-full max-w-[18rem] transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.99]"
+			className="group mx-auto block h-full w-full max-w-[25.5rem] transition-all duration-200 hover:-translate-y-1 active:scale-[0.99]"
 			style={{ animationDelay: `${index * 60}ms` }}
 		>
 			<Card
 				size="sm"
 				className={cn(
-					"h-full rounded-lg border bg-card py-0 text-card-foreground shadow-sm transition-all duration-200 group-hover:shadow-md",
+					"relative h-full !gap-0 overflow-hidden rounded-[1.6rem] border bg-primary/10 !py-0 text-card-foreground shadow-sm transition-all duration-200 group-hover:shadow-xl",
 					colors.border,
 				)}
 			>
-				<CardHeader className="relative gap-2 px-3 pb-0 pt-3 sm:px-4 sm:pt-4">
-					<div className="flex items-start sm:pr-14">
-						<div className="min-w-0">
-							<CardTitle className="min-h-[2rem] text-[11px] font-extrabold uppercase leading-tight text-slate-900 [overflow-wrap:anywhere] sm:min-h-[2.25rem] sm:text-[15px]">
-								{program.shortTitle}
-							</CardTitle>
-							<p className="mt-1 min-h-[1.5rem] text-[9px] font-medium leading-snug text-slate-700 line-clamp-2 sm:min-h-[1.75rem] sm:text-[11px]">
-								{program.subtitle}
-							</p>
+				<div className="relative aspect-[4/5] overflow-hidden bg-secondary leading-none">
+					{program.image ? (
+						<img
+							src={program.image}
+							alt={`Poster program ${program.shortTitle}`}
+							className="block size-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
+							loading="lazy"
+						/>
+					) : (
+						<div className="flex size-full items-center justify-center bg-secondary">
+							<div
+								className={cn(
+									"flex size-16 items-center justify-center rounded-2xl shadow-sm",
+									colors.icon,
+								)}
+							>
+								<Icon className="size-8" />
+							</div>
 						</div>
-					</div>
+					)}
+				</div>
 
-					<div
-						className={cn(
-							"absolute right-4 top-5 hidden size-12 items-center justify-center rounded-full shadow-sm ring-4 ring-white sm:flex",
-							colors.icon,
-						)}
-					>
-						<Icon className="size-4 sm:size-6" />
-					</div>
-				</CardHeader>
-
-				<CardContent className="flex flex-1 flex-col gap-2 px-3 pb-2 pt-2.5 sm:gap-3 sm:px-4 sm:pb-3 sm:pt-3">
-					<div className="flex flex-wrap items-center gap-1 sm:gap-1.5">
+				<CardContent className="relative -mt-7 flex flex-1 flex-col gap-4 rounded-t-[1.75rem] bg-card px-5 pb-6 pt-5 shadow-[0_-18px_36px_rgba(15,23,42,0.10)]">
+					<div className="flex flex-wrap items-center gap-2">
 						<Badge
 							className={cn(
-								"h-5 rounded-md px-1.5 text-[8px] font-bold uppercase sm:h-6 sm:px-2 sm:text-[10px]",
+								"h-6 rounded-full px-3 text-[10px] font-bold uppercase",
 								colors.badge,
-							)}
-						>
-							Materi
-						</Badge>
-						<Badge
-							variant="outline"
-							className={cn(
-								"h-5 rounded-md bg-white px-1.5 text-[8px] font-semibold sm:h-6 sm:px-2 sm:text-[10px]",
-								colors.border,
-								colors.iconText,
 							)}
 						>
 							{PROGRAM_CATEGORY_LABELS[program.category]}
 						</Badge>
-						{program.isBestSeller && (
+						{program.isBestSeller ? (
 							<Badge
 								variant="outline"
-								className="h-5 rounded-md border-amber-200 bg-amber-50 px-1.5 text-[8px] font-semibold text-amber-700 sm:h-6 sm:px-2 sm:text-[10px]"
+								className="h-6 rounded-full border-destructive/20 bg-destructive/10 px-3 text-[10px] font-bold text-destructive"
 							>
-								<Star className="size-2.5 fill-current sm:size-3" />
+								<Star className="fill-current" />
 								Best Seller
+							</Badge>
+						) : (
+							<Badge
+								variant="outline"
+								className="h-6 rounded-full border-border bg-background px-3 text-[10px] font-semibold text-muted-foreground"
+							>
+								{program.level}
 							</Badge>
 						)}
 					</div>
 
-					<ul className="flex flex-col gap-1 text-[9px] font-medium leading-snug text-slate-800 sm:gap-1.5 sm:text-[11px]">
-						{materials.map((item, itemIndex) => (
-							<li
-								key={item.title}
-								className={cn(
-									"flex gap-1.5 sm:gap-2",
-									itemIndex > 2 && "hidden sm:flex",
-								)}
-							>
-								<span className={cn("mt-1 size-1 shrink-0 rounded-full sm:size-1.5", colors.icon)} />
-								<span className="line-clamp-1">{item.title}</span>
-							</li>
-						))}
-					</ul>
+					<div>
+						<CardTitle className="text-[1.45rem] font-extrabold leading-tight tracking-normal text-foreground">
+							{program.shortTitle}
+						</CardTitle>
+						<p className="mt-1.5 line-clamp-2 text-sm font-medium leading-relaxed text-muted-foreground">
+							{program.subtitle}
+						</p>
+					</div>
 
 					<div>
-						<p className="mb-1 text-[9px] font-extrabold uppercase leading-none text-slate-800 sm:text-[11px]">
-							Paket Harga
+						<p className="text-sm font-bold text-muted-foreground">
+							Paket Online {program.duration}
 						</p>
-						<div
-							className={cn(
-								"overflow-hidden rounded-md border bg-white",
-								colors.rule,
-							)}
-						>
-							<table className="w-full border-collapse text-[9px] leading-tight text-slate-800 sm:text-[11px]">
-								<tbody>
-									{priceRows.map((row) => (
-										<tr
-											key={row.label}
-											className={cn("border-b last:border-b-0", colors.rule)}
-										>
-											<td
-												className={cn(
-													"w-[43%] whitespace-nowrap border-r px-1 py-1 font-medium sm:w-[38%] sm:px-2 sm:py-1.5",
-													colors.rule,
-												)}
-											>
-												{row.label}
-											</td>
-											<td className="whitespace-nowrap px-1 py-1 text-right font-bold sm:px-2 sm:py-1.5">
-												{row.price}
-											</td>
-										</tr>
-									))}
-								</tbody>
-							</table>
+						<div className="mt-2 flex items-end gap-2">
+							<span className="rounded-md bg-destructive/10 px-1.5 py-1 text-sm font-extrabold leading-none text-destructive">
+								Mulai
+							</span>
+							<div className="min-w-0">
+								<p className="text-[1.7rem] font-extrabold leading-none tracking-normal text-foreground">
+									{primaryPackage.price}
+								</p>
+								<p className="mt-1 text-sm font-bold text-muted-foreground">
+									{primaryPackage.label}
+								</p>
+							</div>
 						</div>
 					</div>
 
-					<p className="line-clamp-2 text-[9px] font-medium leading-snug text-slate-700 sm:text-[10.5px]">
-						<span className="font-extrabold text-slate-900">Cocok untuk:</span>{" "}
-						{target}
-					</p>
-				</CardContent>
-
-				<CardFooter
-					className={cn(
-						"justify-between gap-2 border-t px-3 py-2 sm:px-4 sm:py-3",
-						colors.rule,
-						colors.soft,
-					)}
-				>
-					<span className="min-w-0 truncate text-[8px] font-semibold text-slate-700 sm:text-[10px]">
-						{program.level}
+					<span className="inline-flex h-14 items-center justify-center rounded-full bg-accent px-5 text-base font-extrabold text-accent-foreground shadow-sm transition-transform duration-150 group-active:scale-[0.97]">
+						Beli Paket
 					</span>
+
 					<span
 						className={cn(
-							"inline-flex shrink-0 items-center gap-1 text-[9px] font-bold sm:text-[11px]",
+							"mt-auto inline-flex items-center justify-center gap-2 text-base font-extrabold",
 							colors.iconText,
 						)}
 					>
 						Lihat Detail
-						<ArrowRight className="size-2.5 transition-transform duration-200 group-hover:translate-x-0.5 sm:size-3" />
+						<ArrowRight className="size-5 transition-transform duration-200 group-hover:translate-x-1" />
 					</span>
-				</CardFooter>
+				</CardContent>
 			</Card>
 		</Link>
 	);
