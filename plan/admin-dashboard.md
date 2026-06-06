@@ -12,26 +12,26 @@ Panel admin untuk mengelola semua konten website Momkiddy Indonesia secara langs
 
 ## Role Hierarchy
 
+Website ini adalah **company profile murni** — tidak ada akun untuk pengunjung atau murid. Semua urusan murid (pendaftaran, jadwal, komunikasi) ditangani admin lewat WhatsApp. Login hanya untuk pengelola internal website.
+
 ```
-user  <  admin  <  superadmin
+admin  <  superadmin
 ```
 
 ### Detail Hak Akses per Role
 
-| Kemampuan | `user` | `admin` | `superadmin` |
-|-----------|:------:|:-------:|:------------:|
-| Halaman publik (home, programs, blog, dll) | v | v | v |
-| Dashboard murid (`/dashboard`) | v | v | v |
-| Masuk panel admin (`/admin`) | - | v | v |
-| Lihat stats dashboard admin | - | v | v |
-| CRUD konten (testimoni, alumni, blog, dll) | - | hanya menu yang diaktifkan | v (semua) |
-| Export data ke CSV | - | hanya menu yang diaktifkan | v |
-| Bulk actions (publish/hapus banyak sekaligus) | - | hanya menu yang diaktifkan | v |
-| Lihat activity log | - | - | v |
-| Kelola user (ubah role, nonaktifkan) | - | - | v |
-| Ubah site config (WA, sosmed, dsb) | - | - | v |
-| Atur menu admin (toggle on/off per menu) | - | - | v |
-| Lihat contact form submissions | - | jika diaktifkan | v |
+| Kemampuan | `admin` | `superadmin` |
+|-----------|:-------:|:------------:|
+| Masuk panel admin (`/admin`) | v | v |
+| Lihat stats dashboard admin | v | v |
+| CRUD konten (testimoni, alumni, blog, dll) | hanya menu yang diaktifkan | v (semua) |
+| Export data ke CSV | hanya menu yang diaktifkan | v |
+| Bulk actions (publish/hapus banyak sekaligus) | hanya menu yang diaktifkan | v |
+| Lihat activity log | - | v |
+| Kelola akun admin (tambah, ubah role, nonaktifkan) | - | v |
+| Ubah site config (WA, sosmed, dsb) | - | v |
+| Atur menu admin (toggle on/off per menu) | - | v |
+| Lihat contact form submissions | jika diaktifkan | v |
 
 ### Aturan Penting
 
@@ -41,6 +41,36 @@ user  <  admin  <  superadmin
 4. `superadmin` tidak bisa di-downgrade oleh superadmin lain — hanya bisa lewat database langsung (safety)
 5. Pengaturan menu disimpan di tabel `admin_menu_settings` di D1 (bukan hardcode)
 6. Satu website bisa punya banyak admin, tapi direkomendasikan hanya 1 superadmin
+7. **Tidak ada akun untuk pengunjung/murid** — website adalah company profile murni, tidak ada fitur register atau login untuk publik
+8. **Akses admin panel sepenuhnya tersembunyi dari publik** — tidak ada link, tombol, atau petunjuk apapun di website yang mengarah ke `/admin`
+
+### Cara Masuk Admin (Hidden Entry)
+
+Alur masuk ke panel admin:
+
+1. Admin/superadmin ketik langsung `yourdomain.com/admin` di browser
+2. Jika belum login → diarahkan ke halaman login **khusus admin** (`/admin/login`) yang tidak ada linknya di mana pun di website publik
+3. Setelah login berhasil → langsung masuk ke `/admin`
+4. Jika sudah login dan buka `/admin` → langsung masuk tanpa login ulang
+5. Jika buka `/admin/login` padahal sudah login sebagai admin/superadmin → redirect ke `/admin`
+
+**Halaman login admin (`/admin/login`):**
+- Desain minimal, tidak pakai branding besar Momkiddy (supaya tidak mencolok)
+- Hanya form: Email + Password + tombol Masuk
+- Tidak ada link "Daftar", "Lupa Password via publik", atau apapun
+- Jika email/password salah → pesan error generik: "Email atau password salah"
+- Tidak ada tombol Google OAuth atau social login
+
+**Yang TIDAK boleh dilakukan:**
+- Jangan ada link ke `/admin` atau `/admin/login` di navbar, footer, atau halaman publik manapun
+- Jangan ada tombol "Login" untuk pengunjung biasa di website
+- Jangan tampilkan pesan yang membocorkan keberadaan panel admin jika ada yang coba akses `/admin` tanpa login
+
+**Dampak ke kode existing:**
+- Route `_auth/` (protected user routes) dan `/login` publik → **dihapus** atau diabaikan
+- `routes/_auth/dashboard.tsx` dan `routes/_auth/profile.tsx` → **tidak dipakai**
+- Halaman login admin dibuat baru di `routes/_admin/login.tsx` (di luar layout admin, tidak perlu auth)
+- Tabel `user` tetap ada (dipakai Better-Auth), tapi role `user` praktis tidak dipakai di UI
 
 ---
 
@@ -127,6 +157,9 @@ Di setiap tabel data:
 
 ```
 apps/web/src/routes/
+├── admin/
+│   └── login.tsx                  ← /admin/login — halaman login admin (TANPA auth guard)
+│
 ├── _admin/
 │   ├── route.tsx                  ← layout admin (sidebar + header + outlet)
 │   │                                 beforeLoad: cek role admin/superadmin
@@ -225,8 +258,8 @@ apps/web/src/components/admin/
 
 ```typescript
 // Tambah kolom ini ke user table
-role: text("role").notNull().default("user")
-// Valid: "user" | "admin" | "superadmin"
+role: text("role").notNull().default("admin")
+// Valid: "admin" | "superadmin"
 
 isActive: integer("is_active", { mode: "boolean" }).notNull().default(true)
 // Superadmin bisa nonaktifkan user/admin (soft ban)
@@ -489,7 +522,7 @@ export const Route = createFileRoute("/_admin")({
   beforeLoad: async ({ context }) => {
     // 1. Cek session
     const session = await getUser();
-    if (!session) throw redirect({ to: "/login" });
+    if (!session) throw redirect({ to: "/admin/login" });
 
     // 2. Cek role
     const role = session.user.role;
@@ -603,7 +636,7 @@ export const Route = createFileRoute("/_admin/users")({
 
 - **Kiri:** Breadcrumb navigasi (Admin > Blog > Edit Post)
 - **Kanan:** Role badge (`Admin` biru / `Super Admin` oranye) + nama user + dropdown menu
-- Dropdown: Profile, Kembali ke Website, Logout
+- Dropdown: Kembali ke Website, Logout
 - Height: 56px, border-bottom, sticky top-0
 
 ### `admin-data-table.tsx`
@@ -1075,10 +1108,16 @@ const promoInput = z.object({
 | Avatar | dari `user.image` atau inisial |
 | Nama | `name` |
 | Email | `email` |
-| Role | Dropdown inline: `user` / `admin` / `superadmin` |
+| Role | Dropdown inline: `admin` / `superadmin` |
 | Status | Active (hijau) / Inactive (merah) — dari `isActive` |
 | Terdaftar | `createdAt` |
 | Aksi | Ubah Role, Nonaktifkan/Aktifkan |
+
+**Tombol "Tambah Admin":**
+- Di atas tabel, tombol `+ Tambah Admin` (karena tidak ada signup publik)
+- Dialog form: Nama, Email, Password, Konfirmasi Password, Role (`admin` / `superadmin`)
+- Validasi: email unik, password min 8 karakter
+- Setelah dibuat, admin baru bisa langsung login di `/admin/login`
 
 **Aturan:**
 - Superadmin tidak bisa mengubah role superadmin lain (safety)
@@ -1324,7 +1363,44 @@ bunx shadcn@latest add table dialog select switch textarea tabs tooltip popover 
 
 ---
 
-## Step-by-Step Implementasi (14 → 18 Phase)
+## Phase 0 — Hapus Kode Lama
+
+**Lakukan ini SEBELUM mulai implementasi admin.** Karena website ini company profile tanpa login untuk pengunjung, beberapa file existing tidak relevan dan harus dihapus:
+
+### Hapus Routes
+```
+apps/web/src/routes/login.tsx           ← halaman login publik — HAPUS
+apps/web/src/routes/_auth/route.tsx     ← protected layout untuk murid — HAPUS
+apps/web/src/routes/_auth/dashboard.tsx ← dashboard murid — HAPUS
+apps/web/src/routes/_auth/profile.tsx   ← profil murid — HAPUS
+```
+
+### Hapus Komponen
+```
+apps/web/src/components/sign-in-form.tsx  ← HAPUS
+apps/web/src/components/sign-up-form.tsx  ← HAPUS
+apps/web/src/components/user-menu.tsx     ← HAPUS (ada di header publik)
+```
+
+### Update Navbar (`site-header.tsx`)
+- Tombol "Daftar Sekarang" **tidak perlu diubah** — sudah benar, langsung navigasi ke WhatsApp
+- Hapus semua referensi ke session/auth di navbar publik jika ada
+
+### Yang TIDAK dihapus
+```
+apps/web/src/routes/api/auth/$.ts  ← tetap ada (Better-Auth butuh ini untuk session admin)
+packages/auth/                     ← tetap ada (dipakai admin login)
+packages/db/src/schema/auth.ts     ← tetap ada (tabel user, session, account)
+```
+
+---
+
+## Step-by-Step Implementasi (19 Phase, mulai dari Phase 0)
+
+### Phase 0 — Hapus Kode Lama
+- Hapus semua file yang tercantum di bagian "Phase 0 — Hapus Kode Lama" di atas
+- Hapus referensi auth dari navbar publik (`site-header.tsx`) jika ada
+- Verifikasi: website publik masih berfungsi normal tanpa login
 
 ### Phase 1 — DB: Schema Baru & Migration
 - Update `user` table: tambah `role`, `isActive`
@@ -1376,10 +1452,11 @@ bunx shadcn@latest add table dialog select switch textarea tabs tooltip popover 
 - `admin-empty-state.tsx`
 - `admin-image-preview.tsx`
 
-### Phase 7 — Route: Layout + Guard
+### Phase 7 — Route: Login + Layout + Guard
+- Buat `admin/login.tsx` — halaman login admin (di luar layout `_admin`, tanpa auth guard)
 - Buat `_admin/route.tsx` — layout + beforeLoad role check + loader menuConfig
-- Test: non-admin redirect ke homepage
-- Test: admin bisa masuk
+- Test: non-admin redirect ke `/admin/login`
+- Test: admin bisa login dan masuk panel
 
 ### Phase 8 — Page: Dashboard Stats
 - `_admin/index.tsx` — grid stat cards + pesan belum dibaca + recent activity (superadmin)
@@ -1390,7 +1467,10 @@ bunx shadcn@latest add table dialog select switch textarea tabs tooltip popover 
 
 ### Phase 10 — Page: User Management (Superadmin)
 - `_admin/users.tsx` — tabel user + dropdown role + toggle aktif
-- Test: ubah user menjadi admin, admin bisa masuk panel
+- Tombol "Tambah Admin" + dialog form (nama, email, password, role)
+- API: `admin.users.create` mutation untuk membuat akun admin baru
+- Test: buat admin baru, admin baru bisa login di `/admin/login`
+- Test: ubah role admin, admin mendapat akses sesuai role baru
 
 ### Phase 11 — Page: Site Config (Superadmin)
 - `_admin/site-config.tsx` — form grouped + simpan ke DB
@@ -1432,16 +1512,17 @@ bunx shadcn@latest add table dialog select switch textarea tabs tooltip popover 
 ## Urutan Prioritas
 
 ```
+[0]  Phase 0   → Hapus kode lama (login publik, _auth)  ← LAKUKAN PERTAMA
 [1]  Phase 1   → DB schema baru                         ← BLOCKING SEMUA
 [2]  Phase 2   → Seed data                              ← BLOCKING semua fitur
 [3]  Phase 3   → 3 procedure builders + logActivity     ← BLOCKING API
 [4]  Phase 4   → Core admin routers (settings, stats, users, config) ← BLOCKING UI
 [5]  Phase 5   → Install shadcn components              ← BLOCKING UI
 [6]  Phase 6   → Admin UI components                    ← BLOCKING semua halaman
-[7]  Phase 7   → Layout route + guard                   ← BLOCKING semua halaman
+[7]  Phase 7   → Login page + Layout route + guard      ← BLOCKING semua halaman
 [8]  Phase 8   → Dashboard stats page
 [9]  Phase 9   → Settings page (superadmin)             ← penting: mengaktifkan menu control
-[10] Phase 10  → User management (superadmin)
+[10] Phase 10  → User management (superadmin) + Tambah Admin
 [11] Phase 11  → Site config (superadmin)
 [12] Phase 12  → CRUD Testimoni                         ← mulai konten CRUD
 [13] Phase 13  → CRUD Alumni
