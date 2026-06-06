@@ -28,6 +28,7 @@ export interface Program {
 	icon: string;
 	color: string;
 	image: string | null;
+	landscapeImage: string;
 	maxStudents: number | null;
 	mode: "online";
 	formatLabel: string;
@@ -84,6 +85,7 @@ export const PROGRAMS: Record<string, Program> = {
 		icon: "GraduationCap",
 		color: "blue",
 		image: "/program/Momsky-class.png",
+		landscapeImage: "/program/lanscape/momsky-lanscape.png",
 		maxStudents: null,
 		mode: "online",
 		formatLabel: "Kelas pengajar untuk para ibu",
@@ -136,6 +138,7 @@ export const PROGRAMS: Record<string, Program> = {
 		icon: "BookOpen",
 		color: "green",
 		image: "/program/kiddis-class.png",
+		landscapeImage: "/program/lanscape/kiddis-lanscape.png",
 		maxStudents: null,
 		mode: "online",
 		formatLabel: "Kelas belajar untuk anak",
@@ -186,6 +189,7 @@ export const PROGRAMS: Record<string, Program> = {
 		icon: "MessageCircle",
 		color: "pink",
 		image: "/program/teenager-class.png",
+		landscapeImage: "/program/lanscape/teenager-lanscap.png",
 		maxStudents: null,
 		mode: "online",
 		formatLabel: "Kelas pengembangan untuk remaja",
@@ -239,6 +243,7 @@ export const PROGRAMS: Record<string, Program> = {
 		icon: "UserRound",
 		color: "orange",
 		image: "/program/profesional-class.png",
+		landscapeImage: "/program/lanscape/profesional-lanscap.png",
 		maxStudents: null,
 		mode: "online",
 		formatLabel: "Kelas pengembangan profesional",
@@ -291,6 +296,7 @@ export const PROGRAMS: Record<string, Program> = {
 		icon: "FileText",
 		color: "purple",
 		image: "/program/ielts&toefl-class%20.png",
+		landscapeImage: "/program/lanscape/toefl&ielts-lanscape.png",
 		maxStudents: null,
 		mode: "online",
 		formatLabel: "Kelas persiapan English test",

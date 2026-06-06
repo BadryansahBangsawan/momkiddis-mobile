@@ -2,7 +2,6 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import {
 	CLASS_SCHEDULES,
 	PROGRAM_BONUSES,
-	PROGRAM_CATEGORY_LABELS,
 	PROGRAMS,
 } from "@/lib/programs-content";
 import PageHero from "@/components/sections/page-hero";
@@ -12,7 +11,6 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from "@momkiddis/ui/components/accordion";
-import { Badge } from "@momkiddis/ui/components/badge";
 import { getWhatsAppUrl } from "@/lib/site-config";
 import { SlideButton } from "@/components/ui/slide-button";
 import {
@@ -20,15 +18,8 @@ import {
 	CalendarDays,
 	CheckCircle2,
 	Clock,
-	FileText,
 	Gift,
-	Globe,
-	GraduationCap,
-	MessageCircle,
 	Monitor,
-	PenLine,
-	Star,
-	UserRound,
 	Users,
 } from "lucide-react";
 
@@ -41,28 +32,8 @@ export const Route = createFileRoute("/programs/$slug")({
 	},
 });
 
-const ICON_MAP: Record<string, React.FC<{ className?: string }>> = {
-	FileText: ({ className }) => <FileText className={className} />,
-	Globe: ({ className }) => <Globe className={className} />,
-	GraduationCap: ({ className }) => <GraduationCap className={className} />,
-	MessageCircle: ({ className }) => <MessageCircle className={className} />,
-	PenLine: ({ className }) => <PenLine className={className} />,
-	UserRound: ({ className }) => <UserRound className={className} />,
-};
-
-const UNIFIED = { bg: "bg-primary/10", icon: "text-primary", ring: "ring-primary/20" };
-const COLOR_MAP: Record<string, typeof UNIFIED> = {
-	blue: UNIFIED,
-	green: UNIFIED,
-	purple: UNIFIED,
-	orange: UNIFIED,
-	pink: UNIFIED,
-};
-
 function ProgramDetailPage() {
 	const { program } = Route.useLoaderData();
-	const Icon = ICON_MAP[program.icon] ?? ICON_MAP.MessageCircle;
-	const colors = COLOR_MAP[program.color] ?? COLOR_MAP.blue;
 	const waUrl = getWhatsAppUrl(program.shortTitle);
 
 	return (
@@ -79,36 +50,12 @@ function ProgramDetailPage() {
 			<div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
 				<div className="grid gap-10 lg:grid-cols-3">
 					<div className="flex flex-col gap-10 lg:col-span-2">
-						<div className="rounded-2xl border border-border bg-card p-5">
-							<div className="flex items-start gap-4">
-								<div
-									className={`shrink-0 rounded-2xl p-3 ring-1 ${colors.bg} ${colors.ring}`}
-								>
-									<Icon className={`size-8 ${colors.icon}`} />
-								</div>
-								<div className="min-w-0 flex-1">
-									<div className="flex flex-wrap gap-2">
-										<Badge variant="outline" className="border-primary/20 text-primary">
-											{PROGRAM_CATEGORY_LABELS[program.category]}
-										</Badge>
-										<Badge variant="outline" className="border-border text-muted-foreground">
-											{program.level}
-										</Badge>
-										{program.isBestSeller && (
-											<Badge
-												variant="outline"
-												className="inline-flex items-center gap-1 border-border text-foreground"
-											>
-												<Star className="size-3 fill-current" />
-												Best Seller
-											</Badge>
-										)}
-									</div>
-									<p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-										{program.description}
-									</p>
-								</div>
-							</div>
+						<div className="overflow-hidden rounded-2xl border border-border bg-card">
+							<img
+								src={program.landscapeImage}
+								alt={`Banner ${program.shortTitle}`}
+								className="block h-auto w-full"
+							/>
 						</div>
 
 						<section>
