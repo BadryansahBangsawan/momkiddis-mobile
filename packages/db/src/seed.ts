@@ -4,7 +4,6 @@
  * Populates:
  *   - 5 testimonials (3 featured)
  *   - 3 alumni (all featured)
- *   - 2 blog posts
  *   - 5 gallery items
  *
  * Run against local D1 with:
@@ -115,87 +114,6 @@ export const SEED_ALUMNI = [
 		isPublished: true,
 		isFeatured: true,
 		graduatedAt: new Date("2024-06-30").getTime(),
-	},
-] as const;
-
-export const SEED_BLOG_POSTS = [
-	{
-		id: "b1",
-		slug: "cara-mengajar-anak-membaca-tanpa-stres",
-		title: "5 Cara Mengajarkan Anak Membaca Tanpa Stres",
-		excerpt:
-			"Banyak ibu yang merasa frustrasi ketika anak belum bisa membaca di usia yang menurut orang-orang 'sudah seharusnya bisa'. Padahal, setiap anak memiliki ritme perkembangannya sendiri.",
-		content: `# 5 Cara Mengajarkan Anak Membaca Tanpa Stres
-
-Banyak ibu yang merasa frustrasi ketika anak belum bisa membaca. Padahal, setiap anak memiliki ritme perkembangannya sendiri.
-
-## 1. Mulai dari Bunyi, Bukan Nama Huruf
-
-Metode phonics mengajarkan anak mengenal **bunyi** huruf sebelum namanya. Misalnya, huruf "A" bunyinya "ah", bukan "a-a" seperti dalam lagu alfabet. Ini membuat anak jauh lebih cepat memahami cara membaca.
-
-## 2. Jadikan Buku sebagai Mainan
-
-Sebelum anak bisa membaca sendiri, biasakan duduk bersama dan membacakan buku bergambar. Biarkan anak membalik halaman, menunjuk gambar, dan bertanya. Buku bukan beban — buku adalah teman.
-
-## 3. Belajar 10 Menit, Konsisten
-
-Lebih baik belajar 10 menit setiap hari daripada 1 jam sekali seminggu. Otak anak menyerap informasi lebih baik melalui pengulangan pendek yang konsisten.
-
-## 4. Rayakan Setiap Progres Kecil
-
-Anak berhasil menyebut satu huruf dengan benar? Rayakan! Tepuk tangan, peluk, atau beri pujian yang tulus. Dopamin dari rasa bangga adalah bahan bakar terbaik untuk belajar.
-
-## 5. Jangan Bandingkan dengan Anak Lain
-
-Kalimat "masa sepupunya yang lebih muda sudah bisa baca" adalah racun. Setiap anak unik. Fokus pada progresnya sendiri, bukan perbandingan.
-
----
-
-Ingin belajar metode lengkap mengajar anak membaca? Bergabunglah dengan **Calistung Fun** Momkiddy Indonesia.`,
-		authorName: "Lita Hendratno",
-		authorImage: null,
-		coverImage: null,
-		tags: JSON.stringify(["literasi", "tips-belajar", "calistung"]),
-		isPublished: true,
-		publishedAt: new Date("2024-09-15").getTime(),
-	},
-	{
-		id: "b2",
-		slug: "kenapa-ibu-harus-belajar-cara-mengajar",
-		title: "Kenapa Ibu Perlu Belajar Cara Mengajar (Bukan Hanya Materi)?",
-		excerpt:
-			"Banyak ibu yang pintar dan berpendidikan, tapi kesulitan mengajarkan anak. Ini bukan masalah kecerdasan — ini masalah teknik.",
-		content: `# Kenapa Ibu Perlu Belajar Cara Mengajar?
-
-Banyak ibu yang pintar dan berpendidikan, tapi kesulitan mengajarkan anak. Ini bukan masalah kecerdasan — ini masalah teknik.
-
-## Mengetahui ≠ Bisa Mengajar
-
-Anda mungkin tahu cara mengalikan angka. Tapi apakah Anda tahu cara menjelaskan perkalian kepada anak 7 tahun sehingga ia benar-benar mengerti, bukan hanya hafal?
-
-Inilah jarak antara *mengetahui sesuatu* dan *bisa mengajarkannya*.
-
-## Anak Belajar Secara Berbeda
-
-Setiap anak memiliki gaya belajar yang berbeda. Ada yang visual (perlu melihat), ada yang auditori (perlu mendengar), ada yang kinestetik (perlu bergerak sambil belajar). Seorang ibu yang memahami ini akan jauh lebih efektif.
-
-## Emosi Mempengaruhi Cara Mengajar
-
-Ketika ibu frustasi karena anak tidak kunjung mengerti, nada suara berubah. Anak merasakan itu dan langsung masuk mode defensif — bukan mode belajar. Belajar teknik mengajar juga berarti belajar mengelola emosi saat mengajar.
-
-## Struktur Membuat Belajar Lebih Efektif
-
-Belajar tanpa rencana biasanya berakhir dengan anak bosan dan ibu kehabisan ide. RPP sederhana — satu halaman rencana belajar — mengubah sesi belajar yang kacau menjadi pengalaman yang terarah dan menyenangkan.
-
----
-
-Momkiddy hadir untuk membekali ibu dengan semua ini melalui **Kelas Microteaching**.`,
-		authorName: "Lita Hendratno",
-		authorImage: null,
-		coverImage: null,
-		tags: JSON.stringify(["microteaching", "parenting", "tips-mengajar"]),
-		isPublished: true,
-		publishedAt: new Date("2024-10-02").getTime(),
 	},
 ] as const;
 

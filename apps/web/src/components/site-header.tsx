@@ -5,7 +5,7 @@ import {
 	BookOpen,
 	Lightbulb,
 	Award,
-	FileText,
+	Images,
 	HelpCircle,
 	Phone,
 	type LucideIcon,
@@ -27,7 +27,7 @@ const NAV_ITEMS: NavItemDef[] = [
 	{ name: "Program", to: "/programs", icon: BookOpen },
 	{ name: "Metode", to: "/metode", icon: Lightbulb },
 	{ name: "Alumni", to: "/alumni", icon: Award },
-	{ name: "Blog", to: "/blog", icon: FileText },
+	{ name: "Galeri", to: "/galeri", icon: Images },
 	{ name: "FAQ", to: "/faq", icon: HelpCircle },
 	{ name: "Kontak", to: "/kontak", icon: Phone },
 ];

@@ -31,7 +31,7 @@ export const navLinks = [
 	{ to: "/programs", label: "Program" },
 	{ to: "/metode", label: "Metode" },
 	{ to: "/alumni", label: "Alumni" },
-	{ to: "/blog", label: "Blog" },
+	{ to: "/galeri", label: "Galeri" },
 	{ to: "/faq", label: "FAQ" },
 	{ to: "/kontak", label: "Kontak" },
 ] as const;

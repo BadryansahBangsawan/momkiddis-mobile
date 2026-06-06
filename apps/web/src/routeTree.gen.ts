@@ -31,9 +31,7 @@ import { Route as ProgramsRouteRouteImport } from './routes/programs/route'
 import { Route as AuthRouteRouteImport } from './routes/_auth/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProgramsIndexRouteImport } from './routes/programs/index'
-import { Route as BlogIndexRouteImport } from './routes/blog/index'
 import { Route as ProgramsSlugRouteImport } from './routes/programs/$slug'
-import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as AuthProfileRouteImport } from './routes/_auth/profile'
 import { Route as AuthDashboardRouteImport } from './routes/_auth/dashboard'
@@ -149,20 +147,10 @@ const ProgramsIndexRoute = ProgramsIndexRouteImport.update({
   path: '/',
   getParentRoute: () => ProgramsRouteRoute,
 } as any)
-const BlogIndexRoute = BlogIndexRouteImport.update({
-  id: '/blog/',
-  path: '/blog/',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ProgramsSlugRoute = ProgramsSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => ProgramsRouteRoute,
-} as any)
-const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/blog/$slug',
-  path: '/blog/$slug',
-  getParentRoute: () => rootRouteImport,
 } as any)
 const ApiChatRoute = ApiChatRouteImport.update({
   id: '/api/chat',
@@ -214,9 +202,7 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof AuthDashboardRoute
   '/profile': typeof AuthProfileRoute
   '/api/chat': typeof ApiChatRoute
-  '/blog/$slug': typeof BlogSlugRoute
   '/programs/$slug': typeof ProgramsSlugRoute
-  '/blog/': typeof BlogIndexRoute
   '/programs/': typeof ProgramsIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/rpc/$': typeof ApiRpcSplatRoute
@@ -244,9 +230,7 @@ export interface FileRoutesByTo {
   '/dashboard': typeof AuthDashboardRoute
   '/profile': typeof AuthProfileRoute
   '/api/chat': typeof ApiChatRoute
-  '/blog/$slug': typeof BlogSlugRoute
   '/programs/$slug': typeof ProgramsSlugRoute
-  '/blog': typeof BlogIndexRoute
   '/programs': typeof ProgramsIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/rpc/$': typeof ApiRpcSplatRoute
@@ -277,9 +261,7 @@ export interface FileRoutesById {
   '/_auth/dashboard': typeof AuthDashboardRoute
   '/_auth/profile': typeof AuthProfileRoute
   '/api/chat': typeof ApiChatRoute
-  '/blog/$slug': typeof BlogSlugRoute
   '/programs/$slug': typeof ProgramsSlugRoute
-  '/blog/': typeof BlogIndexRoute
   '/programs/': typeof ProgramsIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/rpc/$': typeof ApiRpcSplatRoute
@@ -310,9 +292,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/profile'
     | '/api/chat'
-    | '/blog/$slug'
     | '/programs/$slug'
-    | '/blog/'
     | '/programs/'
     | '/api/auth/$'
     | '/api/rpc/$'
@@ -340,9 +320,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/profile'
     | '/api/chat'
-    | '/blog/$slug'
     | '/programs/$slug'
-    | '/blog'
     | '/programs'
     | '/api/auth/$'
     | '/api/rpc/$'
@@ -372,9 +350,7 @@ export interface FileRouteTypes {
     | '/_auth/dashboard'
     | '/_auth/profile'
     | '/api/chat'
-    | '/blog/$slug'
     | '/programs/$slug'
-    | '/blog/'
     | '/programs/'
     | '/api/auth/$'
     | '/api/rpc/$'
@@ -403,8 +379,6 @@ export interface RootRouteChildren {
   SyaratKetentuanRoute: typeof SyaratKetentuanRoute
   TestimoniRoute: typeof TestimoniRoute
   ApiChatRoute: typeof ApiChatRoute
-  BlogSlugRoute: typeof BlogSlugRoute
-  BlogIndexRoute: typeof BlogIndexRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
   ApiRpcSplatRoute: typeof ApiRpcSplatRoute
 }
@@ -565,26 +539,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProgramsIndexRouteImport
       parentRoute: typeof ProgramsRouteRoute
     }
-    '/blog/': {
-      id: '/blog/'
-      path: '/blog'
-      fullPath: '/blog/'
-      preLoaderRoute: typeof BlogIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/programs/$slug': {
       id: '/programs/$slug'
       path: '/$slug'
       fullPath: '/programs/$slug'
       preLoaderRoute: typeof ProgramsSlugRouteImport
       parentRoute: typeof ProgramsRouteRoute
-    }
-    '/blog/$slug': {
-      id: '/blog/$slug'
-      path: '/blog/$slug'
-      fullPath: '/blog/$slug'
-      preLoaderRoute: typeof BlogSlugRouteImport
-      parentRoute: typeof rootRouteImport
     }
     '/api/chat': {
       id: '/api/chat'
@@ -675,8 +635,6 @@ const rootRouteChildren: RootRouteChildren = {
   SyaratKetentuanRoute: SyaratKetentuanRoute,
   TestimoniRoute: TestimoniRoute,
   ApiChatRoute: ApiChatRoute,
-  BlogSlugRoute: BlogSlugRoute,
-  BlogIndexRoute: BlogIndexRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
   ApiRpcSplatRoute: ApiRpcSplatRoute,
 }

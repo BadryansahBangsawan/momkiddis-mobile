@@ -3,7 +3,6 @@ import type { RouterClient } from "@orpc/server";
 import { protectedProcedure, publicProcedure } from "../index";
 import { testimonialsRouter } from "./testimonials";
 import { alumniRouter } from "./alumni";
-import { blogRouter } from "./blog";
 import { galleryRouter } from "./gallery";
 import { eventsRouter } from "./events";
 import { resourcesRouter } from "./resources";
@@ -21,7 +20,6 @@ export const appRouter = {
   }),
   testimonials: testimonialsRouter,
   alumni: alumniRouter,
-  blog: blogRouter,
   gallery: galleryRouter,
   events: eventsRouter,
   resources: resourcesRouter,
