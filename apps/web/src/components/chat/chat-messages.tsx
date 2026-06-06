@@ -23,15 +23,15 @@ interface ChatMessagesProps {
 function TypingIndicator() {
 	return (
 		<div className="flex items-start gap-2.5">
-			<div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/10">
-				<Bot className="size-3.5 text-primary" />
+			<div className="flex size-8 shrink-0 items-center justify-center rounded-xl bg-[#eef6ff]">
+				<Bot className="size-4 text-[#17689e]" />
 			</div>
-			<div className="rounded-xl rounded-tl-none bg-muted px-3.5 py-2.5">
+			<div className="rounded-2xl rounded-tl-md bg-slate-100 px-4 py-3">
 				<div className="flex gap-1">
 					{[0, 1, 2].map((i) => (
 						<motion.span
 							key={i}
-							className="size-1.5 rounded-full bg-muted-foreground/50"
+							className="size-1.5 rounded-full bg-slate-400"
 							animate={{ y: [0, -4, 0] }}
 							transition={{
 								duration: 0.6,
@@ -58,14 +58,14 @@ function MessageBubble({ message }: { message: ChatMessage }) {
 		>
 			{/* Avatar */}
 			<div
-				className={`flex size-7 shrink-0 items-center justify-center rounded-full ${
-					isUser ? "bg-primary" : "bg-primary/10"
+				className={`flex size-8 shrink-0 items-center justify-center rounded-xl ${
+					isUser ? "bg-[#f97316]" : "bg-[#eef6ff]"
 				}`}
 			>
 				{isUser ? (
-					<User className="size-3.5 text-primary-foreground" />
+					<User className="size-4 text-white" />
 				) : (
-					<Bot className="size-3.5 text-primary" />
+					<Bot className="size-4 text-[#17689e]" />
 				)}
 			</div>
 
@@ -73,10 +73,10 @@ function MessageBubble({ message }: { message: ChatMessage }) {
 			<div className={`max-w-[80%] space-y-2 ${isUser ? "items-end" : ""}`}>
 				{message.content && (
 					<div
-						className={`rounded-xl px-3.5 py-2.5 text-base leading-relaxed ${
+						className={`rounded-2xl px-3.5 py-2.5 text-xs font-medium leading-relaxed ${
 							isUser
-								? "rounded-tr-none bg-primary text-primary-foreground"
-								: "rounded-tl-none bg-muted text-foreground"
+								? "rounded-tr-md bg-[#f97316] text-white"
+								: "rounded-tl-md bg-slate-100 text-slate-700"
 						}`}
 					>
 						{message.content}
@@ -108,17 +108,17 @@ export function ChatMessages({ messages, isLoading }: ChatMessagesProps) {
 	return (
 		<div
 			ref={scrollRef}
-			className="flex-1 space-y-4 overflow-y-auto px-4 py-4"
+			className="flex-1 space-y-4 overflow-y-auto bg-[#f8fafc] px-4 py-4"
 		>
 			{/* Welcome message */}
 			{messages.length === 0 && (
 				<div className="flex items-start gap-2.5">
-					<div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/10">
-						<Bot className="size-3.5 text-primary" />
+					<div className="flex size-8 shrink-0 items-center justify-center rounded-xl bg-[#eef6ff]">
+						<Bot className="size-4 text-[#17689e]" />
 					</div>
-					<div className="rounded-xl rounded-tl-none bg-muted px-3.5 py-2.5 text-base leading-relaxed text-foreground">
-						Halo! Saya asisten virtual Momkiddis. Ada yang bisa saya
-						bantu? Silakan tanyakan tentang program kami.
+					<div className="max-w-[82%] rounded-2xl rounded-tl-md bg-white px-3.5 py-3 text-xs font-medium leading-relaxed text-slate-700 shadow-sm">
+						Halo! Ceritakan siapa yang ingin belajar dan targetnya. Saya akan
+						membantu memilih course Momkiddis yang sesuai.
 					</div>
 				</div>
 			)}

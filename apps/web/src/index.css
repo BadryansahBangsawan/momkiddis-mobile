@@ -1,1 +1,35 @@
 @import "@momkiddis/ui/globals.css";
+
+html {
+	background: #e9eff6;
+	scroll-behavior: smooth;
+}
+
+body {
+	overflow-x: hidden;
+	min-width: 320px;
+	-webkit-font-smoothing: antialiased;
+}
+
+button,
+a {
+	-webkit-tap-highlight-color: transparent;
+}
+
+.mobile-chat-anchor {
+	right: max(1rem, calc((100vw - 28rem) / 2 + 1rem));
+}
+
+.hide-scrollbar {
+	scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}

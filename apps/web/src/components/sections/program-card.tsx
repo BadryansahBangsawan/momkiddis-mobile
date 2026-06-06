@@ -1,124 +1,126 @@
 import { Link } from "@tanstack/react-router";
-import { Badge } from "@momkiddis/ui/components/badge";
-import {
-	Card,
-	CardContent,
-	CardTitle,
-} from "@momkiddis/ui/components/card";
-import { cn } from "@momkiddis/ui/lib/utils";
-import {
-	GraduationCap,
-	BookOpen,
-	Calculator,
-	FileText,
-	Globe,
-	MessageCircle,
-	PenLine,
-	UserRound,
-} from "lucide-react";
-import {
-	PROGRAM_CATEGORY_LABELS,
-	type Program,
-} from "@/lib/programs-content";
-
-const ICON_MAP: Record<string, React.FC<{ className?: string }>> = {
-	GraduationCap: ({ className }) => <GraduationCap className={className} />,
-	BookOpen: ({ className }) => <BookOpen className={className} />,
-	Calculator: ({ className }) => <Calculator className={className} />,
-	FileText: ({ className }) => <FileText className={className} />,
-	Globe: ({ className }) => <Globe className={className} />,
-	MessageCircle: ({ className }) => <MessageCircle className={className} />,
-	PenLine: ({ className }) => <PenLine className={className} />,
-	UserRound: ({ className }) => <UserRound className={className} />,
-};
-
-const UNIFIED_COLOR = {
-	border: "border-border",
-	icon: "bg-primary text-primary-foreground",
-	badge: "bg-primary text-primary-foreground",
-};
-
-const COLOR_MAP: Record<string, typeof UNIFIED_COLOR> = {
-	blue: UNIFIED_COLOR,
-	green: UNIFIED_COLOR,
-	purple: UNIFIED_COLOR,
-	orange: UNIFIED_COLOR,
-	pink: UNIFIED_COLOR,
-};
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { PROGRAM_CATEGORY_LABELS, type Program } from "@/lib/programs-content";
 
 interface ProgramCardProps {
 	program: Program;
 	index?: number;
+	variant?: "full" | "compact";
 }
 
-export default function ProgramCard({ program, index = 0 }: ProgramCardProps) {
-	const Icon = ICON_MAP[program.icon] ?? ICON_MAP.BookOpen;
-	const colors = COLOR_MAP[program.color] ?? COLOR_MAP.blue;
-
-	return (
-		<Link
-			to="/programs/$slug"
-			params={{ slug: program.slug }}
-			aria-label={`Buka program ${program.shortTitle}`}
-			className="group mx-auto block h-full w-full max-w-[25.5rem] transition-all duration-200 hover:-translate-y-1 active:scale-[0.99]"
-			style={{ animationDelay: `${index * 60}ms` }}
-		>
-			<Card
-				size="sm"
-				className={cn(
-					"relative h-full !gap-0 overflow-hidden rounded-[1.6rem] border bg-primary/10 !py-0 text-card-foreground shadow-sm transition-all duration-200 group-hover:shadow-xl",
-					colors.border,
-				)}
-			>
-				<div className="relative aspect-[4/5] overflow-hidden bg-secondary leading-none">
-					{program.image ? (
-						<img
-							src={program.image}
-							alt={`Poster program ${program.shortTitle}`}
-							className="block size-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
-							loading="lazy"
-						/>
-					) : (
-						<div className="flex size-full items-center justify-center bg-secondary">
-							<div
-								className={cn(
-									"flex size-16 items-center justify-center rounded-2xl shadow-sm",
-									colors.icon,
-								)}
-							>
-								<Icon className="size-8" />
-							</div>
+export default function ProgramCard({
+	program,
+	variant = "full",
+}: ProgramCardProps) {
+	if (variant === "compact") {
+		return (
+			<article className="w-[18.5rem] shrink-0 overflow-hidden rounded-[1.65rem] border border-slate-200/70 bg-white shadow-[0_12px_32px_rgba(30,64,107,0.09)]">
+				<Link
+					to="/programs/$slug"
+					params={{ slug: program.slug }}
+					aria-label={`Buka course ${program.shortTitle}`}
+					className="block transition-transform duration-150 active:scale-[0.99]"
+				>
+					<img
+						src={program.landscapeImage}
+						alt={`Banner ${program.shortTitle}`}
+						className="aspect-[1.65/1] w-full object-cover"
+						loading="lazy"
+					/>
+					<div className="p-4">
+						<div className="flex items-center justify-between gap-2">
+							<span className="rounded-full bg-[#eef6ff] px-2.5 py-1 text-[0.58rem] font-extrabold text-[#17689e]">
+								{PROGRAM_CATEGORY_LABELS[program.category]}
+							</span>
+							<span className="text-[0.6rem] font-bold text-slate-400">
+								Online
+							</span>
 						</div>
-					)}
-				</div>
-
-				<CardContent className="relative -mt-7 flex flex-1 flex-col gap-4 rounded-t-[1.75rem] bg-card px-5 pb-6 pt-5 shadow-[0_-18px_36px_rgba(15,23,42,0.10)]">
-					<div className="flex flex-wrap items-center gap-2">
-						<Badge
-							className={cn(
-								"h-6 rounded-full px-3 text-[10px] font-bold",
-								colors.badge,
-							)}
-						>
-							{PROGRAM_CATEGORY_LABELS[program.category]}
-						</Badge>
-					</div>
-
-					<div>
-						<CardTitle className="text-[1.45rem] font-extrabold leading-tight tracking-normal text-foreground">
+						<h3 className="mt-2.5 text-lg font-black tracking-[-0.025em] text-slate-900">
 							{program.shortTitle}
-						</CardTitle>
-						<p className="mt-1.5 min-h-[4.75rem] text-sm font-medium leading-relaxed text-muted-foreground">
+						</h3>
+						<p className="mt-1 line-clamp-2 text-xs font-medium leading-relaxed text-slate-500">
 							{program.subtitle}
 						</p>
+						<div className="mt-3 flex items-center justify-between border-t border-slate-100 pt-3">
+							<span className="text-[0.68rem] font-extrabold text-slate-600">
+								{program.priceLabel}
+							</span>
+							<span className="inline-flex items-center gap-1 text-[0.68rem] font-extrabold text-orange-600">
+								Detail
+								<ArrowRight className="size-3.5" />
+							</span>
+						</div>
 					</div>
+				</Link>
+			</article>
+		);
+	}
 
-					<span className="inline-flex h-14 items-center justify-center rounded-full bg-accent px-5 text-base font-extrabold text-accent-foreground shadow-sm transition-transform duration-150 group-active:scale-[0.97]">
-						Daftar Sekarang
+	return (
+		<article className="overflow-hidden rounded-[1.75rem] border border-slate-200/80 bg-white shadow-[0_14px_40px_rgba(30,64,107,0.09)]">
+			<Link
+				to="/programs/$slug"
+				params={{ slug: program.slug }}
+				aria-label={`Buka course ${program.shortTitle}`}
+				className="group block overflow-hidden bg-[#d9edff]"
+			>
+				<img
+					src={program.landscapeImage}
+					alt={`Banner ${program.shortTitle}`}
+					className="aspect-[1.55/1] w-full object-cover transition-transform duration-200 group-active:scale-[0.99]"
+					loading="lazy"
+				/>
+			</Link>
+
+			<div className="p-4.5">
+				<div className="flex items-center justify-between gap-3">
+					<span className="rounded-full bg-primary/10 px-3 py-1 text-[0.65rem] font-extrabold text-primary">
+						{PROGRAM_CATEGORY_LABELS[program.category]}
 					</span>
+					<span className="text-[0.65rem] font-bold text-slate-400">
+						{program.level}
+					</span>
+				</div>
 
-				</CardContent>
-			</Card>
-		</Link>
+				<h3 className="mt-3 text-xl font-black tracking-[-0.025em] text-slate-900">
+					{program.shortTitle}
+				</h3>
+				<p className="mt-1.5 text-sm font-medium leading-relaxed text-slate-500">
+					{program.subtitle}
+				</p>
+
+				<ul className="mt-4 grid gap-2">
+					{program.outcomes.slice(0, 2).map((outcome) => (
+						<li
+							key={outcome}
+							className="flex items-start gap-2 text-xs font-semibold leading-relaxed text-slate-600"
+						>
+							<CheckCircle2 className="mt-0.5 size-4 shrink-0 text-[#f97316]" />
+							{outcome}
+						</li>
+					))}
+				</ul>
+
+				<div className="mt-5 flex items-center justify-between gap-3 border-t border-slate-100 pt-4">
+					<div>
+						<p className="text-[0.65rem] font-semibold uppercase tracking-wide text-slate-400">
+							Biaya course
+						</p>
+						<p className="mt-0.5 text-sm font-extrabold text-slate-800">
+							{program.priceLabel}
+						</p>
+					</div>
+					<Link
+						to="/programs/$slug"
+						params={{ slug: program.slug }}
+						className="inline-flex h-11 items-center gap-2 rounded-full bg-[#f97316] px-5 text-xs font-extrabold text-white shadow-[0_7px_18px_rgba(249,115,22,0.25)] transition-transform duration-150 active:scale-[0.97]"
+					>
+						Lihat Detail
+						<ArrowRight className="size-4" />
+					</Link>
+				</div>
+			</div>
+		</article>
 	);
 }

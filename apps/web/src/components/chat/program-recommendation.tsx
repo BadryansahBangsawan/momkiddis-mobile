@@ -1,6 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { Badge } from "@momkiddis/ui/components/badge";
-import { Button } from "@momkiddis/ui/components/button";
 import {
 	ArrowRight,
 	FileText,
@@ -64,14 +62,14 @@ export function ProgramRecommendation({
 	return (
 		<div className="space-y-2">
 			{reason && (
-				<p className="text-base leading-relaxed text-foreground">
+				<p className="text-xs font-medium leading-relaxed text-slate-600">
 					{reason}
 				</p>
 			)}
 			{programs.map((program) => (
 				<div
 					key={program.slug}
-					className="overflow-hidden rounded-xl border border-border bg-card"
+					className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
 				>
 					{/* Cover image */}
 					{program.landscapeImage ? (
@@ -82,7 +80,7 @@ export function ProgramRecommendation({
 								className="h-full w-full object-cover"
 							/>
 							{program.isBestSeller && (
-								<span className="absolute left-2 top-2 rounded-full bg-primary px-2 py-0.5 text-[10px] font-semibold text-primary-foreground">
+								<span className="absolute left-2 top-2 rounded-full bg-[#f97316] px-2 py-0.5 text-[9px] font-extrabold text-white">
 									Best Seller
 								</span>
 							)}
@@ -98,25 +96,22 @@ export function ProgramRecommendation({
 
 					<div className="space-y-2.5 p-3">
 						<div className="flex items-start gap-2">
-							<div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+							<div className="flex size-8 shrink-0 items-center justify-center rounded-xl bg-[#eef6ff]">
 								{(() => {
 									const Icon = ICON_MAP[program.icon] ?? MessageCircle;
-									return <Icon className="size-3.5 text-primary" />;
+									return <Icon className="size-3.5 text-[#17689e]" />;
 								})()}
 							</div>
 							<div className="min-w-0">
-								<div className="flex flex-wrap items-center gap-1.5">
-									<h4 className="text-sm font-semibold text-foreground">
+								<div>
+									<h4 className="text-xs font-black text-slate-800">
 										{program.shortTitle}
 									</h4>
-									<Badge
-										variant="outline"
-										className="border-primary/20 text-[10px] text-primary"
-									>
+									<p className="mt-0.5 text-[9px] font-bold text-[#17689e]">
 										{PROGRAM_CATEGORY_LABELS[program.category]}
-									</Badge>
+									</p>
 								</div>
-								<p className="mt-0.5 text-[11px] leading-relaxed text-muted-foreground line-clamp-2">
+								<p className="mt-1 line-clamp-2 text-[10px] font-medium leading-relaxed text-slate-500">
 									{program.subtitle}
 								</p>
 							</div>
@@ -126,30 +121,19 @@ export function ProgramRecommendation({
 							<Link
 								to="/programs/$slug"
 								params={{ slug: program.slug }}
-								className="flex-1"
+								className="inline-flex h-9 flex-1 items-center justify-center gap-1 rounded-xl border border-slate-200 bg-white text-[10px] font-extrabold text-slate-600 transition-transform active:scale-[0.97]"
 							>
-								<Button
-									size="sm"
-									variant="outline"
-									className="w-full gap-1 text-xs"
-								>
-									Lihat Program
-									<ArrowRight className="size-3" />
-								</Button>
+								Lihat Course
+								<ArrowRight className="size-3" />
 							</Link>
 							<a
 								href={getWhatsAppUrl(program.shortTitle)}
 								target="_blank"
 								rel="noopener noreferrer"
-								className="flex-1"
+								className="inline-flex h-9 flex-1 items-center justify-center gap-1 rounded-xl bg-[#25D366] text-[10px] font-extrabold text-white transition-transform active:scale-[0.97]"
 							>
-								<Button
-									size="sm"
-									className="w-full gap-1 bg-[#25D366] text-xs text-white hover:bg-[#25D366]/90"
-								>
-									<MessageCircle className="size-3" />
-									Daftar via WA
-								</Button>
+								<MessageCircle className="size-3" />
+								Daftar via WA
 							</a>
 						</div>
 					</div>

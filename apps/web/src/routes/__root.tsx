@@ -1,13 +1,12 @@
 import { Toaster } from "@momkiddis/ui/components/sonner";
 import type { QueryClient } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import {
 	HeadContent,
 	Outlet,
 	Scripts,
 	createRootRouteWithContext,
+	useRouterState,
 } from "@tanstack/react-router";
-import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
 import type { orpc } from "@/utils/orpc";
 
@@ -56,26 +55,39 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
 });
 
 function RootDocument() {
+	const routerState = useRouterState();
+	const isAdmin = routerState.location.pathname.startsWith("/admin");
+
+	if (isAdmin) {
+		return (
+			<html lang="id">
+				<head>
+					<HeadContent />
+				</head>
+				<body>
+					<Outlet />
+					<Toaster richColors />
+					<Scripts />
+				</body>
+			</html>
+		);
+	}
+
 	return (
 		<html lang="id">
 			<head>
 				<HeadContent />
 			</head>
-			<body>
-				<div className="flex min-h-svh flex-col">
+			<body className="bg-[#e9eff6]">
+				<div className="mx-auto flex min-h-svh w-full max-w-[28rem] flex-col overflow-hidden bg-[#f7f9fc] shadow-[0_0_52px_rgba(15,23,42,0.14)]">
 					<SiteHeader />
-					<main className="flex-1 pt-24 pb-20 md:pb-0">
+					<main className="flex-1 pb-24 pt-[4.5rem]">
 						<Outlet />
 					</main>
 					<SiteFooter />
 				</div>
 				<ChatWidget />
 				<Toaster richColors />
-				<TanStackRouterDevtools position="bottom-left" />
-				<ReactQueryDevtools
-					position="bottom"
-					buttonPosition="bottom-right"
-				/>
 				<Scripts />
 			</body>
 		</html>

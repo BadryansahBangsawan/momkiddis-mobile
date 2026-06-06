@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import {
 	Breadcrumb,
 	BreadcrumbItem,
@@ -23,54 +22,52 @@ interface PageHeroProps {
 
 export default function PageHero({ title, subtitle, breadcrumbs }: PageHeroProps) {
 	return (
-		<section className="border-b bg-muted/30 px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
-			<div className="mx-auto max-w-7xl">
+		<section className="px-4 pb-5 pt-4">
+			<div className="overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#123d73] via-[#17689e] to-[#22a5bd] p-5 text-white shadow-[0_16px_38px_rgba(18,61,115,0.18)]">
 				{breadcrumbs && breadcrumbs.length > 0 && (
-					<motion.div
-						initial={{ opacity: 0, y: 10 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.4, ease: "easeOut" }}
-					>
-						<Breadcrumb className="mb-4">
-							<BreadcrumbList>
+					<div>
+						<Breadcrumb className="mb-3">
+							<BreadcrumbList className="text-white/60">
 								<BreadcrumbItem>
-									<BreadcrumbLink render={<Link to="/" />}>Beranda</BreadcrumbLink>
+									<BreadcrumbLink
+										className="text-white/65 hover:text-white"
+										render={<Link to="/" />}
+									>
+										Beranda
+									</BreadcrumbLink>
 								</BreadcrumbItem>
 								{breadcrumbs.map((crumb) => (
 									<Fragment key={crumb.label}>
 										<BreadcrumbSeparator />
 										<BreadcrumbItem>
 											{crumb.to ? (
-												<BreadcrumbLink render={<Link to={crumb.to} />}>
+												<BreadcrumbLink
+													className="text-white/65 hover:text-white"
+													render={<Link to={crumb.to} />}
+												>
 													{crumb.label}
 												</BreadcrumbLink>
 											) : (
-												<BreadcrumbPage>{crumb.label}</BreadcrumbPage>
+												<BreadcrumbPage className="text-white">
+													{crumb.label}
+												</BreadcrumbPage>
 											)}
 										</BreadcrumbItem>
 									</Fragment>
 								))}
 							</BreadcrumbList>
 						</Breadcrumb>
-					</motion.div>
+					</div>
 				)}
-				<motion.h1
-					className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl"
-					initial={{ opacity: 0, y: 24 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
+				<h1
+					className="text-[1.65rem] font-black leading-tight tracking-[-0.035em] text-white"
 				>
 					{title}
-				</motion.h1>
+				</h1>
 				{subtitle && (
-					<motion.p
-						className="mt-2 max-w-2xl text-base text-muted-foreground"
-						initial={{ opacity: 0, y: 16 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
-					>
+					<p className="mt-2 text-xs font-medium leading-relaxed text-white/72">
 						{subtitle}
-					</motion.p>
+					</p>
 				)}
 			</div>
 		</section>
