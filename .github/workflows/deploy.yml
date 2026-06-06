@@ -71,15 +71,9 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: apps/web
-          secrets: |
-            NVIDIA_API_KEY
-            BETTER_AUTH_SECRET
           command: >
             deploy
             --config dist/server/wrangler.json
             --name momkiddis-web
             --var CORS_ORIGIN:https://momkiddis-web.badryansah99.workers.dev
             --var BETTER_AUTH_URL:https://momkiddis-web.badryansah99.workers.dev
-        env:
-          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
-          BETTER_AUTH_SECRET: ${{ secrets.BETTER_AUTH_SECRET }}
