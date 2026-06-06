@@ -24,7 +24,7 @@ admin  <  superadmin
 |-----------|:-------:|:------------:|
 | Masuk panel admin (`/admin`) | v | v |
 | Lihat stats dashboard admin | v | v |
-| CRUD konten (testimoni, alumni, blog, dll) | hanya menu yang diaktifkan | v (semua) |
+| CRUD konten (testimoni, alumni, galeri, dll) | hanya menu yang diaktifkan | v (semua) |
 | Export data ke CSV | hanya menu yang diaktifkan | v |
 | Bulk actions (publish/hapus banyak sekaligus) | hanya menu yang diaktifkan | v |
 | Lihat activity log | - | v |
@@ -37,7 +37,7 @@ admin  <  superadmin
 
 1. `superadmin` **selalu** punya akses ke semua menu — tidak bisa dibatasi oleh siapapun
 2. `admin` **hanya melihat** menu yang diaktifkan oleh superadmin di halaman `/admin/settings`
-3. Jika superadmin menonaktifkan menu "Blog" → sidebar admin tidak menampilkan Blog, route `/admin/blog` return 403, API `admin.blog.*` return 403
+3. Jika superadmin menonaktifkan menu "Galeri" → sidebar admin tidak menampilkan Galeri, route `/admin/gallery` return 403, API `admin.gallery.*` return 403
 4. `superadmin` tidak bisa di-downgrade oleh superadmin lain — hanya bisa lewat database langsung (safety)
 5. Pengaturan menu disimpan di tabel `admin_menu_settings` di D1 (bukan hardcode)
 6. Satu website bisa punya banyak admin, tapi direkomendasikan hanya 1 superadmin
@@ -83,7 +83,6 @@ Alur masuk ke panel admin:
 | `dashboard` | `LayoutDashboard` | `/admin` | Stats ringkasan | **selalu aktif** |
 | `testimonials` | `MessageSquareQuote` | `/admin/testimonials` | CRUD testimoni | - |
 | `alumni` | `GraduationCap` | `/admin/alumni` | CRUD alumni | - |
-| `blog` | `FileText` | `/admin/blog` | CRUD blog posts | - |
 | `gallery` | `Image` | `/admin/gallery` | CRUD foto galeri | - |
 | `events` | `Calendar` | `/admin/events` | CRUD event & webinar | - |
 | `resources` | `Download` | `/admin/resources` | CRUD materi gratis | - |
@@ -137,7 +136,6 @@ Setiap halaman CRUD admin punya tombol "Export CSV":
 
 - Testimoni: export semua kolom ke `testimoni_YYYY-MM-DD.csv`
 - Alumni: export ke `alumni_YYYY-MM-DD.csv`
-- Blog: export metadata (tanpa content body) ke CSV
 - Users: export email + nama + role + tanggal daftar
 - Proses export di server → return file response
 
@@ -175,10 +173,6 @@ apps/web/src/routes/
 │   │   ├── index.tsx
 │   │   └── $id.tsx
 │   │
-│   ├── blog/
-│   │   ├── index.tsx
-│   │   └── $id.tsx                ← full page editor (bukan dialog, karena content panjang)
-│   │
 │   ├── gallery/
 │   │   └── index.tsx              ← grid foto + dialog add/edit
 │   │
@@ -213,7 +207,6 @@ packages/api/src/routers/
 │   ├── contacts.ts                ← BARU: list submissions, updateStatus
 │   ├── testimonials.ts            ← full CRUD + toggle + bulk + export
 │   ├── alumni.ts                  ← full CRUD + toggle + bulk + export
-│   ├── blog.ts                    ← full CRUD + toggle + export
 │   ├── gallery.ts                 ← full CRUD + toggle + bulk
 │   ├── events.ts                  ← full CRUD + toggle
 │   ├── resources.ts               ← full CRUD + toggle
@@ -223,7 +216,6 @@ packages/db/src/schema/
 ├── auth.ts                        ← UPDATE: tambah kolom `role` ke user
 ├── testimonials.ts                ← existing
 ├── alumni.ts                      ← existing
-├── blog-posts.ts                  ← existing
 ├── gallery-items.ts               ← existing
 ├── events.ts                      ← existing
 ├── resources.ts                   ← existing
@@ -280,7 +272,7 @@ roleIdx: index("user_role_idx").on(user.role)
 Kolom            Tipe           Detail
 ─────────────────────────────────────────────────────────────
 id               TEXT PK        nanoid()
-menuKey          TEXT UNIQUE     'testimonials' | 'alumni' | 'blog' | 'gallery' |
+menuKey          TEXT UNIQUE     'testimonials' | 'alumni' | 'gallery' |
                                 'events' | 'resources' | 'promos' | 'contacts'
 label            TEXT NOT NULL   label tampilan di sidebar ("Testimoni", "Alumni", dll)
 icon             TEXT NOT NULL   nama icon Lucide ("MessageSquareQuote", dll)
@@ -292,17 +284,16 @@ updatedAt        INTEGER (ms)    timestamp
 updatedBy        TEXT            FK ke user.id — siapa terakhir mengubah
 ```
 
-**Seed default (7 + 1 baru = 8 row):**
+**Seed default (7 row):**
 ```typescript
 const defaultMenus = [
   { menuKey: "testimonials", label: "Testimoni",    icon: "MessageSquareQuote", sortOrder: 1 },
   { menuKey: "alumni",       label: "Alumni",       icon: "GraduationCap",      sortOrder: 2 },
-  { menuKey: "blog",         label: "Blog",         icon: "FileText",           sortOrder: 3 },
-  { menuKey: "gallery",      label: "Galeri",       icon: "Image",              sortOrder: 4 },
-  { menuKey: "events",       label: "Event",        icon: "Calendar",           sortOrder: 5 },
-  { menuKey: "resources",    label: "Resources",    icon: "Download",           sortOrder: 6 },
-  { menuKey: "promos",       label: "Promo",        icon: "Tag",                sortOrder: 7 },
-  { menuKey: "contacts",     label: "Pesan Masuk",  icon: "Mail",               sortOrder: 8 },
+  { menuKey: "gallery",      label: "Galeri",       icon: "Image",              sortOrder: 3 },
+  { menuKey: "events",       label: "Event",        icon: "Calendar",           sortOrder: 4 },
+  { menuKey: "resources",    label: "Resources",    icon: "Download",           sortOrder: 5 },
+  { menuKey: "promos",       label: "Promo",        icon: "Tag",                sortOrder: 6 },
+  { menuKey: "contacts",     label: "Pesan Masuk",  icon: "Mail",               sortOrder: 7 },
 ];
 ```
 
@@ -353,8 +344,8 @@ action           TEXT NOT NULL   'create' | 'update' | 'delete' | 'bulk_delete' 
                                 'publish' | 'unpublish' | 'toggle_featured' |
                                 'export' | 'role_change' | 'menu_toggle' |
                                 'config_update' | 'status_change'
-entityType       TEXT NOT NULL   'testimonial' | 'alumni' | 'blog_post' |
-                                'gallery_item' | 'event' | 'resource' | 'promo' |
+entityType       TEXT NOT NULL   'testimonial' | 'alumni' | 'gallery_item' |
+                                'event' | 'resource' | 'promo' |
                                 'user' | 'menu_setting' | 'site_config' | 'contact'
 entityId         TEXT            ID dari item yang di-aksi (nullable untuk bulk)
 entityTitle      TEXT            judul/nama item (denormalized: "Testimoni dari Bu Rina")
@@ -483,7 +474,7 @@ export const superAdminProcedure = publicProcedure.use(requireSuperAdmin);
 // ─────────────────────────────────────────────
 // 3. menuGuardProcedure — cek menu diaktifkan
 // ─────────────────────────────────────────────
-// Dipakai per-router: menuGuardProcedure("blog").handler(...)
+// Dipakai per-router: menuGuardProcedure("gallery").handler(...)
 // Superadmin selalu lolos. Admin dicek terhadap admin_menu_settings.
 export function createMenuGuard(menuKey: string) {
   return adminProcedure.use(async ({ context, next }) => {
@@ -557,17 +548,17 @@ export const Route = createFileRoute("/_admin")({
 });
 ```
 
-### 2. Per-halaman Menu Guard (contoh Blog)
+### 2. Per-halaman Menu Guard (contoh Galeri)
 
 ```typescript
-// _admin/blog/index.tsx
-export const Route = createFileRoute("/_admin/blog/")({
+// _admin/gallery/index.tsx
+export const Route = createFileRoute("/_admin/gallery/")({
   beforeLoad: ({ context }) => {
     // Superadmin selalu lolos
     if (context.isSuperAdmin) return;
     // Admin: cek dari menuConfig yang sudah di-fetch di layout
-    const blogMenu = context.menuConfig?.find(m => m.menuKey === "blog");
-    if (!blogMenu?.isEnabled) {
+    const galleryMenu = context.menuConfig?.find(m => m.menuKey === "gallery");
+    if (!galleryMenu?.isEnabled) {
       throw redirect({ to: "/admin" }); // Kembali ke dashboard admin
     }
   },
@@ -598,7 +589,7 @@ export const Route = createFileRoute("/_admin/users")({
 │                                                                │
 │  ┌──────────┐  ┌────────────────────────────────────────────┐  │
 │  │          │  │ HEADER                                     │  │
-│  │ SIDEBAR  │  │ Breadcrumb: Admin > Blog > Edit Post      │  │
+│  │ SIDEBAR  │  │ Breadcrumb: Admin > Galeri                 │  │
 │  │          │  │                     [Admin ●] Lita ▾       │  │
 │  │ Logo     │  ├────────────────────────────────────────────┤  │
 │  │          │  │                                            │  │
@@ -606,7 +597,6 @@ export const Route = createFileRoute("/_admin/users")({
 │  │ ──────── │  │                                            │  │
 │  │ Testimoni│  │  (Outlet dari route children)              │  │
 │  │ Alumni   │  │                                            │  │
-│  │ Blog     │  │                                            │  │
 │  │ Galeri   │  │                                            │  │
 │  │ Event    │  │                                            │  │
 │  │ Resources│  │                                            │  │
@@ -634,7 +624,7 @@ export const Route = createFileRoute("/_admin/users")({
 
 ### `admin-header.tsx`
 
-- **Kiri:** Breadcrumb navigasi (Admin > Blog > Edit Post)
+- **Kiri:** Breadcrumb navigasi (Admin > Galeri)
 - **Kanan:** Role badge (`Admin` biru / `Super Admin` oranye) + nama user + dropdown menu
 - Dropdown: Kembali ke Website, Logout
 - Height: 56px, border-bottom, sticky top-0
@@ -683,7 +673,7 @@ Wrapper untuk form create/edit. Mengatur layout, loading, save, cancel.
 
 ```typescript
 interface AdminFormShellProps {
-  title: string;                   // "Edit Testimoni" / "Buat Blog Baru"
+  title: string;                   // "Edit Testimoni" / "Tambah Foto Galeri"
   isLoading?: boolean;             // skeleton placeholder
   isSaving?: boolean;              // disable tombol saat save
   onSave: () => void;
@@ -763,7 +753,6 @@ type Status = "published" | "draft" | "featured" | "active" | "inactive" |
 {
   testimonials: { total: 12, published: 8, featured: 3 },
   alumni:       { total: 25, published: 20, featured: 5 },
-  blogPosts:    { total: 8,  published: 6 },
   gallery:      { total: 45, published: 40 },
   events:       { total: 5,  upcoming: 2 },
   resources:    { total: 15, published: 12 },
@@ -781,15 +770,15 @@ type Status = "published" | "draft" | "featured" | "active" | "inactive" |
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
 │  ┌────────────┐ ┌────────────┐ ┌────────────┐ ┌──────────┐ │
-│  │ 📝 12      │ │ 🎓 25      │ │ 📰 8       │ │ 📷 45    │ │
-│  │ Testimoni  │ │ Alumni     │ │ Blog       │ │ Galeri   │ │
-│  │ 8 published│ │ 5 featured │ │ 6 published│ │          │ │
+│  │ 📝 12      │ │ 🎓 25      │ │ 📷 45      │ │ 📅 5     │ │
+│  │ Testimoni  │ │ Alumni     │ │ Galeri     │ │ Event    │ │
+│  │ 8 published│ │ 5 featured │ │ 40 publish │ │ 2 upcome │ │
 │  └────────────┘ └────────────┘ └────────────┘ └──────────┘ │
 │                                                             │
 │  ┌────────────┐ ┌────────────┐ ┌────────────┐ ┌──────────┐ │
-│  │ 📅 5       │ │ 📥 15      │ │ 🏷️ 3       │ │ 👥 50    │ │
-│  │ Event      │ │ Resources  │ │ Promo      │ │ Users    │ │
-│  │ 2 upcoming │ │ 12 publish │ │ 2 active   │ │ 3 admin  │ │
+│  │ 📥 15      │ │ 🏷️ 3       │ │ 👥 50      │ │          │ │
+│  │ Resources  │ │ Promo      │ │ Users      │ │          │ │
+│  │ 12 publish │ │ 2 active   │ │ 3 admin    │ │          │ │
 │  └────────────┘ └────────────┘ └────────────┘ └──────────┘ │
 │                                                             │
 │  ┌──────────────────────────────────────────────┐           │
@@ -800,7 +789,7 @@ type Status = "published" | "draft" | "featured" | "active" | "inactive" |
 │  Aktivitas Terbaru                     (superadmin only)    │
 │  ┌──────────────────────────────────────────────────────┐   │
 │  │ • Lita mengubah testimoni "Bu Rina" — 5 menit lalu  │   │
-│  │ • Admin1 menambah blog "Tips Calistung" — 1 jam lalu│   │
+│  │ • Admin1 menambah foto galeri "Workshop Batch 9" — 1 jam│   │
 │  │ • Lita menghapus promo "Diskon Maret" — 3 jam lalu  │   │
 │  │ • Admin2 membalas pesan dari Sari — kemarin          │   │
 │  │ [Lihat semua aktivitas →]                            │   │
@@ -809,7 +798,7 @@ type Status = "published" | "draft" | "featured" | "active" | "inactive" |
 └─────────────────────────────────────────────────────────────┘
 ```
 
-**Catatan:** Stat cards hanya tampil untuk menu yang diaktifkan. Jika blog dinonaktifkan → card blog tidak muncul di dashboard admin (tapi tetap tampil untuk superadmin).
+**Catatan:** Stat cards hanya tampil untuk menu yang diaktifkan. Jika galeri dinonaktifkan → card galeri tidak muncul di dashboard admin (tapi tetap tampil untuk superadmin).
 
 ---
 
@@ -888,44 +877,6 @@ const alumniInput = z.object({
 | Featured | toggle |
 | Tanggal Lulus | `graduatedAt` |
 | Aksi | Edit, Hapus |
-
----
-
-### `/admin/blog` — CRUD Blog
-
-**Zod Schema:**
-```typescript
-const blogInput = z.object({
-  title:       z.string().min(5).max(200),
-  slug:        z.string().min(3).max(200).regex(/^[a-z0-9-]+$/, "Hanya huruf kecil, angka, dan strip"),
-  excerpt:     z.string().min(10).max(300),
-  content:     z.string().min(50),               // markdown
-  authorName:  z.string().min(2).max(100),
-  authorImage: z.string().url().optional().or(z.literal("")),
-  coverImage:  z.string().url().optional().or(z.literal("")),
-  tags:        z.array(z.string()).default([]),   // multi-select
-  isPublished: z.boolean().default(false),
-  publishedAt: z.number().optional(),             // timestamp ms
-});
-```
-
-**Catatan khusus Blog:**
-- Edit blog BUKAN dialog — melainkan full page (`$id.tsx`) karena content panjang
-- Slug auto-generate dari title (bisa di-override manual)
-- Preview markdown di samping textarea (split view)
-- Tags: multi-select dari daftar tag yang sudah ada + bisa tambah baru
-- Saat publish: otomatis set `publishedAt` ke sekarang jika belum di-set
-
-**Tabel Kolom:**
-| Kolom | Detail |
-|-------|--------|
-| Cover | thumbnail kecil 48x32 |
-| Judul | `title` + `slug` abu-abu di bawahnya |
-| Author | `authorName` |
-| Tags | badge per tag |
-| Published | toggle |
-| Tanggal | `publishedAt` atau "Draft" |
-| Aksi | Edit, Preview (buka di tab baru `/blog/slug`), Hapus |
 
 ---
 
@@ -1079,7 +1030,7 @@ const promoInput = z.object({
 │                                                              │
 │  Hari ini                                                    │
 │  ─────────────────────────────────────────────────            │
-│  14:32  Lita (superadmin) membuat blog post "Tips Calistung" │
+│  14:32  Lita (superadmin) menambah foto galeri "Workshop Batch 9" │
 │  14:20  Lita (superadmin) mempublish testimoni #12           │
 │  13:55  Admin1 (admin) mengubah alumni "Bu Rina" — foto      │
 │                                                              │
@@ -1095,7 +1046,7 @@ const promoInput = z.object({
 
 **Filter:**
 - Aksi: Semua / Create / Update / Delete / Publish / Export / Role Change
-- Resource: Semua / Testimonial / Alumni / Blog / Gallery / Event / Resource / Promo / User / Config
+- Resource: Semua / Testimonial / Alumni / Gallery / Event / Resource / Promo / User / Config
 - Rentang waktu: 7 hari / 30 hari / 90 hari
 
 ---
@@ -1190,12 +1141,11 @@ const promoInput = z.object({
 │  ├─────────────────────────────┼─────────┼────────────┤  │
 │  │ ≡ 📝 Testimoni              │ [ON ●]  │ 1          │  │
 │  │ ≡ 🎓 Alumni                 │ [ON ●]  │ 2          │  │
-│  │ ≡ 📰 Blog                   │ [OFF ○] │ 3          │  │
-│  │ ≡ 📷 Galeri                  │ [ON ●]  │ 4          │  │
-│  │ ≡ 📅 Event                   │ [ON ●]  │ 5          │  │
-│  │ ≡ 📥 Resources               │ [ON ●]  │ 6          │  │
-│  │ ≡ 🏷 Promo                   │ [OFF ○] │ 7          │  │
-│  │ ≡ 📬 Pesan Masuk             │ [ON ●]  │ 8          │  │
+│  │ ≡ 📷 Galeri                  │ [ON ●]  │ 3          │  │
+│  │ ≡ 📅 Event                   │ [ON ●]  │ 4          │  │
+│  │ ≡ 📥 Resources               │ [ON ●]  │ 5          │  │
+│  │ ≡ 🏷 Promo                   │ [OFF ○] │ 6          │  │
+│  │ ≡ 📬 Pesan Masuk             │ [ON ●]  │ 7          │  │
 │  └─────────────────────────────┴─────────┴────────────┘  │
 │                                                          │
 │  ≡ = drag handle untuk reorder                           │
@@ -1247,8 +1197,8 @@ type ActivityAction =
   | "config_update" | "status_change";
 
 type EntityType =
-  | "testimonial" | "alumni" | "blog_post"
-  | "gallery_item" | "event" | "resource" | "promo"
+  | "testimonial" | "alumni" | "gallery_item"
+  | "event" | "resource" | "promo"
   | "user" | "menu_setting" | "site_config" | "contact";
 
 export async function logActivity(input: LogActivityInput) {
@@ -1347,7 +1297,7 @@ Komponen shadcn/ui yang belum ada di `packages/ui/` dan dibutuhkan admin:
 | `dialog` | Konfirmasi hapus, form create/edit |
 | `select` | Dropdown filter, role picker |
 | `switch` | Toggle published/featured/menu on-off |
-| `textarea` | Blog content, testimoni content, pesan |
+| `textarea` | Testimoni content, pesan, catatan admin |
 | `tabs` | Site config grouping, filter tabs |
 | `tooltip` | Info hover di stat cards |
 | `popover` | Date picker wrapper |
@@ -1395,7 +1345,7 @@ packages/db/src/schema/auth.ts     ← tetap ada (tabel user, session, account)
 
 ---
 
-## Step-by-Step Implementasi (19 Phase, mulai dari Phase 0)
+## Step-by-Step Implementasi (18 Phase, mulai dari Phase 0)
 
 ### Phase 0 — Hapus Kode Lama
 - Hapus semua file yang tercantum di bagian "Phase 0 — Hapus Kode Lama" di atas
@@ -1463,7 +1413,7 @@ packages/db/src/schema/auth.ts     ← tetap ada (tabel user, session, account)
 
 ### Phase 9 — Page: Settings (Superadmin)
 - `_admin/settings.tsx` — toggle list + drag reorder + simpan
-- Test: toggle off blog → sidebar admin tidak tampilkan blog
+- Test: toggle off galeri → sidebar admin tidak tampilkan Galeri
 
 ### Phase 10 — Page: User Management (Superadmin)
 - `_admin/users.tsx` — tabel user + dropdown role + toggle aktif
@@ -1485,27 +1435,23 @@ packages/db/src/schema/auth.ts     ← tetap ada (tabel user, session, account)
 - API: `admin/alumni.ts`
 - Route: `_admin/alumni/index.tsx` + `$id.tsx`
 
-### Phase 14 — Page: CRUD Blog
-- API: `admin/blog.ts`
-- Route: `_admin/blog/index.tsx` + `$id.tsx` (full page editor)
-
-### Phase 15 — Page: CRUD Galeri
+### Phase 14 — Page: CRUD Galeri
 - API: `admin/gallery.ts`
 - Route: `_admin/gallery/index.tsx` (grid + dialog)
 
-### Phase 16 — Page: CRUD Events + Resources + Promos
+### Phase 15 — Page: CRUD Events + Resources + Promos
 - Ketiga resource ini polanya mirip — kerjakan sekaligus
 - API: `admin/events.ts`, `admin/resources.ts`, `admin/promos.ts`
 - Routes untuk masing-masing
 
-### Phase 17 — Page: Pesan Masuk (Contact Submissions)
+### Phase 16 — Page: Pesan Masuk (Contact Submissions)
 - API: `admin/contacts.ts`
 - Route: `_admin/contacts/index.tsx` — inbox + detail sheet
 - Update halaman `/kontak` — form kirim ke API
 
-### Phase 18 — Page: Activity Log (Superadmin)
+### Phase 17 — Page: Activity Log (Superadmin)
 - Route: `_admin/activity.tsx` — timeline + filter
-- Pastikan semua mutation di Phase 12-17 sudah panggil `logActivity()`
+- Pastikan semua mutation di Phase 12-16 sudah panggil `logActivity()`
 
 ---
 
@@ -1526,11 +1472,10 @@ packages/db/src/schema/auth.ts     ← tetap ada (tabel user, session, account)
 [11] Phase 11  → Site config (superadmin)
 [12] Phase 12  → CRUD Testimoni                         ← mulai konten CRUD
 [13] Phase 13  → CRUD Alumni
-[14] Phase 14  → CRUD Blog
-[15] Phase 15  → CRUD Galeri
-[16] Phase 16  → CRUD Events + Resources + Promos       ← batch 3 sekaligus
-[17] Phase 17  → Pesan Masuk + update form /kontak
-[18] Phase 18  → Activity Log                           ← terakhir (tergantung semua mutation sudah logging)
+[14] Phase 14  → CRUD Galeri
+[15] Phase 15  → CRUD Events + Resources + Promos       ← batch 3 sekaligus
+[16] Phase 16  → Pesan Masuk + update form /kontak
+[17] Phase 17  → Activity Log                           ← terakhir (tergantung semua mutation sudah logging)
 ```
 
 ---

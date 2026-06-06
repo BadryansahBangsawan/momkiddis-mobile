@@ -73,31 +73,52 @@ export function ProgramRecommendation({
 					key={program.slug}
 					className="overflow-hidden rounded-xl border border-border bg-card"
 				>
+					{/* Cover image */}
+					{program.landscapeImage ? (
+						<div className="relative h-24 w-full overflow-hidden bg-primary/5">
+							<img
+								src={program.landscapeImage}
+								alt={program.shortTitle}
+								className="h-full w-full object-cover"
+							/>
+							{program.isBestSeller && (
+								<span className="absolute left-2 top-2 rounded-full bg-primary px-2 py-0.5 text-[10px] font-semibold text-primary-foreground">
+									Best Seller
+								</span>
+							)}
+						</div>
+					) : (
+						<div className="flex h-16 items-center justify-center bg-primary/5">
+							{(() => {
+								const Icon = ICON_MAP[program.icon] ?? MessageCircle;
+								return <Icon className="size-6 text-primary/30" />;
+							})()}
+						</div>
+					)}
+
 					<div className="space-y-2.5 p-3">
-						<div>
-							<div className="flex items-start gap-2">
-								<div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-									{(() => {
-										const Icon = ICON_MAP[program.icon] ?? MessageCircle;
-										return <Icon className="size-4 text-primary" />;
-									})()}
+						<div className="flex items-start gap-2">
+							<div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+								{(() => {
+									const Icon = ICON_MAP[program.icon] ?? MessageCircle;
+									return <Icon className="size-3.5 text-primary" />;
+								})()}
+							</div>
+							<div className="min-w-0">
+								<div className="flex flex-wrap items-center gap-1.5">
+									<h4 className="text-sm font-semibold text-foreground">
+										{program.shortTitle}
+									</h4>
+									<Badge
+										variant="outline"
+										className="border-primary/20 text-[10px] text-primary"
+									>
+										{PROGRAM_CATEGORY_LABELS[program.category]}
+									</Badge>
 								</div>
-								<div className="min-w-0">
-									<div className="flex flex-wrap items-center gap-1.5">
-										<h4 className="text-sm font-semibold text-foreground">
-											{program.shortTitle}
-										</h4>
-										<Badge
-											variant="outline"
-											className="border-primary/20 text-[10px] text-primary"
-										>
-											{PROGRAM_CATEGORY_LABELS[program.category]}
-										</Badge>
-									</div>
-									<p className="text-[11px] text-muted-foreground">
-										{program.priceLabel} · {program.duration}
-									</p>
-								</div>
+								<p className="mt-0.5 text-[11px] leading-relaxed text-muted-foreground line-clamp-2">
+									{program.subtitle}
+								</p>
 							</div>
 						</div>
 

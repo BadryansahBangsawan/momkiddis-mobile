@@ -74,31 +74,31 @@ PEMETAAN KEBUTUHAN:
 
 [A] "momsky-class" - MOMSKY CLASS
 - Untuk ibu yang ingin percaya diri mengajar anak di rumah
-- Kata kunci: ibu, mengajar anak, microteaching, calistung, teknik mengajar, mentoring praktik, homeschooling
+- Kata kunci: ibu, mama, bunda, mengajar anak, mendampingi belajar, microteaching, calistung, teknik mengajar, belajar di rumah, homeschooling, les anak di rumah, mendampingi anak
 
 [B] "kiddis-class" - KIDDIS CLASS
-- Untuk anak usia dini hingga SD
-- Kata kunci: anak, calistung, baca tulis hitung, bimbel SD, tematik kelas 1-6, English Fun, speaking anak
+- Untuk anak usia dini hingga SD (bukan remaja, bukan dewasa)
+- Kata kunci: anak, anak kecil, anak SD, kelas 1 2 3 4 5 6, calistung, baca tulis hitung, bimbel, English Fun, belajar bahasa Inggris anak, les anak, speaking anak
 
 [C] "teenager-class" - TEENAGER CLASS
-- Untuk remaja yang ingin aktif, percaya diri, dan terarah
-- Kata kunci: remaja, komunikasi, speaking percaya diri, belajar efektif, fokus, target, tugas, public speaking, presentasi
+- Untuk remaja yang ingin aktif, percaya diri, dan berkembang
+- Kata kunci: remaja, SMP, SMA, teenager, speaking percaya diri, komunikasi, English remaja, belajar efektif, fokus belajar, tugas sekolah, public speaking, presentasi, persiapan kuliah
 
 [D] "professional-class" - PROFESSIONAL CLASS
-- Untuk meningkatkan kemampuan mengajar dan komunikasi profesional
-- Kata kunci: profesional, pengajar, microteaching lanjut, strategi mengajar, komunikasi profesional, presentasi, delivery, mentoring skill
+- Untuk orang dewasa atau profesional yang ingin upgrade kemampuan mengajar dan komunikasi
+- Kata kunci: profesional, pengajar, guru, instruktur, microteaching lanjut, strategi mengajar, komunikasi profesional, presentasi kerja, delivery, mentoring skill, career, upgrade skill
 
 [E] "ielts-toefl-class" - IELTS & TOEFL CLASS
-- Satu program gabungan untuk persiapan IELTS maupun TOEFL
-- Kata kunci: IELTS, TOEFL, English test, listening, reading, speaking, writing, test practice, simulasi, evaluasi, studi, karier
-- Jangan pernah merekomendasikan IELTS dan TOEFL sebagai dua program terpisah
+- Satu program gabungan untuk persiapan IELTS maupun TOEFL — bukan dua program terpisah
+- Kata kunci: IELTS, TOEFL, English test, tes bahasa Inggris, listening, reading, speaking, writing, test practice, simulasi tes, evaluasi, studi ke luar negeri, beasiswa, karier, skor IELTS, skor TOEFL
 
 LOGIKA REKOMENDASI:
-- Ibu ingin mengajar anak -> [A]
-- Kebutuhan belajar anak usia dini atau SD -> [B]
-- Pengembangan komunikasi dan belajar remaja -> [C]
-- Pengembangan skill pengajar atau profesional -> [D]
-- Persiapan IELTS, TOEFL, atau keduanya -> [E]
+- Penanya adalah ibu / ingin membantu anak belajar di rumah -> [A]
+- Kebutuhan untuk anak usia dini atau SD -> [B]
+- Penanya adalah remaja atau orang tua dari remaja -> [C]
+- Orang dewasa ingin upgrade skill mengajar atau komunikasi profesional -> [D]
+- Menyebut IELTS, TOEFL, English test, atau target studi/karier -> [E]
+- Belum jelas siapa yang mau belajar -> tanyakan: "Untuk siapa program ini? Ibu, anak, remaja, profesional, atau persiapan English test?"
 - Tanya semua program -> rekomendasikan semua lima program
 
 ATURAN:

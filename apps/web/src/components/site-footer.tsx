@@ -330,20 +330,6 @@ export default function SiteFooter() {
 							&copy; {new Date().getFullYear()} Momkiddis Indonesia. Hak cipta dilindungi.
 						</div>
 
-						{/* Made with love badge */}
-						<div className="footer-glass-pill order-1 flex cursor-default items-center gap-2 rounded-full border-border/50 px-6 py-3 md:order-2">
-							<span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground md:text-xs">
-								Dibuat dengan
-							</span>
-							<span className="animate-footer-heartbeat text-sm text-destructive md:text-base">❤</span>
-							<span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground md:text-xs">
-								oleh
-							</span>
-							<span className="ml-1 text-xs font-black tracking-normal text-foreground md:text-sm">
-								Tim Momkiddis
-							</span>
-						</div>
-
 						{/* Back to top */}
 						<MagneticButton
 							as="button"

@@ -195,7 +195,7 @@ export function ChatWidget() {
 								</div>
 								<div>
 									<p className="text-sm font-semibold text-foreground">
-										Ask AI
+										Tanya AI
 									</p>
 									<p className="text-[10px] text-muted-foreground">
 										Asisten Virtual Momkiddis
@@ -263,7 +263,7 @@ export function ChatWidget() {
 					)}
 				</AnimatePresence>
 				{!isOpen && (
-					<span className="text-sm font-semibold">Ask AI</span>
+					<span className="text-sm font-semibold">Tanya AI</span>
 				)}
 			</motion.button>
 		</>
